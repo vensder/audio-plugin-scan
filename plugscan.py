@@ -462,14 +462,12 @@ def reaper_paths(ini=None):
     if not os.path.isfile(ini):
         return None
     out = {}
-    section = ""
-    with open(ini, encoding="utf-8", errors="replace") as fh:
+    # The keys are read from any section: their section is not the same
+    # in every REAPER version.
+    with open(ini, encoding="utf-8-sig", errors="replace") as fh:
         for line in fh:
             line = line.strip()
-            if line.startswith("[") and line.endswith("]"):
-                section = line[1:-1]
-                continue
-            if section != "REAPER" or "=" not in line:
+            if line.startswith(("[", ";", "#")) or "=" not in line:
                 continue
             key, val = line.split("=", 1)
             k = key.strip().lower()
