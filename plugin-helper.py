@@ -283,6 +283,52 @@ def pkg_available(pm, name):
                           stderr=subprocess.DEVNULL).returncode == 0
 
 
+def _ci_glob(text):
+    return "".join("[%s%s]" % (c.lower(), c.upper()) if c.isalpha() else
+                   ("[%s]" % c if c in "*?[]" else c) for c in text)
+
+
+_RPM_NEVRA = re.compile(r"^(\S+?)-(?:\d+:)?[^-\s]+-[^-\s]+\.(\w+)\s+:")
+
+
+def pkg_provides(pm, want):
+    """Find the distro package that has the plugin file in the wanted format.
+
+    Returns (package, path) or None. Only VST2 (.so) and VST3 (bundle)
+    are looked up: their file name is what the project stores.
+    """
+    fmt, key = want["format"], want["key"]
+    if fmt == "vst2":
+        fname = key + ".so"
+    elif fmt == "vst3":
+        fname = key
+    else:
+        return None
+    sub = "/vst3/" if fmt == "vst3" else "/vst"
+    if pm == "dnf":
+        r = subprocess.run(["dnf", "-q", "provides", "*/" + _ci_glob(fname)],
+                           capture_output=True, text=True)
+        pkgs, paths = [], []
+        for line in r.stdout.splitlines():
+            m = _RPM_NEVRA.match(line)
+            if m and m.group(2) in ("x86_64", "noarch", platform.machine()):
+                pkgs.append(m.group(1))
+            elif line.strip().startswith("Filename") and pkgs:
+                path = line.split(":", 1)[1].strip()
+                if sub in path:
+                    return pkgs[-1], path
+        return None
+    if pm == "apt" and has("apt-file"):
+        r = subprocess.run(["apt-file", "search", "-i", "-x",
+                            "/" + re.escape(fname) + "(/|$)"],
+                           capture_output=True, text=True)
+        for line in r.stdout.splitlines():
+            pkg, _, path = line.partition(": ")
+            if sub in path:
+                return pkg, path
+    return None
+
+
 def gh_release(repo, refresh=False):
     url = "https://api.github.com/repos/%s/releases/latest" % repo
     return json.loads(fetch_cached(url, "gh-" + repo.replace("/", "-")
@@ -313,6 +359,11 @@ def resolve(want, refresh=False):
             return {"title": name, "how": "page", "version": "",
                     "url": UHE_PAGE}
     pm = pkg_manager()
+    if pm:
+        hit = pkg_provides(pm, want)
+        if hit:
+            return {"title": hit[0], "how": pm, "version": "",
+                    "package": hit[0], "path": hit[1]}
     for entry in CATALOG:
         if not re.search(entry["match"], name, re.I):
             continue
@@ -553,6 +604,8 @@ def wanted(items, host):
                         installed += 1
                         continue
                     w["vendor"] = vendor_of(w.get("display", ""))
+                    w["have"] = sorted(host.any_names.get(
+                        plugscan.norm_name(w["name"]), ()))
                     out.append(w)
         else:
             n = plugscan.norm_name(item)
@@ -590,13 +643,18 @@ def cmd_find(args):
             src = "%s: no install method here (%s)" % (p["title"],
                                                          p.get("note", ""))
         elif p["how"] in ("dnf", "apt"):
-            src = "%s package %s" % (p["how"], p["package"])
+            src = "sudo %s install %s" % (p["how"], p["package"])
+            if p.get("path"):
+                src += "  (has %s)" % p["path"]
         elif p["how"] == "page":
             src = "manual: %s" % p["url"]
         else:
             src = "%s %s [%s] %s" % (p["title"], p["version"], p["how"],
                                      p["url"])
         print("%-6s  %-*s  %s" % (w["format"], wd, w["display"], src))
+        if w.get("have"):
+            print("%-6s  %-*s  (installed here only as %s)"
+                  % ("", wd, "", ", ".join(w["have"])))
     if installed:
         print("(%d plugin(s) from the projects are already installed)"
               % installed)

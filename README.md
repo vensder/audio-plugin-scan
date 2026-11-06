@@ -90,6 +90,10 @@ Sources, in the order they are tried for a plugin:
 - u-he (any product, e.g. TyrellN6, Diva, Hive): the Linux build linked on
   u-he.com/products, unpacked; then u-he's own install.sh runs (it installs
   to ~/.u-he, ~/.vst3/u-he, ... and may ask questions). No sudo.
+- Distro package with the exact file (VST2 .so or VST3 bundle the project
+  names): looked up with `dnf provides` or `apt-file search`, so e.g. a
+  VST2 Carla-Rack on Fedora gives "sudo dnf install Carla-vst". Plugins
+  installed only in another format are marked "(installed here only as lv2)".
 - GitHub releases (Surge XT, Dexed, Cardinal, OB-Xd, Dragonfly, ...): the
   latest release. An .rpm (with dnf) or .deb (with apt) is installed with
   sudo after asking; a .tar/.zip/.deb archive is unpacked and its .vst3,
