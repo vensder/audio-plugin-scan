@@ -437,6 +437,90 @@ def scan_dir(fmt, top):
 
 # ------------------------------------------------------------------ main --
 
+# ------------------------------------------------------- REAPER paths --
+# REAPER only loads plugins from its own path lists (Preferences >
+# Plug-ins), stored in reaper.ini. A plugin can be installed and still be
+# invisible to REAPER, e.g. Fedora puts VST2 in /usr/lib64/vst.
+
+REAPER_INI = os.environ.get("REAPER_INI", "~/.config/REAPER/reaper.ini")
+# Used when reaper.ini has no VST path yet (REAPER default, assumed).
+REAPER_VST_DEFAULT = ("~/.vst;~/.vst3;/usr/lib/vst;/usr/lib/vst3;"
+                      "/usr/local/lib/vst;/usr/local/lib/vst3")
+REAPER_FMT = {"vst2": "vst", "vst3": "vst", "clap": "clap", "lv2": "lv2"}
+
+
+def reaper_paths(ini=None):
+    """Return {"ini": path, "paths": {"vst"|"clap"|"lv2": {...}}} or None.
+
+    Each entry is {"keys": [ini keys], "dirs": [...]}. Keys are matched
+    loosely (vstpath*, *clap*path*, *lv2*path*) because their names differ
+    between platforms and REAPER versions.
+    """
+    ini = os.path.expanduser(ini or REAPER_INI)
+    if not os.path.isfile(ini):
+        return None
+    out = {}
+    section = ""
+    with open(ini, encoding="utf-8", errors="replace") as fh:
+        for line in fh:
+            line = line.strip()
+            if line.startswith("[") and line.endswith("]"):
+                section = line[1:-1]
+                continue
+            if section != "REAPER" or "=" not in line:
+                continue
+            key, val = line.split("=", 1)
+            k = key.strip().lower()
+            if k.startswith("vstpath"):
+                kind = "vst"
+            elif "clap" in k and "path" in k:
+                kind = "clap"
+            elif "lv2" in k and "path" in k:
+                kind = "lv2"
+            else:
+                continue
+            e = out.setdefault(kind, {"keys": [], "dirs": []})
+            e["keys"].append(key.strip())
+            for d in val.split(";"):
+                d = d.strip()
+                if d and d not in e["dirs"]:
+                    e["dirs"].append(d)
+    if "vst" not in out:
+        out["vst"] = {"keys": [], "dirs": REAPER_VST_DEFAULT.split(";")}
+    return {"ini": ini, "paths": out}
+
+
+def reaper_visible(dirs):
+    """Real paths of every file and folder REAPER can reach under dirs."""
+    seen = set()
+    for d in dirs:
+        d = os.path.expanduser(d)
+        if not os.path.isdir(d):
+            continue
+        for root, subdirs, files in os.walk(d, followlinks=True):
+            real = os.path.realpath(root)
+            if real in seen and root != d:
+                subdirs[:] = []
+                continue
+            seen.add(real)
+            for f in files:
+                seen.add(os.path.realpath(os.path.join(root, f)))
+    return seen
+
+
+def mark_reaper(plugins, info):
+    """Set rec["reaper"] = True/False where REAPER's path lists are known."""
+    if not info:
+        return
+    vis = {k: reaper_visible(v["dirs"]) for k, v in info["paths"].items()}
+    for rec in plugins:
+        kind = REAPER_FMT.get(rec["format"])
+        if kind not in vis:
+            continue
+        rec["reaper"] = (rec.get("source") == "reaper"
+                         or os.path.realpath(rec["path"]) in vis[kind])
+
+
 def os_name():
     try:
         with open("/etc/os-release") as fh:
@@ -462,6 +546,8 @@ def scan(extra):
                 rec["source"] = src
                 plugins.append(rec)
     plugins.sort(key=lambda r: (r["format"], r["name"].lower(), r["path"]))
+    reaper = reaper_paths()
+    mark_reaper(plugins, reaper)
     return {
         "schema": SCHEMA_VERSION,
         "host": socket.gethostname(),
@@ -470,6 +556,7 @@ def scan(extra):
         "generated": datetime.datetime.now().astimezone().isoformat(
             timespec="seconds"),
         "search_dirs": dirs_used,
+        "reaper": reaper,
         "plugins": plugins,
     }
 
@@ -501,6 +588,7 @@ def cmd_scan(args):
         for fmt in FORMAT_DIRS:
             print("  %-7s %5d" % (fmt, counts.get(fmt, 0)))
         print("  %-7s %5d" % ("total", len(data["plugins"])))
+        print_reaper(data)
         print("Wrote %s" % out)
 
 
@@ -531,12 +619,15 @@ class Host:
         self.data = data
         self.label = label or data.get("host", "?")
         self.keys, self.names, self.any_names = set(), set(), {}
+        self.recs = {}  # (fmt, key or name) -> [records]
         for rec in data["plugins"]:
             fmt = rec["format"]
             self.keys.add((fmt, plugin_key(rec)))
             n = norm_name(rec["name"])
             self.names.add((fmt, n))
             self.any_names.setdefault(n, set()).add(fmt)
+            self.recs.setdefault((fmt, plugin_key(rec)), []).append(rec)
+            self.recs.setdefault((fmt, "name:" + n), []).append(rec)
 
     @classmethod
     def load(cls, path):
@@ -551,22 +642,72 @@ class Host:
         label = data.get("host") or os.path.basename(path)
         return cls(data, label)
 
-    def match(self, want):
-        """Return 'yes', 'name', 'alt' or '-' for a wanted plugin."""
+    def found(self, want):
+        """Installed records matching a wanted plugin (key, else name)."""
         fmt, n = want["format"], norm_name(want["name"])
+        return (self.recs.get((fmt, want["key"]))
+                or self.recs.get((fmt, "name:" + n)) or [])
+
+    def match(self, want, reaper=False):
+        """Return 'yes', 'name', 'alt', 'path' or '-' for a wanted plugin.
+
+        With reaper=True, a plugin installed only outside REAPER's plugin
+        paths (as recorded at scan time) is 'path'.
+        """
+        fmt, n = want["format"], norm_name(want["name"])
+        hit = None
         if (fmt, want["key"]) in self.keys:
-            return "yes"
-        if n and (fmt, n) in self.names:
+            hit = "yes"
+        elif n and (fmt, n) in self.names:
             # RPP stores CLAP plugin ids, which a file scan cannot see, so
             # for CLAP the name is the normal way to match.
-            return "yes" if fmt == "clap" else "name"
+            hit = "yes" if fmt == "clap" else "name"
+        if hit:
+            if reaper and hit == "yes":
+                recs = self.found(want)
+                if recs and all(r.get("reaper") is False for r in recs):
+                    return "path"
+            return hit
         if n and self.any_names.get(n):
             return "alt"
         return "-"
 
 
 LEGEND = ("yes = installed, name = only a plugin with the same name, "
-          "alt = same name in another format only, - = missing")
+          "alt = same name in another format only, - = missing,\n"
+          "path = installed, but outside REAPER's plugin paths")
+
+
+def plugin_folder(fmt, path):
+    """'/usr/lib64/vst/carla.vst/CarlaRack.so' -> '/usr/lib64/vst'."""
+    names = FORMAT_DIRS.get(fmt, []) + ["." + n for n in
+                                        FORMAT_DIRS.get(fmt, [])]
+    d = os.path.dirname(path)
+    while d not in ("/", ""):
+        if os.path.basename(d).lower() in names:
+            return d
+        d = os.path.dirname(d)
+    return os.path.dirname(path)
+
+
+def print_reaper(data, formats=None):
+    """Print REAPER's plugin path lists recorded in a scan."""
+    info = data.get("reaper")
+    if not info:
+        return
+    print("REAPER plugin paths (%s):" % info["ini"])
+    for kind in ("vst", "clap", "lv2"):
+        if formats and kind not in formats:
+            continue
+        e = info["paths"].get(kind)
+        if not e:
+            continue
+        src = ", ".join(e["keys"]) or "not set, REAPER default assumed"
+        print("  %-4s %s  [%s]" % (kind, ";".join(e["dirs"]), src))
+    hidden = [r for r in data["plugins"] if r.get("reaper") is False]
+    if hidden:
+        print("  %d plugin(s) are outside these paths, REAPER will not "
+              "see them." % len(hidden))
 
 
 def print_table(rows, hosts, title_col="plugin"):
@@ -844,13 +985,21 @@ def cmd_check(args):
                 uniq.append(w)
 
         rows, unchecked, missing = [], {}, 0
+        outside = {}
         keep = format_filter(args)
         uniq = [w for w in uniq if w.get("unchecked") or keep(w["format"])]
         for w in uniq:
             if w.get("unchecked"):
                 unchecked.setdefault(w["format"], set()).add(w["name"])
                 continue
-            cells = [h.match(w) for h in hosts]
+            rpp = proj.lower().endswith((".rpp", ".rpp-bak"))
+            cells = [h.match(w, reaper=rpp) for h in hosts]
+            if "path" in cells:
+                for h, c in zip(hosts, cells):
+                    if c == "path":
+                        for r in h.found(w):
+                            outside.setdefault(h.label, []).append(
+                                (w["format"], r["path"]))
             if any(c != "yes" for c in cells):
                 missing += 1
             elif args.missing:
@@ -865,6 +1014,18 @@ def cmd_check(args):
             print("No plugins found.")
         else:
             print("All plugins present.")
+        for label, items in outside.items():
+            print("Outside REAPER's plugin paths on %s:" % label)
+            dirs = []
+            for fmt, path in items:
+                print("  %s" % path)
+                top = plugin_folder(fmt, path)
+                if top not in dirs:
+                    dirs.append(top)
+            print("  Fix: add %s in REAPER Preferences > Plug-ins (VST / "
+                  "CLAP / LV2 path list), then Re-scan;" % ", ".join(dirs))
+            print("  or symlink the plugin into ~/.vst, ~/.vst3, ~/.clap "
+                  "or ~/.lv2.")
         if "lmms" in unchecked:
             print("LMMS built-ins (not checked): "
                   + ", ".join(sorted(unchecked["lmms"])))
