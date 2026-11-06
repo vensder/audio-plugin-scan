@@ -840,12 +840,69 @@ def _display_name(disp):
     return name.strip()
 
 
-def parse_rpp(path):
-    """Return a list of wanted plugin dicts from a Reaper .RPP file."""
+_CARLA_TYPES = {"LV2": "lv2", "VST2": "vst2", "VST": "vst2", "VST3": "vst3",
+                "CLAP": "clap", "LADSPA": "ladspa", "DSSI": "dssi"}
+
+
+def carla_plugins(data, host="Carla"):
+    """Wanted plugins from a Carla state (the XML Carla saves in its
+    VST/LV2 state), e.g. an LV2 Yoshimi inside Carla-Rack."""
+    text = data.decode("utf-8", "replace")
     out = []
+    for block in re.findall(r"<Plugin>(.*?)</Plugin>", text, re.S):
+        info = {}
+        for k in ("Type", "Name", "Label", "URI", "Binary"):
+            m = re.search(r"<%s>(.*?)</%s>" % (k, k), block, re.S)
+            if m:
+                info[k] = (m.group(1).replace("&amp;", "&")
+                           .replace("&lt;", "<").replace("&gt;", ">").strip())
+        fmt = _CARLA_TYPES.get(info.get("Type", "").upper())
+        name = info.get("Name") or info.get("Label") or ""
+        if not fmt or not name:
+            continue  # internal plugins, SF2/SFZ files
+        if fmt == "lv2":
+            key = info.get("URI") or info.get("Label") or name
+        elif fmt == "clap":
+            key = "clap-id:" + info.get("Label", name)
+        else:
+            key = file_key(info.get("Binary") or name)
+        out.append({"format": fmt, "key": key, "name": name,
+                    "display": "  %s > %s: %s" % (host, info["Type"], name),
+                    "inside": host})
+    return out
+
+
+def _b64_lines(lines):
+    """Decode REAPER's base64 state lines one by one (each line is a whole
+    number of base64 groups); undecodable lines are skipped."""
+    import binascii
+    out = b""
+    for ln in lines:
+        try:
+            out += binascii.a2b_base64(ln)
+        except (binascii.Error, ValueError):
+            pass
+    return out
+
+
+def parse_rpp(path):
+    """Return a list of wanted plugin dicts from a Reaper .RPP file.
+
+    Plugins loaded inside a Carla rack/patchbay are listed too, from the
+    Carla state stored in the project.
+    """
+    out = []
+    carla, state = None, []
     with open(path, encoding="utf-8", errors="replace") as fh:
         for line in fh:
             s = line.strip()
+            if carla is not None:
+                if s == ">":
+                    out.extend(carla_plugins(_b64_lines(state), carla))
+                    carla, state = None, []
+                elif not s.startswith("<"):
+                    state.append(s)
+                continue
             if not s.startswith(("<VST ", "<LV2 ", "<CLAP ", "<JS ",
                                  "<LADSPA ", "<DSSI ")):
                 continue
@@ -871,6 +928,8 @@ def parse_rpp(path):
                 key = file_key(ident)
             out.append({"format": fmt, "key": key, "name": name,
                         "display": disp})
+            if "carla" in (name + " " + ident).lower():
+                carla = name
     return out
 
 
