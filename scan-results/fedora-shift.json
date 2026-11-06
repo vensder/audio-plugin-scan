@@ -3,7 +3,7 @@
   "host": "fedora-shift",
   "os": "Fedora Linux 45 (KDE Plasma Desktop Edition)",
   "user": "vensder",
-  "generated": "2026-11-06T15:01:15+13:00",
+  "generated": "2026-11-06T16:07:31+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -2256,6 +2256,20 @@
       "name": "remaincalm_org/tonegate",
       "file": "remaincalm_org/tonegate",
       "path": "/opt/REAPER/InstallData/Effects/remaincalm_org/tonegate",
+      "source": "home"
+    },
+    {
+      "format": "jsfx",
+      "name": "Saike Tools/Basics/Saike_Pitch_Shift.jsfx",
+      "file": "Saike Tools/Basics/Saike_Pitch_Shift.jsfx",
+      "path": "/home/vensder/.config/REAPER/Effects/Saike Tools/Basics/Saike_Pitch_Shift.jsfx",
+      "source": "home"
+    },
+    {
+      "format": "jsfx",
+      "name": "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx",
+      "file": "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx",
+      "path": "/home/vensder/.config/REAPER/Effects/Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx",
       "source": "home"
     },
     {
