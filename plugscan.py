@@ -446,6 +446,8 @@ REAPER_INI = os.environ.get("REAPER_INI", "~/.config/REAPER/reaper.ini")
 # Used when reaper.ini has no VST path yet (REAPER default, assumed).
 REAPER_VST_DEFAULT = ("~/.vst;~/.vst3;/usr/lib/vst;/usr/lib/vst3;"
                       "/usr/local/lib/vst;/usr/local/lib/vst3")
+# Same for CLAP (what REAPER 7 writes once the list is edited; no lib64).
+REAPER_CLAP_DEFAULT = "/usr/local/lib/clap;/usr/lib/clap;~/.clap;%CLAP_PATH%"
 REAPER_FMT = {"vst2": "vst", "vst3": "vst", "clap": "clap", "lv2": "lv2"}
 
 
@@ -481,13 +483,27 @@ def reaper_paths(ini=None):
                 continue
             e = out.setdefault(kind, {"keys": [], "dirs": []})
             e["keys"].append(key.strip())
-            for d in val.split(";"):
-                d = d.strip()
-                if d and d not in e["dirs"]:
+            for d in _reaper_dirs(val):
+                if d not in e["dirs"]:
                     e["dirs"].append(d)
     if "vst" not in out:
-        out["vst"] = {"keys": [], "dirs": REAPER_VST_DEFAULT.split(";")}
+        out["vst"] = {"keys": [], "dirs": _reaper_dirs(REAPER_VST_DEFAULT)}
+    if "clap" not in out:
+        out["clap"] = {"keys": [], "dirs": _reaper_dirs(REAPER_CLAP_DEFAULT)}
     return {"ini": ini, "paths": out}
+
+
+def _reaper_dirs(val):
+    """Split a REAPER path list; '%CLAP_PATH%' expands to that env var."""
+    out = []
+    for d in val.split(";"):
+        d = d.strip()
+        m = re.match(r"^%(\w+)%$", d)
+        if m:
+            out += [x for x in os.environ.get(m.group(1), "").split(":") if x]
+        elif d:
+            out.append(d)
+    return out
 
 
 def reaper_visible(dirs):
@@ -1016,6 +1032,13 @@ def cmd_check(args):
             print("All plugins present.")
         for label, items in outside.items():
             print("Outside REAPER's plugin paths on %s:" % label)
+            h = [x for x in hosts if x.label == label][0]
+            info = h.data.get("reaper") or {}
+            for kind in sorted({REAPER_FMT[f] for f, _ in items}):
+                e = info.get("paths", {}).get(kind, {})
+                print("  REAPER %s path [%s]: %s" % (
+                    kind, ", ".join(e.get("keys", [])) or "default, assumed",
+                    ";".join(e.get("dirs", []))))
             dirs = []
             for fmt, path in items:
                 print("  %s" % path)
