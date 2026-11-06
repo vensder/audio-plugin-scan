@@ -3,7 +3,7 @@
   "host": "fedora-shift",
   "os": "Fedora Linux 45 (KDE Plasma Desktop Edition)",
   "user": "vensder",
-  "generated": "2026-11-06T16:14:52+13:00",
+  "generated": "2026-11-06T19:38:22+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -66,41 +66,78 @@
       "source": "home"
     }
   ],
+  "reaper": {
+    "ini": "/home/vensder/.config/REAPER/reaper.ini",
+    "paths": {
+      "vst": {
+        "keys": [],
+        "dirs": [
+          "~/.vst",
+          "~/.vst3",
+          "/usr/lib/vst",
+          "/usr/lib/vst3",
+          "/usr/local/lib/vst",
+          "/usr/local/lib/vst3"
+        ]
+      },
+      "clap": {
+        "keys": [],
+        "dirs": [
+          "/usr/local/lib/clap",
+          "/usr/lib/clap",
+          "~/.clap"
+        ]
+      }
+    }
+  },
   "plugins": [
     {
       "format": "clap",
       "name": "CA-72",
       "file": "CA-72.clap",
       "path": "/home/vensder/.clap/CA-72.clap",
-      "source": "home"
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "clap",
       "name": "Dexed",
       "file": "Dexed.clap",
       "path": "/home/vensder/.clap/Dexed.clap",
-      "source": "home"
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "clap",
       "name": "Surge XT",
       "file": "Surge XT.clap",
       "path": "/usr/lib64/clap/Surge XT.clap",
-      "source": "system"
+      "source": "system",
+      "reaper": false
     },
     {
       "format": "clap",
       "name": "Surge XT Effects",
       "file": "Surge XT Effects.clap",
       "path": "/usr/lib64/clap/Surge XT Effects.clap",
-      "source": "system"
+      "source": "system",
+      "reaper": false
     },
     {
       "format": "clap",
       "name": "TAL-NoiseMaker",
       "file": "TAL-NoiseMaker.clap",
       "path": "/home/vensder/.clap/TAL-NoiseMaker.clap",
-      "source": "home"
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "TyrellN6",
+      "file": "TyrellN6.clap",
+      "path": "/home/vensder/.clap/u-he/TyrellN6.clap",
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "jsfx",
@@ -9583,322 +9620,496 @@
       "name": "amsynth_vst",
       "file": "amsynth_vst.so",
       "path": "/usr/lib64/vst/amsynth_vst.so",
-      "source": "system"
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "carla-bridge-lv2",
+      "file": "carla-bridge-lv2.so",
+      "path": "/usr/lib64/vst/carla.vst/carla-bridge-lv2.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaPatchbay",
+      "file": "CarlaPatchbay.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaPatchbay16",
+      "file": "CarlaPatchbay16.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay16.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaPatchbay32",
+      "file": "CarlaPatchbay32.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay32.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaPatchbay64",
+      "file": "CarlaPatchbay64.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay64.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaPatchbayFX",
+      "file": "CarlaPatchbayFX.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbayFX.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaRack",
+      "file": "CarlaRack.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaRack.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "CarlaRackFX",
+      "file": "CarlaRackFX.so",
+      "path": "/usr/lib64/vst/carla.vst/CarlaRackFX.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "carlastyle",
+      "file": "carlastyle.so",
+      "path": "/usr/lib64/vst/carla.vst/styles/carlastyle.so",
+      "source": "system",
+      "reaper": false
     },
     {
       "format": "vst2",
       "name": "elastique3",
       "file": "elastique3.so",
       "path": "/opt/REAPER/Plugins/elastique3.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "jsfx",
       "file": "jsfx.so",
       "path": "/opt/REAPER/Plugins/jsfx.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "libcarla_host-plugin",
+      "file": "libcarla_host-plugin.so",
+      "path": "/usr/lib64/vst/carla.vst/libcarla_host-plugin.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "libcarla_interposer-jack-x11",
+      "file": "libcarla_interposer-jack-x11.so",
+      "path": "/usr/lib64/vst/carla.vst/libcarla_interposer-jack-x11.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "libcarla_interposer-safe",
+      "file": "libcarla_interposer-safe.so",
+      "path": "/usr/lib64/vst/carla.vst/libcarla_interposer-safe.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "libcarla_interposer-x11",
+      "file": "libcarla_interposer-x11.so",
+      "path": "/usr/lib64/vst/carla.vst/libcarla_interposer-x11.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "libcarla_native-plugin",
+      "file": "libcarla_native-plugin.so",
+      "path": "/usr/lib64/vst/carla.vst/libcarla_native-plugin.so",
+      "source": "system",
+      "reaper": false
+    },
+    {
+      "format": "vst2",
+      "name": "libcarla_utils",
+      "file": "libcarla_utils.so",
+      "path": "/usr/lib64/vst/carla.vst/libcarla_utils.so",
+      "source": "system",
+      "reaper": false
     },
     {
       "format": "vst2",
       "name": "libTAL-NoiseMaker",
       "file": "libTAL-NoiseMaker.so",
       "path": "/home/vensder/.vst/libTAL-NoiseMaker.so",
-      "source": "home"
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reacast",
       "file": "reacast.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reacast.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reacomp",
       "file": "reacomp.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reacomp.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reacontrolmidi",
       "file": "reacontrolmidi.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reacontrolmidi.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "readelay",
       "file": "readelay.vst.so",
       "path": "/opt/REAPER/Plugins/FX/readelay.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaeq",
       "file": "reaeq.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reaeq.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reafir",
       "file": "reafir.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reafir.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reagate",
       "file": "reagate.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reagate.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reainsert",
       "file": "reainsert.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reainsert.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "realimit",
       "file": "realimit.vst.so",
       "path": "/opt/REAPER/Plugins/FX/realimit.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaninjam",
       "file": "reaninjam.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reaninjam.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_cd",
       "file": "reaper_cd.so",
       "path": "/opt/REAPER/Plugins/reaper_cd.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_csurf",
       "file": "reaper_csurf.so",
       "path": "/opt/REAPER/Plugins/reaper_csurf.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_ddp",
       "file": "reaper_ddp.so",
       "path": "/opt/REAPER/Plugins/reaper_ddp.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_explorer",
       "file": "reaper_explorer.so",
       "path": "/opt/REAPER/Plugins/reaper_explorer.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_flac",
       "file": "reaper_flac.so",
       "path": "/opt/REAPER/Plugins/reaper_flac.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_midi",
       "file": "reaper_midi.so",
       "path": "/opt/REAPER/Plugins/reaper_midi.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_mp3dec",
       "file": "reaper_mp3dec.so",
       "path": "/opt/REAPER/Plugins/reaper_mp3dec.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_ogg",
       "file": "reaper_ogg.so",
       "path": "/opt/REAPER/Plugins/reaper_ogg.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_opus",
       "file": "reaper_opus.so",
       "path": "/opt/REAPER/Plugins/reaper_opus.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_video",
       "file": "reaper_video.so",
       "path": "/opt/REAPER/Plugins/reaper_video.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_wave",
       "file": "reaper_wave.so",
       "path": "/opt/REAPER/Plugins/reaper_wave.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaper_wavpack",
       "file": "reaper_wavpack.so",
       "path": "/opt/REAPER/Plugins/reaper_wavpack.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reapitch",
       "file": "reapitch.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reapitch.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reasamplomatic",
       "file": "reasamplomatic.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reasamplomatic.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reastream",
       "file": "reastream.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reastream.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reasurround",
       "file": "reasurround.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reasurround.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reasurround2",
       "file": "reasurround2.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reasurround2.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reasyndr",
       "file": "reasyndr.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reasyndr.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reasynth",
       "file": "reasynth.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reasynth.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reatune",
       "file": "reatune.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reatune.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaverb",
       "file": "reaverb.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reaverb.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaverbate",
       "file": "reaverbate.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reaverbate.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reavocode",
       "file": "reavocode.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reavocode.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reavoice",
       "file": "reavoice.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reavoice.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "reaxcomp",
       "file": "reaxcomp.vst.so",
       "path": "/opt/REAPER/Plugins/FX/reaxcomp.vst.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "rubberband",
       "file": "rubberband.so",
       "path": "/opt/REAPER/Plugins/rubberband.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst2",
       "name": "soundtouch",
       "file": "soundtouch.so",
       "path": "/opt/REAPER/Plugins/soundtouch.so",
-      "source": "reaper"
+      "source": "reaper",
+      "reaper": true
     },
     {
       "format": "vst3",
       "name": "CA-72",
       "file": "CA-72.vst3",
       "path": "/home/vensder/.vst3/CA-72.vst3",
-      "source": "home"
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "vst3",
       "name": "Dexed",
       "file": "Dexed.vst3",
       "path": "/home/vensder/.vst3/Dexed.vst3",
-      "source": "home"
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "vst3",
       "name": "Surge XT",
       "file": "Surge XT.vst3",
       "path": "/usr/lib64/vst3/Surge XT.vst3",
-      "source": "system"
+      "source": "system",
+      "reaper": false
     },
     {
       "format": "vst3",
       "name": "Surge XT Effects",
       "file": "Surge XT Effects.vst3",
       "path": "/usr/lib64/vst3/Surge XT Effects.vst3",
-      "source": "system"
+      "source": "system",
+      "reaper": false
     },
     {
       "format": "vst3",
       "name": "TAL-NoiseMaker",
       "file": "TAL-NoiseMaker.vst3",
       "path": "/home/vensder/.vst3/TAL-NoiseMaker.vst3",
-      "source": "home"
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "TyrellN6",
+      "file": "TyrellN6.vst3",
+      "path": "/home/vensder/.vst3/u-he/TyrellN6.vst3",
+      "source": "home",
+      "reaper": true
     }
   ]
 }
