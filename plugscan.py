@@ -3,8 +3,9 @@
 
 Usage:
     plugscan.py scan    [-o FILE] [--extra-path FORMAT:DIR ...] [-q]
-    plugscan.py compare [HOST ...] [--all]
+    plugscan.py compare [HOST ...] [--all] [-f FORMATS] [-x FORMATS]
     plugscan.py check   PROJECT|DIR [...] [--host HOST ... | -a] [--missing]
+                        [-f FORMATS] [-x FORMATS]
 
 Writes a JSON file (default: scan-results/<hostname>.json next to this
 script) listing every VST2, VST3,
@@ -588,6 +589,33 @@ def print_table(rows, hosts, title_col="plugin"):
         print(line.rstrip())
 
 
+FORMAT_ALIASES = {"vst": ["vst2", "vst3"]}
+
+
+def parse_formats(values):
+    """['lv2,vst', 'clap'] -> {'lv2', 'vst2', 'vst3', 'clap'}; None if empty."""
+    out = set()
+    for v in values or []:
+        for f in v.lower().split(","):
+            f = f.strip()
+            if not f:
+                continue
+            fmts = FORMAT_ALIASES.get(f, [f])
+            for x in fmts:
+                if x not in FORMAT_DIRS:
+                    sys.exit("unknown format %r (use: %s, or vst for vst2+vst3)"
+                             % (f, ", ".join(FORMAT_DIRS)))
+            out.update(fmts)
+    return out or None
+
+
+def format_filter(args):
+    """Return a function format -> bool from --only / --exclude."""
+    only = parse_formats(args.only)
+    excl = parse_formats(args.exclude) or set()
+    return lambda f: (only is None or f in only) and f not in excl
+
+
 def all_result_files():
     return sorted(glob.glob(os.path.join(RESULTS_DIR, "*.json")))
 
@@ -598,9 +626,12 @@ def cmd_compare(args):
         sys.exit("need at least two host files (found %d in %s)"
                  % (len(paths), RESULTS_DIR))
     hosts = [Host.load(p) for p in paths]
+    keep = format_filter(args)
     wanted = {}
     for h in hosts:
         for rec in h.data["plugins"]:
+            if not keep(rec["format"]):
+                continue
             k = (rec["format"], plugin_key(rec))
             wanted.setdefault(k, {"format": rec["format"], "key": k[1],
                                   "name": rec["name"]})
@@ -813,6 +844,8 @@ def cmd_check(args):
                 uniq.append(w)
 
         rows, unchecked, missing = [], {}, 0
+        keep = format_filter(args)
+        uniq = [w for w in uniq if w.get("unchecked") or keep(w["format"])]
         for w in uniq:
             if w.get("unchecked"):
                 unchecked.setdefault(w["format"], set()).add(w["name"])
@@ -869,6 +902,11 @@ def main(argv=None):
                          "(default: every file in scan-results/)")
     sp.add_argument("--all", action="store_true",
                     help="list every plugin, not only the differences")
+    sp.add_argument("-f", "--only", action="append", metavar="FORMATS",
+                    help="only these formats, comma-separated, e.g. lv2,vst "
+                         "(vst = vst2+vst3; can be repeated)")
+    sp.add_argument("-x", "--exclude", action="append", metavar="FORMATS",
+                    help="skip these formats, e.g. jsfx,ladspa")
     sp.set_defaults(func=cmd_compare)
 
     sp = sub.add_parser("check", help="check Reaper/LMMS projects for "
@@ -883,6 +921,11 @@ def main(argv=None):
                     help="check against every host in scan-results/")
     sp.add_argument("--missing", action="store_true",
                     help="only list plugins that are missing somewhere")
+    sp.add_argument("-f", "--only", action="append", metavar="FORMATS",
+                    help="only these formats, comma-separated, e.g. lv2,vst "
+                         "(vst = vst2+vst3; can be repeated)")
+    sp.add_argument("-x", "--exclude", action="append", metavar="FORMATS",
+                    help="skip these formats, e.g. jsfx,ladspa")
     sp.set_defaults(func=cmd_check)
 
     args = ap.parse_args(argv)

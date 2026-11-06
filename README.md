@@ -32,6 +32,11 @@ Symlinked duplicates (e.g. lib -> lib64) are counted once.
     ./plugscan.py compare                          # every host in scan-results/
     ./plugscan.py compare fedora-shift ubuntu      # host names or JSON paths
     ./plugscan.py compare --all                    # every plugin, not only differences
+    ./plugscan.py compare -f lv2                   # only LV2
+    ./plugscan.py compare -f vst,clap              # vst = vst2 + vst3
+    ./plugscan.py compare -x jsfx,ladspa           # everything except these
+
+-f/--only and -x/--exclude also work with check.
 
 ## 3. Check projects
 
