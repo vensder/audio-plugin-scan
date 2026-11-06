@@ -74,6 +74,37 @@ After --add: start REAPER, Extensions > ReaPack > Synchronize packages, then
 Browse packages and install the listed packages, so ReaPack keeps them
 updated. --download needs no ReaPack, but the files are not tracked by it.
 
+## 5. Missing VST / VST3 / CLAP / LV2: plugin helper
+
+plugin-helper.py (needs plugscan.py next to it) checks projects against this
+machine and finds an install source for each missing plugin, the latest
+version where possible.
+
+    ./plugin-helper.py find Song.RPP               # what is missing and where to get it
+    ./plugin-helper.py find Song.RPP --install     # download and install it
+    ./plugin-helper.py find ~/Projects/Reaper --install
+    ./plugin-helper.py find TyrellN6 Diva --install   # by plugin name
+    ./plugin-helper.py list                        # the built-in catalog
+
+Sources, in the order they are tried for a plugin:
+- u-he (any product, e.g. TyrellN6, Diva, Hive): the Linux build linked on
+  u-he.com/products, unpacked; then u-he's own install.sh runs (it installs
+  to ~/.u-he, ~/.vst3/u-he, ... and may ask questions). No sudo.
+- GitHub releases (Surge XT, Dexed, Cardinal, OB-Xd, Dragonfly, ...): the
+  latest release. An .rpm (with dnf) or .deb (with apt) is installed with
+  sudo after asking; a .tar/.zip/.deb archive is unpacked and its .vst3,
+  .clap, .lv2 and VST2 .so files are copied to ~/.vst3, ~/.clap, ~/.lv2,
+  ~/.vst.
+- Distro packages (LSP, x42, Calf, ZynAddSubFX, ...): dnf or apt, with sudo,
+  only if the package exists in your repositories, and after asking.
+- Plugins that need a login (Vital, TAL, ...): the download page is printed.
+
+After --install the machine is scanned again and each plugin is shown as ok
+or -. -y skips the sudo questions. Downloads and release info are cached in
+~/.cache/plugin-helper (release info for a day, --refresh to reload). Set
+GITHUB_TOKEN if you hit the GitHub API rate limit. To add a plugin, add an
+entry to CATALOG at the top of the script. JSFX are left to reapack-helper.py.
+
 ## How plugins are matched
 
 - LV2: by plugin URI (what Reaper stores in .RPP).
