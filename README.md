@@ -49,15 +49,15 @@ Exit code is 1 when anything is missing, so it can be used in scripts.
 "Backups" folders are skipped when a directory is given.
 
 REAPER only loads plugins from its own path lists (Preferences > Plug-ins,
-stored in ~/.config/REAPER/reaper.ini). scan records those lists and marks
+stored in `~/.config/REAPER/reaper.ini`). scan records those lists and marks
 every VST2/VST3/CLAP/LV2 plugin REAPER can reach (symlinks count); check on
 an .RPP shows "path" for a plugin that is installed but outside them, e.g. a
-Fedora VST2 in /usr/lib64/vst, and says which folder to add. If reaper.ini
-has no VST path yet, REAPER's default list is assumed (~/.vst, ~/.vst3,
-/usr/lib/vst, /usr/lib/vst3, /usr/local/lib/vst, /usr/local/lib/vst3),
-and for CLAP /usr/local/lib/clap, /usr/lib/clap, ~/.clap and
-%CLAP_PATH% (REAPER 7 key: clap_path_linux-x86_64; VST key: vstpath).
-Set REAPER_INI for a portable install. Host files scanned before this have
+Fedora VST2 in `/usr/lib64/vst`, and says which folder to add. If `reaper.ini`
+has no VST path yet, REAPER's default list is assumed (`~/.vst`, `~/.vst3`,
+`/usr/lib/vst`, `/usr/lib/vst3`, `/usr/local/lib/vst`, `/usr/local/lib/vst3`),
+and for CLAP `/usr/local/lib/clap`, `/usr/lib/clap`, `~/.clap `and
+`%CLAP_PATH%` (REAPER 7 key: `clap_path_linux-x86_64`; VST key: `vstpath`).
+Set `REAPER_INI` for a portable install. Host files scanned before this have
 no REAPER info and are not checked for it.
 
 Cells: yes = installed, name = only a plugin with the same name (different
