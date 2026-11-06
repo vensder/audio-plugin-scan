@@ -5,8 +5,13 @@ LMMS projects for missing plugins. One file, Python 3 standard library only.
 
 ## 1. Scan each host
 
-    ./plugscan.py scan                 # writes <hostname>.json
-    ./plugscan.py scan -o laptop.json
+    ./plugscan.py scan                 # writes scan-results/<hostname>.json
+    ./plugscan.py scan -o laptop.json  # or any other path
+
+scan-results/ sits next to the script, so in a git checkout you can scan,
+then commit and push the new host file:
+
+    ./plugscan.py scan && git add scan-results && git commit -m "scan: $(hostname)"
     ./plugscan.py scan --extra-path vst3:/mnt/data/plugins
 
 Formats: VST2, VST3, LV2, CLAP, LADSPA, DSSI, Reaper JSFX.
@@ -24,14 +29,16 @@ Symlinked duplicates (e.g. lib -> lib64) are counted once.
 
 ## 2. Compare hosts
 
-    ./plugscan.py compare fedora-shift.json laptop.json slackbox.json
-    ./plugscan.py compare *.json --all     # every plugin, not only differences
+    ./plugscan.py compare                          # every host in scan-results/
+    ./plugscan.py compare fedora-shift ubuntu      # host names or JSON paths
+    ./plugscan.py compare --all                    # every plugin, not only differences
 
 ## 3. Check projects
 
     ./plugscan.py check Song.RPP                       # against this machine, scanned now
     ./plugscan.py check ~/Projects/Reaper --missing    # every .RPP/.mmp/.mmpz under a dir
-    ./plugscan.py check Song.RPP --host laptop.json --host slackbox.json
+    ./plugscan.py check Song.RPP --host ubuntu --host slackbox   # saved hosts
+    ./plugscan.py check Song.RPP -a                # every host in scan-results/
 
 Exit code is 1 when anything is missing, so it can be used in scripts.
 "Backups" folders are skipped when a directory is given.

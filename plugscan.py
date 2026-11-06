@@ -3,10 +3,11 @@
 
 Usage:
     plugscan.py scan    [-o FILE] [--extra-path FORMAT:DIR ...] [-q]
-    plugscan.py compare HOST.json HOST.json [...] [--all]
-    plugscan.py check   PROJECT|DIR [...] [--host HOST.json ...] [--missing]
+    plugscan.py compare [HOST ...] [--all]
+    plugscan.py check   PROJECT|DIR [...] [--host HOST ... | -a] [--missing]
 
-Writes a JSON file (default: <hostname>.json) listing every VST2, VST3,
+Writes a JSON file (default: scan-results/<hostname>.json next to this
+script) listing every VST2, VST3,
 LV2, CLAP, LADSPA and DSSI plugin found in the standard home and system
 locations, plus any directories listed in VST_PATH, LXVST_PATH, VST3_PATH,
 LV2_PATH, CLAP_PATH, LADSPA_PATH and DSSI_PATH.
@@ -26,6 +27,10 @@ import socket
 import sys
 
 SCHEMA_VERSION = 1
+
+# Host files live next to the script, so a git checkout collects them.
+RESULTS_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                           "scan-results")
 
 HOME = os.path.expanduser("~")
 
@@ -480,7 +485,9 @@ def cmd_scan(args):
         extra.append((f, d))
 
     data = scan(extra)
-    out = args.output or data["host"] + ".json"
+    out = args.output or os.path.join(RESULTS_DIR, data["host"] + ".json")
+    if os.path.dirname(out):
+        os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2, ensure_ascii=False)
         fh.write("\n")
@@ -532,6 +539,12 @@ class Host:
 
     @classmethod
     def load(cls, path):
+        if not os.path.exists(path) and os.sep not in path:
+            # bare host name -> scan-results/<name>.json
+            name = path if path.endswith(".json") else path + ".json"
+            cand = os.path.join(RESULTS_DIR, name)
+            if os.path.exists(cand):
+                path = cand
         with open(path, encoding="utf-8") as fh:
             data = json.load(fh)
         label = data.get("host") or os.path.basename(path)
@@ -567,15 +580,24 @@ def print_table(rows, hosts, title_col="plugin"):
     print("-" * len(head))
     for fmt, label, cells in rows:
         if len(label) > w_lab:
-            label = label[: w_lab - 3] + "..."
+            # keep the end: it is the part that tells long paths apart
+            label = "..." + label[-(w_lab - 3):]
         line = "%-*s  %-*s" % (w_fmt, fmt, w_lab, label)
         for c, w in zip(cells, w_cols):
             line += "  %-*s" % (w, c)
         print(line.rstrip())
 
 
+def all_result_files():
+    return sorted(glob.glob(os.path.join(RESULTS_DIR, "*.json")))
+
+
 def cmd_compare(args):
-    hosts = [Host.load(p) for p in args.hosts]
+    paths = args.hosts or all_result_files()
+    if len(paths) < 2:
+        sys.exit("need at least two host files (found %d in %s)"
+                 % (len(paths), RESULTS_DIR))
+    hosts = [Host.load(p) for p in paths]
     wanted = {}
     for h in hosts:
         for rec in h.data["plugins"]:
@@ -763,7 +785,11 @@ def find_projects(paths):
 
 
 def cmd_check(args):
-    if args.host:
+    if args.all_hosts:
+        hosts = [Host.load(p) for p in all_result_files()]
+        if not hosts:
+            sys.exit("no host files in " + RESULTS_DIR)
+    elif args.host:
         hosts = [Host.load(p) for p in args.host]
     else:
         hosts = [Host(scan([]), socket.gethostname() + " (live)")]
@@ -828,7 +854,8 @@ def main(argv=None):
 
     sp = sub.add_parser("scan", help="scan this host and write a JSON file")
     sp.add_argument("-o", "--output",
-                    help="output file (default: <hostname>.json)")
+                    help="output file (default: scan-results/<hostname>.json "
+                         "next to this script)")
     sp.add_argument("--extra-path", action="append", metavar="FORMAT:DIR",
                     help="extra directory to scan, e.g. vst3:/mnt/plugins "
                          "(can be repeated)")
@@ -837,7 +864,9 @@ def main(argv=None):
     sp.set_defaults(func=cmd_scan)
 
     sp = sub.add_parser("compare", help="compare JSON files from several hosts")
-    sp.add_argument("hosts", nargs="+", metavar="HOST.json")
+    sp.add_argument("hosts", nargs="*", metavar="HOST",
+                    help="host JSON file or host name from scan-results/ "
+                         "(default: every file in scan-results/)")
     sp.add_argument("--all", action="store_true",
                     help="list every plugin, not only the differences")
     sp.set_defaults(func=cmd_compare)
@@ -846,9 +875,12 @@ def main(argv=None):
                                       "missing plugins")
     sp.add_argument("projects", nargs="+", metavar="PROJECT",
                     help=".RPP, .mmp or .mmpz file, or a directory to search")
-    sp.add_argument("--host", action="append", metavar="HOST.json",
-                    help="check against this host file (can be repeated); "
-                         "default: scan this machine now")
+    sp.add_argument("--host", action="append", metavar="HOST",
+                    help="check against this host file or host name from "
+                         "scan-results/ (can be repeated); default: scan "
+                         "this machine now")
+    sp.add_argument("-a", "--all-hosts", action="store_true",
+                    help="check against every host in scan-results/")
     sp.add_argument("--missing", action="store_true",
                     help="only list plugins that are missing somewhere")
     sp.set_defaults(func=cmd_check)
