@@ -40,6 +40,7 @@ import sys
 import tarfile
 import time
 import unicodedata
+import urllib.error
 import urllib.request
 import zipfile
 
@@ -188,6 +189,14 @@ def norm(name):
 
 
 _UHE = None
+_UHE_LINK = re.compile(r"https://dl\.u-he\.com/releases/"
+                       r"[^\"'\s<>]+?_Linux\.(?:tar\.xz|zip)")
+
+
+def uhe_version(url):
+    """'.../TyrellN6_300_public_beta_16976_Linux.tar.xz' -> '3.0.0'"""
+    parts = url.rsplit("/", 1)[-1].split("_")
+    return ".".join(parts[1]) if parts[1:] and parts[1].isdigit() else "?"
 
 
 def uhe_products(refresh=False):
@@ -202,15 +211,40 @@ def uhe_products(refresh=False):
             print("warning: cannot read %s: %s" % (UHE_INDEX, exc),
                   file=sys.stderr)
             return _UHE
-        for url in re.findall(r"https://dl\.u-he\.com/releases/"
-                              r"[^\"'\s<>]+?_Linux\.(?:tar\.xz|zip)", html):
-            fname = url.rsplit("/", 1)[-1]
-            parts = fname.split("_")
-            prod = norm(parts[0])
-            ver = ".".join(parts[1]) if parts[1:] and parts[1].isdigit() \
-                else "?"
-            _UHE.setdefault(prod, (ver, url))
+        for url in _UHE_LINK.findall(html):
+            prod = norm(url.rsplit("/", 1)[-1].split("_")[0])
+            _UHE.setdefault(prod, (uhe_version(url), url))
     return _UHE
+
+
+def uhe_urls(prod, refresh=False):
+    """Linux download links for a u-he product, best first.
+
+    The products index links do not always exist (e.g. tyrelln6_300_...
+    is 404 while the product page has TyrellN6_300_public_beta_...), so the
+    product page is read first and the index link is the last resort.
+    """
+    out = []
+    for i, page in enumerate(("https://u-he.com/products/plug-ins/%s/",
+                              "https://u-he.com/products/%s/")):
+        page %= prod
+        try:
+            html = fetch_cached(page, "u-he-%s-%d.html" % (prod, i),
+                                refresh).decode("utf-8", "replace")
+        except Exception:
+            continue
+        links = _UHE_LINK.findall(html)
+        own = [u for u in links
+               if norm(u.rsplit("/", 1)[-1].split("_")[0]) == prod]
+        for u in own or links[:1]:
+            if u not in out:
+                out.append(u)
+        if out:
+            break
+    idx = uhe_products(refresh).get(prod)
+    if idx and idx[1] not in out:
+        out.append(idx[1])
+    return out
 
 
 def uhe_lookup(name, refresh=False):
@@ -271,9 +305,10 @@ def resolve(want, refresh=False):
     if vendor.lower() == "u-he" or uhe_lookup(name, refresh):
         p = uhe_lookup(name, refresh)
         if p:
-            ver, url = uhe_products(refresh)[p]
-            return {"title": "u-he " + name, "how": "u-he", "version": ver,
-                    "url": url}
+            urls = uhe_urls(p, refresh)
+            return {"title": "u-he " + name, "how": "u-he",
+                    "version": uhe_version(urls[0]), "url": urls[0],
+                    "urls": urls}
         if vendor.lower() == "u-he":
             return {"title": name, "how": "page", "version": "",
                     "url": UHE_PAGE}
@@ -457,7 +492,15 @@ def install(plan, yes):
         if not ask("  run: %s ?" % " ".join(cmd), yes):
             return False
         return run(cmd)
-    f = download(plan["url"])
+    f = None
+    for url in plan.get("urls") or [plan["url"]]:
+        try:
+            f = download(url)
+            break
+        except urllib.error.HTTPError as exc:
+            print("  %s: %s" % (url, exc))
+    if not f:
+        return False
     work = cache_path(os.path.basename(f) + ".d")
     safe_extract(f, work)
     if how == "copy":
