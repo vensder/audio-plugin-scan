@@ -51,6 +51,29 @@ Exit code is 1 when anything is missing, so it can be used in scripts.
 Cells: yes = installed, name = only a plugin with the same name (different
 file or URI), alt = same name but only in another format, - = missing.
 
+## 4. Missing Reaper JSFX: ReaPack helper
+
+reapack-helper.py (needs plugscan.py next to it) installs ReaPack and finds
+which ReaPack repository provides each missing JSFX in a project.
+
+    ./reapack-helper.py install-reapack            # ReaPack .so into ~/.config/REAPER/UserPlugins
+    ./reapack-helper.py find Song.RPP              # which repo/package has each missing JSFX
+    ./reapack-helper.py find Song.RPP --add        # add those repos to reapack.ini (REAPER closed)
+    ./reapack-helper.py find Song.RPP --download   # or fetch the files into Effects right away
+    ./reapack-helper.py find "Saike Tools/Basics/Saike_Pitch_Shift.jsfx"
+    ./reapack-helper.py repos                      # repositories in reapack.ini
+
+ReaPack installs an effect to Effects/<repository name>/<category>/<file>, and
+the .RPP stores that path, so "Saike Tools/..." points to the "Saike Tools"
+repository. The script reads the repository list from reapack.com, plus the
+remotes already in reapack.ini and any --repo URL, and caches the indexes in
+~/.cache/reapack-helper for a day (--refresh to reload). Use -r DIR for a
+non-default REAPER resource folder (e.g. a portable install).
+
+After --add: start REAPER, Extensions > ReaPack > Synchronize packages, then
+Browse packages and install the listed packages, so ReaPack keeps them
+updated. --download needs no ReaPack, but the files are not tracked by it.
+
 ## How plugins are matched
 
 - LV2: by plugin URI (what Reaper stores in .RPP).
