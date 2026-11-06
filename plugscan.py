@@ -689,7 +689,20 @@ class Host:
 
 LEGEND = ("yes = installed, name = only a plugin with the same name, "
           "alt = same name in another format only, - = missing,\n"
-          "path = installed, but outside REAPER's plugin paths")
+          "path = installed, but outside REAPER's (or Carla's) plugin paths")
+
+
+def in_dirs(path, dirs):
+    """True if path (or its real path) is inside one of dirs."""
+    cands = {path}
+    if os.path.exists(path):
+        cands.add(os.path.realpath(path))
+    for d in dirs:
+        d = os.path.expanduser(d).rstrip("/")
+        for real in {d, os.path.realpath(d)}:
+            if any(p == real or p.startswith(real + "/") for p in cands):
+                return True
+    return False
 
 
 def plugin_folder(fmt, path):
@@ -848,8 +861,16 @@ def carla_plugins(data, host="Carla"):
     """Wanted plugins from a Carla state (the XML Carla saves in its
     VST/LV2 state), e.g. an LV2 Yoshimi inside Carla-Rack."""
     text = data.decode("utf-8", "replace")
+    # Carla saves its own search paths in the state, e.g.
+    # <LV2_PATH>/home/me/.lv2:/usr/lib/lv2</LV2_PATH>, and uses them when
+    # the project is loaded, also on another machine.
+    paths = {}
+    for k, v in re.findall(r"<(\w+)_PATH>(.*?)</\1_PATH>", text, re.S):
+        fmt = _CARLA_TYPES.get(k.upper())
+        if fmt:
+            paths[fmt] = [d for d in v.strip().split(":") if d]
     out = []
-    for block in re.findall(r"<Plugin>(.*?)</Plugin>", text, re.S):
+    for block in re.findall(r"<Info>(.*?)</Info>", text, re.S):
         info = {}
         for k in ("Type", "Name", "Label", "URI", "Binary"):
             m = re.search(r"<%s>(.*?)</%s>" % (k, k), block, re.S)
@@ -868,7 +889,7 @@ def carla_plugins(data, host="Carla"):
             key = file_key(info.get("Binary") or name)
         out.append({"format": fmt, "key": key, "name": name,
                     "display": "  %s > %s: %s" % (host, info["Type"], name),
-                    "inside": host})
+                    "inside": host, "carla_paths": paths.get(fmt)})
     return out
 
 
@@ -1058,7 +1079,7 @@ def cmd_check(args):
                 uniq.append(w)
 
         rows, unchecked, missing = [], {}, 0
-        outside = {}
+        outside, carla_out = {}, {}
         keep = format_filter(args)
         uniq = [w for w in uniq if w.get("unchecked") or keep(w["format"])]
         for w in uniq:
@@ -1066,13 +1087,22 @@ def cmd_check(args):
                 unchecked.setdefault(w["format"], set()).add(w["name"])
                 continue
             rpp = proj.lower().endswith((".rpp", ".rpp-bak"))
-            cells = [h.match(w, reaper=rpp) for h in hosts]
+            cells = [h.match(w, reaper=rpp and not w.get("inside"))
+                     for h in hosts]
             if "path" in cells:
                 for h, c in zip(hosts, cells):
                     if c == "path":
                         for r in h.found(w):
                             outside.setdefault(h.label, []).append(
                                 (w["format"], r["path"]))
+            if w.get("carla_paths") is not None:
+                for i, h in enumerate(hosts):
+                    recs = h.found(w) if cells[i] == "yes" else []
+                    if recs and not any(in_dirs(r["path"], w["carla_paths"])
+                                        for r in recs):
+                        cells[i] = "path"
+                        carla_out.setdefault(h.label, []).append(
+                            (w, recs[0]["path"]))
             if any(c != "yes" for c in cells):
                 missing += 1
             elif args.missing:
@@ -1106,6 +1136,19 @@ def cmd_check(args):
                   "CLAP / LV2 path list), then Re-scan;" % ", ".join(dirs))
             print("  or symlink the plugin into ~/.vst, ~/.vst3, ~/.clap "
                   "or ~/.lv2.")
+        for label, items in carla_out.items():
+            print("Outside the Carla paths saved in the project on %s:"
+                  % label)
+            for w, path in items:
+                print("  %s: %s" % (w["name"], path))
+                print("    Carla %s path: %s" % (w["format"].upper(),
+                                                ":".join(w["carla_paths"])))
+            print("  Fix: in the Carla window, Configure Carla > Paths, add "
+                  "%s, then save the project (Carla keeps these paths in "
+                  "the project);" % ", ".join(sorted(
+                      {plugin_folder(w["format"], p) for w, p in items})))
+            print("  or symlink the plugin into a folder from that list, "
+                  "e.g. ~/.lv2.")
         if "lmms" in unchecked:
             print("LMMS built-ins (not checked): "
                   + ", ".join(sorted(unchecked["lmms"])))

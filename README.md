@@ -135,7 +135,10 @@ entry to CATALOG at the top of the script. JSFX are left to reapack-helper.py.
 - Carla in Reaper: the plugins inside a Carla-Rack / Carla-Patchbay (VST2
   or LV2) are read from the Carla state saved in the .RPP and listed as
   "Carla-Rack > LV2: Yoshimi". Carla's internal plugins and SF2/SFZ files
-  are skipped.
+  are skipped. Carla also saves its own search paths (LV2_PATH, VST2_PATH,
+  ...) in that state and uses them when the project loads; a plugin found
+  only outside them is shown as "path" (e.g. Yoshimi in /usr/lib64/lv2 on
+  Fedora when the project was made on Ubuntu).
 
 ## Not covered yet
 
