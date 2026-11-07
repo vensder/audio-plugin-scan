@@ -1013,10 +1013,13 @@ def parse_lmms(path):
                 out.append({"format": "lv2", "key": uri,
                             "name": uri.rstrip("/").rsplit("/", 1)[-1],
                             "display": "LV2: " + uri})
-        elif kind in ("carlarack", "carlapatchbay"):
-            out.append({"format": "carla", "key": kind, "name": kind,
-                        "display": "Carla (%s): plugins inside are not "
-                                   "checked" % kind, "unchecked": True})
+        elif kind.startswith("carla"):
+            # LMMS keeps Carla's state as plain XML (a CARLA-PROJECT
+            # element) inside the instrument/effect, not base64 as REAPER.
+            host = "Carla Patchbay" if "patchbay" in kind else "Carla Rack"
+            for w in carla_plugins(ET.tostring(el, encoding="utf-8"), host):
+                w["display"] = w["display"].strip()
+                out.append(w)
         elif kind:
             out.append({"format": "lmms", "key": kind, "name": kind,
                         "display": "LMMS built-in: " + kind,
@@ -1152,9 +1155,6 @@ def cmd_check(args):
         if "lmms" in unchecked:
             print("LMMS built-ins (not checked): "
                   + ", ".join(sorted(unchecked["lmms"])))
-        if "carla" in unchecked:
-            print("Carla rack used: plugins loaded inside Carla are not "
-                  "checked.")
         print()
 
     print(LEGEND)

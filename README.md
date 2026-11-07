@@ -130,11 +130,11 @@ entry to CATALOG at the top of the script. JSFX are left to reapack-helper.py.
 - CLAP: by plugin name (Reaper stores the CLAP id, which a file scan cannot see).
 - JSFX: by path relative to the Effects folder.
 - LMMS: VeSTige / VST effect file, LADSPA library file, LV2 URI. Built-in
-  LMMS instruments and effects are listed but not checked. Plugins inside a
-  Carla rack are not checked in LMMS projects.
-- Carla in Reaper: the plugins inside a Carla-Rack / Carla-Patchbay (VST2
-  or LV2) are read from the Carla state saved in the .RPP and listed as
-  "Carla-Rack > LV2: Yoshimi". Carla's internal plugins and SF2/SFZ files
+  LMMS instruments and effects are listed but not checked.
+- Carla in Reaper and LMMS: the plugins inside a Carla-Rack / Carla-Patchbay (VST2
+  or LV2) are read from the Carla state saved in the .RPP (base64) or the
+  .mmpz (plain XML) and listed as "Carla-Rack > LV2: Yoshimi" or
+  "Carla Rack > LV2: Surge XT". A plugin used many times is listed once. Carla's internal plugins and SF2/SFZ files
   are skipped. Carla also saves its own search paths (LV2_PATH, VST2_PATH,
   ...) in that state and uses them when the project loads; a plugin found
   only outside them is shown as "path" (e.g. Yoshimi in /usr/lib64/lv2 on

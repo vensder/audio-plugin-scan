@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-07T18:38:32+13:00",
+  "generated": "2026-11-07T22:20:35+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -4613,6 +4613,76 @@
     },
     {
       "format": "lv2",
+      "name": "Black Pearl Drumkit",
+      "id": "http://gareus.org/oss/lv2/avldrums#BlackPearl",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Black Pearl Drumkit Multi",
+      "id": "http://gareus.org/oss/lv2/avldrums#BlackPearlMulti",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Blonde Bop Drumkit",
+      "id": "http://gareus.org/oss/lv2/avldrums#BlondeBop",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Blonde Bop Drumkit Multi",
+      "id": "http://gareus.org/oss/lv2/avldrums#BlondeBopMulti",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Blonde Bop HotRod Drumkit",
+      "id": "http://gareus.org/oss/lv2/avldrums#BlondeBopHR",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Blonde Bop HotRod Drumkit Multi",
+      "id": "http://gareus.org/oss/lv2/avldrums#BlondeBopHRMulti",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Buskman's Holiday Percussion",
+      "id": "http://gareus.org/oss/lv2/avldrums#BuskmansHoliday",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Calf Analyzer",
       "id": "http://calf.sourceforge.net/plugins/Analyzer",
       "file": "calf.lv2",
@@ -7952,6 +8022,26 @@
       "path": "/usr/lib64/lv2/phaserotate.lv2",
       "version": "1558.0",
       "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Red Zeppelin Drumkit",
+      "id": "http://gareus.org/oss/lv2/avldrums#RedZeppelin",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Red Zeppelin Drumkit Multi",
+      "id": "http://gareus.org/oss/lv2/avldrums#RedZeppelinMulti",
+      "file": "avldrums.lv2",
+      "path": "/home/vensder/.lv2/avldrums.lv2",
+      "version": "1804.0",
+      "source": "home",
       "reaper": true
     },
     {
