@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-06T22:56:06+13:00",
+  "generated": "2026-11-07T18:38:32+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -158,6 +158,14 @@
       "file": "TyrellN6.clap",
       "path": "/home/vensder/.clap/u-he/TyrellN6.clap",
       "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "VASTvaporizer2",
+      "file": "VASTvaporizer2.clap",
+      "path": "/usr/lib64/clap/VASTvaporizer2.clap",
+      "source": "system",
       "reaper": true
     },
     {
@@ -8187,6 +8195,16 @@
     },
     {
       "format": "lv2",
+      "name": "Vaporizer2",
+      "id": "https://www.vast-dynamics.com/plugins/VASTvaporizer2",
+      "file": "VASTvaporizer2.lv2",
+      "path": "/usr/lib64/lv2/VASTvaporizer2.lv2",
+      "version": "5.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "VU Meter (Mono)",
       "id": "http://gareus.org/oss/lv2/meters#VUmono",
       "file": "meters.lv2",
@@ -9040,6 +9058,22 @@
       "name": "TyrellN6",
       "file": "TyrellN6.vst3",
       "path": "/home/vensder/.vst3/u-he/TyrellN6.vst3",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "VASTvaporizer2",
+      "file": "VASTvaporizer2.vst3",
+      "path": "/usr/lib64/vst3/VASTvaporizer2.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "ZebraCM",
+      "file": "ZebraCM.vst3",
+      "path": "/home/vensder/.vst3/u-he/ZebraCM.vst3",
       "source": "home",
       "reaper": true
     }
