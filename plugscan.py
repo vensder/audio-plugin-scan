@@ -548,15 +548,22 @@ def os_name():
 
 def scan(extra):
     plugins, dirs_used = [], []
-    seen = set()
+    seen = {}
     for fmt in FORMAT_DIRS:
         for d, src in search_dirs(fmt, extra):
             dirs_used.append({"format": fmt, "dir": d, "source": src})
             for rec in scan_dir(fmt, d):
                 key = (fmt, os.path.realpath(rec["path"]), rec.get("id"))
                 if key in seen:
+                    # Same plugin seen again through a symlink, e.g.
+                    # ~/.lv2/yoshimi.lv2 -> /usr/lib64/lv2/yoshimi.lv2.
+                    first = seen[key]
+                    if rec["path"] != first["path"]:
+                        first.setdefault("links", [])
+                        if rec["path"] not in first["links"]:
+                            first["links"].append(rec["path"])
                     continue
-                seen.add(key)
+                seen[key] = rec
                 rec["source"] = src
                 plugins.append(rec)
     plugins.sort(key=lambda r: (r["format"], r["name"].lower(), r["path"]))
@@ -1101,8 +1108,10 @@ def cmd_check(args):
             if w.get("carla_paths") is not None:
                 for i, h in enumerate(hosts):
                     recs = h.found(w) if cells[i] == "yes" else []
-                    if recs and not any(in_dirs(r["path"], w["carla_paths"])
-                                        for r in recs):
+                    if recs and not any(in_dirs(x, w["carla_paths"])
+                                        for r in recs
+                                        for x in [r["path"]]
+                                        + r.get("links", [])):
                         cells[i] = "path"
                         carla_out.setdefault(h.label, []).append(
                             (w, recs[0]["path"]))

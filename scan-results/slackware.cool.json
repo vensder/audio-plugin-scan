@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-07T22:20:35+13:00",
+  "generated": "2026-11-07T22:42:06+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -8181,6 +8181,9 @@
       "path": "/usr/lib64/lv2/Surge XT.lv2",
       "version": "3.4",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/Surge XT.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8191,6 +8194,9 @@
       "path": "/usr/lib64/lv2/Surge XT Effects.lv2",
       "version": "3.4",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/Surge XT Effects.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8491,6 +8497,9 @@
       "path": "/usr/lib64/lv2/yoshimi.lv2",
       "version": "7.2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/yoshimi.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8501,6 +8510,9 @@
       "path": "/usr/lib64/lv2/yoshimi.lv2",
       "version": "7.2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/yoshimi.lv2"
+      ],
       "reaper": true
     },
     {
