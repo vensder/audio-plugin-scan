@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-07T22:42:06+13:00",
+  "generated": "2026-11-08T22:28:27+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -8297,6 +8297,9 @@
       "path": "/usr/lib64/lv2/VASTvaporizer2.lv2",
       "version": "5.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/VASTvaporizer2.lv2"
+      ],
       "reaper": true
     },
     {
