@@ -5,7 +5,7 @@
 - Scanned: 2026-11-06T13:29:46+13:00
 - Plugin files/entries: 1161 (clap 27, dssi 2, jsfx 494, ladspa 252, lv2 281, vst2 75, vst3 30)
 
-## System plugins
+## System plugins (188)
 
 - a-comp: lv2 (2 plugins)
 - a-delay: lv2
@@ -196,7 +196,7 @@
 - zeroconvo: lv2 (6 plugins)
 - zm1_1428: ladspa
 
-## Home plugins (/home/vensder)
+## Home plugins in `/home/vensder` (15)
 
 - avldrums: lv2 (9 plugins)
 - calf: lv2 (49 plugins)
@@ -214,7 +214,7 @@
 - ZebraCM: vst3
 - ZebraHZ: clap, vst3
 
-## Carla
+## Carla (26)
 
 - lv2: Audio File, Audio Gain (Mono), Audio Gain (Stereo), Big Meter, Carla-Patchbay, Carla-Patchbay (16chan), Carla-Patchbay (32chan), Carla-Patchbay (64chan), Carla-Patchbay (CV), Carla-Patchbay (sidechain), Carla-Rack, LFO, MIDI Channel A/B, MIDI Channel Filter, MIDI Channelize, MIDI File, MIDI Gain, MIDI Join, MIDI Pattern, MIDI Split, MIDI Transpose
 - vst2: CarlaPatchbay, CarlaPatchbay16, CarlaPatchbay32, CarlaPatchbay64, CarlaPatchbayFX, CarlaRack, CarlaRackFX
@@ -222,7 +222,7 @@
 
 ## REAPER
 
-### FX (bundled)
+### FX, bundled (23)
 
 - reacast: vst2
 - reacomp: vst2
@@ -248,7 +248,7 @@
 - reavoice: vst2
 - reaxcomp: vst2
 
-### Other components (bundled)
+### Other components, bundled (16)
 
 - elastique3: vst2
 - jsfx: vst2

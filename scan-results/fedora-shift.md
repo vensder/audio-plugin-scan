@@ -5,7 +5,7 @@
 - Scanned: 2026-11-06T20:36:00+13:00
 - Plugin files/entries: 1284 (clap 6, jsfx 450, ladspa 164, lv2 602, vst2 56, vst3 6)
 
-## System plugins
+## System plugins (236)
 
 - a_law-swh: lv2
 - abGate: lv2
@@ -244,14 +244,14 @@
 - ZynPhaser: lv2
 - ZynReverb: lv2
 
-## Home plugins (/home/vensder)
+## Home plugins in `/home/vensder` (4)
 
 - CA-72: clap, vst3
 - Dexed: clap, vst3
 - TAL-NoiseMaker: clap, vst2, vst3
 - TyrellN6: clap, vst3
 
-## Carla
+## Carla (26)
 
 - lv2: Audio File, Audio Gain (Mono), Audio Gain (Stereo), Big Meter, Carla-Patchbay, Carla-Patchbay (16chan), Carla-Patchbay (32chan), Carla-Patchbay (64chan), Carla-Patchbay (CV), Carla-Patchbay (sidechain), Carla-Rack, LFO, MIDI Channel A/B, MIDI Channel Filter, MIDI Channelize, MIDI File, MIDI Gain, MIDI Join, MIDI Pattern, MIDI Split, MIDI Transpose
 - vst2: CarlaPatchbay, CarlaPatchbay16, CarlaPatchbay32, CarlaPatchbay64, CarlaPatchbayFX, CarlaRack, CarlaRackFX
@@ -261,12 +261,12 @@
 
 ### Plugin paths
 
-- reaper.ini: /home/vensder/.config/REAPER/reaper.ini
-- clap paths: /usr/local/lib/clap; /usr/lib/clap; ~/.clap; /usr/lib64/clap
-- lv2 paths: /usr/lib/lv2; /usr/local/lib/lv2; ~/.lv2; /usr/lib64/lv2
-- vst paths: ~/.vst; ~/.vst3; /usr/lib64/vst3; /usr/lib64/vst
+- reaper.ini: `/home/vensder/.config/REAPER/reaper.ini`
+- clap paths: `/usr/local/lib/clap`; `/usr/lib/clap`; `~/.clap`; `/usr/lib64/clap`
+- lv2 paths: `/usr/lib/lv2`; `/usr/local/lib/lv2`; `~/.lv2`; `/usr/lib64/lv2`
+- vst paths: `~/.vst`; `~/.vst3`; `/usr/lib64/vst3`; `/usr/lib64/vst`
 
-### FX (bundled)
+### FX, bundled (23)
 
 - reacast: vst2
 - reacomp: vst2
@@ -292,7 +292,7 @@
 - reavoice: vst2
 - reaxcomp: vst2
 
-### Other components (bundled)
+### Other components, bundled (16)
 
 - elastique3: vst2
 - jsfx: vst2
