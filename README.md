@@ -169,7 +169,8 @@ tarball is unpacked in a temp folder and its own install-reaper.sh runs with
 `--install <parent of the folder>`, through sudo only when the folder is not
 writable by you (e.g. /opt/REAPER). REAPER must be closed. Settings in
 ~/.config/REAPER, desktop entries and the /usr/local/bin symlink are left as
-they are. --force reinstalls the same version.
+they are. --force reinstalls the same version. After installing, the new
+entries of whatsnew.txt (everything newer than the old version) are printed.
 
 ## How plugins are matched
 

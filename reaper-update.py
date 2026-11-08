@@ -74,6 +74,26 @@ def installed_version(rdir):
     return None
 
 
+def changes_since(rdir, old):
+    """Lines at the top of whatsnew.txt, down to the 'vOLD' entry."""
+    out = []
+    oldc = version_code(old) if old else None
+    try:
+        with open(os.path.join(rdir, "whatsnew.txt"),
+                  encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                m = re.match(r"v(\d+\.\d+)", line)
+                if m and out and (oldc is None
+                                  or version_code(m.group(1)) <= oldc):
+                    break
+                out.append(line.rstrip())
+    except OSError:
+        pass
+    while out and not out[-1]:
+        out.pop()
+    return out
+
+
 # ------------------------------------------------------------- location --
 
 def find_install(explicit=None):
@@ -257,6 +277,10 @@ def main(argv=None):
 
     after = installed_version(rdir)
     print("Now installed: %s in %s" % (after or "unknown version", rdir))
+    lines = changes_since(rdir, cur)
+    if lines:
+        print("\nWhat is new since %s:\n" % (cur or "the previous version"))
+        print("\n".join(lines))
     return 0 if after == new else 1
 
 
