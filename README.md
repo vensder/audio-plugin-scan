@@ -150,6 +150,27 @@ suffix, so libTAL-NoiseMaker.so and TAL-NoiseMaker.vst3 share a line;
 SWH LADSPA files (alias_1407.so) share a line with their LV2 port
 (alias-swh.lv2).
 
+## 7. Update REAPER
+
+reaper-update.py checks reaper.fm for a newer REAPER and installs it over
+the one you have, in the same folder:
+
+    ./reaper-update.py --check      # installed vs latest; exit 1 if an update exists
+    ./reaper-update.py -n           # dry run: what would be downloaded and run
+    ./reaper-update.py              # download and install (asks first)
+    ./reaper-update.py -y           # same, without asking
+    ./reaper-update.py -d ~/opt/REAPER   # if the folder is not found
+
+The install folder is the one the `reaper` command points to, else
+~/opt/REAPER or /opt/REAPER; the installed version is read from its
+whatsnew.txt. The latest version and tarball (x86_64, aarch64, armv7l or
+i686, from `uname -m` or --arch) come from reaper.fm/download.php. The
+tarball is unpacked in a temp folder and its own install-reaper.sh runs with
+`--install <parent of the folder>`, through sudo only when the folder is not
+writable by you (e.g. /opt/REAPER). REAPER must be closed. Settings in
+~/.config/REAPER, desktop entries and the /usr/local/bin symlink are left as
+they are. --force reinstalls the same version.
+
 ## How plugins are matched
 
 - LV2: by plugin URI (what Reaper stores in .RPP).
