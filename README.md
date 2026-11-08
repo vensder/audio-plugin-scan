@@ -122,6 +122,31 @@ or -. -y skips the sudo questions. Downloads and release info are cached in
 GITHUB_TOKEN if you hit the GitHub API rate limit. To add a plugin, add an
 entry to CATALOG at the top of the script. JSFX are left to reapack-helper.py.
 
+## 6. Readable summary per host
+
+plugin-summary.py turns the host files into one Markdown file per host,
+with each plugin listed once with the formats it is installed in:
+
+    ./plugin-summary.py                            # scan-results/<host>.md for every host file
+    ./plugin-summary.py scan-results/ubuntu.json   # just one host
+    ./plugin-summary.py scan-results/ubuntu.json -o -   # print instead
+    ./plugin-summary.py -o ~/plugin-notes          # write somewhere else
+
+Sections: System plugins, Home plugins (~/.vst, ~/.lv2, ...), Carla,
+REAPER (its plugin paths, plugins installed outside them, bundled FX such
+as ReaComp / ReaEQ, other bundled components, JSFX by folder) and LMMS
+(bundled LADSPA), as far as they are in the scan. Example lines:
+
+    - Surge XT: clap, lv2, vst3
+    - calf: ladspa, lv2 (52 plugins)
+    - reacomp: vst2
+
+An LV2 bundle is one line, with the number of plugins inside. Names are
+matched ignoring case and punctuation, a "lib" prefix and a "_vst"
+suffix, so libTAL-NoiseMaker.so and TAL-NoiseMaker.vst3 share a line;
+SWH LADSPA files (alias_1407.so) share a line with their LV2 port
+(alias-swh.lv2).
+
 ## How plugins are matched
 
 - LV2: by plugin URI (what Reaper stores in .RPP).

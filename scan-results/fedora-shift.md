@@ -1,0 +1,338 @@
+# Audio plugins on fedora-shift
+
+- OS: Fedora Linux 45 (KDE Plasma Desktop Edition)
+- User: vensder
+- Scanned: 2026-11-06T20:36:00+13:00
+- Plugin files/entries: 1284 (clap 6, jsfx 450, ladspa 164, lv2 602, vst2 56, vst3 6)
+
+## System plugins
+
+- a_law-swh: lv2
+- abGate: lv2
+- adsr_1653: ladspa
+- alias-swh: ladspa, lv2
+- allpass-swh: ladspa, lv2 (3 plugins)
+- am_pitchshift-swh: ladspa, lv2
+- ambisonic0: ladspa
+- ambisonic1: ladspa
+- ambisonic2: ladspa
+- ambisonic3: ladspa
+- amp: ladspa, lv2
+- amsynth: lv2, vst2
+- analogue_osc-swh: ladspa, lv2
+- arpeggiator: lv2
+- autotalent: ladspa
+- balance: lv2
+- bandpass_a_iir-swh: ladspa, lv2
+- bandpass_iir-swh: ladspa, lv2
+- blvco: ladspa
+- bode_shifter-swh: ladspa, lv2
+- bode_shifter_cv-swh: ladspa, lv2
+- branch_1673: ladspa
+- butterworth-swh: ladspa, lv2 (3 plugins)
+- calf: lv2 (52 plugins)
+- chebstortion-swh: ladspa, lv2
+- cmt: ladspa
+- comb-swh: ladspa, lv2 (3 plugins)
+- comb_splitter-swh: ladspa, lv2
+- const-swh: ladspa, lv2
+- control2midi: lv2
+- controlfilter: lv2 (5 plugins)
+- crossover_dist-swh: ladspa, lv2
+- cs_chorus: ladspa
+- cs_phaser: ladspa
+- dahdsr_2021: ladspa
+- darc: lv2 (2 plugins)
+- dc_remove-swh: ladspa, lv2
+- decay-swh: ladspa, lv2
+- decimator-swh: ladspa, lv2
+- declip-swh: ladspa, lv2
+- delay: ladspa, lv2 (3 plugins)
+- delayorama-swh: ladspa, lv2
+- difference_2030: ladspa
+- diode-swh: ladspa, lv2
+- divider-swh: ladspa, lv2
+- dj_eq-swh: ladspa, lv2 (2 plugins)
+- dj_flanger-swh: ladspa, lv2
+- dpl: lv2 (2 plugins)
+- drumkv1: lv2
+- dyson_compress-swh: ladspa, lv2
+- fabla: lv2
+- fad_delay-swh: ladspa, lv2
+- fast_lookahead_limiter-swh: ladspa, lv2
+- fat1: lv2 (3 plugins)
+- fil4: lv2 (2 plugins)
+- filter: ladspa
+- filters: ladspa
+- flanger-swh: ladspa, lv2
+- fm_osc-swh: ladspa, lv2
+- fmod_1656: ladspa
+- foldover-swh: ladspa, lv2
+- foverdrive-swh: ladspa, lv2
+- freq_tracker-swh: ladspa, lv2
+- g2reverb: ladspa
+- gate-swh: ladspa, lv2
+- giant_flange-swh: ladspa, lv2
+- gong-swh: ladspa, lv2
+- gong_beater-swh: ladspa, lv2
+- gsm_1215: ladspa
+- gverb-swh: ladspa, lv2
+- hard_limiter-swh: ladspa, lv2
+- harmonic_gen-swh: ladspa, lv2
+- hermes_filter-swh: ladspa, lv2
+- highpass_iir-swh: ladspa, lv2
+- hilbert-swh: ladspa, lv2
+- imp_1199: ladspa
+- impulse-swh: ladspa, lv2
+- interpolator_1660: ladspa
+- inv-swh: ladspa, lv2
+- karaoke-swh: ladspa, lv2
+- klaviatur: lv2
+- latency-swh: ladspa, lv2
+- lcr_delay-swh: ladspa, lv2
+- lookahead_limiter-swh: lv2
+- lookahead_limiter_const-swh: lv2
+- lowpass_iir-swh: ladspa, lv2
+- lp4pole_1671: ladspa
+- ls_filter-swh: ladspa, lv2
+- lsp-plugins: lv2 (194 plugins)
+- lsp-plugins-ladspa: ladspa
+- math-constants: lv2 (13 plugins)
+- math-functions: lv2 (38 plugins)
+- matrix_ms_st-swh: ladspa, lv2
+- matrix_spatialiser-swh: ladspa, lv2
+- matrix_st_ms-swh: ladspa, lv2
+- matrixmixer: lv2
+- mbeq-swh: ladspa, lv2
+- meters: lv2 (36 plugins)
+- mididebug: lv2
+- midifilter: lv2 (33 plugins)
+- midigen: lv2
+- midimap: lv2
+- mixtri: lv2
+- mod_delay-swh: ladspa, lv2
+- multivoice_chorus-swh: ladspa, lv2
+- mvchpf24: ladspa
+- mvclpf24: ladspa
+- newtonator: lv2
+- nodelay: lv2 (3 plugins)
+- noise: ladspa
+- notch_iir_1894: ladspa
+- offset-swh: lv2
+- onsettrigger: lv2 (2 plugins)
+- parabola_1649_data: ladspa
+- peakmeter: lv2 (2 plugins)
+- phaserotate: lv2 (2 plugins)
+- phasers-swh: ladspa, lv2 (3 plugins)
+- pitch_scale-swh: ladspa, lv2
+- plate-swh: ladspa, lv2
+- pointer_cast-swh: ladspa, lv2
+- product_1668: ladspa
+- pulse_1645: ladspa
+- quantiser100_2029: ladspa
+- quantiser20_2027: ladspa
+- quantiser50_2028: ladspa
+- random_1661: ladspa
+- rate_shifter-swh: ladspa, lv2
+- ratio_2034: ladspa
+- retro_flange-swh: ladspa, lv2
+- revdelay-swh: ladspa, lv2
+- ringmod-swh: ladspa, lv2 (2 plugins)
+- rudolf556: lv2
+- samplv1: lv2
+- sapistaEQv2: lv2 (17 plugins)
+- satan_maximiser-swh: ladspa, lv2
+- sawtooth_1641: ladspa
+- sawtooth_1641_data: ladspa
+- sc1-swh: ladspa, lv2
+- sc2-swh: ladspa, lv2
+- sc3-swh: ladspa, lv2
+- sc4-swh: ladspa, lv2
+- sc4m_1916: ladspa
+- se4-swh: ladspa, lv2
+- sequencer16_1677: ladspa
+- sequencer32_1676: ladspa
+- sequencer64_1675: ladspa
+- shaper-swh: ladspa, lv2
+- sifter-swh: ladspa, lv2
+- simple_comb-swh: lv2
+- sin_cos-swh: ladspa, lv2
+- sine: ladspa
+- sineshaper: lv2
+- single_para-swh: ladspa, lv2
+- sinus_wavewrapper-swh: ladspa, lv2
+- sisco: lv2 (4 plugins)
+- smooth_decimate-swh: ladspa, lv2
+- sorcer: lv2
+- spectra: lv2
+- split-swh: ladspa, lv2
+- square_1643: ladspa
+- square_1643_data: ladspa
+- step_muxer_1212: ladspa
+- stepseq_s8n8: lv2
+- stereoroute: lv2
+- sum_1665: ladspa
+- Surge XT: clap, lv2, vst3
+- Surge XT Effects: clap, lv2, vst3
+- surround_encoder-swh: ladspa, lv2
+- svf-swh: ladspa, lv2
+- sync_pulse_2023: ladspa
+- sync_square_1678: ladspa
+- synthv1: lv2
+- tap_autopan: ladspa
+- tap_chorusflanger: ladspa
+- tap_deesser: ladspa
+- tap_doubler: ladspa
+- tap_dynamics_m: ladspa
+- tap_dynamics_st: ladspa
+- tap_echo: ladspa
+- tap_eq: ladspa
+- tap_eqbw: ladspa
+- tap_limiter: ladspa
+- tap_pinknoise: ladspa
+- tap_pitch: ladspa
+- tap_reflector: ladspa
+- tap_reverb: ladspa
+- tap_rotspeak: ladspa
+- tap_sigmoid: ladspa
+- tap_tremolo: ladspa
+- tap_tubewarmth: ladspa
+- tap_vibrato: ladspa
+- tape_delay-swh: ladspa, lv2
+- testsignal: lv2
+- tracker_2025: ladspa
+- transient-swh: ladspa, lv2
+- triangle_1649: ladspa
+- triple_para-swh: ladspa, lv2
+- tuna: lv2 (2 plugins)
+- u_law-swh: lv2
+- valve-swh: ladspa, lv2
+- valve_rect-swh: ladspa, lv2
+- vco_sawpulse: ladspa
+- vocoder: ladspa, lv2
+- vynil-swh: ladspa, lv2
+- wave_terrain-swh: ladspa, lv2
+- xfade: ladspa, lv2 (3 plugins)
+- yoshimi: lv2 (2 plugins)
+- ZamAutoSat: lv2
+- ZaMaximX2: lv2
+- ZamComp: lv2
+- ZamCompX2: lv2
+- ZamDelay: lv2
+- ZamDynamicEQ: lv2
+- ZamEQ2: lv2
+- ZamGate: lv2
+- ZamGateX2: lv2
+- ZamGEQ31: lv2
+- ZamGrains: lv2
+- ZamHeadX2: lv2
+- ZamNoise: lv2
+- ZamPhono: lv2
+- ZamTube: lv2
+- ZaMultiComp: lv2
+- ZaMultiCompX2: lv2
+- ZamVerb: lv2
+- zeroconvo: lv2 (6 plugins)
+- zm1-swh: ladspa, lv2
+- zynadd: lv2
+- ZynAddSubFX: lv2
+- ZynAlienWah: lv2
+- ZynChorus: lv2
+- ZynDistortion: lv2
+- ZynDynamicFilter: lv2
+- ZynEcho: lv2
+- ZynPhaser: lv2
+- ZynReverb: lv2
+
+## Home plugins (/home/vensder)
+
+- CA-72: clap, vst3
+- Dexed: clap, vst3
+- TAL-NoiseMaker: clap, vst2, vst3
+- TyrellN6: clap, vst3
+
+## Carla
+
+- lv2: Audio File, Audio Gain (Mono), Audio Gain (Stereo), Big Meter, Carla-Patchbay, Carla-Patchbay (16chan), Carla-Patchbay (32chan), Carla-Patchbay (64chan), Carla-Patchbay (CV), Carla-Patchbay (sidechain), Carla-Rack, LFO, MIDI Channel A/B, MIDI Channel Filter, MIDI Channelize, MIDI File, MIDI Gain, MIDI Join, MIDI Pattern, MIDI Split, MIDI Transpose
+- vst2: CarlaPatchbay, CarlaPatchbay16, CarlaPatchbay32, CarlaPatchbay64, CarlaPatchbayFX, CarlaRack, CarlaRackFX
+- plus 8 Carla helper libraries
+
+## REAPER
+
+### Plugin paths
+
+- reaper.ini: /home/vensder/.config/REAPER/reaper.ini
+- clap paths: /usr/local/lib/clap; /usr/lib/clap; ~/.clap; /usr/lib64/clap
+- lv2 paths: /usr/lib/lv2; /usr/local/lib/lv2; ~/.lv2; /usr/lib64/lv2
+- vst paths: ~/.vst; ~/.vst3; /usr/lib64/vst3; /usr/lib64/vst
+
+### FX (bundled)
+
+- reacast: vst2
+- reacomp: vst2
+- reacontrolmidi: vst2
+- readelay: vst2
+- reaeq: vst2
+- reafir: vst2
+- reagate: vst2
+- reainsert: vst2
+- realimit: vst2
+- reaninjam: vst2
+- reapitch: vst2
+- reasamplomatic: vst2
+- reastream: vst2
+- reasurround: vst2
+- reasurround2: vst2
+- reasyndr: vst2
+- reasynth: vst2
+- reatune: vst2
+- reaverb: vst2
+- reaverbate: vst2
+- reavocode: vst2
+- reavoice: vst2
+- reaxcomp: vst2
+
+### Other components (bundled)
+
+- elastique3: vst2
+- jsfx: vst2
+- reaper_cd: vst2
+- reaper_csurf: vst2
+- reaper_ddp: vst2
+- reaper_explorer: vst2
+- reaper_flac: vst2
+- reaper_midi: vst2
+- reaper_mp3dec: vst2
+- reaper_ogg: vst2
+- reaper_opus: vst2
+- reaper_video: vst2
+- reaper_wave: vst2
+- reaper_wavpack: vst2
+- rubberband: vst2
+- soundtouch: vst2
+
+### JSFX (226)
+
+- analysis (8): WigMCVUMeter, gain_reduction_scope, gfxanalyzer, gfxscope, gfxspectrograph, loudness_meter, spectropaint, zoomanalyzer
+- delay (8): delay, delay_chfun, delay_chorus, delay_lowres, delay_sustain, delay_tone, delay_varlen, time_adjustment
+- dynamics (1): general_dynamics
+- filters (7): autopeakfilter, dc_remove, mdct-filter, mdct-volsweep, resonantlowpass, spectro_filter_paint, sweepinglowpass
+- guitar (9): amp-model, amp-model-dual, chorus, distort-fuzz, distortion, flanger, phaser, tremolo, wah
+- IX (16): MIDI_CCRider, MIDI_DuplicateFilter, MIDI_KeyMap, MIDI_KeySnap, MIDI_Router, MIDI_Tool, MIDI_Tool II, MIDI_Variant, MIDI_Velocifier II, MIDI_Wobulator, Mixer_8xM-1xS, Mixer_8xS-1xS, PhaseAdjustingRouter, StereoPhaseInvert, Switcher2, SwixMitch
+- Liteon (23): 3bandpeakfilter, applefilter12db, applefilter72db, bassmanager, butterworth24db, cheby24db, deesser, lorenzattractor, moog24db, nonlinear, np1136peaklimiter, pinknoisegen, presenceeq, pseudostereo, rbjstereofilter12db, ringmodulator, shelvingfilter, simplelp6db, statevariable, tilteq, vumetergfx, vumetergfxsum, waveshapermulti
+- loopsamplers (5): autoloop, loopsampler-granul, loopsampler-m2, loopsampler-m2-midi, super8
+- loser (36): 3BandEQ, 3BandJoiner, 3BandSplitter, 4BandEQ, 4BandJoiner, 4BandSplitter, 50HzKicker, 5BandJoiner, 5BandSplitter, CenterCanceler, Compciter, DDC, DVC2JS, DVCJS, Exciter, MGA_JSLimiter, MGA_JSLimiterST, MIDI_EQ_Ducker, SP1LimiterJS, Saturation, StereoField, TimeDelayer, TransientController, TransientKiller, UpwardExpander, WhiteNoise, ZeroCrossingMaximizer, amplitudeModulator, gfxGoniometer, masterLimiter, phaseMeter, ppp, stereo, stereoEnhancer, timeDifferencePan, waveShapingDstr
+- meters (2): bit_meter, dynamics_meter
+- midi (23): drumtrigger, midi_CC_mapper, midi_arp, midi_choke, midi_choke_group, midi_chorderizer, midi_chordkey, midi_delay, midi_logger, midi_maptokey, midi_note2channel, midi_note_filter, midi_note_hold, midi_note_repeater, midi_note_sanitizer, midi_transpose, midi_velocitycontrol, midinoteondelay, mtc_logger, program_bank_onload, sequencer_baby, sequencer_baby_v2, sequencer_megababy
+- misc (5): adpcm_simulator, reverseness, tonifier, tonifier2, video_sample_peeker
+- old_unsupported (1): dither
+- pitch (6): mdct-shift, octavedown, octaveup, pitch2, pitchdown, superpitch
+- remaincalm_org (4): avocado_glitch, floaty_delay, paranoia_mangler, tonegate
+- Saike Tools (2): Basics/Saike_Pitch_Shift.jsfx, SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx
+- schwa (7): audio_statistics, fft_splitter, gaussian_noise_generator, midi_examine, midi_humanizer, midi_modal_randomness, soft_clipper
+- sstillwell (37): 1175, 3x3, 3x3_6dbSlope, 4x4, autoexpand, badbussmojo, badbussmojo_aa, chorus, chorus_stereo, delay_pong, delay_tempo, dirtsqueeze, eventhorizon, eventhorizon2, exciter, expander, expressbus, fairlychildish, fairlychildish2, flangebaby, hpflpf, hugebooty, louderizer, louderizer_lpf, majortom, mastertom, ozzifier, randomizer, rbj1073, rbj4eq, rbj7eq, realoud, realoud_lpf, stereowidth, thunderkick, volscale, width
+- synthesis (3): sine_sweep, spectral_hold, tonegenerator
+- Teej (3): rbj12eq-teej, rbj4eq-teej, rbj4notch-teej
+- Till (5): Auto-Wideness v1.0, Transient-driven Auto-Pan v1.0 (Receiver), Transient-driven Auto-Pan v1.0 (Transmitter), Transient-driven Auto-Pan v1.1 (Receiver), Transient-driven Auto-Pan v1.1 (Transmitter)
+- utility (13): KanakaMS5, KanakaMSEncoder1, chanmix2, channel_mapper, channelmixer, dither_psycho, phase_adjust, smpte_ltc_reader, vca_follow, vca_lead, volume, volume_pan, volume_pan_sample_accurate_auto
+- waveshapers (2): graphdist, graphdist-dyn
