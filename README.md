@@ -135,7 +135,10 @@ with each plugin listed once with the formats it is installed in:
 Sections: System plugins, Home plugins (~/.vst, ~/.lv2, ...), Carla,
 REAPER (its plugin paths, plugins installed outside them, bundled FX such
 as ReaComp / ReaEQ, other bundled components, JSFX by folder) and LMMS
-(bundled LADSPA), as far as they are in the scan. Example lines:
+(bundled LADSPA), as far as they are in the scan. Each heading shows how
+many plugins it lists ("System plugins (236)"), counting a plugin once
+whatever formats it has, so the numbers can be tracked between scans.
+Example lines:
 
     - Surge XT: clap, lv2, vst3
     - calf: ladspa, lv2 (52 plugins)

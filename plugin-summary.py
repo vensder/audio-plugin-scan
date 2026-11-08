@@ -15,7 +15,8 @@ Plugins are grouped by name, with the formats each one is installed in:
 
 Sections: system plugins, plugins in the home dir, Carla, REAPER (bundled
 FX, other components, JSFX by folder) and LMMS (bundled LADSPA), as far as
-they show up in the scan.
+they show up in the scan. Each heading shows how many plugins it lists,
+counting a plugin once whatever formats it has.
 
 Only the Python 3 standard library is used.
 """
@@ -107,6 +108,11 @@ def section(out, title, lines, level=2):
     out.extend(lines)
 
 
+def counted(out, title, lines, level=2):
+    """Section titled "Title (N)", N = number of lines (plugins)."""
+    section(out, "%s (%d)" % (title, len(lines)), lines, level)
+
+
 def summary(scan):
     host = scan.get("host", "?")
     user = scan.get("user", "")
@@ -134,45 +140,48 @@ def summary(scan):
         len(plugins), ", ".join("%s %d" % (f, counts[f])
                                 for f in sorted(counts))))
 
-    section(out, "System plugins", plugin_lines(system_pl))
-    section(out, "Home plugins (%s)" % (home or "~"), plugin_lines(home_pl))
+    counted(out, "System plugins", plugin_lines(system_pl))
+    counted(out, "Home plugins in `%s`" % (home or "~"),
+            plugin_lines(home_pl))
 
     if carla:
-        lines = []
-        tools = []
+        lines, uniq = [], set()
         for fmt in sorted(set(p["format"] for p in carla)):
             names = sorted(set(stem(p) if fmt != "lv2" else p["name"]
                                for p in carla if p["format"] == fmt
                                and not p["name"].lower().startswith(
                                    ("libcarla", "carla-bridge", "carlastyle"))))
+            uniq.update(key(n) for n in names)
             if names:
                 lines.append("- %s: %s" % (fmt, ", ".join(names)))
         tools = [p for p in carla if p["name"].lower().startswith(
             ("libcarla", "carla-bridge", "carlastyle"))]
         if tools:
             lines.append("- plus %d Carla helper libraries" % len(tools))
-        section(out, "Carla", lines)
+        section(out, "Carla (%d)" % len(uniq), lines)
 
     if reaper or jsfx or "reaper" in scan:
         out.extend(["", "## REAPER"])
         if "reaper" in scan:
             r = scan["reaper"]
-            lines = ["- reaper.ini: %s" % r.get("ini", "?")]
+            lines = ["- reaper.ini: `%s`" % r.get("ini", "?")]
             for fmt, info in sorted(r.get("paths", {}).items()):
+                # Backticks: a bare "~/.vst; ~/.vst3" renders as strikethrough.
                 lines.append("- %s paths: %s" % (
-                    fmt, "; ".join(info.get("dirs", []))))
+                    fmt, "; ".join("`%s`" % d for d in info.get("dirs", []))))
             hidden = plugin_lines([p for p in rest + carla
                                    if p.get("reaper") is False])
             if hidden:
                 lines.append("")
-                lines.append("Installed, but outside REAPER's plugin paths:")
+                lines.append("Installed, but outside REAPER's plugin paths "
+                             "(%d):" % len(hidden))
                 lines.append("")
                 lines.extend(hidden)
             section(out, "Plugin paths", lines, 3)
         fx = [p for p in reaper if p["file"].endswith(".vst.so")]
         other = [p for p in reaper if p not in fx]
-        section(out, "FX (bundled)", plugin_lines(fx), 3)
-        section(out, "Other components (bundled)", plugin_lines(other), 3)
+        counted(out, "FX, bundled", plugin_lines(fx), 3)
+        counted(out, "Other components, bundled", plugin_lines(other), 3)
         if jsfx:
             folders = {}
             for p in jsfx:
