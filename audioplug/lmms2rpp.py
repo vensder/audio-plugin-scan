@@ -462,7 +462,10 @@ class Converter:
         return tr
 
     def pitch(self, body):
-        p = 69 - int(num(body, "basenote", 57))
+        # LMMS key 57 = MIDI note 57, as LMMS sends it to MIDI / plugins.
+        # (LMMS's own MIDI export adds 12, which makes everything sound an
+        # octave too high in REAPER.)
+        p = 57 - int(num(body, "basenote", 57))
         if body.get("usemasterpitch", "1") != "0":
             p += self.master_pitch
         return p

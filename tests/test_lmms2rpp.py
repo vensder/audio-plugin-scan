@@ -43,8 +43,8 @@ class TestConvert(unittest.TestCase):
         item = lead.items[0]
         self.assertAlmostEqual(item["pos"], 2.0)       # bar 2 at 120 BPM
         self.assertAlmostEqual(item["len"], 2.0)
-        # LMMS key 57 (A4) -> MIDI 69, vol 100 -> velocity 64
-        self.assertEqual(notes(item), [(0, 69, 64), (960, 72, 127)])
+        # LMMS key 57 -> MIDI 57 (same pitch as in LMMS), vol 100 -> velocity 64
+        self.assertEqual(notes(item), [(0, 57, 64), (960, 60, 127)])
 
     def test_pattern_editor_loops(self):
         kick = self.by_name["Kicker"]
