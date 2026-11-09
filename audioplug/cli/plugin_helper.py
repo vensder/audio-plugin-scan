@@ -1,13 +1,12 @@
-#!/usr/bin/env python3
 """plugin-helper - find and install missing VST2 / VST3 / CLAP / LV2 plugins.
 
 Usage:
-    plugin-helper.py find ITEM [...] [--install] [--yes] [--refresh]
-    plugin-helper.py list
+    plugin-helper find ITEM [...] [--install] [--yes] [--refresh]
+    plugin-helper list
 
 ITEM is a .RPP / .mmp / .mmpz project, a directory with projects, or a
 plugin name such as "TyrellN6". Projects are checked against this machine
-(a live scan, like "plugscan.py check"); every plugin that is missing is
+(a live scan, like "plugscan check"); every plugin that is missing is
 looked up in a small built-in catalog of install sources:
 
   u-he     the latest Linux build listed on u-he.com/products, unpacked and
@@ -23,9 +22,7 @@ Without --install it only prints what it would do. After installing, the
 plugins are scanned again and the result is shown.
 
 Downloads are cached in ~/.cache/plugin-helper. Set GITHUB_TOKEN to raise
-the GitHub API rate limit. Missing JSFX are left to reapack-helper.py.
-
-Only the Python 3 standard library is used.
+the GitHub API rate limit. Missing JSFX are left to reapack-helper.
 """
 
 import argparse
@@ -38,20 +35,16 @@ import shutil
 import subprocess
 import sys
 import tarfile
-import time
 import unicodedata
 import urllib.error
-import urllib.request
 import zipfile
 
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
-import plugscan  # noqa: E402  (scan, parse_project, find_projects, Host)
+from .. import common
+from ..common import ask, fetch, has, write_atomic
+from ..formats import norm_name
+from ..hosts import live_host
+from ..projects import find_projects, parse_project
 
-HOME = os.path.expanduser("~")
-CACHE_DIR = os.path.join(os.environ.get("XDG_CACHE_HOME")
-                         or os.path.join(HOME, ".cache"), "plugin-helper")
-CACHE_AGE = 24 * 3600
-UA = "plugin-helper/1.0"
 UHE_INDEX = "https://u-he.com/products/"
 UHE_PAGE = "https://u-he.com/products/"
 
@@ -132,38 +125,14 @@ CATALOG = [
 
 # ------------------------------------------------------------- download --
 
-def fetch(url, timeout=120, accept=None):
-    headers = {"User-Agent": UA}
-    if accept:
-        headers["Accept"] = accept
-    if "api.github.com" in url and os.environ.get("GITHUB_TOKEN"):
-        headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
-
-
 def cache_path(name):
-    os.makedirs(CACHE_DIR, exist_ok=True)
-    return os.path.join(CACHE_DIR, re.sub(r"[^A-Za-z0-9._-]", "_", name))
+    return common.cache_file(common.cache_dir("plugin-helper"), name)
 
 
 def fetch_cached(url, name, refresh=False):
     """Small text documents (index pages, API answers), kept for a day."""
-    path = cache_path(name)
-    fresh = (os.path.exists(path)
-             and time.time() - os.path.getmtime(path) < CACHE_AGE)
-    if not fresh or refresh:
-        try:
-            data = fetch(url, timeout=60)
-            with open(path + ".tmp", "wb") as fh:
-                fh.write(data)
-            os.replace(path + ".tmp", path)
-        except Exception:
-            if not os.path.exists(path):
-                raise
-    with open(path, "rb") as fh:
-        return fh.read()
+    return common.fetch_cached(url, common.cache_dir("plugin-helper"), name,
+                               refresh)
 
 
 def download(url):
@@ -171,10 +140,7 @@ def download(url):
     path = cache_path(url.rsplit("/", 1)[-1])
     if not os.path.exists(path):
         print("  downloading %s" % url)
-        data = fetch(url, timeout=600)
-        with open(path + ".tmp", "wb") as fh:
-            fh.write(data)
-        os.replace(path + ".tmp", path)
+        write_atomic(path, fetch(url, timeout=600))
     else:
         print("  using cached %s" % path)
     return path
@@ -260,10 +226,6 @@ def uhe_lookup(name, refresh=False):
             return p
     best = [p for p in prods if n.startswith(p) and len(p) >= 4]
     return max(best, key=len) if best else None  # 'Uhbik-A' -> uhbik
-
-
-def has(cmd):
-    return shutil.which(cmd) is not None
 
 
 def pkg_manager():
@@ -512,15 +474,6 @@ def copy_bundles(top):
     return n > 0
 
 
-def ask(question, yes):
-    if yes:
-        return True
-    try:
-        return input(question + " [y/N] ").strip().lower() in ("y", "yes")
-    except EOFError:
-        return False
-
-
 def run(cmd, cwd=None):
     print("  $ " + " ".join(cmd))
     return subprocess.run(cmd, cwd=cwd).returncode == 0
@@ -587,9 +540,9 @@ def wanted(items, host):
     out, seen, installed = [], set(), 0
     for item in items:
         if os.path.exists(item):
-            for proj in plugscan.find_projects([item]):
+            for proj in find_projects([item]):
                 try:
-                    ws = plugscan.parse_project(proj)
+                    ws = parse_project(proj)
                 except Exception as exc:
                     print("cannot read %s: %s" % (proj, exc), file=sys.stderr)
                     continue
@@ -605,10 +558,10 @@ def wanted(items, host):
                         continue
                     w["vendor"] = vendor_of(w.get("display", ""))
                     w["have"] = sorted(host.any_names.get(
-                        plugscan.norm_name(w["name"]), ()))
+                        norm_name(w["name"]), ()))
                     out.append(w)
         else:
-            n = plugscan.norm_name(item)
+            n = norm_name(item)
             if n in host.any_names:
                 installed += 1
                 continue
@@ -618,7 +571,7 @@ def wanted(items, host):
 
 
 def cmd_find(args):
-    host = plugscan.Host(plugscan.scan([]), "live")
+    host = live_host("live")
     missing, installed = wanted(args.items, host)
     if not missing:
         print("No missing plugins (%d installed)." % installed)
@@ -674,10 +627,10 @@ def cmd_find(args):
 
     print()
     print("Scanning again...")
-    host = plugscan.Host(plugscan.scan([]), "live")
+    host = live_host("live")
     still = [w for w in missing
              if (host.match(w) if w["format"] != "?"
-                 else ("yes" if plugscan.norm_name(w["name"])
+                 else ("yes" if norm_name(w["name"])
                        in host.any_names else "-")) != "yes"]
     for w in missing:
         print("  %-3s %s" % ("-" if w in still else "ok", w["display"]))
@@ -721,7 +674,3 @@ def main(argv=None):
     if platform.system() != "Linux":
         print("warning: written for Linux", file=sys.stderr)
     return args.func(args) or 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

@@ -1,18 +1,52 @@
-# plugscan
+# audio-plugin-scan
 
 Inventory of installed Linux audio plugins, compare hosts, and check Reaper /
-LMMS projects for missing plugins. One file, Python 3 standard library only.
+LMMS projects for missing plugins. Python 3 standard library only, nothing
+to install.
+
+## Layout
+
+    bin/              the commands (run them from the checkout)
+      plugscan          scan / compare / check            (section 1-3)
+      reapack-helper    missing JSFX via ReaPack          (section 4)
+      plugin-helper     missing VST / CLAP / LV2          (section 5)
+      plugin-summary    Markdown summary per host         (section 6)
+      reaper-update     update REAPER                     (section 7)
+      rpp-info          tracks and FX chains of a project (section 8)
+    audioplug/        shared code (Python package)
+      common.py         paths, downloads with a cache, prompts
+      formats.py        formats, search folders, -f / -x filters
+      lv2.py            LV2 bundle (Turtle) reader
+      scanner.py        scan this machine
+      hosts.py          host files and plugin matching
+      reaper.py         REAPER install and reaper.ini plugin paths
+      rpp.py            .RPP reader: block tree, plugins, tracks, FX chains
+      carla.py          plugins inside Carla racks
+      lmms.py           .mmp / .mmpz reader
+      projects.py       find and read projects
+      cli/              one module per command in bin/
+    tests/            python3 -m unittest discover -s tests
+    scan-results/     host files (<hostname>.json) and summaries (.md)
+
+To run the commands from anywhere, link them into a folder on your PATH
+(the links keep working, the scripts find audioplug/ through them):
+
+    ln -s "$PWD"/bin/* ~/.local/bin/
+
+Moved from the old flat layout: `./plugscan.py` is now `bin/plugscan`,
+`./plugin-helper.py` is `bin/plugin-helper`, and so on (same names
+without `.py`). Arguments and output are unchanged.
 
 ## 1. Scan each host
 
-    ./plugscan.py scan                 # writes scan-results/<hostname>.json
-    ./plugscan.py scan -o laptop.json  # or any other path
+    bin/plugscan scan                 # writes scan-results/<hostname>.json
+    bin/plugscan scan -o laptop.json  # or any other path
 
-scan-results/ sits next to the script, so in a git checkout you can scan,
+scan-results/ is in the checkout, so you can scan,
 then commit and push the new host file:
 
-    ./plugscan.py scan && git add scan-results && git commit -m "scan: $(hostname)"
-    ./plugscan.py scan --extra-path vst3:/mnt/data/plugins
+    bin/plugscan scan && git add scan-results && git commit -m "scan: $(hostname)"
+    bin/plugscan scan --extra-path vst3:/mnt/data/plugins
 
 Formats: VST2, VST3, LV2, CLAP, LADSPA, DSSI, Reaper JSFX.
 
@@ -29,21 +63,21 @@ Symlinked duplicates (e.g. lib -> lib64) are counted once.
 
 ## 2. Compare hosts
 
-    ./plugscan.py compare                          # every host in scan-results/
-    ./plugscan.py compare fedora-shift ubuntu      # host names or JSON paths
-    ./plugscan.py compare --all                    # every plugin, not only differences
-    ./plugscan.py compare -f lv2                   # only LV2
-    ./plugscan.py compare -f vst,clap              # vst = vst2 + vst3
-    ./plugscan.py compare -x jsfx,ladspa           # everything except these
+    bin/plugscan compare                          # every host in scan-results/
+    bin/plugscan compare fedora-shift ubuntu      # host names or JSON paths
+    bin/plugscan compare --all                    # every plugin, not only differences
+    bin/plugscan compare -f lv2                   # only LV2
+    bin/plugscan compare -f vst,clap              # vst = vst2 + vst3
+    bin/plugscan compare -x jsfx,ladspa           # everything except these
 
 -f/--only and -x/--exclude also work with check.
 
 ## 3. Check projects
 
-    ./plugscan.py check Song.RPP                       # against this machine, scanned now
-    ./plugscan.py check ~/Projects/Reaper --missing    # every .RPP/.mmp/.mmpz under a dir
-    ./plugscan.py check Song.RPP --host ubuntu --host slackbox   # saved hosts
-    ./plugscan.py check Song.RPP -a                # every host in scan-results/
+    bin/plugscan check Song.RPP                       # against this machine, scanned now
+    bin/plugscan check ~/Projects/Reaper --missing    # every .RPP/.mmp/.mmpz under a dir
+    bin/plugscan check Song.RPP --host ubuntu --host slackbox   # saved hosts
+    bin/plugscan check Song.RPP -a                # every host in scan-results/
 
 Exit code is 1 when anything is missing, so it can be used in scripts.
 "Backups" folders are skipped when a directory is given.
@@ -66,15 +100,15 @@ path = installed but outside REAPER's plugin paths.
 
 ## 4. Missing Reaper JSFX: ReaPack helper
 
-reapack-helper.py (needs plugscan.py next to it) installs ReaPack and finds
+reapack-helper installs ReaPack and finds
 which ReaPack repository provides each missing JSFX in a project.
 
-    ./reapack-helper.py install-reapack            # ReaPack .so into ~/.config/REAPER/UserPlugins
-    ./reapack-helper.py find Song.RPP              # which repo/package has each missing JSFX
-    ./reapack-helper.py find Song.RPP --add        # add those repos to reapack.ini (REAPER closed)
-    ./reapack-helper.py find Song.RPP --download   # or fetch the files into Effects right away
-    ./reapack-helper.py find "Saike Tools/Basics/Saike_Pitch_Shift.jsfx"
-    ./reapack-helper.py repos                      # repositories in reapack.ini
+    bin/reapack-helper install-reapack            # ReaPack .so into ~/.config/REAPER/UserPlugins
+    bin/reapack-helper find Song.RPP              # which repo/package has each missing JSFX
+    bin/reapack-helper find Song.RPP --add        # add those repos to reapack.ini (REAPER closed)
+    bin/reapack-helper find Song.RPP --download   # or fetch the files into Effects right away
+    bin/reapack-helper find "Saike Tools/Basics/Saike_Pitch_Shift.jsfx"
+    bin/reapack-helper repos                      # repositories in reapack.ini
 
 ReaPack installs an effect to Effects/<repository name>/<category>/<file>, and
 the .RPP stores that path, so "Saike Tools/..." points to the "Saike Tools"
@@ -89,15 +123,15 @@ updated. --download needs no ReaPack, but the files are not tracked by it.
 
 ## 5. Missing VST / VST3 / CLAP / LV2: plugin helper
 
-plugin-helper.py (needs plugscan.py next to it) checks projects against this
+plugin-helper checks projects against this
 machine and finds an install source for each missing plugin, the latest
 version where possible.
 
-    ./plugin-helper.py find Song.RPP               # what is missing and where to get it
-    ./plugin-helper.py find Song.RPP --install     # download and install it
-    ./plugin-helper.py find ~/Projects/Reaper --install
-    ./plugin-helper.py find TyrellN6 Diva --install   # by plugin name
-    ./plugin-helper.py list                        # the built-in catalog
+    bin/plugin-helper find Song.RPP               # what is missing and where to get it
+    bin/plugin-helper find Song.RPP --install     # download and install it
+    bin/plugin-helper find ~/Projects/Reaper --install
+    bin/plugin-helper find TyrellN6 Diva --install   # by plugin name
+    bin/plugin-helper list                        # the built-in catalog
 
 Sources, in the order they are tried for a plugin:
 - u-he (any product, e.g. TyrellN6, Diva, Hive): the Linux build linked on
@@ -120,17 +154,18 @@ After --install the machine is scanned again and each plugin is shown as ok
 or -. -y skips the sudo questions. Downloads and release info are cached in
 ~/.cache/plugin-helper (release info for a day, --refresh to reload). Set
 GITHUB_TOKEN if you hit the GitHub API rate limit. To add a plugin, add an
-entry to CATALOG at the top of the script. JSFX are left to reapack-helper.py.
+entry to CATALOG in audioplug/cli/plugin_helper.py. JSFX are left to
+reapack-helper.
 
 ## 6. Readable summary per host
 
-plugin-summary.py turns the host files into one Markdown file per host,
+plugin-summary turns the host files into one Markdown file per host,
 with each plugin listed once with the formats it is installed in:
 
-    ./plugin-summary.py                            # scan-results/<host>.md for every host file
-    ./plugin-summary.py scan-results/ubuntu.json   # just one host
-    ./plugin-summary.py scan-results/ubuntu.json -o -   # print instead
-    ./plugin-summary.py -o ~/plugin-notes          # write somewhere else
+    bin/plugin-summary                            # scan-results/<host>.md for every host file
+    bin/plugin-summary scan-results/ubuntu.json   # just one host
+    bin/plugin-summary scan-results/ubuntu.json -o -   # print instead
+    bin/plugin-summary -o ~/plugin-notes          # write somewhere else
 
 Sections: System plugins, Home plugins (~/.vst, ~/.lv2, ...), Carla,
 REAPER (its plugin paths, plugins installed outside them, bundled FX such
@@ -152,14 +187,14 @@ SWH LADSPA files (alias_1407.so) share a line with their LV2 port
 
 ## 7. Update REAPER
 
-reaper-update.py checks reaper.fm for a newer REAPER and installs it over
+reaper-update checks reaper.fm for a newer REAPER and installs it over
 the one you have, in the same folder:
 
-    ./reaper-update.py --check      # installed vs latest; exit 1 if an update exists
-    ./reaper-update.py -n           # dry run: what would be downloaded and run
-    ./reaper-update.py              # download and install (asks first)
-    ./reaper-update.py -y           # same, without asking
-    ./reaper-update.py -d ~/opt/REAPER   # if the folder is not found
+    bin/reaper-update --check      # installed vs latest; exit 1 if an update exists
+    bin/reaper-update -n           # dry run: what would be downloaded and run
+    bin/reaper-update              # download and install (asks first)
+    bin/reaper-update -y           # same, without asking
+    bin/reaper-update -d ~/opt/REAPER   # if the folder is not found
 
 The install folder is the one the `reaper` command points to, else
 ~/opt/REAPER or /opt/REAPER; the installed version is read from its
@@ -171,6 +206,39 @@ writable by you (e.g. /opt/REAPER). REAPER must be closed. Settings in
 ~/.config/REAPER, desktop entries and the /usr/local/bin symlink are left as
 they are. --force reinstalls the same version. After installing, the new
 entries of whatsnew.txt (everything newer than the old version) are printed.
+
+## 8. REAPER project: tracks and FX chains
+
+rpp-info lists every track of an .RPP with its FX in chain order and the
+state of each FX (plugscan check stays the place for the per-plugin
+summary across hosts):
+
+    bin/rpp-info Song.RPP
+    bin/rpp-info Song.RPP -c                   # also mark plugins missing here
+    bin/rpp-info Song.RPP --host ubuntu        # ... or on saved hosts (-a: all)
+    bin/rpp-info ~/Music/REAPER/Production     # every .RPP under a dir
+
+Example:
+
+    == Song.RPP
+    Master: masterLimiter (v)
+    1 Drums
+    2   Kick: ReaEQ (v) -> "Kick comp" ReaComp (-)
+    3   Snare top [muted, FX off]: gfxanalyzer (x)
+          take "snare.wav": SaikeMultiSpectralAnalyzer (v)
+    4 Synth: Surge XT (v) -> Bus FX [Dragonfly Hall Reverb (v, missing) -> SpectrumAnalyzer (-)] (v)
+        input FX: ReaTune (v)
+    5 Pads: Carla-Rack [Yoshimi (path)] (v) -> Calf Reverb (v)
+
+- (v) active, (-) bypassed, (x) offline.
+- Tracks inside a folder are indented. [muted] and [FX off] (the track's
+  FX button) follow the name.
+- A renamed FX shows its name in quotes, then the plugin.
+- A container lists its FX in [ ], a Carla rack the plugins inside it.
+- Input FX (record FX), take FX and the master chain have their own lines.
+- With -c / --host / -a: "missing", "name", "alt" or "path" after the
+  state, as in plugscan check (with several hosts: "ubuntu: missing").
+  Exit code 1 when anything is missing.
 
 ## How plugins are matched
 

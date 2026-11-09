@@ -1,8 +1,7 @@
-#!/usr/bin/env python3
 """reaper-update - update REAPER on Linux to the latest release.
 
 Usage:
-    reaper-update.py [--check] [-n] [-d DIR] [-y] [--force] [--arch ARCH]
+    reaper-update [--check] [-n] [-d DIR] [-y] [--force] [--arch ARCH]
 
 Finds the installed REAPER (the folder with the reaper binary, e.g.
 /opt/REAPER or ~/opt/REAPER), reads its version from whatsnew.txt, and
@@ -19,8 +18,7 @@ when that folder is not writable by you. Desktop integration and the
 -y          do not ask before installing.
 --force     install even if the version is the same (repair).
 
-Your settings in ~/.config/REAPER are not touched. Only the Python 3
-standard library is used.
+Your settings in ~/.config/REAPER are not touched.
 """
 
 import argparse
@@ -34,11 +32,11 @@ import tarfile
 import tempfile
 import urllib.request
 
+from .. import reaper
+from ..common import USER_AGENT, ask, fetch
+
 DOWNLOAD_PAGE = "https://www.reaper.fm/download.php"
 FILES_BASE = "https://www.reaper.fm/"
-UA = "reaper-update/1.0"
-CANDIDATES = ["~/opt/REAPER", "/opt/REAPER", "/usr/local/REAPER",
-              "/usr/lib/REAPER", "/usr/lib64/REAPER"]
 ARCHES = {"x86_64": "x86_64", "amd64": "x86_64", "aarch64": "aarch64",
           "arm64": "aarch64", "armv7l": "armv7l", "i686": "i686",
           "i386": "i686"}
@@ -94,44 +92,7 @@ def changes_since(rdir, old):
     return out
 
 
-# ------------------------------------------------------------- location --
-
-def find_install(explicit=None):
-    """Return the REAPER folder (the one holding the reaper binary)."""
-    if explicit:
-        d = os.path.abspath(os.path.expanduser(explicit))
-        return d if os.path.isfile(os.path.join(d, "reaper")) else None
-    exe = shutil.which("reaper")
-    if exe:
-        d = os.path.dirname(os.path.realpath(exe))
-        if os.path.isfile(os.path.join(d, "whatsnew.txt")):
-            return d
-    for c in CANDIDATES:
-        d = os.path.expanduser(c)
-        if os.path.isfile(os.path.join(d, "reaper")):
-            return d
-    return None
-
-
-def reaper_running():
-    for pid in os.listdir("/proc"):
-        if pid.isdigit():
-            try:
-                with open("/proc/%s/comm" % pid) as fh:
-                    if fh.read().strip() == "reaper":
-                        return True
-            except OSError:
-                pass
-    return False
-
-
 # ------------------------------------------------------------- download --
-
-def fetch(url, timeout=60):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
-
 
 def latest_release(arch, page=None):
     """Return (version, url) of the newest Linux tarball for arch."""
@@ -154,7 +115,7 @@ def latest_release(arch, page=None):
 
 def download(url, dest):
     print("Downloading %s" % url)
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=120) as r, \
             open(dest, "wb") as fh:
         shutil.copyfileobj(r, fh)
@@ -195,13 +156,6 @@ def install_cmd(src, rdir):
     return cmd
 
 
-def ask(question):
-    try:
-        return input(question + " [y/N] ").strip().lower() in ("y", "yes")
-    except EOFError:
-        return False
-
-
 def main(argv=None):
     ap = argparse.ArgumentParser(
         description="Update REAPER on Linux to the latest release.")
@@ -224,7 +178,7 @@ def main(argv=None):
         sys.exit("error: unknown arch %s (use --arch x86_64, aarch64, "
                  "armv7l or i686)" % (args.arch or platform.machine()))
 
-    rdir = find_install(args.dir)
+    rdir = reaper.find_install(args.dir)
     if not rdir:
         sys.exit("error: REAPER not found%s; use -d DIR"
                  % (" in %s" % args.dir if args.dir else ""))
@@ -254,7 +208,7 @@ def main(argv=None):
         print("Would run: %s" % " ".join(cmd))
         return 0
 
-    if reaper_running():
+    if reaper.running():
         sys.exit("error: REAPER is running; close it first")
     if not args.yes and not ask("Install REAPER %s into %s?" % (new, rdir)):
         print("Cancelled.")
@@ -282,7 +236,3 @@ def main(argv=None):
         print("\nWhat is new since %s:\n" % (cur or "the previous version"))
         print("\n".join(lines))
     return 0 if after == new else 1
-
-
-if __name__ == "__main__":
-    sys.exit(main())

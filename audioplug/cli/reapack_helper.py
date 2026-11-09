@@ -1,11 +1,10 @@
-#!/usr/bin/env python3
 """reapack-helper - install ReaPack and find missing Reaper JSFX.
 
 Usage:
-    reapack-helper.py install-reapack [-r DIR] [--force]
-    reapack-helper.py find  ITEM [...] [-r DIR] [--repo URL ...] [--refresh]
-                            [--add] [--download]
-    reapack-helper.py repos [-r DIR]
+    reapack-helper install-reapack [-r DIR] [--force]
+    reapack-helper find  ITEM [...] [-r DIR] [--repo URL ...] [--refresh]
+                         [--add] [--download]
+    reapack-helper repos [-r DIR]
 
 ITEM is a .RPP project, a directory with projects, or a JSFX path as Reaper
 stores it, e.g. "Saike Tools/Basics/Saike_Pitch_Shift.jsfx".
@@ -20,90 +19,40 @@ reapack.ini and any --repo URL), and looks the path up in them.
            then install the packages in Extensions > ReaPack > Browse packages.
 --download fetches the package files straight into the Effects folder, at
            the path the project expects. Works without ReaPack.
-
-Only the Python 3 standard library is used.
 """
 
 import argparse
 import configparser
-import hashlib
 import json
 import os
 import platform
 import re
 import sys
-import time
-import urllib.request
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
-import plugscan  # noqa: E402  (parse_rpp, find_projects, JSFX dirs)
+from .. import common, reaper, rpp
+from ..common import fetch, write_atomic
+from ..formats import HOME_DIRS
+from ..projects import find_projects, is_rpp
 
-DEFAULT_RESOURCE = os.path.expanduser("~/.config/REAPER")
-CACHE_DIR = os.path.join(os.environ.get("XDG_CACHE_HOME")
-                         or os.path.expanduser("~/.cache"), "reapack-helper")
-CACHE_AGE = 24 * 3600
 REPO_LIST = ("https://raw.githubusercontent.com/cfillion/reapack.com/"
              "master/config/repos.yml")
 REAPACK_API = "https://api.github.com/repos/cfillion/reapack/releases/latest"
 REAPACK_DL = ("https://github.com/cfillion/reapack/releases/latest/download/"
               "reaper_reapack-%s.so")
-UA = "reapack-helper/1.0"
-
-
-# ------------------------------------------------------------- download --
-
-def raw_url(url):
-    """github.com/U/R/raw/BRANCH/x -> raw.githubusercontent.com/U/R/BRANCH/x"""
-    m = re.match(r"https://github\.com/([^/]+)/([^/]+)/raw/(.+)$", url)
-    if m:
-        return "https://raw.githubusercontent.com/%s/%s/%s" % m.groups()
-    return url
-
-
-def fetch(url, timeout=60):
-    req = urllib.request.Request(raw_url(url), headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
 
 
 def fetch_cached(url, refresh=False):
-    os.makedirs(CACHE_DIR, exist_ok=True)
-    path = os.path.join(CACHE_DIR,
-                        hashlib.sha1(url.encode()).hexdigest() + ".xml")
-    fresh = (os.path.exists(path)
-             and time.time() - os.path.getmtime(path) < CACHE_AGE)
-    if not fresh or refresh:
-        try:
-            data = fetch(url)
-            with open(path + ".tmp", "wb") as fh:
-                fh.write(data)
-            os.replace(path + ".tmp", path)
-        except Exception:
-            if not os.path.exists(path):  # stale cache beats nothing
-                raise
-    with open(path, "rb") as fh:
-        return fh.read()
+    return common.fetch_cached(url, common.cache_dir("reapack-helper"),
+                               refresh=refresh)
 
 
 # --------------------------------------------------------------- reaper --
 
-def reaper_running():
-    for pid in os.listdir("/proc"):
-        if pid.isdigit():
-            try:
-                with open("/proc/%s/comm" % pid) as fh:
-                    if fh.read().strip() == "reaper":
-                        return True
-            except OSError:
-                pass
-    return False
-
-
 def effects_dirs(res):
     out = [os.path.join(res, "Effects")]
-    for d in plugscan.HOME_DIRS["jsfx"]:
+    for d in HOME_DIRS["jsfx"]:
         d = os.path.expanduser(d)
         if d not in out:
             out.append(d)
@@ -170,11 +119,9 @@ def cmd_install_reapack(args):
     if not data.startswith(b"\x7fELF"):
         sys.exit("download is not a Linux library: " + url)
     os.makedirs(dest_dir, exist_ok=True)
-    with open(dest + ".tmp", "wb") as fh:
-        fh.write(data)
-    os.replace(dest + ".tmp", dest)
+    write_atomic(dest, data)
     print("installed %s" % dest)
-    if reaper_running():
+    if reaper.running():
         print("REAPER is running: restart it to load ReaPack.")
     else:
         print("Start REAPER; ReaPack appears under Extensions > ReaPack.")
@@ -302,10 +249,10 @@ def wanted_jsfx(items, res):
     out, installed = [], 0
     for item in items:
         if os.path.isdir(item) or os.path.isfile(item):
-            for proj in plugscan.find_projects([item]):
-                if not proj.lower().endswith((".rpp", ".rpp-bak")):
+            for proj in find_projects([item]):
+                if not is_rpp(proj):
                     continue
-                for w in plugscan.parse_rpp(proj):
+                for w in rpp.plugins(proj):
                     if w["format"] != "jsfx":
                         continue
                     if jsfx_installed(w["name"], res):
@@ -321,7 +268,7 @@ def wanted_jsfx(items, res):
 
 def add_remotes(res, entries):
     ini_path = os.path.join(res, "reapack.ini")
-    if reaper_running():
+    if reaper.running():
         sys.exit("REAPER is running and would overwrite reapack.ini on exit. "
                  "Close it and run again with --add.")
     ini = load_ini(res)
@@ -360,9 +307,7 @@ def download(res, entry):
         dest = os.path.join(res, target)
         data = fetch(url)
         os.makedirs(os.path.dirname(dest), exist_ok=True)
-        with open(dest + ".tmp", "wb") as fh:
-            fh.write(data)
-        os.replace(dest + ".tmp", dest)
+        write_atomic(dest, data)
         print("  wrote %s" % dest)
 
 
@@ -429,7 +374,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(
         prog="reapack-helper",
         description="Install ReaPack and find missing Reaper JSFX.")
-    ap.add_argument("-r", "--resource-dir", default=DEFAULT_RESOURCE,
+    ap.add_argument("-r", "--resource-dir", default=reaper.RESOURCE_DIR,
                     help="REAPER resource folder (default: %(default)s)")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
@@ -459,7 +404,3 @@ def main(argv=None):
     args = ap.parse_args(argv)
     args.resource_dir = os.path.expanduser(args.resource_dir)
     return args.func(args) or 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

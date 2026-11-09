@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""rpp-info - see audioplug/cli/rpp_info.py and README.md."""
+import os
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, ROOT)
+from audioplug.cli.rpp_info import main  # noqa: E402
+
+sys.exit(main())

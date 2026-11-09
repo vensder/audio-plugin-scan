@@ -1,11 +1,10 @@
-#!/usr/bin/env python3
-"""plugin-summary - human-readable Markdown summary of plugscan.py results.
+"""plugin-summary - human-readable Markdown summary of plugscan results.
 
 Usage:
-    plugin-summary.py [SCAN.json ...] [-o DIR | -o -]
+    plugin-summary [SCAN.json ...] [-o DIR | -o -]
 
-Reads host files written by "plugscan.py scan" (default: every
-scan-results/*.json next to this script) and writes one Markdown file per
+Reads host files written by "plugscan scan" (default: every
+scan-results/*.json in the checkout) and writes one Markdown file per
 host (default: scan-results/<host>.md, next to its .json). "-o -" prints
 to stdout instead.
 
@@ -17,19 +16,16 @@ Sections: system plugins, plugins in the home dir, Carla, REAPER (bundled
 FX, other components, JSFX by folder) and LMMS (bundled LADSPA), as far as
 they show up in the scan. Each heading shows how many plugins it lists,
 counting a plugin once whatever formats it has.
-
-Only the Python 3 standard library is used.
 """
 
 import argparse
-import glob
 import json
 import os
 import re
 import sys
 
-RESULTS_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                           "scan-results")
+from ..common import RESULTS_DIR
+from ..hosts import all_result_files
 
 # Longest first, so "reaeq.vst.so" loses ".vst.so", not just ".so".
 _EXTS = (".vst.so", ".vst3", ".clap", ".lv2", ".so")
@@ -207,7 +203,7 @@ def summary(scan):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(
-        description="Write a Markdown summary of plugscan.py host files.")
+        description="Write a Markdown summary of plugscan host files.")
     ap.add_argument("files", nargs="*", metavar="SCAN.json",
                     help="host files (default: %s/*.json)" % RESULTS_DIR)
     ap.add_argument("-o", "--out", metavar="DIR",
@@ -215,10 +211,9 @@ def main(argv=None):
                          "'-' prints to stdout")
     args = ap.parse_args(argv)
 
-    files = args.files or sorted(glob.glob(os.path.join(RESULTS_DIR,
-                                                        "*.json")))
+    files = args.files or all_result_files()
     if not files:
-        sys.exit("no scan files found (run plugscan.py scan first)")
+        sys.exit("no scan files found (run plugscan scan first)")
     for f in files:
         try:
             with open(f, encoding="utf-8") as fh:
@@ -236,7 +231,3 @@ def main(argv=None):
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(text)
         print("wrote %s" % dest)
-
-
-if __name__ == "__main__":
-    main()
