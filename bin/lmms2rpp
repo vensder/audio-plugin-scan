@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""lmms2rpp - see audioplug/cli/lmms2rpp.py and README.md."""
+import os
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, ROOT)
+from audioplug.cli.lmms2rpp import main  # noqa: E402
+
+sys.exit(main())

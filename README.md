@@ -14,6 +14,7 @@ to install.
       reaper-update     update REAPER                     (section 7)
       rpp-info          tracks and FX chains of a project (section 8)
       lmms-info         tracks and effects of an LMMS project (section 9)
+      lmms2rpp          convert an LMMS project to REAPER (section 10)
     audioplug/        shared code (Python package)
       common.py         paths, downloads with a cache, prompts
       formats.py        formats, search folders, -f / -x filters
@@ -24,6 +25,7 @@ to install.
       rpp.py            .RPP reader: block tree, plugins, tracks, FX chains
       carla.py          plugins inside Carla racks
       lmms.py           .mmp / .mmpz reader: plugins, tracks, mixer
+      lmms2rpp.py       LMMS -> .RPP + ReaScript + steps
       projects.py       find and read projects
       cli/              one module per command in bin/
     tests/            python3 -m unittest discover -s tests
@@ -297,6 +299,45 @@ Example:
 - Mixer: the master, channels with effects and channels a track uses.
 - With -c / --host / -a: "missing", "name", "alt" or "path" after the
   state, as in plugscan check. Exit code 1 when anything is missing.
+
+## 10. Convert an LMMS project to REAPER
+
+    bin/lmms2rpp Song.mmpz                 # writes Song-reaper/ next to it
+    bin/lmms2rpp Song.mmpz -o ~/REAPER/Song
+    bin/lmms2rpp Song.mmpz -n              # only print tracks and steps
+
+Writes into the output folder:
+
+- Song.RPP: tempo and time signature, one track per LMMS track with one
+  MIDI item per pattern (notes and velocities), the pattern
+  (Beat/Bassline) editor's tracks in a "Pattern editor" folder with
+  every pattern clip of the song as MIDI items, sample tracks as audio
+  items, the mixer channels as bus tracks with sends, volume, pan, mute
+  and solo.
+- Song-plugins.lua: a ReaScript that adds the plugins. REAPER keeps a
+  binary state for each plugin, which cannot be written by hand, so the
+  plugins are added through the REAPER API instead: open Song.RPP, then
+  Actions > Show action list > New action > Load ReaScript..., choose
+  the file, Run. For each plugin it tries the original first (same VST /
+  LV2, the LV2 port of a LADSPA plugin, e.g. "Calf Reverb", "C* Plate"),
+  then a close alternative (Surge XT for LMMS synths, ZynAddSubFX,
+  Geonkick for kicker), then a stock REAPER stand-in (ReaSynth, ReaEQ,
+  ReaComp, ReaDelay, ReaVerbate, ...). AudioFileProcessor becomes
+  ReaSamplOmatic5000 with the same sample loaded. The ReaScript console
+  lists what was added. Plugins start with default settings.
+- <track>.xmz: the ZynAddSubFX sound of each Zyn track (load it in the
+  ZynAddSubFX window).
+- <track>.carxp: each Carla rack's saved state. The plugins inside the
+  rack are added to the track directly; load the .carxp into Carla-Rack
+  instead to get their settings back.
+- Song-steps.txt: the same text the command prints: the tracks with
+  "LMMS plugin => what is tried", then numbered steps for what is left:
+  LMMS-only instruments (render with File > Export Tracks... and put the
+  WAVs on the tracks), missing samples, automation (with what it
+  controls, e.g. "Mixer 1 Kick: volume"), arpeggiator, skipped effects.
+
+Not converted: automation, effect and synth settings, LMMS instrument
+envelopes / filters, tempo changes.
 
 ## How plugins are matched
 

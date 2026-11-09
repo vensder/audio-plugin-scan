@@ -24,6 +24,10 @@
             </effect>
           </fxchain>
         </instrumenttrack>
+        <pattern steps="16" len="192" name="Riff" pos="192" muted="0" type="1">
+          <note pan="0" len="48" key="57" vol="100" pos="0"/>
+          <note pan="0" len="48" key="60" vol="200" pos="48"/>
+        </pattern>
       </track>
       <track muted="1" type="0" name="Keys" solo="0">
         <instrumenttrack pan="0" fxch="0" vol="100">
@@ -84,10 +88,14 @@
                 </instrument>
                 <fxchain numofeffects="0" enabled="0"/>
               </instrumenttrack>
+              <pattern steps="16" len="192" name="Kicker" pos="0" muted="0" type="0">
+                <note pan="0" len="-192" key="57" vol="100" pos="0"/>
+                <note pan="0" len="-192" key="57" vol="100" pos="96"/>
+              </pattern>
             </track>
           </trackcontainer>
         </bbtrack>
-        <bbtco pos="0" len="192"/>
+        <bbtco pos="0" len="384"/>
       </track>
       <track muted="0" type="2" name="Vocals" solo="0">
         <sampletrack vol="100" pan="0" fxch="0">
@@ -101,9 +109,15 @@
             </effect>
           </fxchain>
         </sampletrack>
+        <sampletco pos="384" len="192" muted="0" src="vocals.wav"/>
       </track>
       <track muted="0" type="5" name="Automation track" solo="0">
         <automationtrack/>
+        <automationpattern len="192" mute="0" name="Bus volume" tens="1" pos="0" prog="0">
+          <time value="1" pos="0"/>
+          <time value="0.5" pos="96"/>
+          <object id="77"/>
+        </automationpattern>
       </track>
     </trackcontainer>
     <fxmixer width="543" x="5" y="310" maximized="0" height="333" visible="1" minimized="0">
@@ -115,7 +129,8 @@
           </effect>
         </fxchain>
       </fxchannel>
-      <fxchannel num="1" volume="1" muted="0" name="Lead bus">
+      <fxchannel num="1" muted="0" name="Lead bus">
+        <volume id="77" value="0.5" scale_type="linear"/>
         <fxchain numofeffects="0" enabled="0"/>
         <send channel="0" amount="1"/>
       </fxchannel>
