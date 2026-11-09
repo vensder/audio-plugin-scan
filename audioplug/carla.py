@@ -28,7 +28,8 @@ def plugins(data, host="Carla"):
         if fmt:
             paths[fmt] = [d for d in v.strip().split(":") if d]
     out = []
-    for block in re.findall(r"<Info>(.*?)</Info>", text, re.S):
+    for chunk in text.split("<Info>")[1:]:
+        block, _, data = chunk.partition("</Info>")
         info = {}
         for k in ("Type", "Name", "Label", "URI", "Binary"):
             m = re.search(r"<%s>(.*?)</%s>" % (k, k), block, re.S)
@@ -47,7 +48,8 @@ def plugins(data, host="Carla"):
             key = file_key(info.get("Binary") or name)
         out.append({"format": fmt, "key": key, "name": name,
                     "display": "  %s > %s: %s" % (host, info["Type"], name),
-                    "inside": host, "carla_paths": paths.get(fmt)})
+                    "inside": host, "carla_paths": paths.get(fmt),
+                    "active": "<Active>No</Active>" not in data})
     return out
 
 

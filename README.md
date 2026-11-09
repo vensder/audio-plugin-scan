@@ -13,6 +13,7 @@ to install.
       plugin-summary    Markdown summary per host         (section 6)
       reaper-update     update REAPER                     (section 7)
       rpp-info          tracks and FX chains of a project (section 8)
+      lmms-info         tracks and effects of an LMMS project (section 9)
     audioplug/        shared code (Python package)
       common.py         paths, downloads with a cache, prompts
       formats.py        formats, search folders, -f / -x filters
@@ -22,7 +23,7 @@ to install.
       reaper.py         REAPER install and reaper.ini plugin paths
       rpp.py            .RPP reader: block tree, plugins, tracks, FX chains
       carla.py          plugins inside Carla racks
-      lmms.py           .mmp / .mmpz reader
+      lmms.py           .mmp / .mmpz reader: plugins, tracks, mixer
       projects.py       find and read projects
       cli/              one module per command in bin/
     tests/            python3 -m unittest discover -s tests
@@ -253,6 +254,49 @@ Example:
 - With -c / --host / -a: "missing", "name", "alt" or "path" after the
   state, as in plugscan check (with several hosts: "ubuntu: missing").
   Exit code 1 when anything is missing.
+
+## 9. LMMS project: tracks, instruments and effects
+
+lmms-info does the same for LMMS .mmp / .mmpz projects (LMMS 1.2 and
+1.3): every track in song editor order with its instrument and effect
+chain, then the pattern (Beat/Bassline) editor's tracks and the mixer:
+
+    bin/lmms-info Song.mmpz
+    bin/lmms-info Song.mmpz -c                 # also mark plugins missing here
+    bin/lmms-info Song.mmpz --host ubuntu      # ... or on saved hosts (-a: all)
+    bin/lmms-info ~/lmms/projects              # every .mmp / .mmpz under a dir
+
+Example:
+
+    == Song.mmpz
+    LMMS 1.2.2
+    1 Lead [mixer 1]: tripleoscillator (v) -> LADSPA caps/Plate (v) -> bassbooster (-)
+    2 Keys [muted, FX off]: VST Dexed (v) -> LV2 hall (v, missing)
+    3 Pads [mixer 2, solo]: Carla Rack [Surge XT (v, path), Calf Reverb (-)] (v)
+    4 Beat/Bassline 0 [pattern]
+    5 Vocals [sample]: VST TAL-Reverb-4 (v)
+    6 Automation track [automation]
+    Pattern editor:
+    1 Kicker: kicker (v)
+    Mixer:
+    0 Master: eq (v)
+    1 Lead bus
+    2 FX 2 [muted]
+
+- (v) on, (-) off. The instrument comes first, then the effects.
+- Tags after the name: track type (pattern, sample, automation), the
+  mixer channel when it is not the master, muted, solo, and FX off (the
+  track's effect chain switch).
+- External plugins show their format: VST (VeSTige / VST effect, by file
+  name), LADSPA library/plugin, LV2 (last part of the URI). Lowercase
+  names (tripleoscillator, kicker, eq) are LMMS built-ins and are not
+  checked.
+- A Carla rack lists the plugins inside it with their own state.
+- The pattern editor's tracks are shared by all pattern tracks, so they
+  are listed once.
+- Mixer: the master, channels with effects and channels a track uses.
+- With -c / --host / -a: "missing", "name", "alt" or "path" after the
+  state, as in plugscan check. Exit code 1 when anything is missing.
 
 ## How plugins are matched
 

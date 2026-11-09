@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmms-project>
+<lmms-project version="1.0" creator="LMMS" creatorversion="1.2.2" type="song">
+  <head timesig_numerator="4" mastervol="100" timesig_denominator="4" bpm="120" masterpitch="0"/>
+  <song>
+    <trackcontainer width="600" x="5" y="5" maximized="0" height="300" visible="1" type="song" minimized="0">
+      <track muted="0" type="0" name="Lead" solo="0">
+        <instrumenttrack pan="0" fxch="1" pitchrange="1" basenote="57" vol="100">
+          <instrument name="tripleoscillator">
+            <tripleoscillator modalgo1="2"/>
+          </instrument>
+          <eldata fres="0.5"/>
+          <fxchain numofeffects="2" enabled="1">
+            <effect on="1" wet="1" name="ladspaeffect" autoquit="1" gate="0">
+              <ladspacontrols ports="4"/>
+              <key>
+                <attribute name="file" value="caps"/>
+                <attribute name="plugin" value="Plate"/>
+              </key>
+            </effect>
+            <effect on="0" wet="1" name="bassbooster" autoquit="1" gate="0">
+              <bassboostercontrols gain="1"/>
+              <key/>
+            </effect>
+          </fxchain>
+        </instrumenttrack>
+      </track>
+      <track muted="1" type="0" name="Keys" solo="0">
+        <instrumenttrack pan="0" fxch="0" vol="100">
+          <instrument name="vestige">
+            <vestige plugin="/home/me/.vst/Dexed.so" program="0"/>
+          </instrument>
+          <fxchain numofeffects="1" enabled="0">
+            <effect on="1" wet="1" name="lv2effect">
+              <lv2controls/>
+              <key>
+                <attribute name="uri" value="urn:dragonfly:hall"/>
+              </key>
+            </effect>
+          </fxchain>
+        </instrumenttrack>
+      </track>
+      <track muted="0" type="0" name="Pads" solo="1">
+        <instrumenttrack pan="0" fxch="2" vol="100">
+          <instrument name="carlarack">
+            <carlarack>
+              <CARLA-PROJECT VERSION="2.0">
+                <EngineSettings>
+                  <LV2_PATH>/home/me/.lv2:/usr/lib/lv2</LV2_PATH>
+                </EngineSettings>
+                <Plugin>
+                  <Info>
+                    <Type>LV2</Type>
+                    <Name>Surge XT</Name>
+                    <URI>https://surge-synthesizer.github.io/lv2/surge-xt</URI>
+                  </Info>
+                  <Data>
+                    <Active>Yes</Active>
+                  </Data>
+                </Plugin>
+                <Plugin>
+                  <Info>
+                    <Type>LV2</Type>
+                    <Name>Calf Reverb</Name>
+                    <URI>http://calf.sourceforge.net/plugins/Reverb</URI>
+                  </Info>
+                  <Data>
+                    <Active>No</Active>
+                  </Data>
+                </Plugin>
+              </CARLA-PROJECT>
+            </carlarack>
+          </instrument>
+          <fxchain numofeffects="0" enabled="0"/>
+        </instrumenttrack>
+      </track>
+      <track muted="0" type="1" name="Beat/Bassline 0" solo="0">
+        <bbtrack>
+          <trackcontainer type="bbtrackcontainer">
+            <track muted="0" type="0" name="Kicker" solo="0">
+              <instrumenttrack pan="0" fxch="0" vol="100">
+                <instrument name="kicker">
+                  <kicker/>
+                </instrument>
+                <fxchain numofeffects="0" enabled="0"/>
+              </instrumenttrack>
+            </track>
+          </trackcontainer>
+        </bbtrack>
+        <bbtco pos="0" len="192"/>
+      </track>
+      <track muted="0" type="2" name="Vocals" solo="0">
+        <sampletrack vol="100" pan="0" fxch="0">
+          <fxchain numofeffects="1" enabled="1">
+            <effect on="1" wet="1" name="vsteffect">
+              <vsteffectcontrols/>
+              <key>
+                <attribute name="file" value="/home/me/.vst/TAL-Reverb-4.so"/>
+                <attribute name="plugin" value="TAL-Reverb-4"/>
+              </key>
+            </effect>
+          </fxchain>
+        </sampletrack>
+      </track>
+      <track muted="0" type="5" name="Automation track" solo="0">
+        <automationtrack/>
+      </track>
+    </trackcontainer>
+    <fxmixer width="543" x="5" y="310" maximized="0" height="333" visible="1" minimized="0">
+      <fxchannel num="0" volume="1" muted="0" name="Master">
+        <fxchain numofeffects="1" enabled="1">
+          <effect on="1" wet="1" name="eq">
+            <Eq/>
+            <key/>
+          </effect>
+        </fxchain>
+      </fxchannel>
+      <fxchannel num="1" volume="1" muted="0" name="Lead bus">
+        <fxchain numofeffects="0" enabled="0"/>
+        <send channel="0" amount="1"/>
+      </fxchannel>
+      <fxchannel num="2" volume="1" muted="1" name="FX 2">
+        <fxchain numofeffects="0" enabled="0"/>
+      </fxchannel>
+      <fxchannel num="3" volume="1" muted="0" name="FX 3">
+        <fxchain numofeffects="0" enabled="0"/>
+      </fxchannel>
+    </fxmixer>
+  </song>
+</lmms-project>

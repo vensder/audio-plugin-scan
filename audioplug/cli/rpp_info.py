@@ -39,15 +39,16 @@ CELL_WORD = {"-": "missing"}
 class Report:
     """Formats FX chains; with hosts, marks plugins not installed."""
 
-    def __init__(self, hosts=None):
+    def __init__(self, hosts=None, reaper=True):
         self.hosts = hosts or []
+        self.reaper = reaper  # check REAPER's plugin paths too
         self.missing = 0
 
     def problems(self, w):
         """'missing' or 'ubuntu: missing, fedora: path'; '' if all yes."""
         out = []
         for h in self.hosts:
-            cell = h.status(w, reaper=True)
+            cell = h.status(w, reaper=self.reaper)
             if cell != "yes":
                 word = CELL_WORD.get(cell, cell)
                 out.append(word if len(self.hosts) == 1
