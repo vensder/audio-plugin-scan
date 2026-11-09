@@ -94,3 +94,14 @@ def file_key(fname):
 def norm_name(name):
     """Plugin name for loose matching: lowercase letters and digits only."""
     return re.sub(r"[^a-z0-9]+", "", name.lower())
+
+
+def short_name(disp):
+    """'VST3i: Surge XT (Surge Synth Team) (2->6ch)' -> 'Surge XT'."""
+    name = disp.split(": ", 1)[1] if ": " in disp else disp
+    while True:
+        new = re.sub(r"\s*\([^()]*\)\s*$", "", name)
+        if new == name or not new:
+            break
+        name = new
+    return name.strip()

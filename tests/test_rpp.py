@@ -74,5 +74,22 @@ class TestReport(unittest.TestCase):
         self.assertEqual(report.missing, 1)
 
 
+class TestShellIds(unittest.TestCase):
+    def test_vst_id_from_reaper_cache(self):
+        # LSP 1.2 ships one lsp-plugins.so; REAPER's cache lists the
+        # plugins in it by id, older projects name multisampler-x12.so.
+        kick = rpp.tracks(rpp.read(EXAMPLE))[1]
+        self.assertEqual(kick["fx"][0]["vst_id"], "1919247729")
+        host = Host({"host": "h", "plugins": [
+            {"format": "vst2", "name": "lsp-plugins", "file": "lsp-plugins.so",
+             "path": "/usr/lib64/vst/lsp-plugins.vst/lsp-plugins.so",
+             "vst_ids": {"1668051571": "Multi-Sampler x12 Stereo"}}]})
+        want = {"format": "vst2", "key": "multisampler-x12",
+                "name": "Multi-Sampler x12 Stereo", "vst_id": "1668051571"}
+        self.assertEqual(host.match(want), "yes")
+        want["name"] = "Something else"
+        self.assertEqual(host.match(want), "-")
+
+
 if __name__ == "__main__":
     unittest.main()

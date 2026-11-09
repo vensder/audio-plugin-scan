@@ -53,7 +53,9 @@ DEST = {".vst3": "~/.vst3", ".clap": "~/.clap", ".lv2": "~/.lv2",
         ".vst": "~/.vst"}
 
 # --------------------------------------------------------------- catalog --
-# match: regex tried against the plugin name (case-insensitive).
+# match: regex tried against the plugin name (case-insensitive);
+# vendor: optional regex tried against the vendor in the project, e.g.
+# "LSP VST" in "VSTi: Multi-Sampler x12 Stereo (LSP VST)".
 # Methods are tried in order; the first one usable on this system wins.
 # Package names are checked with dnf / apt before anything is installed.
 
@@ -103,9 +105,18 @@ CATALOG = [
                   "archive": r"^js80p-[\d_]+-avx-vst3_bundle\.zip$"}]},
     {"title": "Geonkick", "match": r"^Geonkick",
      "methods": [{"type": "pkg", "dnf": "geonkick", "apt": "geonkick"}]},
-    {"title": "LSP Plugins", "match": r"^LSP ",
+    {"title": "LSP Plugins", "match": r"^LSP ", "vendor": r"^LSP\b",
+     # One .7z with every format; needs 7z or bsdtar to unpack.
      "methods": [{"type": "pkg", "dnf": "lsp-plugins",
-                  "apt": "lsp-plugins"}]},
+                  "apt": "lsp-plugins"},
+                 {"type": "github", "repo": "lsp-plugins/lsp-plugins",
+                  "archive": r"-Linux-x86_64\.7z$"}]},
+    {"title": "Speedrum Lite", "match": r"^Speedrum",
+     "methods": [{"type": "page",
+                  "url": "https://www.apisoniclabs.com/speedrum-lite.html"}]},
+    {"title": "MT-PowerDrumKit", "match": r"^MT-?Power ?Drum",
+     "methods": [{"type": "page",
+                  "url": "https://www.powerdrumkit.com/download76187.php"}]},
     {"title": "x42 Plugins", "match": r"^x42",
      "methods": [{"type": "pkg", "dnf": "x42-plugins",
                   "apt": "x42-plugins"}]},
@@ -332,7 +343,9 @@ def resolve(want, refresh=False):
             return {"title": hit[0], "how": pm, "version": "",
                     "package": hit[0], "path": hit[1]}
     for entry in CATALOG:
-        if not re.search(entry["match"], name, re.I):
+        if not (re.search(entry["match"], name, re.I)
+                or (vendor and entry.get("vendor")
+                    and re.search(entry["vendor"], vendor, re.I))):
             continue
         notes = []
         for m in entry["methods"]:
@@ -374,12 +387,25 @@ def resolve(want, refresh=False):
 # -------------------------------------------------------------- install --
 
 def safe_extract(archive, dest):
-    """Unpack a .tar.* / .zip / .deb into dest, refusing paths outside it."""
+    """Unpack a .tar.* / .zip / .deb / .7z into dest, refusing paths
+    outside it."""
     if os.path.exists(dest):
         shutil.rmtree(dest)
     os.makedirs(dest)
     low = archive.lower()
     root = os.path.realpath(dest)
+    if low.endswith(".7z"):
+        # No 7z in the standard library: use 7z / 7za or bsdtar (both
+        # refuse paths outside dest).
+        for cmd in (["7z", "x", "-y", "-o" + dest, archive],
+                    ["7za", "x", "-y", "-o" + dest, archive],
+                    ["bsdtar", "-xf", archive, "-C", dest]):
+            if has(cmd[0]):
+                if subprocess.run(cmd, stdout=subprocess.DEVNULL).returncode:
+                    raise ValueError("%s failed on %s" % (cmd[0], archive))
+                return
+        raise ValueError("need 7z (p7zip) or bsdtar (libarchive) to unpack "
+                         + archive)
 
     def check(name):
         p = os.path.realpath(os.path.join(dest, name))
@@ -453,8 +479,8 @@ def find_bundles(top):
             ext = os.path.splitext(f)[1].lower()
             if ext == ".clap":
                 yield os.path.join(root, f), ".clap"
-            elif ext == ".so" and any(p in ("vst", "lxvst", "linux_vst")
-                                      for p in parts):
+            elif ext == ".so" and any(
+                    p in ("vst", "vst2", "lxvst", "linux_vst") for p in parts):
                 yield os.path.join(root, f), ".vst"
 
 

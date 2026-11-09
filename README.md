@@ -148,7 +148,13 @@ Sources, in the order they are tried for a plugin:
   ~/.vst.
 - Distro packages (LSP, x42, Calf, ZynAddSubFX, ...): dnf or apt, with sudo,
   only if the package exists in your repositories, and after asking.
-- Plugins that need a login (Vital, TAL, ...): the download page is printed.
+- Plugins that need a login or a form (Vital, TAL, Speedrum Lite,
+  MT-PowerDrumKit, ...): the download page is printed.
+
+LSP plugins are found by name ("LSP ...") or by the vendor in the project
+("(LSP VST)"). Without dnf / apt, the LSP GitHub release (one .7z with
+every format) is used; unpacking it needs `7z` (p7zip) or `bsdtar`
+(libarchive).
 
 After --install the machine is scanned again and each plugin is shown as ok
 or -. -y skips the sudo questions. Downloads and release info are cached in
@@ -245,6 +251,12 @@ Example:
 - LV2: by plugin URI (what Reaper stores in .RPP).
 - VST2 / VST3 / LADSPA / DSSI: by file name (e.g. Dexed.vst3, reaeq.vst.so),
   case-insensitive, ".so" ignored. Falls back to the plugin name.
+- VST2 / VST3 inside a shell library (one file with many plugins, e.g.
+  LSP 1.2's lsp-plugins.so): scan reads REAPER's plugin cache
+  (reaper-vstplugins64.ini) and records the plugin ids in each file, so a
+  project that names an old per-plugin file (multisampler-x12.so) still
+  matches by the id it stores, as in REAPER. Id and name must both match.
+  Needs a new scan on each host.
 - CLAP: by plugin name (Reaper stores the CLAP id, which a file scan cannot see).
 - JSFX: by path relative to the Effects folder.
 - LMMS: VeSTige / VST effect file, LADSPA library file, LV2 URI. Built-in

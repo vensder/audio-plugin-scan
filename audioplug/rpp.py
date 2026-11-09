@@ -21,7 +21,7 @@ the missing-plugin checks), tracks() the tracks with their FX chains.
 import re
 
 from . import carla
-from .formats import file_key
+from .formats import file_key, short_name
 
 _TOKEN = re.compile(r'"[^"]*"|\'[^\']*\'|`[^`]*`|\S+')
 
@@ -99,17 +99,6 @@ def read(path):
     return projects[0] if projects else top
 
 
-def _display_name(disp):
-    """'VST3i: Surge XT (Surge Synth Team) (2->6ch)' -> 'Surge XT'."""
-    name = disp.split(": ", 1)[1] if ": " in disp else disp
-    while True:
-        new = re.sub(r"\s*\([^()]*\)\s*$", "", name)
-        if new == name or not new:
-            break
-        name = new
-    return name.strip()
-
-
 def plugin(node):
     """Wanted-plugin dict for an FX block (VST, LV2, CLAP, JS, ...), or None.
 
@@ -142,8 +131,15 @@ def plugin(node):
         custom = toks[4]
     elif node.tag == "CLAP" and len(toks) > 3:
         custom = toks[3]
-    return {"format": fmt, "key": key, "name": _display_name(disp),
-            "display": disp, "custom": custom}
+    w = {"format": fmt, "key": key, "name": short_name(disp),
+         "display": disp, "custom": custom}
+    # VST <disp> <file> 0 <name> <id><...> or <id>{guid}: the unique id,
+    # which REAPER also uses to find a plugin inside a shell library.
+    m = re.match(r"\d+", toks[5]) if node.tag == "VST" and len(toks) > 5 \
+        else None
+    if m:
+        w["vst_id"] = m.group()
+    return w
 
 
 def carla_inside(node, w):

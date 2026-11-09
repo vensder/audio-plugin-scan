@@ -28,6 +28,11 @@ def plugin_key(rec):
     return file_key(rec["file"])
 
 
+def vst_id_key(vid, name):
+    """VST unique id plus the plugin name (ids alone can collide)."""
+    return "vstid:%s:%s" % (vid, norm_name(name))
+
+
 class Host:
     def __init__(self, data, label=None):
         self.data = data
@@ -42,6 +47,12 @@ class Host:
             self.any_names.setdefault(n, set()).add(fmt)
             self.recs.setdefault((fmt, plugin_key(rec)), []).append(rec)
             self.recs.setdefault((fmt, "name:" + n), []).append(rec)
+            # Plugins inside a VST shell library (e.g. LSP's single
+            # lsp-plugins.so), from REAPER's plugin cache at scan time.
+            for vid, vname in rec.get("vst_ids", {}).items():
+                k = vst_id_key(vid, vname)
+                self.keys.add((fmt, k))
+                self.recs.setdefault((fmt, k), []).append(rec)
 
     @classmethod
     def load(cls, path):
@@ -60,6 +71,8 @@ class Host:
         """Installed records matching a wanted plugin (key, else name)."""
         fmt, n = want["format"], norm_name(want["name"])
         return (self.recs.get((fmt, want["key"]))
+                or self.recs.get((fmt, vst_id_key(want.get("vst_id"),
+                                                  want["name"])))
                 or self.recs.get((fmt, "name:" + n)) or [])
 
     def match(self, want, reaper=False):
@@ -70,7 +83,9 @@ class Host:
         """
         fmt, n = want["format"], norm_name(want["name"])
         hit = None
-        if (fmt, want["key"]) in self.keys:
+        if (fmt, want["key"]) in self.keys or (
+                want.get("vst_id") and (fmt, vst_id_key(
+                    want["vst_id"], want["name"])) in self.keys):
             hit = "yes"
         elif n and (fmt, n) in self.names:
             # RPP stores CLAP plugin ids, which a file scan cannot see, so

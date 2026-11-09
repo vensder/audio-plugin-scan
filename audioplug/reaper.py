@@ -6,9 +6,12 @@ Plug-ins), stored in reaper.ini. A plugin can be installed and still be
 invisible to REAPER, e.g. Fedora puts VST2 in /usr/lib64/vst.
 """
 
+import glob
 import os
 import re
 import shutil
+
+from .formats import short_name
 
 # REAPER resource folder (settings, Effects, UserPlugins, reapack.ini).
 RESOURCE_DIR = os.path.expanduser("~/.config/REAPER")
@@ -145,3 +148,46 @@ def find_install(explicit=None):
         if os.path.isfile(os.path.join(d, "reaper")):
             return d
     return None
+
+
+def _cache_file_key(fname):
+    """REAPER's cache writes 'lsp-plugins.so' as 'lsp_plugins.so'."""
+    return re.sub(r"[^a-z0-9.]", "_", os.path.basename(fname).lower())
+
+
+def vst_cache(ini=None):
+    """Entries of REAPER's VST plugin cache (reaper-vstplugins64.ini and
+    the like, next to reaper.ini): [(file, id, name)], e.g.
+    ('lsp_plugins.so', '1668051571', 'Multi-Sampler x12 Stereo (LSP VST)').
+
+    The lines look like
+      reaeq.vst.so=<hash>,1919247729<...>,ReaEQ (Cockos)
+      lsp_plugins.so<1668051571=<hash>,1668051571,Multi-Sampler ... !!!VSTi
+    """
+    res = os.path.dirname(os.path.expanduser(ini or INI))
+    out = []
+    for path in sorted(glob.glob(os.path.join(res, "reaper-vstplugins*.ini"))):
+        with open(path, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                key, sep, val = line.strip().partition("=")
+                parts = val.split(",", 2)
+                if not sep or len(parts) < 3:
+                    continue
+                m = re.match(r"\d+", parts[1])
+                name = parts[2].split("!!!", 1)[0].strip()
+                if m and m.group() != "0" and name:
+                    out.append((key.split("<", 1)[0].lower(), m.group(), name))
+    return out
+
+
+def add_vst_ids(plugins, ini=None):
+    """Set rec["vst_ids"] = {id: name} on VST2 / VST3 records from REAPER's
+    cache, so plugins inside a shell library (one .so with many plugins)
+    can be matched by the id a project stores."""
+    files = {}
+    for rec in plugins:
+        if rec["format"] in ("vst2", "vst3"):
+            files.setdefault(_cache_file_key(rec["file"]), []).append(rec)
+    for fname, vid, name in vst_cache(ini):
+        for rec in files.get(fname, []):
+            rec.setdefault("vst_ids", {})[vid] = short_name(name)

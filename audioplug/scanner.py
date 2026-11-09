@@ -183,6 +183,7 @@ def scan(extra):
     plugins.sort(key=lambda r: (r["format"], r["name"].lower(), r["path"]))
     info = reaper.plugin_paths()
     reaper.mark_visible(plugins, info)
+    reaper.add_vst_ids(plugins)
     return {
         "schema": SCHEMA_VERSION,
         "host": socket.gethostname(),
