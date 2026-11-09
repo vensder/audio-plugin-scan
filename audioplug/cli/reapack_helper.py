@@ -1,7 +1,8 @@
-"""reapack-helper - install ReaPack and find missing Reaper JSFX.
+"""reapack-helper - install ReaPack / SWS and find missing Reaper JSFX.
 
 Usage:
     reapack-helper install-reapack [-r DIR] [--force]
+    reapack-helper install-sws [-r DIR] [--force]
     reapack-helper find  ITEM [...] [-r DIR] [--repo URL ...] [--refresh]
                          [--add] [--download]
     reapack-helper repos [-r DIR]
@@ -38,9 +39,6 @@ from ..projects import find_projects, is_rpp
 
 REPO_LIST = ("https://raw.githubusercontent.com/cfillion/reapack.com/"
              "master/config/repos.yml")
-REAPACK_API = "https://api.github.com/repos/cfillion/reapack/releases/latest"
-REAPACK_DL = ("https://github.com/cfillion/reapack/releases/latest/download/"
-              "reaper_reapack-%s.so")
 
 
 def fetch_cached(url, refresh=False):
@@ -87,45 +85,72 @@ def ini_remotes(ini):
 
 # ------------------------------------------------------- install-reapack --
 
-def cmd_install_reapack(args):
+def _arch():
     arch = platform.machine().lower()
-    arch = {"amd64": "x86_64", "arm64": "aarch64", "armv7": "armv7l"}.get(
+    return {"amd64": "x86_64", "arm64": "aarch64", "armv7": "armv7l"}.get(
         arch, arch)
-    fname = "reaper_reapack-%s.so" % arch
-    dest_dir = os.path.join(args.resource_dir, "UserPlugins")
-    dest = os.path.join(dest_dir, fname)
 
-    url, tag = REAPACK_DL % arch, "latest"
+
+def install_extension(res, title, repo, files, force, hint):
+    """Download REAPER extension files from the latest GitHub release.
+
+    files: [(asset name, folder in the resource dir)]; the first one is
+    the extension library (must be an ELF file), checked for --force.
+    """
+    api = "https://api.github.com/repos/%s/releases/latest" % repo
+    urls = {f: "https://github.com/%s/releases/latest/download/%s" % (repo, f)
+            for f, _ in files}
+    tag = "latest"
     try:
-        rel = json.loads(fetch(REAPACK_API))
+        rel = json.loads(fetch(api))
         tag = rel.get("tag_name", tag)
-        for a in rel.get("assets", []):
-            if a["name"] == fname:
-                url = a["browser_download_url"]
-                break
-        else:
-            sys.exit("no ReaPack build for %s in release %s" % (arch, tag))
+        assets = {a["name"]: a["browser_download_url"]
+                  for a in rel.get("assets", [])}
+        if files[0][0] not in assets:
+            sys.exit("no %s build for %s in release %s"
+                     % (title, _arch(), tag))
+        urls.update((f, assets[f]) for f, _ in files if f in assets)
     except SystemExit:
         raise
     except Exception as exc:
-        print("cannot read release info (%s), using %s" % (exc, url))
+        print("cannot read release info (%s), using %s"
+              % (exc, urls[files[0][0]]))
 
-    if os.path.exists(dest) and not args.force:
+    main = os.path.join(res, files[0][1], files[0][0])
+    if os.path.exists(main) and not force:
         print("%s already exists (use --force to replace it with %s)"
-              % (dest, tag))
+              % (main, tag))
         return 0
-    print("downloading ReaPack %s for %s" % (tag, arch))
-    data = fetch(url, timeout=120)
-    if not data.startswith(b"\x7fELF"):
-        sys.exit("download is not a Linux library: " + url)
-    os.makedirs(dest_dir, exist_ok=True)
-    write_atomic(dest, data)
-    print("installed %s" % dest)
+    print("downloading %s %s for %s" % (title, tag, _arch()))
+    for i, (fname, folder) in enumerate(files):
+        data = fetch(urls[fname], timeout=120)
+        if i == 0 and not data.startswith(b"\x7fELF"):
+            sys.exit("download is not a Linux library: " + urls[fname])
+        dest = os.path.join(res, folder, fname)
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        write_atomic(dest, data)
+        print("installed %s" % dest)
     if reaper.running():
-        print("REAPER is running: restart it to load ReaPack.")
+        print("REAPER is running: restart it to load %s." % title)
     else:
-        print("Start REAPER; ReaPack appears under Extensions > ReaPack.")
+        print("Start REAPER; %s" % hint)
     return 0
+
+
+def cmd_install_reapack(args):
+    return install_extension(
+        args.resource_dir, "ReaPack", "cfillion/reapack",
+        [("reaper_reapack-%s.so" % _arch(), "UserPlugins")], args.force,
+        "ReaPack appears under Extensions > ReaPack.")
+
+
+def cmd_install_sws(args):
+    py = "sws_python64.py" if "64" in _arch() else "sws_python32.py"
+    return install_extension(
+        args.resource_dir, "SWS", "reaper-oss/sws",
+        [("reaper_sws-%s.so" % _arch(), "UserPlugins"), (py, "Scripts")],
+        args.force, "SWS actions are under Extensions and in the Actions "
+        "list (SWS: ..., S&M: ...).")
 
 
 # ---------------------------------------------------------------- index --
@@ -383,6 +408,12 @@ def main(argv=None):
     sp.add_argument("--force", action="store_true",
                     help="replace an existing ReaPack library")
     sp.set_defaults(func=cmd_install_reapack)
+
+    sp = sub.add_parser("install-sws",
+                        help="download the SWS extension into UserPlugins")
+    sp.add_argument("--force", action="store_true",
+                    help="replace an existing SWS library (update)")
+    sp.set_defaults(func=cmd_install_sws)
 
     sp = sub.add_parser("find", help="find the ReaPack repository and "
                                      "package for missing JSFX")

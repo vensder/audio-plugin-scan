@@ -106,6 +106,9 @@ def print_project(path, report):
             print('%stake "%s": %s' % (sub, take, report.chain(chain)))
     if not tracks and not master:
         print("No tracks.")
+    ext = rpp.extensions(project)
+    if ext:
+        print("Extension data: %s" % ", ".join(sorted(ext)))
 
 
 def main(argv=None):

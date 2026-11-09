@@ -22,6 +22,7 @@ import re
 
 from . import carla
 from .formats import file_key, short_name
+from .reaper import EXTENSION_TOKENS
 
 _TOKEN = re.compile(r'"[^"]*"|\'[^\']*\'|`[^`]*`|\S+')
 
@@ -148,6 +149,18 @@ def carla_inside(node, w):
             w["name"] + " " + " ".join(node.args[1:2])).lower():
         return []
     return carla.plugins(carla.b64_lines(node.lines()), w["name"])
+
+
+def extensions(project):
+    """Extensions whose data is in the project, e.g. {'SWS'} for the
+    SWSAUTOCOLOR / <S&M_... entries REAPER reports when SWS is missing."""
+    out = set()
+    for n in project.walk():
+        words = [n.tag] + [s.split(" ", 1)[0] for s in n.lines()]
+        for name, prefixes in EXTENSION_TOKENS.items():
+            if any(w.startswith(prefixes) for w in words):
+                out.add(name)
+    return out
 
 
 def plugins(path):

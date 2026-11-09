@@ -19,7 +19,7 @@ import os
 import signal
 import sys
 
-from .. import reaper
+from .. import reaper, rpp
 from ..common import RESULTS_DIR
 from ..formats import FORMAT_DIRS, add_format_args, format_filter
 from ..hosts import (LEGEND, Host, add_host_args, all_result_files,
@@ -225,6 +225,8 @@ def cmd_check(args):
                       {plugin_folder(w["format"], p) for w, p in items})))
             print("  or symlink the plugin into a folder from that list, "
                   "e.g. ~/.lv2.")
+        if is_rpp(proj):
+            print_extensions(proj, hosts)
         if "lmms" in unchecked:
             print("LMMS built-ins (not checked): "
                   + ", ".join(sorted(unchecked["lmms"])))
@@ -235,6 +237,23 @@ def cmd_check(args):
         print("%d plugin(s) are missing or uncertain on at least one host."
               % total_missing)
     return 1 if total_missing else 0
+
+
+def print_extensions(proj, hosts):
+    """Extensions (SWS) the project has data for, per host."""
+    for name in sorted(rpp.extensions(rpp.read(proj))):
+        cells = []
+        for h in hosts:
+            have = h.data.get("reaper_extensions")
+            cells.append("%s: %s" % (h.label, "?" if have is None else
+                                     "yes" if reaper.has_extension(have, name)
+                                     else "-"))
+        print("Extension %s: %s" % (name, ", ".join(cells)))
+        if any(c.endswith(": ?") for c in cells):
+            print("  (? = host file has no extension list: scan it again)")
+        if any(c.endswith(": -") for c in cells):
+            print("  Install it with: bin/reapack-helper install-%s"
+                  % name.lower())
 
 
 def main(argv=None):

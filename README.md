@@ -104,6 +104,7 @@ reapack-helper installs ReaPack and finds
 which ReaPack repository provides each missing JSFX in a project.
 
     bin/reapack-helper install-reapack            # ReaPack .so into ~/.config/REAPER/UserPlugins
+    bin/reapack-helper install-sws                # SWS extension (UserPlugins, Scripts); --force updates
     bin/reapack-helper find Song.RPP              # which repo/package has each missing JSFX
     bin/reapack-helper find Song.RPP --add        # add those repos to reapack.ini (REAPER closed)
     bin/reapack-helper find Song.RPP --download   # or fetch the files into Effects right away
@@ -120,6 +121,13 @@ non-default REAPER resource folder (e.g. a portable install).
 After --add: start REAPER, Extensions > ReaPack > Synchronize packages, then
 Browse packages and install the listed packages, so ReaPack keeps them
 updated. --download needs no ReaPack, but the files are not tracked by it.
+
+install-sws downloads the latest SWS/S&M release from GitHub
+(reaper-oss/sws): reaper_sws-<arch>.so into UserPlugins and
+sws_python64.py into Scripts. plugscan check shows "Extension SWS: ..."
+when a project holds SWS data (e.g. SWSAUTOCOLOR) and whether each host
+has it (host files from an older scan show "?"); rpp-info prints
+"Extension data: SWS".
 
 ## 5. Missing VST / VST3 / CLAP / LV2: plugin helper
 

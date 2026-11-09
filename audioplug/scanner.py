@@ -193,5 +193,6 @@ def scan(extra):
             timespec="seconds"),
         "search_dirs": dirs_used,
         "reaper": info,
+        "reaper_extensions": reaper.extensions(),
         "plugins": plugins,
     }

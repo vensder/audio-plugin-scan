@@ -191,3 +191,20 @@ def add_vst_ids(plugins, ini=None):
     for fname, vid, name in vst_cache(ini):
         for rec in files.get(fname, []):
             rec.setdefault("vst_ids", {})[vid] = short_name(name)
+
+
+# Project lines / blocks written by an extension, by name prefix.
+EXTENSION_TOKENS = {"SWS": ("SWS", "S&M")}
+
+
+def extensions(res=None):
+    """Extension libraries in UserPlugins, e.g. ['reaper_sws-x86_64.so']."""
+    d = os.path.join(res or RESOURCE_DIR, "UserPlugins")
+    return sorted(os.path.basename(p)
+                  for p in glob.glob(os.path.join(d, "reaper_*.so")))
+
+
+def has_extension(installed, name):
+    """True if the list from extensions() holds name ('SWS' -> reaper_sws)."""
+    pre = "reaper_%s" % name.lower()
+    return any(f.lower().startswith(pre) for f in installed)
