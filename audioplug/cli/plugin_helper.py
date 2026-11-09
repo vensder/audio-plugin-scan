@@ -96,6 +96,11 @@ CATALOG = [
      "methods": [{"type": "github",
                   "repo": "surge-synthesizer/monique-monosynth",
                   "archive": r"Linux\.zip$"}]},
+    {"title": "JS80P", "match": r"^JS80P",
+     # The VST3 bundle (js80p.vst3 folder, copied to ~/.vst3). AVX build;
+     # on old CPUs use the sse2 zip from the release page instead.
+     "methods": [{"type": "github", "repo": "attilammagyar/js80p",
+                  "archive": r"^js80p-[\d_]+-avx-vst3_bundle\.zip$"}]},
     {"title": "Geonkick", "match": r"^Geonkick",
      "methods": [{"type": "pkg", "dnf": "geonkick", "apt": "geonkick"}]},
     {"title": "LSP Plugins", "match": r"^LSP ",
