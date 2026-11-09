@@ -2,7 +2,7 @@
 
 - OS: Slackware 15.0 x86_64 (post 15.0 -current)
 - User: vensder
-- Scanned: 2026-11-09T11:30:25+13:00
+- Scanned: 2026-11-09T13:18:17+13:00
 - Plugin files/entries: 1112 (clap 6, dssi 6, jsfx 489, ladspa 124, lv2 414, vst2 66, vst3 7)
 
 ## System plugins (59)
