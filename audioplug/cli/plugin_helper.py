@@ -113,7 +113,7 @@ CATALOG = [
                   "archive": r"-Linux-x86_64\.7z$"}]},
     {"title": "Speedrum Lite", "match": r"^Speedrum",
      "methods": [{"type": "page",
-                  "url": "https://www.apisoniclabs.com/speedrum-lite.html"}]},
+                  "url": "https://www.apisonic-audio.com/freeware.html"}]},
     {"title": "MT-PowerDrumKit", "match": r"^MT-?Power ?Drum",
      "methods": [{"type": "page",
                   "url": "https://www.powerdrumkit.com/download76187.php"}]},
