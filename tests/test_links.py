@@ -76,6 +76,39 @@ class TestLinks(unittest.TestCase):
         st, _ = self.states("vst2")
         self.assertEqual(st["reaeq.so"], "linked")
 
+    def test_copy_versions_and_by_name(self):
+        def vst3(top, ver):
+            touch(os.path.join(top, "Dexed.vst3", "Contents",
+                               "moduleinfo.json"))
+            with open(os.path.join(top, "Dexed.vst3", "Contents",
+                                   "moduleinfo.json"), "w") as fh:
+                fh.write('{"Name": "Dexed", "Version": "%s",}' % ver)
+        vst3(os.path.join(self.lib, "vst3"), "1.0.1")
+        vst3(os.path.join(self.home, ".vst3"), "0.9.6")
+        touch(os.path.join(self.home, ".clap", "dexed.clap"))
+        res = {f: links.check(f, self.roots) for f in ("vst3", "clap", "lv2")}
+        _, name, state, hp = res["vst3"]["system"][0]
+        self.assertEqual((name, state), ("Dexed.vst3", "copy"))
+        self.assertEqual(links.compare_copy(
+            "vst3", os.path.join(self.lib, "vst3", "Dexed.vst3"), hp),
+            "home 0.9.6, system 1.0.1")
+        self.assertEqual([os.path.basename(p)
+                          for p in res["clap"]["home_only"]], ["dexed.clap"])
+        groups = dict(links.by_name(res))
+        self.assertEqual([(i[0], i[1], i[2]) for i in groups["Dexed"]],
+                         [("vst3", "system", "copy"), ("clap", "home", "home")])
+        self.assertEqual([i[2] for i in groups["yoshimi"]], ["copy"])
+        self.assertNotIn("calf", groups)
+
+    def test_copy_other_case(self):
+        x42 = os.path.join(self.home, ".lv2", "X42.lv2")
+        touch(os.path.join(x42, "manifest.ttl"))
+        st, res = self.states("lv2")
+        self.assertEqual(st["x42.lv2"], "copy")
+        self.assertEqual(res["home_only"], [])
+        self.assertTrue(links.same_files(
+            os.path.join(self.lib, "lv2", "x42.lv2"), x42))
+
     def test_home_dir_is_link(self):
         os.symlink(os.path.join(self.lib, "vst"),
                    os.path.join(self.home, ".vst"))

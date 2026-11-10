@@ -276,10 +276,11 @@ LINK_STATE = {
 def cmd_links(args):
     want = format_filter(args)
     made = 0
+    results = {}
     for fmt in links.FORMATS:
         if not want(fmt):
             continue
-        res = links.check(fmt)
+        res = results[fmt] = links.check(fmt)
         rows, broken, elsewhere = res["system"], res["broken"], res["elsewhere"]
         if not (rows or broken or elsewhere):
             continue
@@ -297,7 +298,8 @@ def cmd_links(args):
             elif state == "dirlink":
                 note = "%s is a link to %s" % (tilde(where), sd)
             elif state == "copy":
-                note = "%s is a real copy, not a link" % tilde(where)
+                note = "%s is a real copy (%s)" % (
+                    tilde(where), links.compare_copy(fmt, path, where))
             elif state == "other":
                 note = "%s -> %s" % (tilde(where), os.readlink(where))
             elif args.link:
@@ -320,6 +322,29 @@ def cmd_links(args):
         print("  %d in system folders: %s" % (len(rows), ", ".join(
             "%d %s" % (n, label) for label, n in parts if n)))
         print()
+
+    groups = links.by_name(results)
+    if args.missing:
+        groups = [g for g in groups
+                  if any(i[2] in ("missing", "copy", "other") for i in g[1])]
+    if groups:
+        print("By name (more than one format, or a copy in home and system)")
+        width = min(30, max(len(g[0]) for g in groups))
+        for disp, items in groups:
+            cells = []
+            for fmt, where, state, sp, hp in items:
+                if where == "home":
+                    cells.append("%s home" % fmt)
+                elif state == "copy":
+                    cells.append("%s system + home copy (%s)" % (
+                        fmt, links.compare_copy(fmt, sp, hp)))
+                else:
+                    cells.append("%s system %s" % (fmt, {
+                        "linked": "linked", "dirlink": "linked",
+                        "other": "other link", "missing": "-"}[state]))
+            print("  %-*s %s" % (width, disp, ", ".join(cells)))
+        print()
+
     if args.link:
         print("%s %d link(s)" % ("Would create" if args.dry_run else "Created",
                                  made))

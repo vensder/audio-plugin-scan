@@ -362,7 +362,7 @@ system folders (`/usr/lib*/<fmt>`, `/usr/local/lib*/<fmt>`, `/opt/lib*`,
     LV2  (home: ~/.lv2)
       linked  /usr/lib64/lv2/calf.lv2     ~/.lv2/calf.lv2
       -       /usr/lib64/lv2/x42.lv2
-      copy    /usr/lib64/lv2/yoshimi.lv2  ~/.lv2/yoshimi.lv2 is a real copy, not a link
+      copy    /usr/lib64/lv2/yoshimi.lv2  ~/.lv2/yoshimi.lv2 is a real copy (same files)
       other   /usr/lib64/lv2/zyn.lv2      ~/.lv2/zyn.lv2 -> /usr/lib/lv2/zyn.lv2
       broken  ~/.lv2/old.lv2              -> /usr/lib/lv2/old.lv2
       home    ~/.lv2/my.lv2               -> /home/me/src/my.lv2/build
@@ -376,6 +376,21 @@ link whose target is gone, home = a home link to a place outside the
 system folders (hidden with --missing). VST2 links go to `~/.vst`.
 --link only adds links for "-" lines; it never replaces or removes
 anything.
+
+A copy is also found when the home name differs only in case or
+punctuation (`~/.lv2/X42.lv2`). For each copy it says "same files", the
+two versions (VST3 moduleinfo.json, LV2 Turtle), e.g. "home 0.9.6, system
+1.0.1", or "different files".
+
+At the end, plugins are grouped by name (file name without .vst3, .lv2,
+.clap, .vst, .so; case and punctuation ignored), for names found in more
+than one format or with a copy in both home and system. Real plugins
+that are only in home are included here as "home":
+
+    By name (more than one format, or a copy in home and system)
+      Dexed       vst3 system + home copy (home 0.9.6, system 1.0.1), clap home
+      lsp-plugins vst2 system -, vst3 system -, lv2 system linked
+      Surge XT    vst3 system -, clap system -
 
 ## How plugins are matched
 

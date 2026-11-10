@@ -5,11 +5,13 @@ Carla racks saved with another distro's paths), so a plugin installed in
 /usr/lib64/lv2 can be "missing" there until ~/.lv2 has a link to it.
 """
 
+import filecmp
 import glob
 import os
 
-from .formats import FORMAT_DIRS, HOME_DIRS, LIB_ROOTS
-from .scanner import scan_dir
+from .formats import FORMAT_DIRS, HOME_DIRS, LIB_ROOTS, norm_name
+from .lv2 import scan_lv2_bundle
+from .scanner import _vst3_version, scan_dir
 
 # Formats with separate system and home folders (JSFX has neither).
 FORMATS = [f for f in FORMAT_DIRS if FORMAT_DIRS[f]]
@@ -47,6 +49,62 @@ def is_plugin(fmt, path):
     return os.path.isdir(path) and bool(scan_dir(fmt, path))
 
 
+def stem(name):
+    """'Dexed.vst3' -> 'Dexed', 'carla.vst' -> 'carla', 'x.so' -> 'x'."""
+    for ext in (".vst3", ".lv2", ".clap", ".vst", ".so"):
+        if name.lower().endswith(ext):
+            return name[: -len(ext)]
+    return name
+
+
+def name_key(name):
+    """Group key for one entry: 'Surge XT.vst3' and 'surge-xt.clap' match."""
+    return norm_name(stem(name))
+
+
+def version(fmt, path):
+    """Version from a VST3 moduleinfo.json or LV2 Turtle, else None."""
+    try:
+        if fmt == "vst3" and os.path.isdir(path):
+            return _vst3_version(path)[1]
+        if fmt == "lv2" and os.path.isdir(path):
+            for rec in scan_lv2_bundle(path):
+                if rec.get("version"):
+                    return rec["version"]
+    except (OSError, ValueError):
+        pass
+    return None
+
+
+def same_files(a, b):
+    """True if a and b (files or folders) hold the same file contents."""
+    if os.path.isfile(a) or os.path.isfile(b):
+        return (os.path.isfile(a) and os.path.isfile(b)
+                and filecmp.cmp(a, b, shallow=False))
+
+    def files(top):
+        out = set()
+        for root, _, names in os.walk(top):
+            for n in names:
+                out.add(os.path.relpath(os.path.join(root, n), top))
+        return out
+    fa, fb = files(a), files(b)
+    if fa != fb:
+        return False
+    return all(filecmp.cmp(os.path.join(a, f), os.path.join(b, f),
+                           shallow=False) for f in fa)
+
+
+def compare_copy(fmt, sys_path, home_path):
+    """'same files', 'home 0.9.6, system 1.0.1' or 'different files'."""
+    if same_files(sys_path, home_path):
+        return "same files"
+    hv, sv = version(fmt, home_path), version(fmt, sys_path)
+    if hv or sv:
+        return "home %s, system %s" % (hv or "?", sv or "?")
+    return "different files"
+
+
 def _entries(d):
     try:
         return sorted(os.listdir(d), key=str.lower)
@@ -61,10 +119,12 @@ def check(fmt, roots=None):
              linked  - a home symlink points to it (home_path)
              dirlink - the home folder itself links to sys_dir
              copy    - home has a real file/folder with the same name
+                       (or the same name in other case / spelling)
              other   - home has a symlink with this name to somewhere else
              missing - nothing in home
     broken:  [(home_path, target)] home symlinks whose target is gone
     elsewhere: [(home_path, target)] home symlinks to non-system places
+    home_only: [home_path] real plugins in home with no system copy
     """
     sdirs = system_dirs(fmt, roots)
     sys_real = [os.path.realpath(d) for d in sdirs]
@@ -73,12 +133,15 @@ def check(fmt, roots=None):
     # Home symlinks by the real path they resolve to.
     links_to = {}
     broken, elsewhere = [], []
+    home_real = {}  # name_key -> real (not symlinked) plugin in home
     for hd in hdirs:
         if os.path.islink(hd):
             continue  # whole folder is a link; handled as dirlink
         for name in _entries(hd):
             p = os.path.join(hd, name)
             if not os.path.islink(p):
+                if not name.startswith(".") and is_plugin(fmt, p):
+                    home_real.setdefault(name_key(name), p)
                 continue
             target = os.readlink(p)
             if not os.path.exists(p):
@@ -92,7 +155,7 @@ def check(fmt, roots=None):
 
     dir_linked = {os.path.realpath(hd) for hd in hdirs}
 
-    rows = []
+    rows, matched = [], set()
     for sd, sreal in zip(sdirs, sys_real):
         for name in _entries(sd):
             p = os.path.join(sd, name)
@@ -113,8 +176,45 @@ def check(fmt, roots=None):
                     where = hp
                     state = "other" if os.path.islink(hp) else "copy"
                     break
+            if state == "missing" and name_key(name) in home_real:
+                state, where = "copy", home_real[name_key(name)]
+            if state == "copy":
+                matched.add(where)
             rows.append((sd, name, state, where))
-    return {"system": rows, "broken": broken, "elsewhere": elsewhere}
+    home_only = sorted((p for p in home_real.values() if p not in matched),
+                       key=lambda p: os.path.basename(p).lower())
+    return {"system": rows, "broken": broken, "elsewhere": elsewhere,
+            "home_only": home_only}
+
+
+def by_name(results):
+    """Group system and home plugins of all formats by name.
+
+    results: {fmt: check(fmt)}. Returns [(display name, [(fmt, where,
+    state, sys_path, home_path)])] for names found in more than one
+    format or with a real copy in both home and system; where is
+    "system" or "home".
+    """
+    groups = {}
+    for fmt, res in results.items():
+        for sd, name, state, hp in res["system"]:
+            groups.setdefault(name_key(name), []).append(
+                (fmt, "system", state, os.path.join(sd, name), hp))
+        for hp in res["home_only"]:
+            groups.setdefault(name_key(os.path.basename(hp)), []).append(
+                (fmt, "home", "home", None, hp))
+    out = []
+    for key, items in groups.items():
+        fmts = {i[0] for i in items}
+        if len(fmts) < 2 and not any(i[2] == "copy" for i in items):
+            continue
+        first = next((i for i in items if i[1] == "system"), items[0])
+        disp = stem(os.path.basename(first[3] or first[4]))
+        order = list(FORMAT_DIRS)
+        items.sort(key=lambda i: (order.index(i[0]), i[1] != "system"))
+        out.append((disp, items))
+    out.sort(key=lambda g: g[0].lower())
+    return out
 
 
 def make_link(fmt, sys_path, dry_run=False):
