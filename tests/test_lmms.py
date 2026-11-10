@@ -98,7 +98,7 @@ class TestLmmsInfo(unittest.TestCase):
                       "LV2 hall (v, missing)", text)
         self.assertIn("Carla Rack [Surge XT (v, missing), "
                       "Calf Reverb (-, missing)] (v)", text)
-        self.assertIn("1 Kicker: kicker (v)", text)
+        self.assertIn("1 Kicker [mixer 1]: kicker (v)", text)
         self.assertNotIn("FX 3", text)  # unused, no effects
 
 

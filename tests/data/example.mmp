@@ -82,7 +82,7 @@
         <bbtrack>
           <trackcontainer type="bbtrackcontainer">
             <track muted="0" type="0" name="Kicker" solo="0">
-              <instrumenttrack pan="0" fxch="0" vol="100">
+              <instrumenttrack pan="0" fxch="1" vol="100">
                 <instrument name="kicker">
                   <kicker/>
                 </instrument>
@@ -134,8 +134,13 @@
         <fxchain numofeffects="0" enabled="0"/>
         <send channel="0" amount="1"/>
       </fxchannel>
-      <fxchannel num="2" volume="1" muted="1" name="FX 2">
-        <fxchain numofeffects="0" enabled="0"/>
+      <fxchannel num="2" volume="0.5" muted="1" name="FX 2">
+        <fxchain numofeffects="1" enabled="1">
+          <effect on="1" wet="1" name="delay">
+            <delaycontrols/>
+            <key/>
+          </effect>
+        </fxchain>
       </fxchannel>
       <fxchannel num="3" volume="1" muted="0" name="FX 3">
         <fxchain numofeffects="0" enabled="0"/>

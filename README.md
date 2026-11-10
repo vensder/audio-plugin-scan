@@ -312,8 +312,11 @@ Writes into the output folder:
   MIDI item per pattern (notes and velocities), the pattern
   (Beat/Bassline) editor's tracks in a "Pattern editor" folder with
   every pattern clip of the song as MIDI items, sample tracks as audio
-  items, the mixer channels as bus tracks with sends, volume, pan, mute
-  and solo.
+  items, volume, pan, mute and solo. A mixer channel used by one track
+  only is merged into that track: its effects come after the track's
+  own and its volume and sends move to the track ("+ mixer 2" in the
+  listing). Channels shared by several tracks become bus tracks with
+  sends.
 - Song-plugins.lua: a ReaScript that adds the plugins. REAPER keeps a
   binary state for each plugin, which cannot be written by hand, so the
   plugins are added through the REAPER API instead: open Song.RPP, then

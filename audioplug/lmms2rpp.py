@@ -8,8 +8,9 @@ What is converted into the .RPP:
     with one track per pattern-editor track; every pattern clip in the
     song becomes MIDI items there (looped like LMMS does)
   - sample tracks -> audio items (when the sample file is found)
-  - mixer channels -> bus tracks with sends, the master channel's
-    effects go to the REAPER master
+  - mixer channels -> bus tracks with sends; a channel used by one
+    track only is merged into that track (its effects after the track's
+    own); the master channel's effects go to the REAPER master
   - track volume, pan, mute and solo
 
 Plugins are not written into the .RPP (REAPER keeps a binary state per
@@ -211,6 +212,7 @@ class Track:
         self.muted = self.solo = False
         self.folder = 0           # 1 opens a folder, -1 closes one
         self.mixer = 0            # LMMS mixer channel the track goes to
+        self.merged = None        # that channel, when merged into the track
         self.main_send = True
         self.receives = []        # (source track index, volume)
         self.items = []
@@ -627,6 +629,32 @@ class Converter:
             used.add(ch)
             if ch in chans:
                 todo += [d for d, _ in sends(chans[ch])]
+        # A channel fed by one track only (the usual "one mixer channel
+        # per instrument") is merged into that track: its effects go
+        # after the track's own, its volume, mute and sends move to the
+        # track. Channels shared by several tracks (or fed by other
+        # channels) stay bus tracks.
+        feeders = {}
+        for tr in self.tracks:
+            if tr.mixer in used:
+                feeders.setdefault(tr.mixer, []).append(tr)
+        fed_by_chan = {d for ch in used if ch in chans
+                       for d, _ in sends(chans[ch])}
+        route = {}                # track -> [(LMMS channel, amount)]
+        for ch in sorted(used):
+            trs = feeders.get(ch, [])
+            if len(trs) != 1 or ch in fed_by_chan:
+                continue
+            tr, c = trs[0], chans.get(ch)
+            used.discard(ch)
+            tr.merged = ch
+            if c is None:
+                continue
+            tr.vol *= num(c, "volume", 1.0)
+            tr.muted = tr.muted or c.get("muted", "0") == "1"
+            tr.solo = tr.solo or c.get("soloed", c.get("solo", "0")) == "1"
+            tr.fx += self.chain(c, tr.name)
+            route[tr] = sends(c)
         index = {}
         n = 10000
         for ch in sorted(used):
@@ -640,16 +668,17 @@ class Converter:
                 bus.muted = c.get("muted", "0") == "1"
                 bus.solo = c.get("soloed", c.get("solo", "0")) == "1"
                 bus.fx = self.chain(c, bus.name)
+                route[bus] = sends(c)
             index[ch] = len(self.tracks)
             self.tracks.append(bus)
         for i, tr in enumerate(self.tracks):
-            if tr.mixer in index:
-                tr.main_send = False
-                self.tracks[index[tr.mixer]].receives.append((i, 1.0))
-        for ch, i in index.items():
-            c = chans.get(ch)
-            out = sends(c) if c is not None else [(0, 1.0)]
-            self.tracks[i].main_send = any(d == 0 for d, _ in out)
+            if tr in route:
+                out = route[tr]
+            elif tr.mixer in index:
+                out = [(tr.mixer, 1.0)]
+            else:
+                continue
+            tr.main_send = any(d == 0 or d not in index for d, _ in out)
             for d, amount in out:
                 if d in index:
                     self.tracks[index[d]].receives.append((i, amount))
@@ -873,13 +902,17 @@ def guide(c, rpp_path, lua_path):
     L.append("%s BPM, %d/%d, %d REAPER tracks" % (fmt(c.bpm), c.num, c.den,
                                                    len(c.tracks)))
     L.append("")
-    L.append("Tracks (LMMS plugin => plugins the script tries, in order; "
-             "the last ones are stock REAPER stand-ins):")
+    L.append("Tracks (LMMS plugin => what the script tries, in order, "
+             "stock REAPER stand-ins last;")
+    L.append("+ mixer N: the track had that mixer channel to itself, so "
+             "the channel's effects and volume are on the track):")
     width = len(str(len(c.tracks)))
     depth = 0
     for i, tr in enumerate(c.tracks, 1):
         tags = []
-        if tr.mixer:
+        if tr.merged:
+            tags.append("+ mixer %d" % tr.merged)
+        elif tr.mixer:
             tags.append("-> mixer %d" % tr.mixer)
         if tr.muted:
             tags.append("muted")

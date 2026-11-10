@@ -31,7 +31,7 @@ class TestConvert(unittest.TestCase):
     def test_tracks(self):
         self.assertEqual([t.name for t in self.c.tracks],
                          ["Lead", "Keys", "Pads", "Vocals", "Pattern editor",
-                          "Kicker", "Mixer 1: Lead bus", "Mixer 2: FX 2"])
+                          "Kicker", "Mixer 1: Lead bus"])
         self.assertEqual(self.by_name["Pattern editor"].folder, 1)
         self.assertEqual(self.by_name["Kicker"].folder, -1)
         self.assertTrue(self.by_name["Keys"].muted)
@@ -57,9 +57,17 @@ class TestConvert(unittest.TestCase):
         lead = self.by_name["Lead"]
         bus = self.by_name["Mixer 1: Lead bus"]
         self.assertFalse(lead.main_send)
-        self.assertEqual(bus.receives, [(0, 1.0)])
+        # Lead and Kicker share mixer 1: it stays a bus track.
+        self.assertEqual(bus.receives, [(0, 1.0), (5, 1.0)])
         self.assertEqual(bus.vol, 0.5)
         self.assertTrue(bus.main_send)
+        # Only Pads uses mixer 2: merged into the track.
+        pads = self.by_name["Pads"]
+        self.assertEqual(pads.merged, 2)
+        self.assertTrue(pads.main_send)
+        self.assertTrue(pads.muted)
+        self.assertEqual(pads.vol, 0.5)
+        self.assertEqual([f.label for f in pads.fx][-1], "delay")
         self.assertEqual([f.label for f in self.c.master_fx], ["eq"])
 
     def test_plugins(self):
@@ -72,7 +80,8 @@ class TestConvert(unittest.TestCase):
                           ("bassbooster", [], ["ReaEQ"], False)])
         pads = self.by_name["Pads"].fx
         self.assertEqual([(f.names, f.on) for f in pads],
-                         [(["Surge XT"], True), (["Calf Reverb"], False)])
+                         [(["Surge XT"], True), (["Calf Reverb"], False),
+                          ([], True)])
         self.assertEqual(self.c.notes["carla"][0][:2], ("Pads", "Carla-Rack"))
 
     def test_guide(self):
