@@ -7,7 +7,7 @@ to install.
 ## Layout
 
     bin/              the commands (run them from the checkout)
-      plugscan          scan / compare / check            (section 1-3)
+      plugscan          scan / compare / check / links    (section 1-3, 11)
       reapack-helper    missing JSFX via ReaPack          (section 4)
       plugin-helper     missing VST / CLAP / LV2          (section 5)
       plugin-summary    Markdown summary per host         (section 6)
@@ -27,6 +27,7 @@ to install.
       lmms.py           .mmp / .mmpz reader: plugins, tracks, mixer
       lmms2rpp.py       LMMS -> .RPP + ReaScript + steps
       projects.py       find and read projects
+      links.py          system plugins and their links in ~/.lv2 etc.
       cli/              one module per command in bin/
     tests/            python3 -m unittest discover -s tests
     scan-results/     host files (<hostname>.json) and summaries (.md)
@@ -341,6 +342,40 @@ Writes into the output folder:
 
 Not converted: automation, effect and synth settings, LMMS instrument
 envelopes / filters, tempo changes.
+
+## 11. System plugins linked from home folders
+
+Some hosts only look in the home folders: LMMS's Carla (LV2 only in
+`~/.lv2`, `/usr/lib/lv2`, `/usr/local/lib/lv2`), Flatpak DAWs, or a Carla
+rack saved on Ubuntu and opened on Fedora (`/usr/lib64/lv2` not in its
+paths). A link in the home folder makes a system plugin visible there.
+
+    bin/plugscan links                  # every system plugin, linked or not
+    bin/plugscan links --missing        # only the ones without a home link
+    bin/plugscan links -f lv2 --link -n # show the links it would create
+    bin/plugscan links -f lv2 --link    # create them, e.g. ~/.lv2/x42.lv2
+
+For VST2, VST3, LV2, CLAP, LADSPA and DSSI, each top-level entry of the
+system folders (`/usr/lib*/<fmt>`, `/usr/local/lib*/<fmt>`, `/opt/lib*`,
+`/usr/lib/<arch>-linux-gnu/<fmt>`) gets one line:
+
+    LV2  (home: ~/.lv2)
+      linked  /usr/lib64/lv2/calf.lv2     ~/.lv2/calf.lv2
+      -       /usr/lib64/lv2/x42.lv2
+      copy    /usr/lib64/lv2/yoshimi.lv2  ~/.lv2/yoshimi.lv2 is a real copy, not a link
+      other   /usr/lib64/lv2/zyn.lv2      ~/.lv2/zyn.lv2 -> /usr/lib/lv2/zyn.lv2
+      broken  ~/.lv2/old.lv2              -> /usr/lib/lv2/old.lv2
+      home    ~/.lv2/my.lv2               -> /home/me/src/my.lv2/build
+      5 in system folders: 1 linked, 1 not linked, 1 copy in home, 1 other link, 1 broken link
+
+linked = a home symlink points to it (or the home folder itself is a link
+to the system folder), - = no link, copy = a real file or folder with the
+same name in home (it may be an older version that hides the system one),
+other = a home link with this name points somewhere else, broken = a home
+link whose target is gone, home = a home link to a place outside the
+system folders (hidden with --missing). VST2 links go to `~/.vst`.
+--link only adds links for "-" lines; it never replaces or removes
+anything.
 
 ## How plugins are matched
 

@@ -5,6 +5,7 @@ Usage:
     plugscan compare [HOST ...] [--all] [-f FORMATS] [-x FORMATS]
     plugscan check   PROJECT|DIR [...] [--host HOST ... | -a] [--missing]
                      [-f FORMATS] [-x FORMATS]
+    plugscan links   [--missing] [--link [-n]] [-f FORMATS] [-x FORMATS]
 
 Writes a JSON file (default: scan-results/<hostname>.json in the
 checkout) listing every VST2, VST3, LV2, CLAP, LADSPA, DSSI and JSFX
@@ -19,7 +20,7 @@ import os
 import signal
 import sys
 
-from .. import reaper, rpp
+from .. import links, reaper, rpp
 from ..common import RESULTS_DIR
 from ..formats import FORMAT_DIRS, add_format_args, format_filter
 from ..hosts import (LEGEND, Host, add_host_args, all_result_files,
@@ -256,6 +257,74 @@ def print_extensions(proj, hosts):
                   % name.lower())
 
 
+def tilde(path):
+    home = os.path.expanduser("~")
+    if path == home or path.startswith(home + os.sep):
+        return "~" + path[len(home):]
+    return path
+
+
+LINK_STATE = {
+    "linked": "linked",
+    "dirlink": "linked",
+    "copy": "copy",
+    "other": "other",
+    "missing": "-",
+}
+
+
+def cmd_links(args):
+    want = format_filter(args)
+    made = 0
+    for fmt in links.FORMATS:
+        if not want(fmt):
+            continue
+        res = links.check(fmt)
+        rows, broken, elsewhere = res["system"], res["broken"], res["elsewhere"]
+        if not (rows or broken or elsewhere):
+            continue
+        homes = " ".join(tilde(d) for d in links.home_dirs(fmt))
+        print("%s  (home: %s)" % (fmt.upper(), homes))
+        counts = {}
+        for sd, name, state, where in rows:
+            counts[state] = counts.get(state, 0) + 1
+            if args.missing and state in ("linked", "dirlink"):
+                continue
+            path = os.path.join(sd, name)
+            note = ""
+            if state == "linked":
+                note = tilde(where)
+            elif state == "dirlink":
+                note = "%s is a link to %s" % (tilde(where), sd)
+            elif state == "copy":
+                note = "%s is a real copy, not a link" % tilde(where)
+            elif state == "other":
+                note = "%s -> %s" % (tilde(where), os.readlink(where))
+            elif args.link:
+                dst = links.make_link(fmt, path, args.dry_run)
+                if dst:
+                    made += 1
+                    note = "%s %s" % ("would link" if args.dry_run
+                                      else "linked now:", tilde(dst))
+            print("  %-7s %-40s %s" % (LINK_STATE[state], path, note))
+        for p, target in broken:
+            print("  %-7s %-40s -> %s" % ("broken", tilde(p), target))
+        if not args.missing:
+            for p, target in elsewhere:
+                print("  %-7s %-40s -> %s" % ("home", tilde(p), target))
+        linked = counts.get("linked", 0) + counts.get("dirlink", 0)
+        parts = [("linked", linked), ("not linked", counts.get("missing", 0)),
+                 ("copy in home", counts.get("copy", 0)),
+                 ("other link", counts.get("other", 0)),
+                 ("broken link", len(broken))]
+        print("  %d in system folders: %s" % (len(rows), ", ".join(
+            "%d %s" % (n, label) for label, n in parts if n)))
+        print()
+    if args.link:
+        print("%s %d link(s)" % ("Would create" if args.dry_run else "Created",
+                                 made))
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(
         prog="plugscan", description="Inventory of Linux audio plugins.")
@@ -290,6 +359,17 @@ def main(argv=None):
                     help="only list plugins that are missing somewhere")
     add_format_args(sp)
     sp.set_defaults(func=cmd_check)
+
+    sp = sub.add_parser("links", help="system plugins and their symlinks "
+                                      "in ~/.lv2, ~/.vst3, ...")
+    sp.add_argument("--missing", action="store_true",
+                    help="hide plugins that are already linked")
+    sp.add_argument("--link", action="store_true",
+                    help="create the missing links in the home folders")
+    sp.add_argument("-n", "--dry-run", action="store_true",
+                    help="with --link: only show what would be linked")
+    add_format_args(sp)
+    sp.set_defaults(func=cmd_links)
 
     args = ap.parse_args(argv)
     if hasattr(signal, "SIGPIPE"):
