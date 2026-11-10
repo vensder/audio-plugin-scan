@@ -75,8 +75,12 @@ def _walk(top, match, prune_dirs=False):
 
 
 def _vst3_version(bundle):
-    p = os.path.join(bundle, "Contents", "moduleinfo.json")
-    if not os.path.isfile(p):
+    # VST3 SDK 3.7.5+ puts it in Contents/Resources; older tools in Contents.
+    for p in (os.path.join(bundle, "Contents", "Resources", "moduleinfo.json"),
+              os.path.join(bundle, "Contents", "moduleinfo.json")):
+        if os.path.isfile(p):
+            break
+    else:
         return None, None
     txt = read_text(p)
     # moduleinfo.json is JSON5-ish; strip trailing commas before parsing.

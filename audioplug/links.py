@@ -5,9 +5,13 @@ Carla racks saved with another distro's paths), so a plugin installed in
 /usr/lib64/lv2 can be "missing" there until ~/.lv2 has a link to it.
 """
 
+import datetime
 import filecmp
+import functools
 import glob
 import os
+import re
+import shutil
 
 from .formats import FORMAT_DIRS, HOME_DIRS, LIB_ROOTS, norm_name
 from .lv2 import scan_lv2_bundle
@@ -95,14 +99,105 @@ def same_files(a, b):
                            shallow=False) for f in fa)
 
 
+def _files(path):
+    if os.path.isfile(path):
+        return [path]
+    out = []
+    for root, _, names in os.walk(path):
+        out.extend(os.path.join(root, n) for n in names)
+    return out
+
+
+def binary_kind(path):
+    """'debug info', 'not stripped' or 'stripped' for the largest .so in
+    path (a file or a bundle), None if there is no ELF file."""
+    sos = [f for f in _files(path) if f.endswith((".so", ".clap"))
+           and os.path.isfile(f)]
+    if not sos:
+        return None
+    try:
+        with open(max(sos, key=os.path.getsize), "rb") as fh:
+            data = fh.read()
+    except OSError:
+        return None
+    if not data.startswith(b"\x7fELF"):
+        return None
+    if b".debug_info\0" in data:
+        return "debug info"
+    if b".symtab\0" in data:
+        return "not stripped"
+    return "stripped"
+
+
+def newest(path):
+    """Date of the newest file in path, as YYYY-MM-DD, or None."""
+    times = []
+    for f in _files(path):
+        try:
+            times.append(os.path.getmtime(f))
+        except OSError:
+            pass
+    if not times:
+        return None
+    return datetime.date.fromtimestamp(max(times)).isoformat()
+
+
+def copy_info(fmt, path):
+    """{'version', 'date', 'binary'} of one copy (values may be None)."""
+    return {"version": version(fmt, path), "date": newest(path),
+            "binary": binary_kind(path)}
+
+
+def _vkey(v):
+    return [int(x) for x in re.findall(r"\d+", v or "")]
+
+
+@functools.lru_cache(maxsize=None)
 def compare_copy(fmt, sys_path, home_path):
-    """'same files', 'home 0.9.6, system 1.0.1' or 'different files'."""
+    """Compare a home copy with the system one.
+
+    Returns (text, verdict). text is "same files" or e.g. "different files;
+    home 1.1.0, 2026-11-06, debug info; system 1.1.0, 2026-11-09,
+    stripped". verdict: "same", "home newer" (higher version), "older"
+    (lower home version), "same version" or "unknown".
+    """
     if same_files(sys_path, home_path):
-        return "same files"
-    hv, sv = version(fmt, home_path), version(fmt, sys_path)
-    if hv or sv:
-        return "home %s, system %s" % (hv or "?", sv or "?")
-    return "different files"
+        return "same files", "same"
+    h, s = copy_info(fmt, home_path), copy_info(fmt, sys_path)
+
+    def desc(i):
+        return ", ".join(x for x in (i["version"], i["date"], i["binary"])
+                         if x) or "?"
+    text = "different files; home %s; system %s" % (desc(h), desc(s))
+    if h["version"] and s["version"]:
+        hv, sv = _vkey(h["version"]), _vkey(s["version"])
+        verdict = ("same version" if hv == sv else
+                   "home newer" if hv > sv else "older")
+    else:
+        verdict = "unknown"
+    return text, verdict
+
+
+BACKUP_DIR = os.path.join("~", ".local", "share", "audio-plugin-scan",
+                          "backup")
+
+
+def relink(sys_path, home_path, stamp, dry_run=False):
+    """Move home_path to the backup folder and link it to sys_path.
+
+    Backup: ~/.local/share/audio-plugin-scan/backup/<stamp>/<home folder>/
+    <name>, e.g. .../20261111-001200/.vst3/Dexed.vst3. Returns it.
+    """
+    home = os.path.expanduser("~")
+    rel = os.path.relpath(home_path, home)
+    if rel.startswith(".." + os.sep):
+        rel = home_path.lstrip(os.sep)
+    backup = os.path.join(os.path.expanduser(BACKUP_DIR), stamp, rel)
+    if not dry_run:
+        os.makedirs(os.path.dirname(backup), exist_ok=True)
+        shutil.move(home_path, backup)
+        os.symlink(sys_path, home_path)
+    return backup
 
 
 def _entries(d):

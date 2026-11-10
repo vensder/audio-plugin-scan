@@ -5,7 +5,8 @@ Usage:
     plugscan compare [HOST ...] [--all] [-f FORMATS] [-x FORMATS]
     plugscan check   PROJECT|DIR [...] [--host HOST ... | -a] [--missing]
                      [-f FORMATS] [-x FORMATS]
-    plugscan links   [--missing] [--link [-n]] [-f FORMATS] [-x FORMATS]
+    plugscan links   [--missing] [--link] [--relink [-y] [--force]] [-n]
+                     [-f FORMATS] [-x FORMATS]
 
 Writes a JSON file (default: scan-results/<hostname>.json in the
 checkout) listing every VST2, VST3, LV2, CLAP, LADSPA, DSSI and JSFX
@@ -15,13 +16,14 @@ CLAP_PATH, LADSPA_PATH and DSSI_PATH.
 """
 
 import argparse
+import datetime
 import json
 import os
 import signal
 import sys
 
 from .. import links, reaper, rpp
-from ..common import RESULTS_DIR
+from ..common import RESULTS_DIR, ask
 from ..formats import FORMAT_DIRS, add_format_args, format_filter
 from ..hosts import (LEGEND, Host, add_host_args, all_result_files,
                      load_hosts, plugin_folder, plugin_key)
@@ -273,9 +275,24 @@ LINK_STATE = {
 }
 
 
+def relink_copy(args, sys_path, home_path, verdict, stamp):
+    """--relink for one copy; returns a note for the listing."""
+    if verdict == "home newer" and not args.force:
+        return "kept: home version is newer (--force to relink)"
+    if not args.dry_run and not ask(
+            "          Move %s to the backup folder and link it to %s?"
+            % (tilde(home_path), sys_path), args.yes):
+        return "kept"
+    backup = links.relink(sys_path, home_path, stamp, args.dry_run)
+    return "%s %s, %s now links to the system copy" % (
+        "would move to" if args.dry_run else "moved to", tilde(backup),
+        tilde(home_path))
+
+
 def cmd_links(args):
     want = format_filter(args)
     made = 0
+    stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     results = {}
     for fmt in links.FORMATS:
         if not want(fmt):
@@ -292,14 +309,16 @@ def cmd_links(args):
             if args.missing and state in ("linked", "dirlink"):
                 continue
             path = os.path.join(sd, name)
-            note = ""
+            note, pending = "", None
             if state == "linked":
                 note = tilde(where)
             elif state == "dirlink":
                 note = "%s is a link to %s" % (tilde(where), sd)
             elif state == "copy":
-                note = "%s is a real copy (%s)" % (
-                    tilde(where), links.compare_copy(fmt, path, where))
+                text, verdict = links.compare_copy(fmt, path, where)
+                note = "%s is a real copy (%s)" % (tilde(where), text)
+                if args.relink:
+                    pending = (path, where, verdict)
             elif state == "other":
                 note = "%s -> %s" % (tilde(where), os.readlink(where))
             elif args.link:
@@ -308,7 +327,10 @@ def cmd_links(args):
                     made += 1
                     note = "%s %s" % ("would link" if args.dry_run
                                       else "linked now:", tilde(dst))
-            print("  %-7s %-40s %s" % (LINK_STATE[state], path, note))
+            print("  %-7s %-40s %s" % (LINK_STATE[state], path, note),
+                  flush=True)
+            if pending:
+                print("          " + relink_copy(args, *pending, stamp=stamp))
         for p, target in broken:
             print("  %-7s %-40s -> %s" % ("broken", tilde(p), target))
         if not args.missing:
@@ -337,7 +359,7 @@ def cmd_links(args):
                     cells.append("%s home" % fmt)
                 elif state == "copy":
                     cells.append("%s system + home copy (%s)" % (
-                        fmt, links.compare_copy(fmt, sp, hp)))
+                        fmt, links.compare_copy(fmt, sp, hp)[1]))
                 else:
                     cells.append("%s system %s" % (fmt, {
                         "linked": "linked", "dirlink": "linked",
@@ -391,8 +413,17 @@ def main(argv=None):
                     help="hide plugins that are already linked")
     sp.add_argument("--link", action="store_true",
                     help="create the missing links in the home folders")
+    sp.add_argument("--relink", action="store_true",
+                    help="move real copies in home to ~/.local/share/"
+                         "audio-plugin-scan/backup/ and link them to the "
+                         "system copy (asks for each one)")
+    sp.add_argument("-y", "--yes", action="store_true",
+                    help="with --relink: do not ask")
+    sp.add_argument("--force", action="store_true",
+                    help="with --relink: also when the home version is newer")
     sp.add_argument("-n", "--dry-run", action="store_true",
-                    help="with --link: only show what would be linked")
+                    help="with --link / --relink: only show what would "
+                         "be done")
     add_format_args(sp)
     sp.set_defaults(func=cmd_links)
 

@@ -77,21 +77,24 @@ class TestLinks(unittest.TestCase):
         self.assertEqual(st["reaeq.so"], "linked")
 
     def test_copy_versions_and_by_name(self):
-        def vst3(top, ver):
-            touch(os.path.join(top, "Dexed.vst3", "Contents",
-                               "moduleinfo.json"))
-            with open(os.path.join(top, "Dexed.vst3", "Contents",
-                                   "moduleinfo.json"), "w") as fh:
+        def vst3(top, ver, sub):
+            p = os.path.join(top, "Dexed.vst3", "Contents", *sub)
+            touch(p)
+            with open(p, "w") as fh:
                 fh.write('{"Name": "Dexed", "Version": "%s",}' % ver)
-        vst3(os.path.join(self.lib, "vst3"), "1.0.1")
-        vst3(os.path.join(self.home, ".vst3"), "0.9.6")
+        # SDK 3.7.5+ puts it in Contents/Resources, older ones in Contents.
+        vst3(os.path.join(self.lib, "vst3"), "1.0.1",
+             ["Resources", "moduleinfo.json"])
+        vst3(os.path.join(self.home, ".vst3"), "0.9.6", ["moduleinfo.json"])
         touch(os.path.join(self.home, ".clap", "dexed.clap"))
         res = {f: links.check(f, self.roots) for f in ("vst3", "clap", "lv2")}
         _, name, state, hp = res["vst3"]["system"][0]
         self.assertEqual((name, state), ("Dexed.vst3", "copy"))
-        self.assertEqual(links.compare_copy(
-            "vst3", os.path.join(self.lib, "vst3", "Dexed.vst3"), hp),
-            "home 0.9.6, system 1.0.1")
+        text, verdict = links.compare_copy(
+            "vst3", os.path.join(self.lib, "vst3", "Dexed.vst3"), hp)
+        self.assertIn("home 0.9.6", text)
+        self.assertIn("system 1.0.1", text)
+        self.assertEqual(verdict, "older")
         self.assertEqual([os.path.basename(p)
                           for p in res["clap"]["home_only"]], ["dexed.clap"])
         groups = dict(links.by_name(res))
@@ -108,6 +111,16 @@ class TestLinks(unittest.TestCase):
         self.assertEqual(res["home_only"], [])
         self.assertTrue(links.same_files(
             os.path.join(self.lib, "lv2", "x42.lv2"), x42))
+
+    def test_relink(self):
+        x42 = os.path.join(self.home, ".lv2", "x42.lv2")
+        touch(os.path.join(x42, "manifest.ttl"))
+        src = os.path.join(self.lib, "lv2", "x42.lv2")
+        backup = links.relink(src, x42, "stamp")
+        self.assertEqual(os.path.realpath(x42), os.path.realpath(src))
+        self.assertTrue(os.path.isfile(os.path.join(backup, "manifest.ttl")))
+        self.assertIn(os.path.join("backup", "stamp", ".lv2", "x42.lv2"),
+                      backup)
 
     def test_home_dir_is_link(self):
         os.symlink(os.path.join(self.lib, "vst"),

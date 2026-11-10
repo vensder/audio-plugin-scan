@@ -378,17 +378,33 @@ system folders (hidden with --missing). VST2 links go to `~/.vst`.
 anything.
 
 A copy is also found when the home name differs only in case or
-punctuation (`~/.lv2/X42.lv2`). For each copy it says "same files", the
-two versions (VST3 moduleinfo.json, LV2 Turtle), e.g. "home 0.9.6, system
-1.0.1", or "different files".
+punctuation (`~/.lv2/X42.lv2`). For each copy it says "same files", or
+"different files" with, for each side, the version (VST3 moduleinfo.json,
+LV2 Turtle), the date of the newest file and whether the main binary has
+debug info, is not stripped or is stripped:
+
+    copy    /usr/lib64/vst3/Dexed.vst3  ~/.vst3/Dexed.vst3 is a real copy (different files;
+            home 1.1.0, 2026-11-06, debug info; system 1.1.0, 2026-11-09, stripped)
+
+Replace home copies with links to the system copy (the home copy is moved,
+not deleted, to `~/.local/share/audio-plugin-scan/backup/<date-time>/`,
+e.g. `.../.vst3/Dexed.vst3`):
+
+    bin/plugscan links --relink -n      # show what it would do
+    bin/plugscan links --relink         # asks for each copy
+    bin/plugscan links --relink -y      # no questions
+
+A copy whose home version is higher than the system one is kept unless
+--force is given. To undo: remove the link and move the backup back.
 
 At the end, plugins are grouped by name (file name without .vst3, .lv2,
 .clap, .vst, .so; case and punctuation ignored), for names found in more
 than one format or with a copy in both home and system. Real plugins
-that are only in home are included here as "home":
+that are only in home are included here as "home". A copy is marked
+same, same version, older, home newer or unknown (no version found):
 
     By name (more than one format, or a copy in home and system)
-      Dexed       vst3 system + home copy (home 0.9.6, system 1.0.1), clap home
+      Dexed       vst3 system + home copy (same version), clap home
       lsp-plugins vst2 system -, vst3 system -, lv2 system linked
       Surge XT    vst3 system -, clap system -
 
