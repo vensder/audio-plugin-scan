@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-09T13:18:17+13:00",
+  "generated": "2026-11-12T21:11:27+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -13,11 +13,6 @@
     {
       "format": "vst2",
       "dir": "/usr/lib64/vst",
-      "source": "system"
-    },
-    {
-      "format": "vst2",
-      "dir": "/usr/lib64/lxvst",
       "source": "system"
     },
     {
@@ -119,12 +114,43 @@
       }
     }
   },
+  "reaper_extensions": [
+    "reaper_reapack-x86_64.so",
+    "reaper_sws-x86_64.so"
+  ],
   "plugins": [
+    {
+      "format": "clap",
+      "name": "Dexed",
+      "file": "Dexed.clap",
+      "path": "/home/vensder/.clap/Dexed.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/Dexed.clap"
+      ],
+      "reaper": true
+    },
     {
       "format": "clap",
       "name": "lsp-plugins",
       "file": "lsp-plugins.clap",
       "path": "/usr/lib64/clap/lsp-plugins.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "SQ8L",
+      "file": "SQ8L.clap",
+      "path": "/home/vensder/.clap/SQ8L.clap",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "SQ8L",
+      "file": "SQ8L.clap",
+      "path": "/usr/lib64/clap/SQ8L.clap",
       "source": "system",
       "reaper": true
     },
@@ -2581,6 +2607,13 @@
       "name": "pitch/superpitch",
       "file": "pitch/superpitch",
       "path": "/home/vensder/opt/REAPER/InstallData/Effects/pitch/superpitch",
+      "source": "home"
+    },
+    {
+      "format": "jsfx",
+      "name": "ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx",
+      "file": "ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx",
+      "path": "/home/vensder/.config/REAPER/Effects/ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx",
       "source": "home"
     },
     {
@@ -5244,6 +5277,16 @@
     },
     {
       "format": "lv2",
+      "name": "Dexed",
+      "id": "https://github.com/asb2m10/dexed",
+      "file": "Dexed.lv2",
+      "path": "/usr/lib64/lv2/Dexed.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "DIN Meter (Mono)",
       "id": "http://gareus.org/oss/lv2/meters#DINmono",
       "file": "meters.lv2",
@@ -5377,10 +5420,11 @@
     },
     {
       "format": "lv2",
-      "name": "Helm",
+      "name": "helm",
       "id": "http://tytel.org/helm",
-      "file": "helm-synth.lv2",
-      "path": "/usr/lib64/lv2/helm-synth.lv2",
+      "file": "helm.lv2",
+      "path": "/usr/lib64/lv2/helm.lv2",
+      "version": "0.10",
       "source": "env:LV2_PATH",
       "reaper": true
     },
@@ -8115,6 +8159,26 @@
     },
     {
       "format": "lv2",
+      "name": "SQ8L",
+      "id": "urn:sq8l:sq8l",
+      "file": "SQ8L.lv2",
+      "path": "/home/vensder/.lv2/SQ8L.lv2",
+      "version": "2.0",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "SQ8L",
+      "id": "urn:sq8l:sq8l",
+      "file": "SQ8L.lv2",
+      "path": "/usr/lib64/lv2/SQ8L.lv2",
+      "version": "9.1",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Stereo Balance Control",
       "id": "http://gareus.org/oss/lv2/balance",
       "file": "balance.lv2",
@@ -8604,7 +8668,10 @@
       "file": "amsynth_vst.so",
       "path": "/usr/lib64/vst/amsynth_vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1634562937": "amsynth"
+      }
     },
     {
       "format": "vst2",
@@ -8620,7 +8687,10 @@
       "file": "CarlaPatchbay.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572325": "Carla-Patchbay"
+      }
     },
     {
       "format": "vst2",
@@ -8628,7 +8698,10 @@
       "file": "CarlaPatchbay16.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay16.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572326": "Carla-Patchbay16"
+      }
     },
     {
       "format": "vst2",
@@ -8636,7 +8709,10 @@
       "file": "CarlaPatchbay32.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay32.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572327": "Carla-Patchbay32"
+      }
     },
     {
       "format": "vst2",
@@ -8644,7 +8720,10 @@
       "file": "CarlaPatchbay64.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay64.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572328": "Carla-Patchbay64"
+      }
     },
     {
       "format": "vst2",
@@ -8652,7 +8731,10 @@
       "file": "CarlaPatchbayFX.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaPatchbayFX.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572324": "Carla-PatchbayFX"
+      }
     },
     {
       "format": "vst2",
@@ -8660,7 +8742,10 @@
       "file": "CarlaRack.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaRack.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572323": "Carla-Rack"
+      }
     },
     {
       "format": "vst2",
@@ -8668,7 +8753,10 @@
       "file": "CarlaRackFX.so",
       "path": "/usr/lib64/vst/carla.vst/CarlaRackFX.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1131572322": "Carla-RackFX"
+      }
     },
     {
       "format": "vst2",
@@ -8685,14 +8773,6 @@
       "path": "/home/vensder/opt/REAPER/Plugins/elastique3.so",
       "source": "reaper",
       "reaper": true
-    },
-    {
-      "format": "vst2",
-      "name": "helm-synth",
-      "file": "helm-synth.so",
-      "path": "/usr/lib64/lxvst/helm-synth.so",
-      "source": "system",
-      "reaper": false
     },
     {
       "format": "vst2",
@@ -8756,7 +8836,10 @@
       "file": "libTAL-NoiseMaker.so",
       "path": "/home/vensder/.vst/libTAL-NoiseMaker.so",
       "source": "home",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1852011892": "TAL-NoiseMaker"
+      }
     },
     {
       "format": "vst2",
@@ -8764,7 +8847,207 @@
       "file": "lsp-plugins.so",
       "path": "/usr/lib64/vst/lsp-plugins.vst/lsp-plugins.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1129066829": "MB Clipper Mono",
+        "1129066835": "MB Clipper Stereo",
+        "1146302829": "SC Desser Mono",
+        "1146302835": "SC Deesser Stereo",
+        "1297166669": "Matcher Mono",
+        "1297166675": "Matcher Stereo",
+        "1297183565": "Sidechain Matcher Mono",
+        "1297183571": "Sidechain Matcher Stereo",
+        "1630889272": "Parametric Equalizer x8 Stereo",
+        "1630889330": "Parametric Equalizer x16 Stereo",
+        "1633776697": "Dynamics Processor Stereo",
+        "1633825389": "A/B Tester x2 Mono",
+        "1633825395": "A/B Tester x2 Stereo",
+        "1633825901": "A/B Tester x4 Mono",
+        "1633825907": "A/B Tester x4 Stereo",
+        "1633826925": "A/B Tester x8 Mono",
+        "1633826931": "A/B Tester x8 Stereo",
+        "1633838437": "Latency Meter",
+        "1634152781": "Sidechain Autogain Mono",
+        "1634152787": "Sidechain Autogain Stereo",
+        "1634152813": "Autogain Mono",
+        "1634152819": "Autogain Stereo",
+        "1634757496": "SC Dynamics Processor Mono",
+        "1634887532": "Graphic Equalizer x16 Stereo",
+        "1635022441": "Oscilloscope x4",
+        "1635070054": "Expander Stereo",
+        "1635202930": "Spectrum Analyzer x2",
+        "1650602349": "Beat Breather Mono",
+        "1650602355": "Beat Breather Stereo",
+        "1650879851": "MB Expander L/R",
+        "1650946937": "Compressor Mono",
+        "1651276137": "Multi-Sampler x48 DirectOut",
+        "1651337320": "MB Gate Mono",
+        "1667314802": "Sampler Mono",
+        "1667772781": "Chorus Mono",
+        "1667772787": "Chorus Stereo",
+        "1668034925": "Clipper Mono",
+        "1668034931": "Clipper Stereo",
+        "1668051571": "Multi-Sampler x12 Stereo",
+        "1668375154": "Room Builder Mono",
+        "1668442726": "Surge Filter Stereo",
+        "1684550456": "Parametric Equalizer x8 Mono",
+        "1684550521": "Parametric Equalizer x16 Mono",
+        "1685270893": "Desser Mono",
+        "1685270899": "Deesser Stereo",
+        "1697998946": "Spectrum Analyzer x8",
+        "1700948075": "Expander M/S",
+        "1701736249": "Loudness Compensator Mono",
+        "1702125930": "MB Gate L/R",
+        "1714450802": "SC MB Expander Stereo",
+        "1717791289": "SC Dynamics Processor M/S",
+        "1717856629": "MB Compressor Mono",
+        "1717922921": "Surge Filter Mono",
+        "1718052721": "Impulse Reverb Mono",
+        "1718117995": "SC MB Gate L/R",
+        "1718383725": "Filter Mono",
+        "1718383731": "Filter Stereo",
+        "1718450287": "SC Gate L/R",
+        "1718580071": "SC Gate Stereo",
+        "1718581095": "SC Compressor L/R",
+        "1718709861": "SC Dynamics Processor Stereo",
+        "1719100467": "Delay Compensator x2 Stereo",
+        "1735029614": "MB Compressor Stereo",
+        "1735667812": "Slapback Delay Mono",
+        "1751802992": "SC MB Compressor M/S",
+        "1751923047": "Dynamics Processor L/R",
+        "1752066612": "Multi-Sampler x48 Stereo",
+        "1752130164": "MB Expander Stereo",
+        "1752523383": "Profiler Stereo",
+        "1752658531": "Profiler Mono",
+        "1764782200": "Parametric Equalizer x32 Mono",
+        "1768123767": "Gate L/R",
+        "1768714602": "Parametric Equalizer x32 L/R",
+        "1768911207": "SC Compressor M/S",
+        "1784772152": "Delay Compensator Mono",
+        "1785095802": "Phase Detector",
+        "1785357670": "Compressor M/S",
+        "1786393978": "Limiter Mono",
+        "1801609842": "Artistic Delay Stereo",
+        "1802139443": "Sampler Stereo",
+        "1802844266": "Graphic Equalizer x32 M/S",
+        "1802926181": "SC MB Compressor L/R",
+        "1803052150": "SC MB Expander L/R",
+        "1803123317": "SC Limiter Mono",
+        "1815506019": "SC Gate M/S",
+        "1818636653": "Flanger Mono",
+        "1818636659": "Flanger Stereo",
+        "1818720825": "Parametric Equalizer x32 M/S",
+        "1819174704": "Noise Generator x1",
+        "1819174705": "Noise Generator x2",
+        "1819174706": "Noise Generator x4",
+        "1819373677": "Dynamics Processor Mono",
+        "1819767158": "SC Expander Stereo",
+        "1819896433": "SC Compressor Mono",
+        "1831875693": "Mixer x4 Mono",
+        "1831875699": "Mixer x4 Stereo",
+        "1831876717": "Mixer x8 Mono",
+        "1831876723": "Mixer x8 Stereo",
+        "1831941741": "Mixer x16 Mono",
+        "1831941747": "Mixer x16 Stereo",
+        "1835160113": "MB Ring Modulated SC Stereo",
+        "1835166797": "SC MB Limiter Mono",
+        "1835166803": "SC MB Limiter Stereo",
+        "1835166829": "MB Limiter Mono",
+        "1835166835": "MB Limiter Stereo",
+        "1835168305": "MB Ring Modulated SC Mono",
+        "1835298864": "MB Dynamics Processor Mono",
+        "1835298865": "MB Dynamics Processor Stereo",
+        "1835298866": "MB Dynamics Processor L/R",
+        "1835298867": "MB Dynamics Processor M/S",
+        "1835298868": "SC MB Dynamics Processor Mono",
+        "1835298869": "SC MB Dynamics Processor Stereo",
+        "1835298870": "SC MB Dynamics Processor L/R",
+        "1835298871": "SC MB Dynamics Processor M/S",
+        "1835563576": "SC MB Gate Mono",
+        "1836085864": "Room Builder Stereo",
+        "1836672879": "MB Expander Mono",
+        "1852269389": "GOTT Compressor M/S",
+        "1852269420": "GOTT Compressor L/R",
+        "1852269421": "GOTT Compressor Mono",
+        "1852269427": "GOTT Compressor Stereo",
+        "1852734002": "SC Gate Mono",
+        "1853192809": "Spectrum Analyzer x16",
+        "1853256548": "Graphic Equalizer x32 Stereo",
+        "1866037866": "Impulse Reverb Stereo",
+        "1869574498": "Crossover Stereo x8",
+        "1869638200": "Parametric Equalizer x8 M/S",
+        "1869638259": "Parametric Equalizer x16 M/S",
+        "1885876589": "Phaser Mono",
+        "1885876595": "Phaser Stereo",
+        "1886287479": "SC Expander L/R",
+        "1902275681": "Oscilloscope x1",
+        "1903196018": "Delay Compensator Stereo",
+        "1903453562": "Spectrum Analyzer x1",
+        "1915761005": "Return Mono",
+        "1915761011": "Return Stereo",
+        "1919299949": "Referencer Mono",
+        "1919299955": "Referencer Stereo",
+        "1919317347": "Limiter Stereo",
+        "1919758701": "Ring Modulated SC Mono",
+        "1919758707": "Ring Modulated SC Stereo",
+        "1919774326": "Crossover Mono x8",
+        "1920363105": "SC MB Gate Stereo",
+        "1920366443": "Graphic Equalizer x16 Mono",
+        "1932538221": "Send Mono",
+        "1932538227": "Send Stereo",
+        "1932684922": "Parametric Equalizer x32 Stereo",
+        "1936155469": "SC GOTT Compressor M/S",
+        "1936155500": "SC GOTT Compressor L/R",
+        "1936155501": "SC GOTT Compressor Mono",
+        "1936155507": "SC GOTT Compressor Stereo",
+        "1936618609": "Oscillator Mono",
+        "1937272169": "SC Dynamics Processor L/R",
+        "1937402726": "SC MB Expander Mono",
+        "1949596026": "Trigger MIDI Mono",
+        "1952736369": "Expander Mono",
+        "1953117036": "Spectrum Analyzer x12",
+        "1969386338": "Oscilloscope x2",
+        "1969977971": "SC MB Gate M/S",
+        "1970041957": "MB Expander M/S",
+        "1970172771": "Compressor Stereo",
+        "1970417765": "Gate Mono",
+        "1970566508": "SC Expander Mono",
+        "1970696807": "Dynamics Processor M/S",
+        "1986552681": "MB Compressor M/S",
+        "1986620778": "Multi-Sampler x24 DirectOut",
+        "1986622316": "Multi-Sampler x24 Stereo",
+        "1986818422": "Crossover MidSide x8",
+        "1986945889": "Graphic Equalizer x32 Mono",
+        "1987457133": "SC MB Compressor Mono",
+        "1987603564": "Artistic Delay Mono",
+        "2003252335": "Gate Stereo",
+        "2003527525": "SC MB Expander M/S",
+        "2003794291": "Graphic Equalizer x16 M/S",
+        "2004246832": "Loudness Compensator Stereo",
+        "2004247154": "Crossover LeftRight x8",
+        "2004252532": "Impulse Responses Mono",
+        "2017029746": "MB Gate M/S",
+        "2021287791": "Spectrum Analyzer x4",
+        "2037609777": "MB Gate Stereo",
+        "2053320804": "SC Expander M/S",
+        "2053335345": "Gate M/S",
+        "2053465705": "Graphic Equalizer x16 L/R",
+        "2053597302": "Trigger Mono",
+        "2053729121": "Trigger Stereo",
+        "2054255214": "SC MB Compressor Stereo",
+        "2054583142": "Expander L/R",
+        "2054645303": "SC Limiter Stereo",
+        "811951974": "MB Compressor L/R",
+        "812148085": "Graphic Equalizer x32 L/R",
+        "813201514": "Slapback Delay Stereo",
+        "829122682": "Impulse Responses Stereo",
+        "862871917": "Compressor L/R",
+        "879453496": "Parametric Equalizer x8 L/R",
+        "879453542": "Parametric Equalizer x16 L/R",
+        "897088105": "SC Compressor Stereo",
+        "930769770": "Multi-Sampler x12 DirectOut",
+        "962818406": "Trigger MIDI Stereo"
+      }
     },
     {
       "format": "vst2",
@@ -8772,7 +9055,10 @@
       "file": "reacast.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reacast.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919246691": "ReaCast"
+      }
     },
     {
       "format": "vst2",
@@ -8780,7 +9066,10 @@
       "file": "reacomp.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reacomp.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919247213": "ReaComp"
+      }
     },
     {
       "format": "vst2",
@@ -8788,7 +9077,10 @@
       "file": "reacontrolmidi.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reacontrolmidi.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919118692": "ReaControlMIDI"
+      }
     },
     {
       "format": "vst2",
@@ -8796,7 +9088,10 @@
       "file": "readelay.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/readelay.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919247468": "ReaDelay"
+      }
     },
     {
       "format": "vst2",
@@ -8804,7 +9099,10 @@
       "file": "reaeq.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reaeq.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919247729": "ReaEQ"
+      }
     },
     {
       "format": "vst2",
@@ -8812,7 +9110,10 @@
       "file": "reafir.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reafir.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919247986": "ReaFir"
+      }
     },
     {
       "format": "vst2",
@@ -8820,7 +9121,10 @@
       "file": "reagate.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reagate.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919248244": "ReaGate"
+      }
     },
     {
       "format": "vst2",
@@ -8828,7 +9132,10 @@
       "file": "reainsert.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reainsert.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919250281": "ReaInsert"
+      }
     },
     {
       "format": "vst2",
@@ -8836,7 +9143,10 @@
       "file": "realimit.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/realimit.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919708532": "ReaLimit"
+      }
     },
     {
       "format": "vst2",
@@ -8844,7 +9154,10 @@
       "file": "reaninjam.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reaninjam.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919250026": "ReaNINJAM"
+      }
     },
     {
       "format": "vst2",
@@ -8948,7 +9261,10 @@
       "file": "reapitch.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reapitch.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919250531": "ReaPitch"
+      }
     },
     {
       "format": "vst2",
@@ -8956,7 +9272,10 @@
       "file": "reasamplomatic.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reasamplomatic.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1920167789": "ReaSamplOmatic5000"
+      }
     },
     {
       "format": "vst2",
@@ -8964,7 +9283,10 @@
       "file": "reastream.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reastream.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1920169074": "ReaStream"
+      }
     },
     {
       "format": "vst2",
@@ -8972,7 +9294,10 @@
       "file": "reasurround.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reasurround.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1920168548": "ReaSurround"
+      }
     },
     {
       "format": "vst2",
@@ -8980,7 +9305,10 @@
       "file": "reasurround2.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reasurround2.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1920168498": "ReaSurroundPan"
+      }
     },
     {
       "format": "vst2",
@@ -8988,7 +9316,10 @@
       "file": "reasyndr.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reasyndr.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919251300": "ReaSynDr"
+      }
     },
     {
       "format": "vst2",
@@ -8996,7 +9327,10 @@
       "file": "reasynth.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reasynth.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919251321": "ReaSynth"
+      }
     },
     {
       "format": "vst2",
@@ -9004,7 +9338,10 @@
       "file": "reatune.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reatune.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919251566": "ReaTune"
+      }
     },
     {
       "format": "vst2",
@@ -9012,7 +9349,10 @@
       "file": "reaverb.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reaverb.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919252066": "ReaVerb"
+      }
     },
     {
       "format": "vst2",
@@ -9020,7 +9360,10 @@
       "file": "reaverbate.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reaverbate.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1920361016": "ReaVerbate"
+      }
     },
     {
       "format": "vst2",
@@ -9028,7 +9371,10 @@
       "file": "reavocode.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reavocode.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919252068": "ReaVocode"
+      }
     },
     {
       "format": "vst2",
@@ -9036,7 +9382,10 @@
       "file": "reavoice.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reavoice.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919252067": "ReaVoice"
+      }
     },
     {
       "format": "vst2",
@@ -9044,7 +9393,10 @@
       "file": "reaxcomp.vst.so",
       "path": "/home/vensder/opt/REAPER/Plugins/FX/reaxcomp.vst.so",
       "source": "reaper",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1919252579": "ReaXcomp"
+      }
     },
     {
       "format": "vst2",
@@ -9064,11 +9416,47 @@
     },
     {
       "format": "vst2",
+      "name": "SpeedrumLite",
+      "file": "SpeedrumLite.so",
+      "path": "/home/vensder/.vst/SpeedrumLite.so",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "1097618288": "Speedrum Lite"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "SQ8L",
+      "file": "SQ8L.so",
+      "path": "/home/vensder/.vst/SQ8L.so",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "1397831756": "SQ8L"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "SQ8L",
+      "file": "SQ8L.so",
+      "path": "/usr/lib64/vst/SQ8L.so",
+      "source": "system",
+      "reaper": true,
+      "vst_ids": {
+        "1397831756": "SQ8L"
+      }
+    },
+    {
+      "format": "vst2",
       "name": "ZynAddSubFX",
       "file": "ZynAddSubFX.so",
       "path": "/usr/lib64/vst/ZynAddSubFX.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1514230598": "ZynAddSubFX"
+      }
     },
     {
       "format": "vst2",
@@ -9076,7 +9464,10 @@
       "file": "ZynAlienWah.so",
       "path": "/usr/lib64/vst/ZynAlienWah.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515741559": "ZynAlienWah"
+      }
     },
     {
       "format": "vst2",
@@ -9084,7 +9475,10 @@
       "file": "ZynChorus.so",
       "path": "/usr/lib64/vst/ZynChorus.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515742056": "ZynChorus"
+      }
     },
     {
       "format": "vst2",
@@ -9092,7 +9486,10 @@
       "file": "ZynDistortion.so",
       "path": "/usr/lib64/vst/ZynDistortion.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515742323": "ZynDistortion"
+      }
     },
     {
       "format": "vst2",
@@ -9100,7 +9497,10 @@
       "file": "ZynDynamicFilter.so",
       "path": "/usr/lib64/vst/ZynDynamicFilter.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515742310": "ZynDynamicFilter"
+      }
     },
     {
       "format": "vst2",
@@ -9108,7 +9508,10 @@
       "file": "ZynEcho.so",
       "path": "/usr/lib64/vst/ZynEcho.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515742563": "ZynEcho"
+      }
     },
     {
       "format": "vst2",
@@ -9116,7 +9519,10 @@
       "file": "ZynPhaser.so",
       "path": "/usr/lib64/vst/ZynPhaser.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515745384": "ZynPhaser"
+      }
     },
     {
       "format": "vst2",
@@ -9124,15 +9530,315 @@
       "file": "ZynReverb.so",
       "path": "/usr/lib64/vst/ZynReverb.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1515745910": "ZynReverb"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "Dexed",
+      "file": "Dexed.vst3",
+      "path": "/home/vensder/.vst3/Dexed.vst3",
+      "version": "1.1.0",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/Dexed.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "475117838": "Dexed"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "helm",
+      "file": "helm.vst3",
+      "path": "/home/vensder/.vst3/helm.vst3",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/helm.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "326281135": "helm"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "js80p",
+      "file": "js80p.vst3",
+      "path": "/home/vensder/.vst3/js80p.vst3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "833229669": "JS80P"
+      }
     },
     {
       "format": "vst3",
       "name": "lsp-plugins",
       "file": "lsp-plugins.vst3",
       "path": "/usr/lib64/vst3/lsp-plugins.vst3",
+      "version": "1.2.35",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1001359493": "Sidechain Multiband Limiter Stereo",
+        "1011780665": "Phase Detector",
+        "101848098": "Sidechain Deesser Mono",
+        "104775983": "Sidechain Gate MidSide",
+        "1050033624": "Parametric Equalizer x32 Mono",
+        "1076094894": "Sidechain Multiband Dynamics Processor Stereo x8",
+        "1134130379": "Dynamics Processor LeftRight",
+        "114616181": "Trigger MIDI Mono",
+        "1190089482": "Multiband Dynamics Processor LeftRight x8",
+        "1192553951": "Dynamics Processor MidSide",
+        "1211930612": "Clipper Stereo",
+        "1217970601": "Compressor MidSide",
+        "1219506177": "Multi-Sampler x48 DirectOut",
+        "1224564728": "Loudness Compensator Mono",
+        "1227553889": "Sidechain Multiband Expander Mono x8",
+        "1239768215": "Sidechain Compressor Mono",
+        "1242774741": "Multiband Compressor Stereo x8",
+        "1246914180": "Surge Filter Stereo",
+        "1248931868": "Parametric Equalizer x8 MidSide",
+        "1250653250": "Parametric Equalizer x32 Stereo",
+        "1263129430": "Sidechain Gate Stereo",
+        "1272817357": "GOTT Compressor Mono",
+        "1292842951": "Dynamics Processor Stereo",
+        "1301988304": "Mixer x16 Stereo",
+        "1308269202": "Matcher Stereo",
+        "1311167713": "Sidechain GOTT Compressor MidSide",
+        "1311448354": "Sidechain Multiband Dynamics Processor LeftRight x8",
+        "1328322774": "Sidechain Multiband Expander Stereo x8",
+        "1347317074": "Matcher Mono",
+        "1353100148": "Deesser Stereo",
+        "1366462318": "Sidechain GOTT Compressor Stereo",
+        "138878331": "Multiband Dynamics Processor MidSide x8",
+        "1395590311": "Parametric Equalizer x16 Mono",
+        "1404262864": "Graphic Equalizer x16 Mono",
+        "1405262018": "Autogain Mono",
+        "1407723132": "Multi-Sampler x12 Stereo",
+        "1435334124": "Limiter Stereo",
+        "1445252732": "Gate LeftRight",
+        "1467288808": "Dynamics Processor Mono",
+        "1473017417": "Limiter Mono",
+        "1479471773": "Multi-Sampler x24 DirectOut",
+        "1482390301": "Delay Compensator Stereo",
+        "1488228986": "Spectrum Analyzer x8",
+        "1488230928": "Sidechain Multiband Gate Stereo x8",
+        "149667649": "Noise Generator x1",
+        "1514480454": "Delay Compensator x2 Stereo",
+        "1525868110": "Sidechain Multiband Expander MidSide x8",
+        "1531886766": "Phaser Mono",
+        "1532653692": "Mixer x8 Stereo",
+        "1540218270": "Sidechain Gate LeftRight",
+        "1547658611": "Slapback Delay Stereo",
+        "155652342": "Sidechain Matcher Stereo",
+        "1561751190": "Parametric Equalizer x16 MidSide",
+        "1576658734": "Return Mono",
+        "1586838980": "Multi-Sampler x12 DirectOut",
+        "1600248388": "Mixer x16 Mono",
+        "1601288374": "Sidechain Multiband Compressor LeftRight x8",
+        "1619256713": "Sampler Mono",
+        "1621500680": "Sidechain Autogain Mono",
+        "1635081197": "Parametric Equalizer x8 Mono",
+        "1654682354": "Multiband Expander MidSide x8",
+        "1677855550": "A/B Tester x8 Mono",
+        "1698705668": "Graphic Equalizer x32 Mono",
+        "1705547672": "Delay Compensator Mono",
+        "1720052094": "Sidechain Deesser Stereo",
+        "1740756485": "Multiband Gate MidSide x8",
+        "1776783907": "Multiband Gate Stereo x8",
+        "1783010767": "Oscilloscope x4",
+        "1786210429": "Multiband Clipper Stereo",
+        "1796000592": "Chorus Mono",
+        "179867105": "Sidechain Multiband Limiter Mono",
+        "1801524300": "Sidechain Dynamics Processor Mono",
+        "1814467020": "Gate Stereo",
+        "1827387606": "Spectrum Analyzer x12",
+        "1828674958": "Impulse Responses Stereo",
+        "1838778790": "Sidechain Matcher Mono",
+        "1861126423": "Noise Generator x2",
+        "1865500737": "Parametric Equalizer x8 LeftRight",
+        "1871347733": "Sidechain Expander MidSide",
+        "1876292356": "Filter Mono",
+        "1879473211": "Graphic Equalizer x32 MidSide",
+        "1891128262": "Trigger Mono",
+        "1895919678": "Parametric Equalizer x16 LeftRight",
+        "1897980619": "Compressor LeftRight",
+        "1901826750": "Sidechain GOTT Compressor Mono",
+        "1902222068": "Expander Mono",
+        "1911552132": "Filter Stereo",
+        "191259892": "Sidechain Multiband Gate Mono x8",
+        "1915513115": "Spectrum Analyzer x1",
+        "1915789474": "Autogain Stereo",
+        "1926383068": "Impulse Reverb Mono",
+        "1934039685": "Multi-Sampler x48 Stereo",
+        "1938080386": "Compressor Mono",
+        "194636967": "Oscillator Mono",
+        "1959134696": "Sidechain Limiter Stereo",
+        "195999772": "Room Builder Mono",
+        "1973413881": "Sidechain Gate Mono",
+        "1984828690": "Multiband Expander LeftRight x8",
+        "2004512633": "Sidechain Expander LeftRight",
+        "2015499221": "Expander Stereo",
+        "2017946488": "Sidechain Multiband Compressor Mono x8",
+        "2021392231": "Spectrum Analyzer x16",
+        "2037368919": "Expander LeftRight",
+        "2039195775": "Sidechain Multiband Expander LeftRight x8",
+        "204191482": "Oscilloscope x1",
+        "2043921363": "Crossover Mono x8",
+        "2045811541": "Loudness Compensator Stereo",
+        "2046957379": "Parametric Equalizer x8 Stereo",
+        "2049539698": "Beat Breather Stereo",
+        "2050047880": "Slapback Delay Mono",
+        "2058185880": "Parametric Equalizer x16 Stereo",
+        "2063243704": "Impulse Responses Mono",
+        "2064369109": "Sidechain Multiband Gate MidSide x8",
+        "2091070094": "A/B Tester x4 Stereo",
+        "2101997041": "Graphic Equalizer x16 LeftRight",
+        "2110255346": "Multiband Gate Mono x8",
+        "2124778593": "Gate Mono",
+        "2141030658": "Multiband Gate LeftRight x8",
+        "2146612585": "Spectrum Analyzer x2",
+        "229084497": "Graphic Equalizer x16 MidSide",
+        "234168402": "Flanger Mono",
+        "239318644": "Crossover MidSide x8",
+        "241151242": "Compressor Stereo",
+        "244612356": "Chorus Stereo",
+        "257252931": "Sidechain Multiband Dynamics Processor Mono x8",
+        "267261204": "Send Stereo",
+        "267740092": "Multiband Dynamics Processor Stereo x8",
+        "268560056": "Mixer x8 Mono",
+        "27304236": "Parametric Equalizer x32 LeftRight",
+        "274030550": "Sidechain Multiband Dynamics Processor MidSide x8",
+        "275759710": "A/B Tester x2 Mono",
+        "276007450": "Return Stereo",
+        "278858732": "Multiband Compressor MidSide x8",
+        "290784191": "Sidechain Compressor Stereo",
+        "293673477": "Surge Filter Mono",
+        "310789188": "Multiband Expander Stereo x8",
+        "311242364": "Deesser Mono",
+        "31671753": "GOTT Compressor LeftRight",
+        "325725277": "Multiband Dynamics Processor Mono x8",
+        "326711268": "Crossover LeftRight x8",
+        "330642086": "Multiband Ring Modulated Sidechain Stereo",
+        "346723080": "Sidechain Multiband Compressor Stereo x8",
+        "354386544": "Send Mono",
+        "358224439": "Sidechain Expander Stereo",
+        "359045345": "Multiband Expander Mono x8",
+        "403568914": "Artistic Delay Stereo",
+        "405336302": "Profiler Mono",
+        "414022438": "Beat Breather Mono",
+        "414737110": "Ring Modulated Sidechain Stereo",
+        "443681154": "Expander MidSide",
+        "44440448": "Clipper Mono",
+        "454677292": "Sidechain Compressor MidSide",
+        "462770546": "Sidechain Dynamics Processor LeftRight",
+        "469196124": "Latency Meter",
+        "471563110": "Profiler Stereo",
+        "481086564": "Mixer x4 Stereo",
+        "487770541": "Sidechain Multiband Gate LeftRight x8",
+        "490999512": "Sidechain Autogain Stereo",
+        "518412019": "Multiband Compressor Mono x8",
+        "530058271": "Oscilloscope x2",
+        "557287028": "Multiband Ring Modulated Sidechain Mono",
+        "565152265": "Multi-Sampler x24 Stereo",
+        "614556546": "Sampler Stereo",
+        "620398014": "A/B Tester x2 Stereo",
+        "623910181": "Room Builder Stereo",
+        "640254618": "Spectrum Analyzer x4",
+        "668143711": "Sidechain Expander Mono",
+        "66845470": "Referencer Mono",
+        "681989845": "Multiband Clipper Mono",
+        "702599347": "Gate MidSide",
+        "706124810": "Multiband Compressor LeftRight x8",
+        "718121212": "Noise Generator x4",
+        "726202299": "Artistic Delay Mono",
+        "727478593": "Multiband Limiter Mono",
+        "72813783": "Sidechain Compressor LeftRight",
+        "740394575": "Sidechain Limiter Mono",
+        "746565980": "Sidechain Dynamics Processor Stereo",
+        "75444898": "GOTT Compressor MidSide",
+        "760351352": "Sidechain GOTT Compressor LeftRight",
+        "78173544": "Trigger Stereo",
+        "785992781": "Crossover Stereo x8",
+        "7953285": "Graphic Equalizer x32 LeftRight",
+        "800530442": "Referencer Stereo",
+        "843433671": "Sidechain Dynamics Processor MidSide",
+        "859491174": "Flanger Stereo",
+        "860341384": "Graphic Equalizer x16 Stereo",
+        "87031193": "GOTT Compressor Stereo",
+        "871303416": "Parametric Equalizer x32 MidSide",
+        "878442917": "Impulse Reverb Stereo",
+        "902923997": "Graphic Equalizer x32 Stereo",
+        "908883166": "A/B Tester x8 Stereo",
+        "942903384": "Sidechain Multiband Compressor MidSide x8",
+        "94322990": "A/B Tester x4 Mono",
+        "944476186": "Phaser Stereo",
+        "950939045": "Multiband Limiter Stereo",
+        "954579122": "Ring Modulated Sidechain Mono",
+        "956993624": "Mixer x4 Mono",
+        "974818159": "Trigger MIDI Stereo"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "MT-PowerDrumKit",
+      "file": "MT-PowerDrumKit.vst3",
+      "path": "/home/vensder/.vst3/MT-PowerDrumKit.vst3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "672034263": "MT-PowerDrumKit"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "Podolski",
+      "file": "Podolski.vst3",
+      "path": "/home/vensder/.vst3/u-he/Podolski.vst3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "1006355412": "Podolski"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "SpeedrumLite",
+      "file": "SpeedrumLite.vst3",
+      "path": "/home/vensder/.vst3/SpeedrumLite.vst3",
+      "version": "1.0.3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "554436293": "Speedrum Lite"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "SQ8L",
+      "file": "SQ8L.vst3",
+      "path": "/home/vensder/.vst3/SQ8L.vst3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "258368180": "SQ8L"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "SQ8L",
+      "file": "SQ8L.vst3",
+      "path": "/usr/lib64/vst3/SQ8L.vst3",
+      "source": "system",
+      "reaper": true,
+      "vst_ids": {
+        "258368180": "SQ8L"
+      }
     },
     {
       "format": "vst3",
@@ -9140,7 +9846,10 @@
       "file": "Surge XT.vst3",
       "path": "/usr/lib64/vst3/Surge XT.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "661331015": "Surge XT"
+      }
     },
     {
       "format": "vst3",
@@ -9148,7 +9857,10 @@
       "file": "Surge XT Effects.vst3",
       "path": "/usr/lib64/vst3/Surge XT Effects.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1264445692": "Surge XT Effects"
+      }
     },
     {
       "format": "vst3",
@@ -9156,7 +9868,10 @@
       "file": "TAL-NoiseMaker.vst3",
       "path": "/home/vensder/.vst3/TAL-NoiseMaker.vst3",
       "source": "home",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1524481204": "TAL-NoiseMaker"
+      }
     },
     {
       "format": "vst3",
@@ -9164,15 +9879,22 @@
       "file": "TyrellN6.vst3",
       "path": "/home/vensder/.vst3/u-he/TyrellN6.vst3",
       "source": "home",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "633732887": "TyrellN6"
+      }
     },
     {
       "format": "vst3",
       "name": "VASTvaporizer2",
       "file": "VASTvaporizer2.vst3",
       "path": "/usr/lib64/vst3/VASTvaporizer2.vst3",
+      "version": "3.5.0",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "2042577904": "Vaporizer2"
+      }
     },
     {
       "format": "vst3",
@@ -9180,7 +9902,10 @@
       "file": "ZebraCM.vst3",
       "path": "/home/vensder/.vst3/u-he/ZebraCM.vst3",
       "source": "home",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "626363145": "ZebraCM"
+      }
     }
   ]
 }
