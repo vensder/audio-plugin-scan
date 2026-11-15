@@ -51,10 +51,11 @@ class Node:
     """One <TAG args ...> block. items holds, in file order, the plain
     lines (str, stripped) and the child blocks (Node)."""
 
-    __slots__ = ("tag", "args", "items")
+    __slots__ = ("tag", "args", "items", "line")
 
-    def __init__(self, tag, args):
+    def __init__(self, tag, args, line=None):
         self.tag, self.args, self.items = tag, args, []
+        self.line = line  # the "<TAG ..." line as read, for dump()
 
     def nodes(self, tag=None):
         return [n for n in self.items
@@ -77,6 +78,19 @@ class Node:
             yield from n.walk()
 
 
+def dump(node, indent=0):
+    """The lines of a block, as in an .RPP file (2 spaces per level)."""
+    pad = "  " * indent
+    out = [pad + (node.line or "<" + node.tag)]
+    for it in node.items:
+        if isinstance(it, Node):
+            out += dump(it, indent + 1)
+        else:
+            out.append(pad + "  " + it)
+    out.append(pad + ">")
+    return out
+
+
 def read(path):
     """Parse an .RPP file; returns the REAPER_PROJECT block."""
     top = Node("", [])
@@ -88,7 +102,7 @@ def read(path):
                 continue
             if s.startswith("<"):
                 toks = tokens(s)
-                node = Node(toks[0][1:], toks[1:])
+                node = Node(toks[0][1:], toks[1:], s)
                 stack[-1].items.append(node)
                 stack.append(node)
             elif s == ">":

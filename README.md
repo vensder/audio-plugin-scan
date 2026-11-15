@@ -15,6 +15,7 @@ to install.
       rpp-info          tracks and FX chains of a project (section 8)
       lmms-info         tracks and effects of an LMMS project (section 9)
       lmms2rpp          convert an LMMS project to REAPER (section 10)
+      rpp-multi         one synth instance, several MIDI tracks (section 12)
     audioplug/        shared code (Python package)
       common.py         paths, downloads with a cache, prompts
       formats.py        formats, search folders, -f / -x filters
@@ -26,6 +27,7 @@ to install.
       carla.py          plugins inside Carla racks
       lmms.py           .mmp / .mmpz reader: plugins, tracks, mixer
       lmms2rpp.py       LMMS -> .RPP + ReaScript + steps
+      multi.py          one multitimbral instance for several MIDI tracks
       projects.py       find and read projects
       links.py          system plugins and their links in ~/.lv2 etc.
       cli/              one module per command in bin/
@@ -407,6 +409,49 @@ same, same version, older, home newer or unknown (no version found):
       Dexed       vst3 system + home copy (same version), clap home
       lsp-plugins vst2 system -, vst3 system -, lv2 system linked
       Surge XT    vst3 system -, clap system -
+
+## 12. One synth instance for several MIDI tracks (Virus Multi mode)
+
+Every OsTIrus (Gearmulator Virus TI) instance emulates the Virus DSPs all
+the time, so two instances use about twice the CPU, even when silent. The
+Virus has a Multi mode with up to 16 parts, each on its own MIDI channel,
+so one instance can play all of them:
+
+    bin/rpp-multi ~/Music/REAPER/OsTIrus.RPP          # -> OsTIrus-multi.RPP
+    bin/rpp-multi Song.RPP -n 4                       # at least 4 parts
+    bin/rpp-multi Song.RPP -e -o ~/.config/REAPER/ProjectTemplates/Virus-multi.RPP
+    bin/rpp-multi Song.RPP -p "Some synth"            # another plugin
+
+    == OsTIrus.RPP -> OsTIrus-multi.RPP
+    CLAPi: OsTIrus (The Usual Suspects) copied from track "Noomed2Chord"
+    1   OsTIrus (multi): OsTIrus
+    2   Noomed2Chord: MIDI -> OsTIrus (multi) ch 1, 1 item
+    3   AftrglowMS: MIDI -> OsTIrus (multi) ch 2
+
+It writes a new project (the source is not changed): a new instrument
+track with the first OsTIrus instance (its FX chain and saved state are
+copied, so the format, CLAP / VST3 / VST, is the one used in the source
+project), and the tracks that had OsTIrus become MIDI-only tracks: no FX,
+no master send, MIDI input with monitoring, and a send to the instrument
+track that carries MIDI only, all channels -> channel 1 for the first
+track, 2 for the second, ... So the MIDI items stay as they are. Empty
+"Part N" tracks are added up to -n parts (default 2). Sends from the old
+tracks to buses now come from the instrument track. The other instances
+and FX after them are removed (listed as "dropped FX").
+
+-e writes a template: only the instrument track and -n empty MIDI tracks,
+with the source's project settings (tempo, ...). Save it to
+~/.config/REAPER/ProjectTemplates/ to get it in File > New project from
+template.
+
+Then, once, in the synth: switch the Virus play mode from Single to
+Multi, load a patch into each part, check that part N listens on MIDI
+channel N, and save the project. Only the first instance's sound is
+copied; save the other patches from their instances in the old project
+first. REAPER keeps plugin state as binary data, which is why the
+instance is taken from an existing project instead of being written from
+scratch: add OsTIrus (CLAP if you like) to a track once, save, and run
+rpp-multi on that project.
 
 ## How plugins are matched
 
