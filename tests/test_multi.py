@@ -55,6 +55,19 @@ class TestMulti(unittest.TestCase):
                                  "Part 3", "Part 4"])
         self.assertEqual(p.value("TEMPO"), ["120", "4", "4"])
 
+    def test_outputs(self):
+        p = written(multi.make(VIRUS, outputs=3))
+        t = p.nodes("TRACK")
+        self.assertEqual([multi.track_name(x) for x in t[3:6]],
+                         ["OsTIrus out 1/2", "OsTIrus out 3/4",
+                          "OsTIrus out 5/6"])
+        self.assertEqual(t[0].value("NCHAN"), ["6"])
+        self.assertEqual(t[0].value("MAINSEND"), ["0", "0"])
+        # audio from pair 3/4 (channel index 2), MIDI none (31)
+        r = t[4].value("AUXRECV")
+        self.assertEqual((r[0], r[7], r[10]), ("0", "2", "31"))
+        self.assertEqual(t[6].value("AUXRECV")[0], "0")  # Reverb
+
     def test_errors(self):
         with self.assertRaises(ValueError):
             multi.make(VIRUS, plugin="Diva")

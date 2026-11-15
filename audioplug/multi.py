@@ -98,6 +98,25 @@ def midi_track(t, armed=None):
     set_line(t, "REC", " ".join([arm, str(MIDI_INPUT), "1"] + rest))
 
 
+def send_audio(src, pair):
+    """AUXRECV line: audio only (MIDI 31 = none), channels of stereo
+    pair (1 = 1/2, 2 = 3/4, ...) -> 1/2 of the receiving track."""
+    return "AUXRECV %d 0 1 0 0 0 0 %d 0 -1:U 31 -1 ''" % (src, 2 * pair - 2)
+
+
+def pair_name(pair):
+    return "%d/%d" % (2 * pair - 1, 2 * pair)
+
+
+def new_output_track(name):
+    """A plain audio track; its receive is added once indexes are known."""
+    g = guid()
+    t = rpp.Node("TRACK", [g], "<TRACK " + g)
+    t.items = ["NAME " + rpp_str(name), "TRACKID " + g, "ISBUS 0 0",
+               "MAINSEND 1 0"]
+    return t
+
+
 def new_midi_track(name):
     g = guid()
     t = rpp.Node("TRACK", [g], "<TRACK " + g)
@@ -142,11 +161,17 @@ class Result:
         self.parts = []          # (track name, channel, from source?)
         self.dropped = []        # (track name, FX names) dropped
         self.lines = []          # listing of the new track list
+        self.outputs = 0         # stereo outputs with their own track
 
 
-def make(path, plugin="OsTIrus", count=2, empty=False, name=None):
+def make(path, plugin="OsTIrus", count=2, empty=False, name=None,
+         outputs=0):
     """Build the multi layout from a project. Raises ValueError when the
-    project has no track with plugin, or more parts than MAX_PARTS."""
+    project has no track with plugin, or more parts than MAX_PARTS.
+
+    outputs > 0: the instrument track gets 2 * outputs channels and no
+    master send, and one audio track per stereo output receives it
+    ("OsTIrus out 3/4"), for FX per part."""
     project = rpp.read(path)
     tracks = project.nodes("TRACK")
     found = [(i, t, instrument_fx(t, plugin)) for i, t in enumerate(tracks)]
@@ -170,6 +195,12 @@ def make(path, plugin="OsTIrus", count=2, empty=False, name=None):
     set_line(inst, "ISBUS", "0 0")
     drop(inst, keys=("AUXRECV",), tags=("ITEM",))
     set_line(inst, "REC", "0 0 1 0 0 0 0 0")
+    r.outputs = outputs
+    outs = [new_output_track("%s out %s" % (fx_w["name"], pair_name(k)))
+            for k in range(1, outputs + 1)]
+    if outputs:
+        set_line(inst, "NCHAN", str(max(2, 2 * outputs)))
+        set_line(inst, "MAINSEND", "0 0")
 
     if (count if empty else max(count, len(found))) > MAX_PARTS:
         raise ValueError("%d parts, the Virus has %d"
@@ -178,7 +209,7 @@ def make(path, plugin="OsTIrus", count=2, empty=False, name=None):
         n = max(count, 1)
         parts = [new_midi_track("Part %d" % c) for c in range(1, n + 1)]
         r.parts = [("Part %d" % c, c, False) for c in range(1, n + 1)]
-        new = [inst] + parts
+        new = [inst] + parts + outs
         project.items = [it for it in project.items
                          if not (isinstance(it, rpp.Node)
                                  and it.tag == "TRACK")]
@@ -203,6 +234,7 @@ def make(path, plugin="OsTIrus", count=2, empty=False, name=None):
                 for c in range(extra):
                     nm = "Part %d" % (len(found) + c + 1)
                     order.append((None, new_midi_track(nm)))
+                order += [(None, o) for o in outs]
         inst_i = [k for k, (o, n) in enumerate(order) if n is inst][0]
         index = {o: k for k, (o, n) in enumerate(order) if o is not None}
         for i, t, fxs in found:
@@ -228,8 +260,11 @@ def make(path, plugin="OsTIrus", count=2, empty=False, name=None):
 
     for c, k in enumerate(part_idx, 1):
         inst.items.insert(_recv_pos(inst), receive(k, c))
+    inst_i = new.index(inst)
+    for k, o in enumerate(outs, 1):
+        o.items.insert(_recv_pos(o), send_audio(inst_i, k))
     r.project = project
-    r.lines = listing(new, inst, part_idx)
+    r.lines = listing(new, inst, part_idx, outs)
     return r
 
 
@@ -247,7 +282,7 @@ def _recv_pos(t):
     return k
 
 
-def listing(tracks, inst, part_idx):
+def listing(tracks, inst, part_idx, outs=()):
     chan = {k: c for c, k in enumerate(part_idx, 1)}
     out = []
     for k, t in enumerate(tracks):
@@ -260,6 +295,10 @@ def listing(tracks, inst, part_idx):
                 k + 1, track_name(t), track_name(inst), chan[k],
                 ", %d item%s" % (items, "s" if items > 1 else "")
                 if items else ""))
+        elif any(t is o for o in outs):
+            pair = [i for i, o in enumerate(outs, 1) if o is t][0]
+            out.append("%-3d %s: audio <- %s %s" % (
+                k + 1, track_name(t), track_name(inst), pair_name(pair)))
     return out
 
 
@@ -284,8 +323,7 @@ In the synth (once):
      listens on MIDI channel N.
 %(sound)s  3. Save the project (the Multi is saved in the plugin state).
 The sends turn all MIDI of a track into its channel, so the MIDI items do
-not need to be changed. All parts play through output 1/2 unless an
-output is set per part in the synth.
+not need to be changed.%(outs)s
 """
 
 
@@ -295,5 +333,19 @@ def notes(r):
         sound = ("     Only the instance of \"%s\" was kept. To keep the "
                  "other sounds,\n     save each patch from its instance in "
                  "the old project first.\n" % r.source)
-    return NOTES % {"inst": r.instrument, "n": len(r.parts), "sound": sound}
+    if r.outputs:
+        outs = OUTS_NOTE % {"inst": r.instrument, "ch": 2 * r.outputs}
+    else:
+        outs = (" All parts play through output 1/2 unless an\n"
+                "output is set per part in the synth (see -u).")
+    return NOTES % {"inst": r.instrument, "n": len(r.parts), "sound": sound,
+                    "outs": outs}
+
+
+OUTS_NOTE = """
+Outputs: in the Multi, set each part's output (Out 1 plays on the track
+"out 1/2", Out 2 on "out 3/4", ...) and put FX for it on that track.
+"%(inst)s" has %(ch)d channels and no master send. If a part is silent,
+check the routing button in the plugin's FX window: plugin outputs
+1-%(ch)d -> track channels 1-%(ch)d."""
 

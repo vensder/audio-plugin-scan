@@ -439,6 +439,19 @@ track, 2 for the second, ... So the MIDI items stay as they are. Empty
 tracks to buses now come from the instrument track. The other instances
 and FX after them are removed (listed as "dropped FX").
 
+-u N adds one audio track per stereo output of the synth, so each part
+can have its own FX (EQ, analyzer, ...): OsTIrus (Virus TI) has 3
+stereo outputs, so
+
+    bin/rpp-multi OsTIrus.RPP -u 3
+
+adds "OsTIrus out 1/2", "out 3/4" and "out 5/6", each receiving its pair
+from the instrument track (audio only), which then has 6 channels and no
+master send. In the synth's Multi set each part's output: Out 1 plays on
+"out 1/2", Out 2 on "out 3/4", Out 3 on "out 5/6". If a part is silent,
+check the routing button in the plugin's FX window: outputs 1-6 should go
+to track channels 1-6.
+
 -e writes a template: only the instrument track and -n empty MIDI tracks,
 with the source's project settings (tempo, ...). Save it to
 ~/.config/REAPER/ProjectTemplates/ to get it in File > New project from

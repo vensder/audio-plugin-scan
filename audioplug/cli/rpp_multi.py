@@ -1,7 +1,8 @@
 """rpp-multi - one multitimbral synth instance played by several MIDI tracks.
 
 Usage:
-    rpp-multi PROJECT.RPP [-p PLUGIN] [-n N] [-e] [-o OUT.RPP] [--force]
+    rpp-multi PROJECT.RPP [-p PLUGIN] [-n N] [-u N] [-e] [-o OUT.RPP]
+              [--force]
 
 Finds the tracks of PROJECT that use PLUGIN (default: OsTIrus, the
 Gearmulator Virus TI) and writes OUT.RPP (default: PROJECT-multi.RPP)
@@ -13,6 +14,10 @@ that has it; the other instances are removed.
 
 -e writes a template instead: only the instrument track and N empty
 MIDI tracks ("Part 1" ...), no other tracks and no items.
+
+-u N gives each of the synth's N stereo outputs its own audio track
+("OsTIrus out 3/4"), so every part can have its own FX: the instrument
+track gets 2*N channels and no master send.
 """
 
 import argparse
@@ -36,6 +41,9 @@ def main(argv=None):
                     help="at least N MIDI tracks / channels (default: 2)")
     ap.add_argument("-e", "--empty", action="store_true",
                     help="template: only the synth and N empty MIDI tracks")
+    ap.add_argument("-u", "--outputs", type=int, default=0, metavar="N",
+                    help="N stereo outputs of the synth, each to its own "
+                         "audio track for FX per part (OsTIrus TI: 3)")
     ap.add_argument("--name", help="instrument track name "
                                    "(default: '<plugin> (multi)')")
     ap.add_argument("-o", "--output", metavar="OUT.RPP",
@@ -47,6 +55,8 @@ def main(argv=None):
         signal.signal(signal.SIGPIPE, signal.SIG_DFL)
     if args.parts < 1:
         ap.error("-n must be 1 or more")
+    if not 0 <= args.outputs <= 32:
+        ap.error("-u must be 0-32")
     out = multi.out_path(args.project, args.output)
     if os.path.abspath(out) == os.path.abspath(args.project):
         sys.exit("will not overwrite the source project, use -o")
@@ -54,7 +64,7 @@ def main(argv=None):
         sys.exit("%s exists, use --force to overwrite" % out)
     try:
         r = multi.make(args.project, args.plugin, args.parts, args.empty,
-                       args.name)
+                       args.name, args.outputs)
     except OSError as exc:
         sys.exit("cannot read %s: %s" % (args.project, exc))
     except ValueError as exc:
