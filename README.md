@@ -234,6 +234,7 @@ state of each FX (plugscan check stays the place for the per-plugin
 summary across hosts):
 
     bin/rpp-info Song.RPP
+    bin/rpp-info Song.RPP -r                   # also volume, pan, sends, receives
     bin/rpp-info Song.RPP -c                   # also mark plugins missing here
     bin/rpp-info Song.RPP --host ubuntu        # ... or on saved hosts (-a: all)
     bin/rpp-info ~/Music/REAPER/Production     # every .RPP under a dir
@@ -259,6 +260,31 @@ Example:
 - With -c / --host / -a: "missing", "name", "alt" or "path" after the
   state, as in plugscan check (with several hosts: "ubuntu: missing").
   Exit code 1 when anything is missing.
+
+With -r every track also gets its mix and routing: volume, pan, channel
+count, where it goes (master, its folder, or "no master send"), and its
+receives (<-) and sends (->) with audio channels, MIDI channels, send
+volume / pan / mode when not the default. Useful when one sound passes
+several tracks, e.g. after rpp-multi -u:
+
+    bin/rpp-info -r ~/Music/REAPER/OsTIrus-multi.RPP
+    1 OsTIrus (multi): OsTIrus (v)
+        0.0 dB, C, 6 ch, no master send
+        <- 2 Noomed2Chord: MIDI all -> ch 1
+        <- 3 Astr@: MIDI all -> ch 2
+        -> 4 OsTIrus out 1/2: audio 1/2
+        -> 5 OsTIrus out 3/4: audio 3/4 -> 1/2
+    2 Noomed2Chord
+        MIDI only (volume and pan do not change the sound)
+        -> 1 OsTIrus (multi): MIDI all -> ch 1
+    4 OsTIrus out 1/2
+        0.0 dB, C, -> master
+        <- 1 OsTIrus (multi): audio 1/2
+
+A track is "MIDI only" when it has no FX, no master send and no audio
+sends; then its own volume and pan do nothing. The sends are post-fader
+unless shown otherwise, so the volume and pan of the sending track count
+too (here: part pan in the synth, track 1, then track 4).
 
 ## 9. LMMS project: tracks, instruments and effects
 

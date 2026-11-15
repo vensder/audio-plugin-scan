@@ -68,6 +68,23 @@ class TestMulti(unittest.TestCase):
         self.assertEqual((r[0], r[7], r[10]), ("0", "2", "31"))
         self.assertEqual(t[6].value("AUXRECV")[0], "0")  # Reverb
 
+    def test_routing_overview(self):
+        import io
+        from contextlib import redirect_stdout
+        from audioplug.cli import rpp_info
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "out.RPP")
+            multi.write(multi.make(VIRUS, outputs=2), path)
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                rpp_info.print_project(path, rpp_info.Report(), True)
+        text = buf.getvalue()
+        self.assertIn("0.0 dB, C, 4 ch, no master send", text)
+        self.assertIn("<- 2 Noomed2Chord: MIDI all -> ch 1", text)
+        self.assertIn("-> 5 OsTIrus out 3/4: audio 3/4 -> 1/2", text)
+        self.assertIn("MIDI only", text)
+        self.assertIn("-> 1 OsTIrus (multi): MIDI all -> ch 2", text)
+
     def test_errors(self):
         with self.assertRaises(ValueError):
             multi.make(VIRUS, plugin="Diva")

@@ -1,7 +1,7 @@
 """rpp-info - tracks of a REAPER project with their FX chains, in order.
 
 Usage:
-    rpp-info PROJECT|DIR [...] [-c | --host HOST ... | -a]
+    rpp-info PROJECT|DIR [...] [-r] [-c | --host HOST ... | -a]
 
 Prints one line per track: the track number and name (indented inside
 folders), then its FX in chain order, each with its state:
@@ -13,6 +13,19 @@ in quotes before the plugin name. Containers and Carla racks list what
 is inside them in [ ]. Input FX, take FX and the master FX chain are
 shown too.
 
+-r adds a mix and routing overview under each track: volume, pan,
+channel count, where the track goes (master, parent folder, nothing),
+and its receives (<-) and sends (->) with their audio channels, MIDI
+channels, volume and pan:
+
+     1 OsTIrus (multi): OsTIrus (v)
+         0.0 dB, C, 6 ch, no master send
+         <- 2 Noomed2Chord: MIDI all -> ch 1
+         -> 4 OsTIrus out 1/2: audio 1/2
+     2 Noomed2Chord
+         MIDI only (volume and pan do not change the sound)
+         -> 1 OsTIrus (multi): MIDI all -> ch 1
+
 -c checks every plugin against this machine (scanned now), --host / -a
 against saved host files, like "plugscan check". Plugins that are not
 installed are marked, e.g. "Diva (v, missing)". The exit code is then 1
@@ -20,6 +33,7 @@ when anything is missing.
 """
 
 import argparse
+import math
 import os
 import signal
 import sys
@@ -82,12 +96,96 @@ class Report:
         return " -> ".join(self.fx(fx) for fx in chain)
 
 
-def print_project(path, report):
+def db(vol):
+    if vol <= 0:
+        return "-inf dB"
+    return "%.1f dB" % (20 * math.log10(vol))
+
+
+def pan(p):
+    n = int(round(abs(p) * 100))
+    return "C" if n == 0 else ("L%d" if p < 0 else "R%d") % n
+
+
+def chans(c):
+    first, count = c
+    if count == 1:
+        return str(first + 1)
+    return "%d-%d" % (first + 1, first + count) if count > 2 \
+        else "%d/%d" % (first + 1, first + 2)
+
+
+def midi_text(m):
+    src, dst = m
+    out = "MIDI " + ("all" if src == 0 else "ch %d" % src)
+    return out + (" -> ch %d" % dst if dst else "")
+
+
+def send_text(r):
+    parts = []
+    if r["audio"]:
+        a = "audio " + chans(r["audio"])
+        if r["dst"] != r["audio"]:
+            a += " -> " + chans(r["dst"])
+        parts.append(a)
+    if r["midi"]:
+        parts.append(midi_text(r["midi"]))
+    if not parts:
+        parts.append("nothing (audio and MIDI off)")
+    if r["audio"]:
+        if abs(r["vol"] - 1) > 1e-6:
+            parts.append(db(r["vol"]))
+        if r["pan"]:
+            parts.append("pan " + pan(r["pan"]))
+        if r["mode"] != "post-fader":
+            parts.append(r["mode"])
+    if r["muted"]:
+        parts.append("muted")
+    return ", ".join(parts)
+
+
+def routing(t, tracks, sends):
+    """Lines for -r: mix settings, then receives and sends."""
+    def name(n):
+        return "%d %s" % (n, tracks[n - 1]["name"] if 0 < n <= len(tracks)
+                          else "(no track)")
+
+    out_sends = sends.get(t["number"], [])
+    midi_only = (not t["fx"] and not t["main_send"] and not t["hwout"]
+                 and not any(r["audio"] for _, r in out_sends))
+    if midi_only:
+        head = ["MIDI only (volume and pan do not change the sound)"]
+    else:
+        head = [db(t["vol"]), pan(t["pan"])]
+        if t["nchan"] != 2:
+            head.append("%d ch" % t["nchan"])
+        if not t["main_send"]:
+            head.append("no master send")
+        elif t["parent"]:
+            head.append("-> folder " + name(t["parent"]))
+        else:
+            head.append("-> master")
+        if t["hwout"]:
+            head.append("%d hardware out%s" % (
+                len(t["hwout"]), "s" if len(t["hwout"]) > 1 else ""))
+    lines = [", ".join(head)]
+    for r in t["receives"]:
+        lines.append("<- %s: %s" % (name(r["src"] + 1), send_text(r)))
+    for dst, r in out_sends:
+        lines.append("-> %s: %s" % (name(dst), send_text(r)))
+    return lines
+
+
+def print_project(path, report, show_routing=False):
     project = rpp.read(path)
     tracks = rpp.tracks(project)
     width = len(str(len(tracks)))
     pad = " " * (width + 3)
     master = rpp.master_fx(project)
+    sends = {}  # source track number -> [(dest number, receive)]
+    for t in tracks:
+        for r in t["receives"]:
+            sends.setdefault(r["src"] + 1, []).append((t["number"], r))
     if master:
         print("Master: " + report.chain(master))
     for t in tracks:
@@ -101,6 +199,9 @@ def print_project(path, report):
             line += ": " + report.chain(t["fx"])
         print(line)
         sub = pad + "  " * t["depth"]
+        if show_routing:
+            for s in routing(t, tracks, sends):
+                print(sub + s)
         if t["input_fx"]:
             print("%sinput FX: %s" % (sub, report.chain(t["input_fx"])))
         for take, chain in t["items"]:
@@ -122,6 +223,8 @@ def main(argv=None):
     ap.add_argument("-c", "--check", action="store_true",
                     help="mark plugins that are not installed on this "
                          "machine (scanned now)")
+    ap.add_argument("-r", "--routing", action="store_true",
+                    help="also show volume, pan, sends and receives")
     add_host_args(ap)
     args = ap.parse_args(argv)
     if hasattr(signal, "SIGPIPE"):
@@ -141,7 +244,7 @@ def main(argv=None):
             print()
         print("== %s" % proj)
         try:
-            print_project(proj, report)
+            print_project(proj, report, args.routing)
         except OSError as exc:
             print("   cannot read: %s" % exc)
     print()

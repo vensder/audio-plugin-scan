@@ -243,14 +243,62 @@ def _ints(vals, n):
     return out + [0] * (n - len(out))
 
 
+def _floats(vals, n, default=0.0):
+    out = []
+    for v in (vals or [])[:n]:
+        try:
+            out.append(float(v))
+        except ValueError:
+            out.append(default)
+    return out + [default] * (n - len(out))
+
+
+# AUXRECV / HWOUT send modes.
+SEND_MODES = {0: "post-fader", 1: "pre-FX", 3: "pre-fader"}
+
+
+def receive(line):
+    """An AUXRECV line as a dict:
+
+    AUXRECV src mode vol pan mute mono phase srcchan dstchan panlaw
+            midiflags automode
+
+    src: 0-based track index; audio: (first channel, count) of the source
+    or None; dst: (first channel, count); midi: (source channel, dest
+    channel) with 0 = all / original, or None when MIDI is off.
+    """
+    t = tokens(line)[1:]
+    src, mode = _ints(t, 2)
+    vol, pan = _floats(t[2:], 2, 1.0)[0], _floats(t[3:], 1)[0]
+    mute = _ints(t[4:], 1)[0] == 1
+    srcchan, dstchan = _ints(t[7:], 2)
+    midi = _ints(t[10:], 1)[0] if len(t) > 10 else 0
+    return {"src": src, "mode": SEND_MODES.get(mode, "mode %d" % mode),
+            "vol": vol, "pan": pan, "muted": mute,
+            "audio": None if srcchan < 0 else _chans(srcchan),
+            "dst": _chans(dstchan),
+            "midi": None if midi & 31 == 31 else (midi & 31,
+                                                   (midi >> 5) & 31)}
+
+
+def _chans(v):
+    """Send channel field -> (first channel, count): low 10 bits = index,
+    1024 = mono, higher bits = channel pairs - 1 for multichannel."""
+    hi = v >> 10
+    return (v & 1023, 1 if hi == 1 else 2 * hi if hi > 1 else 2)
+
+
 def tracks(project):
     """Tracks of a project (a read() result), in order.
 
-    Each is a dict: number, name, depth (folder level), folder, muted,
-    fx_on (the track's FX button), fx, input_fx, and items: a list of
-    (take name, FX chain) for takes with take FX.
+    Each is a dict: number, name, depth (folder level), folder, parent
+    (number of the folder track it is in, or 0), muted, fx_on (the
+    track's FX button), fx, input_fx, items: a list of (take name, FX
+    chain) for takes with take FX, vol (linear), pan (-1..1), nchan,
+    main_send (to the master or parent folder), receives (receive()
+    dicts) and hwout (hardware output lines, as read).
     """
-    out, depth = [], 0
+    out, depth, parents = [], 0, []
     for i, t in enumerate(project.nodes("TRACK"), 1):
         name = (t.value("NAME") or [""])[0]
         bus, change = _ints(t.value("ISBUS"), 2)
@@ -265,8 +313,17 @@ def tracks(project):
                     chain = fx_chain(it)
                     if chain:
                         items.append((take, chain))
+        vol, pan = _floats(t.value("VOLPAN"), 2, 1.0)[0], \
+            _floats((t.value("VOLPAN") or [])[1:], 1)[0]
         out.append({
             "number": i, "name": name, "depth": depth, "folder": bus == 1,
+            "parent": parents[-1] if parents else 0,
+            "vol": vol, "pan": pan,
+            "nchan": _ints(t.value("NCHAN") or ["2"], 1)[0],
+            "main_send": _ints(t.value("MAINSEND") or ["1"], 1)[0] == 1,
+            "receives": [receive(s) for s in t.lines()
+                         if s.startswith("AUXRECV ")],
+            "hwout": [s for s in t.lines() if s.startswith("HWOUT ")],
             "muted": _ints(t.value("MUTESOLO"), 1)[0] == 1,
             "fx_on": (t.value("FX") or ["1"])[0] != "0",
             "fx": _chain(t, "FXCHAIN"),
@@ -275,6 +332,10 @@ def tracks(project):
         })
         # ISBUS 1 1 opens a folder, ISBUS 2 -N closes N levels.
         depth = max(0, depth + change)
+        if bus == 1:
+            parents.append(i)
+        elif bus == 2:
+            del parents[max(0, len(parents) + change):]
     return out
 
 
