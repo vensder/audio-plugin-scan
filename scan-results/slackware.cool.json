@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-12T21:11:27+13:00",
+  "generated": "2026-11-15T18:21:12+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -57,6 +57,11 @@
     },
     {
       "format": "ladspa",
+      "dir": "/home/vensder/.ladspa",
+      "source": "home"
+    },
+    {
+      "format": "ladspa",
       "dir": "/usr/lib64/lmms/ladspa",
       "source": "lmms"
     },
@@ -64,6 +69,11 @@
       "format": "dssi",
       "dir": "/usr/lib64/dssi",
       "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
+      "dir": "/home/vensder/.dssi",
+      "source": "home"
     },
     {
       "format": "jsfx",
@@ -132,10 +142,57 @@
     },
     {
       "format": "clap",
+      "name": "JE8086",
+      "file": "JE8086.clap",
+      "path": "/home/vensder/.clap/JE8086.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/JE8086.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
       "name": "lsp-plugins",
       "file": "lsp-plugins.clap",
-      "path": "/usr/lib64/clap/lsp-plugins.clap",
-      "source": "system",
+      "path": "/home/vensder/.clap/lsp-plugins.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/lsp-plugins.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "NodalRed2x",
+      "file": "NodalRed2x.clap",
+      "path": "/home/vensder/.clap/NodalRed2x.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/NodalRed2x.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "Osirus",
+      "file": "Osirus.clap",
+      "path": "/home/vensder/.clap/Osirus.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/Osirus.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "OsTIrus",
+      "file": "OsTIrus.clap",
+      "path": "/home/vensder/.clap/OsTIrus.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/OsTIrus.clap"
+      ],
       "reaper": true
     },
     {
@@ -144,30 +201,31 @@
       "file": "SQ8L.clap",
       "path": "/home/vensder/.clap/SQ8L.clap",
       "source": "home",
-      "reaper": true
-    },
-    {
-      "format": "clap",
-      "name": "SQ8L",
-      "file": "SQ8L.clap",
-      "path": "/usr/lib64/clap/SQ8L.clap",
-      "source": "system",
+      "links": [
+        "/usr/lib64/clap/SQ8L.clap"
+      ],
       "reaper": true
     },
     {
       "format": "clap",
       "name": "Surge XT",
       "file": "Surge XT.clap",
-      "path": "/usr/lib64/clap/Surge XT.clap",
-      "source": "system",
+      "path": "/home/vensder/.clap/Surge XT.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/Surge XT.clap"
+      ],
       "reaper": true
     },
     {
       "format": "clap",
       "name": "Surge XT Effects",
       "file": "Surge XT Effects.clap",
-      "path": "/usr/lib64/clap/Surge XT Effects.clap",
-      "source": "system",
+      "path": "/home/vensder/.clap/Surge XT Effects.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/Surge XT Effects.clap"
+      ],
       "reaper": true
     },
     {
@@ -190,8 +248,41 @@
       "format": "clap",
       "name": "VASTvaporizer2",
       "file": "VASTvaporizer2.clap",
-      "path": "/usr/lib64/clap/VASTvaporizer2.clap",
-      "source": "system",
+      "path": "/home/vensder/.clap/VASTvaporizer2.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/VASTvaporizer2.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "Vavra",
+      "file": "Vavra.clap",
+      "path": "/home/vensder/.clap/Vavra.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/Vavra.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "Xenia",
+      "file": "Xenia.clap",
+      "path": "/home/vensder/.clap/Xenia.clap",
+      "source": "home",
+      "links": [
+        "/usr/lib64/clap/Xenia.clap"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "Zebralette3",
+      "file": "Zebralette3.clap",
+      "path": "/home/vensder/.clap/u-he/Zebralette3.clap",
+      "source": "home",
       "reaper": true
     },
     {
@@ -199,42 +290,60 @@
       "name": "amsynth_dssi",
       "file": "amsynth_dssi.so",
       "path": "/usr/lib64/dssi/amsynth_dssi.so",
-      "source": "env:DSSI_PATH"
+      "source": "env:DSSI_PATH",
+      "links": [
+        "/home/vensder/.dssi/amsynth_dssi.so"
+      ]
     },
     {
       "format": "dssi",
       "name": "karplong",
       "file": "karplong.so",
       "path": "/usr/lib64/dssi/karplong.so",
-      "source": "env:DSSI_PATH"
+      "source": "env:DSSI_PATH",
+      "links": [
+        "/home/vensder/.dssi/karplong.so"
+      ]
     },
     {
       "format": "dssi",
       "name": "less_trivial_synth",
       "file": "less_trivial_synth.so",
       "path": "/usr/lib64/dssi/less_trivial_synth.so",
-      "source": "env:DSSI_PATH"
+      "source": "env:DSSI_PATH",
+      "links": [
+        "/home/vensder/.dssi/less_trivial_synth.so"
+      ]
     },
     {
       "format": "dssi",
       "name": "libzynaddsubfx_dssi",
       "file": "libzynaddsubfx_dssi.so",
       "path": "/usr/lib64/dssi/libzynaddsubfx_dssi.so",
-      "source": "env:DSSI_PATH"
+      "source": "env:DSSI_PATH",
+      "links": [
+        "/home/vensder/.dssi/libzynaddsubfx_dssi.so"
+      ]
     },
     {
       "format": "dssi",
       "name": "trivial_sampler",
       "file": "trivial_sampler.so",
       "path": "/usr/lib64/dssi/trivial_sampler.so",
-      "source": "env:DSSI_PATH"
+      "source": "env:DSSI_PATH",
+      "links": [
+        "/home/vensder/.dssi/trivial_sampler.so"
+      ]
     },
     {
       "format": "dssi",
       "name": "trivial_synth",
       "file": "trivial_synth.so",
       "path": "/usr/lib64/dssi/trivial_synth.so",
-      "source": "env:DSSI_PATH"
+      "source": "env:DSSI_PATH",
+      "links": [
+        "/home/vensder/.dssi/trivial_synth.so"
+      ]
     },
     {
       "format": "jsfx",
@@ -3692,7 +3801,10 @@
       "name": "amp",
       "file": "amp.so",
       "path": "/usr/lib64/ladspa/amp.so",
-      "source": "env:LADSPA_PATH"
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/amp.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -3839,7 +3951,10 @@
       "name": "delay",
       "file": "delay.so",
       "path": "/usr/lib64/ladspa/delay.so",
-      "source": "env:LADSPA_PATH"
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/delay.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -3909,7 +4024,10 @@
       "name": "filter",
       "file": "filter.so",
       "path": "/usr/lib64/ladspa/filter.so",
-      "source": "env:LADSPA_PATH"
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/filter.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -4053,6 +4171,16 @@
     },
     {
       "format": "ladspa",
+      "name": "ladspa-rubberband",
+      "file": "ladspa-rubberband.so",
+      "path": "/usr/lib64/ladspa/ladspa-rubberband.so",
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/ladspa-rubberband.so"
+      ]
+    },
+    {
+      "format": "ladspa",
       "name": "latency_1914",
       "file": "latency_1914.so",
       "path": "/usr/lib64/lmms/ladspa/latency_1914.so",
@@ -4084,7 +4212,10 @@
       "name": "lsp-plugins-ladspa",
       "file": "lsp-plugins-ladspa.so",
       "path": "/usr/lib64/ladspa/lsp-plugins-ladspa.so",
-      "source": "env:LADSPA_PATH"
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/lsp-plugins-ladspa.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -4133,7 +4264,10 @@
       "name": "noise",
       "file": "noise.so",
       "path": "/usr/lib64/ladspa/noise.so",
-      "source": "env:LADSPA_PATH"
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/noise.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -4280,7 +4414,10 @@
       "name": "sine",
       "file": "sine.so",
       "path": "/usr/lib64/ladspa/sine.so",
-      "source": "env:LADSPA_PATH"
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/sine.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -4542,6 +4679,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4552,6 +4692,34 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "ADLplug",
+      "id": "https://github.com/jpcima/ADLplug",
+      "file": "ADLplug.lv2",
+      "path": "/usr/lib64/lv2/ADLplug.lv2",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ADLplug.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "ADLplug-Next",
+      "id": "https://github.com/yumasansansan/ADLplug-Next#ADLplug-Next",
+      "file": "ADLplug-Next.lv2",
+      "path": "/usr/lib64/lv2/ADLplug-Next.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ADLplug-Next.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4562,6 +4730,9 @@
       "path": "/usr/lib64/lv2/amsynth.lv2",
       "version": "2.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/amsynth.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4572,6 +4743,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4582,6 +4756,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4592,6 +4769,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4602,6 +4782,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4612,6 +4795,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4622,6 +4808,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4632,6 +4821,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4642,6 +4834,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4721,6 +4916,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4730,6 +4928,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4739,6 +4940,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4748,6 +4952,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4757,6 +4964,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4766,6 +4976,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4775,6 +4988,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4784,6 +5000,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4793,6 +5012,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4802,6 +5024,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4811,6 +5036,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4820,6 +5048,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4829,6 +5060,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4838,6 +5072,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4847,6 +5084,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4856,6 +5096,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4865,6 +5108,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4874,6 +5120,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4883,6 +5132,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4892,6 +5144,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4901,6 +5156,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4910,6 +5168,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4919,6 +5180,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4928,6 +5192,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4937,6 +5204,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4946,6 +5216,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4955,6 +5228,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4964,6 +5240,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4973,6 +5252,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4982,6 +5264,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -4991,6 +5276,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5000,6 +5288,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5009,6 +5300,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5018,6 +5312,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5027,6 +5324,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5036,6 +5336,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5045,6 +5348,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5054,6 +5360,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5063,6 +5372,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5072,6 +5384,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5081,6 +5396,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5090,6 +5408,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5099,6 +5420,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5108,6 +5432,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5117,6 +5444,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5126,6 +5456,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5135,6 +5468,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5144,6 +5480,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5153,6 +5492,9 @@
       "file": "calf.lv2",
       "path": "/usr/lib64/lv2/calf.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/calf.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5163,6 +5505,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5173,6 +5518,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5183,6 +5531,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5193,6 +5544,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5203,6 +5557,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5213,6 +5570,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5223,6 +5583,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5233,6 +5596,9 @@
       "path": "/usr/lib64/lv2/controlfilter.lv2",
       "version": "1282.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/controlfilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5243,6 +5609,9 @@
       "path": "/usr/lib64/lv2/controlfilter.lv2",
       "version": "1282.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/controlfilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5253,6 +5622,9 @@
       "path": "/usr/lib64/lv2/controlfilter.lv2",
       "version": "1282.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/controlfilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5263,6 +5635,9 @@
       "path": "/usr/lib64/lv2/controlfilter.lv2",
       "version": "1282.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/controlfilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5273,6 +5648,9 @@
       "path": "/usr/lib64/lv2/controlfilter.lv2",
       "version": "1282.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/controlfilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5283,6 +5661,9 @@
       "path": "/usr/lib64/lv2/Dexed.lv2",
       "version": "1.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/Dexed.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5293,6 +5674,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5303,6 +5687,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5313,6 +5700,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5323,6 +5713,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5333,6 +5726,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5343,6 +5739,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5353,6 +5752,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5362,6 +5764,9 @@
       "file": "eg-fifths.lv2",
       "path": "/usr/lib64/lv2/eg-fifths.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-fifths.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5371,6 +5776,9 @@
       "file": "eg-metro.lv2",
       "path": "/usr/lib64/lv2/eg-metro.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-metro.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5380,6 +5788,9 @@
       "file": "eg-midigate.lv2",
       "path": "/usr/lib64/lv2/eg-midigate.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-midigate.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5389,6 +5800,9 @@
       "file": "eg-params.lv2",
       "path": "/usr/lib64/lv2/eg-params.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-params.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5398,6 +5812,9 @@
       "file": "eg-scope.lv2",
       "path": "/usr/lib64/lv2/eg-scope.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-scope.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5407,6 +5824,9 @@
       "file": "eg-scope.lv2",
       "path": "/usr/lib64/lv2/eg-scope.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-scope.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5416,6 +5836,9 @@
       "file": "eg-sampler.lv2",
       "path": "/usr/lib64/lv2/eg-sampler.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-sampler.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5426,6 +5849,22 @@
       "path": "/usr/lib64/lv2/helm.lv2",
       "version": "0.10",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/helm.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "JE8086",
+      "id": "http://theusualsuspects.lv2/JE8086",
+      "file": "JE8086.lv2",
+      "path": "/usr/lib64/lv2/JE8086.lv2",
+      "version": "2.27",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/JE8086.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5436,6 +5875,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5446,6 +5888,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5456,6 +5901,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5466,6 +5914,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5476,6 +5927,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5486,6 +5940,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5496,6 +5953,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5506,6 +5966,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5516,6 +5979,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5526,6 +5992,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5536,6 +6005,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5546,6 +6018,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5556,6 +6031,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5566,6 +6044,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5576,6 +6057,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5586,6 +6070,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.21",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5596,6 +6083,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.21",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5606,6 +6096,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5616,6 +6109,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5626,6 +6122,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.17",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5636,6 +6135,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.17",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5646,6 +6148,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.19",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5656,6 +6161,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.19",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5666,6 +6174,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5676,6 +6187,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5686,6 +6200,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5696,6 +6213,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5706,6 +6226,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5716,6 +6239,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5726,6 +6252,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5736,6 +6265,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5746,6 +6278,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.1",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5756,6 +6291,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.1",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5766,6 +6304,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5776,6 +6317,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5786,6 +6330,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5796,6 +6343,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5806,6 +6356,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5816,6 +6369,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5826,6 +6382,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5836,6 +6395,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5846,6 +6408,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5856,6 +6421,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5866,6 +6434,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5876,6 +6447,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5886,6 +6460,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5896,6 +6473,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5906,6 +6486,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5916,6 +6499,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5926,6 +6512,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5936,6 +6525,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5946,6 +6538,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5956,6 +6551,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5966,6 +6564,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5976,6 +6577,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5986,6 +6590,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -5996,6 +6603,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6006,6 +6616,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6016,6 +6629,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6026,6 +6642,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6036,6 +6655,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6046,6 +6668,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6056,6 +6681,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6066,6 +6694,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6076,6 +6707,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6086,6 +6720,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6096,6 +6733,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6106,6 +6746,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6116,6 +6759,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6126,6 +6772,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6136,6 +6785,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6146,6 +6798,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6156,6 +6811,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6166,6 +6824,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.6",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6176,6 +6837,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.6",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6186,6 +6850,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6196,6 +6863,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6206,6 +6876,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6216,6 +6889,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6226,6 +6902,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6236,6 +6915,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.27",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6246,6 +6928,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6256,6 +6941,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6266,6 +6954,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6276,6 +6967,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6286,6 +6980,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6296,6 +6993,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6306,6 +7006,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.19",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6316,6 +7019,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.19",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6326,6 +7032,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6336,6 +7045,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6346,6 +7058,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6356,6 +7071,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6366,6 +7084,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6376,6 +7097,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6386,6 +7110,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6396,6 +7123,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6406,6 +7136,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6416,6 +7149,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6426,6 +7162,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6436,6 +7175,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6446,6 +7188,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6456,6 +7201,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6466,6 +7214,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6476,6 +7227,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6486,6 +7240,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6496,6 +7253,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6506,6 +7266,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.8",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6516,6 +7279,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.8",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6526,6 +7292,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.30",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6536,6 +7305,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.30",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6546,6 +7318,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.30",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6556,6 +7331,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6566,6 +7344,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6576,6 +7357,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6586,6 +7370,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6596,6 +7383,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6606,6 +7396,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6616,6 +7409,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6626,6 +7422,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6636,6 +7435,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6646,6 +7448,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6656,6 +7461,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6666,6 +7474,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6676,6 +7487,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6686,6 +7500,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6696,6 +7513,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6706,6 +7526,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6716,6 +7539,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6726,6 +7552,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.10",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6736,6 +7565,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.10",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6746,6 +7578,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6756,6 +7591,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6766,6 +7604,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.12",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6776,6 +7617,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.12",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6786,6 +7630,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.14",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6796,6 +7643,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.14",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6806,6 +7656,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.8",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6816,6 +7669,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.8",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6826,6 +7682,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6836,6 +7695,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6846,6 +7708,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6856,6 +7721,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6866,6 +7734,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.14",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6876,6 +7747,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.14",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6886,6 +7760,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.21",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6896,6 +7773,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.21",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6906,6 +7786,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6916,6 +7799,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6926,6 +7812,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6936,6 +7825,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.40",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6946,6 +7838,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.1",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6956,6 +7851,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.1",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6966,6 +7864,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6976,6 +7877,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6986,6 +7890,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -6996,6 +7903,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7006,6 +7916,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7016,6 +7929,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7026,6 +7942,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7036,6 +7955,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7046,6 +7968,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7056,6 +7981,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7066,6 +7994,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7076,6 +8007,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.39",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7086,6 +8020,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7096,6 +8033,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7106,6 +8046,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7116,6 +8059,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7126,6 +8072,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7136,6 +8085,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7146,6 +8098,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.6",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7156,6 +8111,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.6",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7166,6 +8124,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7176,6 +8137,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7186,6 +8150,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7196,6 +8163,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7206,6 +8176,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7216,6 +8189,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7226,6 +8202,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7236,6 +8215,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.32",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7246,6 +8228,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7256,6 +8241,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7266,6 +8254,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7276,6 +8267,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7286,6 +8280,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7296,6 +8293,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7306,6 +8306,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7316,6 +8319,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7326,6 +8332,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7336,6 +8345,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.24",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7346,6 +8358,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7356,6 +8371,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.36",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7366,6 +8384,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.41",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7376,6 +8397,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.41",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7386,6 +8410,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.41",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7396,6 +8423,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.41",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7406,6 +8436,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.41",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7416,6 +8449,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.41",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7426,6 +8462,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7436,6 +8475,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.35",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7446,6 +8488,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7456,6 +8501,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7466,6 +8514,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7476,6 +8527,9 @@
       "path": "/usr/lib64/lv2/lsp-plugins.lv2",
       "version": "0.37",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7486,6 +8540,9 @@
       "path": "/usr/lib64/lv2/matrixmixer.lv2",
       "version": "1044.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/matrixmixer.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7496,6 +8553,9 @@
       "path": "/usr/lib64/lv2/nodelay.lv2",
       "version": "1542.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/nodelay.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7506,6 +8566,9 @@
       "path": "/usr/lib64/lv2/nodelay.lv2",
       "version": "1542.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/nodelay.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7516,6 +8579,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7526,6 +8592,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7536,6 +8605,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7546,6 +8618,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7556,6 +8631,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7566,6 +8644,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7576,6 +8657,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7586,6 +8670,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7596,6 +8683,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7606,6 +8696,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7616,6 +8709,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7626,6 +8722,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7636,6 +8735,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7646,6 +8748,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7656,6 +8761,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7666,6 +8774,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7676,6 +8787,9 @@
       "path": "/usr/lib64/lv2/mididebug.lv2",
       "version": "776.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/mididebug.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7686,6 +8800,9 @@
       "path": "/usr/lib64/lv2/midimap.lv2",
       "version": "1032.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midimap.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7696,6 +8813,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7706,6 +8826,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7716,6 +8839,9 @@
       "path": "/usr/lib64/lv2/midigen.lv2",
       "version": "1030.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midigen.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7726,6 +8852,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7736,6 +8865,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7746,6 +8878,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7756,6 +8891,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7766,6 +8904,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7776,6 +8917,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7786,6 +8930,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7796,6 +8943,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7806,6 +8956,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7816,6 +8969,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7826,6 +8982,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7836,6 +8995,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7846,6 +9008,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7856,6 +9021,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7866,6 +9034,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7876,6 +9047,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7886,6 +9060,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7896,6 +9073,9 @@
       "path": "/usr/lib64/lv2/stepseq_s8n8.lv2",
       "version": "1572.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/stepseq_s8n8.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7906,6 +9086,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7916,6 +9099,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7926,6 +9112,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7936,6 +9125,9 @@
       "path": "/usr/lib64/lv2/carla.lv2",
       "version": "10.25",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/carla.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7946,6 +9138,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7956,6 +9151,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7966,6 +9164,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7976,6 +9177,9 @@
       "path": "/usr/lib64/lv2/midifilter.lv2",
       "version": "1806.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/midifilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7986,6 +9190,9 @@
       "path": "/usr/lib64/lv2/mixtri.lv2",
       "version": "1052.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/mixtri.lv2"
+      ],
       "reaper": true
     },
     {
@@ -7996,6 +9203,22 @@
       "path": "/usr/lib64/lv2/nodelay.lv2",
       "version": "1542.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/nodelay.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "NodalRed2x",
+      "id": "http://theusualsuspects.lv2/NodalRed2x",
+      "file": "NodalRed2x.lv2",
+      "path": "/usr/lib64/lv2/NodalRed2x.lv2",
+      "version": "2.27",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/NodalRed2x.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8006,6 +9229,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8016,6 +9242,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8026,6 +9255,9 @@
       "path": "/usr/lib64/lv2/onsettrigger.lv2",
       "version": "1030.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/onsettrigger.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8036,6 +9268,60 @@
       "path": "/usr/lib64/lv2/onsettrigger.lv2",
       "version": "1030.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/onsettrigger.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "OPNplug",
+      "id": "https://github.com/jpcima/OPNplug",
+      "file": "OPNplug.lv2",
+      "path": "/usr/lib64/lv2/OPNplug.lv2",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/OPNplug.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "OPNplug-Next",
+      "id": "https://github.com/yumasansansan/ADLplug-Next#OPNplug-Next",
+      "file": "OPNplug-Next.lv2",
+      "path": "/usr/lib64/lv2/OPNplug-Next.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/OPNplug-Next.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Osirus",
+      "id": "http://theusualsuspects.lv2/Osirus",
+      "file": "Osirus.lv2",
+      "path": "/usr/lib64/lv2/Osirus.lv2",
+      "version": "2.27",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/Osirus.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "OsTIrus",
+      "id": "http://theusualsuspects.lv2/OsTIrus",
+      "file": "OsTIrus.lv2",
+      "path": "/usr/lib64/lv2/OsTIrus.lv2",
+      "version": "2.27",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/OsTIrus.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8046,6 +9332,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8056,6 +9345,9 @@
       "path": "/usr/lib64/lv2/phaserotate.lv2",
       "version": "1558.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/phaserotate.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8066,6 +9358,9 @@
       "path": "/usr/lib64/lv2/phaserotate.lv2",
       "version": "1558.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/phaserotate.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8090,12 +9385,93 @@
     },
     {
       "format": "lv2",
+      "name": "Rubber Band Live Mono Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#livemono",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/rubberband.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Live Stereo Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#livestereo",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/rubberband.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Mono Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#mono",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/rubberband.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band R3 Mono Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#r3mono",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/rubberband.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band R3 Stereo Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#r3stereo",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/rubberband.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Stereo Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#stereo",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/rubberband.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Signal Distribution Histogram",
       "id": "http://gareus.org/oss/lv2/meters#SigDistHist",
       "file": "meters.lv2",
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8105,6 +9481,9 @@
       "file": "eg-amp.lv2",
       "path": "/usr/lib64/lv2/eg-amp.lv2",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/eg-amp.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8115,6 +9494,9 @@
       "path": "/usr/lib64/lv2/sisco.lv2",
       "version": "2332.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/sisco.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8125,6 +9507,9 @@
       "path": "/usr/lib64/lv2/sisco.lv2",
       "version": "2332.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/sisco.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8135,6 +9520,9 @@
       "path": "/usr/lib64/lv2/sisco.lv2",
       "version": "2332.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/sisco.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8145,6 +9533,9 @@
       "path": "/usr/lib64/lv2/sisco.lv2",
       "version": "2332.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/sisco.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8155,16 +9546,9 @@
       "path": "/usr/lib64/lv2/spectra.lv2",
       "version": "1554.0",
       "source": "env:LV2_PATH",
-      "reaper": true
-    },
-    {
-      "format": "lv2",
-      "name": "SQ8L",
-      "id": "urn:sq8l:sq8l",
-      "file": "SQ8L.lv2",
-      "path": "/home/vensder/.lv2/SQ8L.lv2",
-      "version": "2.0",
-      "source": "home",
+      "links": [
+        "/home/vensder/.lv2/spectra.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8173,8 +9557,11 @@
       "id": "urn:sq8l:sq8l",
       "file": "SQ8L.lv2",
       "path": "/usr/lib64/lv2/SQ8L.lv2",
-      "version": "9.1",
+      "version": "2.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/SQ8L.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8185,6 +9572,9 @@
       "path": "/usr/lib64/lv2/balance.lv2",
       "version": "1794.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/balance.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8195,6 +9585,9 @@
       "path": "/usr/lib64/lv2/xfade.lv2",
       "version": "778.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/xfade.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8205,6 +9598,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8215,6 +9611,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8225,6 +9624,9 @@
       "path": "/usr/lib64/lv2/stereoroute.lv2",
       "version": "518.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/stereoroute.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8235,6 +9637,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8271,6 +9676,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8281,6 +9689,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8291,6 +9702,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8301,6 +9715,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8311,6 +9728,9 @@
       "path": "/usr/lib64/lv2/testsignal.lv2",
       "version": "1792.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/testsignal.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8321,6 +9741,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8331,6 +9754,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8341,6 +9767,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8351,6 +9780,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8368,12 +9800,28 @@
     },
     {
       "format": "lv2",
+      "name": "Vavra",
+      "id": "http://theusualsuspects.lv2/Vavra",
+      "file": "Vavra.lv2",
+      "path": "/usr/lib64/lv2/Vavra.lv2",
+      "version": "2.27",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/Vavra.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "VU Meter (Mono)",
       "id": "http://gareus.org/oss/lv2/meters#VUmono",
       "file": "meters.lv2",
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8384,6 +9832,9 @@
       "path": "/usr/lib64/lv2/meters.lv2",
       "version": "2364.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/meters.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8394,6 +9845,9 @@
       "path": "/usr/lib64/lv2/zeroconvo.lv2",
       "version": "1796.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/zeroconvo.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8404,6 +9858,9 @@
       "path": "/usr/lib64/lv2/zeroconvo.lv2",
       "version": "1796.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/zeroconvo.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8414,6 +9871,9 @@
       "path": "/usr/lib64/lv2/zeroconvo.lv2",
       "version": "1796.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/zeroconvo.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8424,6 +9884,9 @@
       "path": "/usr/lib64/lv2/zeroconvo.lv2",
       "version": "1796.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/zeroconvo.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8434,6 +9897,9 @@
       "path": "/usr/lib64/lv2/zeroconvo.lv2",
       "version": "1796.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/zeroconvo.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8444,6 +9910,9 @@
       "path": "/usr/lib64/lv2/zeroconvo.lv2",
       "version": "1796.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/zeroconvo.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8454,6 +9923,9 @@
       "path": "/usr/lib64/lv2/tuna.lv2",
       "version": "1556.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/tuna.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8464,6 +9936,9 @@
       "path": "/usr/lib64/lv2/tuna.lv2",
       "version": "1556.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/tuna.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8474,6 +9949,9 @@
       "path": "/usr/lib64/lv2/fat1.lv2",
       "version": "2070.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/fat1.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8484,6 +9962,9 @@
       "path": "/usr/lib64/lv2/fat1.lv2",
       "version": "2070.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/fat1.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8494,6 +9975,9 @@
       "path": "/usr/lib64/lv2/fat1.lv2",
       "version": "2070.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/fat1.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8504,6 +9988,9 @@
       "path": "/usr/lib64/lv2/darc.lv2",
       "version": "1800.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/darc.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8514,6 +10001,9 @@
       "path": "/usr/lib64/lv2/darc.lv2",
       "version": "1800.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/darc.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8524,6 +10014,9 @@
       "path": "/usr/lib64/lv2/dpl.lv2",
       "version": "1798.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/dpl.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8534,6 +10027,9 @@
       "path": "/usr/lib64/lv2/dpl.lv2",
       "version": "1798.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/dpl.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8544,6 +10040,9 @@
       "path": "/usr/lib64/lv2/fil4.lv2",
       "version": "2074.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/fil4.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8554,6 +10053,22 @@
       "path": "/usr/lib64/lv2/fil4.lv2",
       "version": "2074.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/fil4.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Xenia",
+      "id": "http://theusualsuspects.lv2/Xenia",
+      "file": "Xenia.lv2",
+      "path": "/usr/lib64/lv2/Xenia.lv2",
+      "version": "2.27",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/Xenia.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8590,6 +10105,9 @@
       "path": "/usr/lib64/lv2/ZynAddSubFX.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynAddSubFX.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8600,6 +10118,9 @@
       "path": "/usr/lib64/lv2/ZynAlienWah.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynAlienWah.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8610,6 +10131,9 @@
       "path": "/usr/lib64/lv2/ZynChorus.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynChorus.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8620,6 +10144,9 @@
       "path": "/usr/lib64/lv2/ZynDistortion.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynDistortion.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8630,6 +10157,9 @@
       "path": "/usr/lib64/lv2/ZynDynamicFilter.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynDynamicFilter.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8640,6 +10170,9 @@
       "path": "/usr/lib64/lv2/ZynEcho.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynEcho.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8650,6 +10183,9 @@
       "path": "/usr/lib64/lv2/ZynPhaser.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynPhaser.lv2"
+      ],
       "reaper": true
     },
     {
@@ -8660,14 +10196,34 @@
       "path": "/usr/lib64/lv2/ZynReverb.lv2",
       "version": "8.0",
       "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/ZynReverb.lv2"
+      ],
       "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "ADLplug",
+      "file": "ADLplug.so",
+      "path": "/home/vensder/.vst/ADLplug.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ADLplug.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1094995021": "ADLplug"
+      }
     },
     {
       "format": "vst2",
       "name": "amsynth_vst",
       "file": "amsynth_vst.so",
-      "path": "/usr/lib64/vst/amsynth_vst.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/amsynth_vst.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/amsynth_vst.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1634562937": "amsynth"
@@ -8677,16 +10233,22 @@
       "format": "vst2",
       "name": "carla-bridge-lv2",
       "file": "carla-bridge-lv2.so",
-      "path": "/usr/lib64/vst/carla.vst/carla-bridge-lv2.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/carla-bridge-lv2.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/carla-bridge-lv2.so"
+      ],
       "reaper": true
     },
     {
       "format": "vst2",
       "name": "CarlaPatchbay",
       "file": "CarlaPatchbay.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaPatchbay.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaPatchbay.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572325": "Carla-Patchbay"
@@ -8696,8 +10258,11 @@
       "format": "vst2",
       "name": "CarlaPatchbay16",
       "file": "CarlaPatchbay16.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay16.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaPatchbay16.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaPatchbay16.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572326": "Carla-Patchbay16"
@@ -8707,8 +10272,11 @@
       "format": "vst2",
       "name": "CarlaPatchbay32",
       "file": "CarlaPatchbay32.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay32.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaPatchbay32.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaPatchbay32.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572327": "Carla-Patchbay32"
@@ -8718,8 +10286,11 @@
       "format": "vst2",
       "name": "CarlaPatchbay64",
       "file": "CarlaPatchbay64.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbay64.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaPatchbay64.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaPatchbay64.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572328": "Carla-Patchbay64"
@@ -8729,8 +10300,11 @@
       "format": "vst2",
       "name": "CarlaPatchbayFX",
       "file": "CarlaPatchbayFX.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaPatchbayFX.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaPatchbayFX.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaPatchbayFX.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572324": "Carla-PatchbayFX"
@@ -8740,8 +10314,11 @@
       "format": "vst2",
       "name": "CarlaRack",
       "file": "CarlaRack.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaRack.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaRack.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaRack.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572323": "Carla-Rack"
@@ -8751,8 +10328,11 @@
       "format": "vst2",
       "name": "CarlaRackFX",
       "file": "CarlaRackFX.so",
-      "path": "/usr/lib64/vst/carla.vst/CarlaRackFX.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/CarlaRackFX.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/CarlaRackFX.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1131572322": "Carla-RackFX"
@@ -8762,8 +10342,11 @@
       "format": "vst2",
       "name": "carlastyle",
       "file": "carlastyle.so",
-      "path": "/usr/lib64/vst/carla.vst/styles/carlastyle.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/styles/carlastyle.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/styles/carlastyle.so"
+      ],
       "reaper": true
     },
     {
@@ -8773,6 +10356,20 @@
       "path": "/home/vensder/opt/REAPER/Plugins/elastique3.so",
       "source": "reaper",
       "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "JE8086",
+      "file": "JE8086.so",
+      "path": "/home/vensder/.vst/JE8086.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/JE8086.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1416261750": "JE8086"
+      }
     },
     {
       "format": "vst2",
@@ -8786,48 +10383,66 @@
       "format": "vst2",
       "name": "libcarla_host-plugin",
       "file": "libcarla_host-plugin.so",
-      "path": "/usr/lib64/vst/carla.vst/libcarla_host-plugin.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/libcarla_host-plugin.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/libcarla_host-plugin.so"
+      ],
       "reaper": true
     },
     {
       "format": "vst2",
       "name": "libcarla_interposer-jack-x11",
       "file": "libcarla_interposer-jack-x11.so",
-      "path": "/usr/lib64/vst/carla.vst/libcarla_interposer-jack-x11.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/libcarla_interposer-jack-x11.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/libcarla_interposer-jack-x11.so"
+      ],
       "reaper": true
     },
     {
       "format": "vst2",
       "name": "libcarla_interposer-safe",
       "file": "libcarla_interposer-safe.so",
-      "path": "/usr/lib64/vst/carla.vst/libcarla_interposer-safe.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/libcarla_interposer-safe.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/libcarla_interposer-safe.so"
+      ],
       "reaper": true
     },
     {
       "format": "vst2",
       "name": "libcarla_interposer-x11",
       "file": "libcarla_interposer-x11.so",
-      "path": "/usr/lib64/vst/carla.vst/libcarla_interposer-x11.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/libcarla_interposer-x11.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/libcarla_interposer-x11.so"
+      ],
       "reaper": true
     },
     {
       "format": "vst2",
       "name": "libcarla_native-plugin",
       "file": "libcarla_native-plugin.so",
-      "path": "/usr/lib64/vst/carla.vst/libcarla_native-plugin.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/libcarla_native-plugin.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/libcarla_native-plugin.so"
+      ],
       "reaper": true
     },
     {
       "format": "vst2",
       "name": "libcarla_utils",
       "file": "libcarla_utils.so",
-      "path": "/usr/lib64/vst/carla.vst/libcarla_utils.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/carla.vst/libcarla_utils.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/carla.vst/libcarla_utils.so"
+      ],
       "reaper": true
     },
     {
@@ -8845,8 +10460,11 @@
       "format": "vst2",
       "name": "lsp-plugins",
       "file": "lsp-plugins.so",
-      "path": "/usr/lib64/vst/lsp-plugins.vst/lsp-plugins.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/lsp-plugins.vst/lsp-plugins.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/lsp-plugins.vst/lsp-plugins.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1129066829": "MB Clipper Mono",
@@ -9047,6 +10665,62 @@
         "897088105": "SC Compressor Stereo",
         "930769770": "Multi-Sampler x12 DirectOut",
         "962818406": "Trigger MIDI Stereo"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "NodalRed2x",
+      "file": "NodalRed2x.so",
+      "path": "/home/vensder/.vst/NodalRed2x.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/NodalRed2x.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1416508024": "NodalRed2x"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "OPNplug",
+      "file": "OPNplug.so",
+      "path": "/home/vensder/.vst/OPNplug.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/OPNplug.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1330662989": "OPNplug"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "Osirus",
+      "file": "Osirus.so",
+      "path": "/home/vensder/.vst/Osirus.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/Osirus.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1416983382": "Osirus"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "OsTIrus",
+      "file": "OsTIrus.so",
+      "path": "/home/vensder/.vst/OsTIrus.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/OsTIrus.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1416915312": "OsTIrus"
       }
     },
     {
@@ -9431,6 +11105,9 @@
       "file": "SQ8L.so",
       "path": "/home/vensder/.vst/SQ8L.so",
       "source": "home",
+      "links": [
+        "/usr/lib64/vst/SQ8L.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1397831756": "SQ8L"
@@ -9438,21 +11115,41 @@
     },
     {
       "format": "vst2",
-      "name": "SQ8L",
-      "file": "SQ8L.so",
-      "path": "/usr/lib64/vst/SQ8L.so",
-      "source": "system",
+      "name": "Vavra",
+      "file": "Vavra.so",
+      "path": "/home/vensder/.vst/Vavra.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/Vavra.so"
+      ],
       "reaper": true,
       "vst_ids": {
-        "1397831756": "SQ8L"
+        "1416458611": "Vavra"
+      }
+    },
+    {
+      "format": "vst2",
+      "name": "Xenia",
+      "file": "Xenia.so",
+      "path": "/home/vensder/.vst/Xenia.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/Xenia.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1417180275": "Xenia"
       }
     },
     {
       "format": "vst2",
       "name": "ZynAddSubFX",
       "file": "ZynAddSubFX.so",
-      "path": "/usr/lib64/vst/ZynAddSubFX.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynAddSubFX.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynAddSubFX.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1514230598": "ZynAddSubFX"
@@ -9462,8 +11159,11 @@
       "format": "vst2",
       "name": "ZynAlienWah",
       "file": "ZynAlienWah.so",
-      "path": "/usr/lib64/vst/ZynAlienWah.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynAlienWah.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynAlienWah.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515741559": "ZynAlienWah"
@@ -9473,8 +11173,11 @@
       "format": "vst2",
       "name": "ZynChorus",
       "file": "ZynChorus.so",
-      "path": "/usr/lib64/vst/ZynChorus.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynChorus.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynChorus.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515742056": "ZynChorus"
@@ -9484,8 +11187,11 @@
       "format": "vst2",
       "name": "ZynDistortion",
       "file": "ZynDistortion.so",
-      "path": "/usr/lib64/vst/ZynDistortion.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynDistortion.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynDistortion.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515742323": "ZynDistortion"
@@ -9495,8 +11201,11 @@
       "format": "vst2",
       "name": "ZynDynamicFilter",
       "file": "ZynDynamicFilter.so",
-      "path": "/usr/lib64/vst/ZynDynamicFilter.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynDynamicFilter.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynDynamicFilter.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515742310": "ZynDynamicFilter"
@@ -9506,8 +11215,11 @@
       "format": "vst2",
       "name": "ZynEcho",
       "file": "ZynEcho.so",
-      "path": "/usr/lib64/vst/ZynEcho.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynEcho.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynEcho.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515742563": "ZynEcho"
@@ -9517,8 +11229,11 @@
       "format": "vst2",
       "name": "ZynPhaser",
       "file": "ZynPhaser.so",
-      "path": "/usr/lib64/vst/ZynPhaser.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynPhaser.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynPhaser.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515745384": "ZynPhaser"
@@ -9528,11 +11243,29 @@
       "format": "vst2",
       "name": "ZynReverb",
       "file": "ZynReverb.so",
-      "path": "/usr/lib64/vst/ZynReverb.so",
-      "source": "system",
+      "path": "/home/vensder/.vst/ZynReverb.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/ZynReverb.so"
+      ],
       "reaper": true,
       "vst_ids": {
         "1515745910": "ZynReverb"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "ADLplug-Next",
+      "file": "ADLplug-Next.vst3",
+      "path": "/home/vensder/.vst3/ADLplug-Next.vst3",
+      "version": "2.1.0",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/ADLplug-Next.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1683632253": "ADLplug-Next"
       }
     },
     {
@@ -9566,6 +11299,21 @@
     },
     {
       "format": "vst3",
+      "name": "JE8086",
+      "file": "JE8086.vst3",
+      "path": "/home/vensder/.vst3/JE8086.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/JE8086.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "2071138081": "JE8086"
+      }
+    },
+    {
+      "format": "vst3",
       "name": "js80p",
       "file": "js80p.vst3",
       "path": "/home/vensder/.vst3/js80p.vst3",
@@ -9579,9 +11327,12 @@
       "format": "vst3",
       "name": "lsp-plugins",
       "file": "lsp-plugins.vst3",
-      "path": "/usr/lib64/vst3/lsp-plugins.vst3",
+      "path": "/home/vensder/.vst3/lsp-plugins.vst3",
       "version": "1.2.35",
-      "source": "system",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/lsp-plugins.vst3"
+      ],
       "reaper": true,
       "vst_ids": {
         "1001359493": "Sidechain Multiband Limiter Stereo",
@@ -9797,6 +11548,66 @@
     },
     {
       "format": "vst3",
+      "name": "NodalRed2x",
+      "file": "NodalRed2x.vst3",
+      "path": "/home/vensder/.vst3/NodalRed2x.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/NodalRed2x.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1026867873": "NodalRed2x"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "OPNplug-Next",
+      "file": "OPNplug-Next.vst3",
+      "path": "/home/vensder/.vst3/OPNplug-Next.vst3",
+      "version": "2.1.0",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/OPNplug-Next.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "853018981": "OPNplug-Next"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "Osirus",
+      "file": "Osirus.vst3",
+      "path": "/home/vensder/.vst3/Osirus.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/Osirus.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "479708307": "Osirus"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "OsTIrus",
+      "file": "OsTIrus.vst3",
+      "path": "/home/vensder/.vst3/OsTIrus.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/OsTIrus.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "823903656": "OsTIrus"
+      }
+    },
+    {
+      "format": "vst3",
       "name": "Podolski",
       "file": "Podolski.vst3",
       "path": "/home/vensder/.vst3/u-he/Podolski.vst3",
@@ -9824,17 +11635,9 @@
       "file": "SQ8L.vst3",
       "path": "/home/vensder/.vst3/SQ8L.vst3",
       "source": "home",
-      "reaper": true,
-      "vst_ids": {
-        "258368180": "SQ8L"
-      }
-    },
-    {
-      "format": "vst3",
-      "name": "SQ8L",
-      "file": "SQ8L.vst3",
-      "path": "/usr/lib64/vst3/SQ8L.vst3",
-      "source": "system",
+      "links": [
+        "/usr/lib64/vst3/SQ8L.vst3"
+      ],
       "reaper": true,
       "vst_ids": {
         "258368180": "SQ8L"
@@ -9844,8 +11647,11 @@
       "format": "vst3",
       "name": "Surge XT",
       "file": "Surge XT.vst3",
-      "path": "/usr/lib64/vst3/Surge XT.vst3",
-      "source": "system",
+      "path": "/home/vensder/.vst3/Surge XT.vst3",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/Surge XT.vst3"
+      ],
       "reaper": true,
       "vst_ids": {
         "661331015": "Surge XT"
@@ -9855,8 +11661,11 @@
       "format": "vst3",
       "name": "Surge XT Effects",
       "file": "Surge XT Effects.vst3",
-      "path": "/usr/lib64/vst3/Surge XT Effects.vst3",
-      "source": "system",
+      "path": "/home/vensder/.vst3/Surge XT Effects.vst3",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/Surge XT Effects.vst3"
+      ],
       "reaper": true,
       "vst_ids": {
         "1264445692": "Surge XT Effects"
@@ -9875,6 +11684,17 @@
     },
     {
       "format": "vst3",
+      "name": "TripleCheese",
+      "file": "TripleCheese.vst3",
+      "path": "/home/vensder/.vst3/u-he/TripleCheese.vst3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "1809055093": "TripleCheese"
+      }
+    },
+    {
+      "format": "vst3",
       "name": "TyrellN6",
       "file": "TyrellN6.vst3",
       "path": "/home/vensder/.vst3/u-he/TyrellN6.vst3",
@@ -9888,12 +11708,45 @@
       "format": "vst3",
       "name": "VASTvaporizer2",
       "file": "VASTvaporizer2.vst3",
-      "path": "/usr/lib64/vst3/VASTvaporizer2.vst3",
+      "path": "/home/vensder/.vst3/VASTvaporizer2.vst3",
       "version": "3.5.0",
-      "source": "system",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/VASTvaporizer2.vst3"
+      ],
       "reaper": true,
       "vst_ids": {
         "2042577904": "Vaporizer2"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "Vavra",
+      "file": "Vavra.vst3",
+      "path": "/home/vensder/.vst3/Vavra.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/Vavra.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "641004226": "Vavra"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "Xenia",
+      "file": "Xenia.vst3",
+      "path": "/home/vensder/.vst3/Xenia.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst3/Xenia.vst3"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1909151184": "Xenia"
       }
     },
     {
@@ -9905,6 +11758,17 @@
       "reaper": true,
       "vst_ids": {
         "626363145": "ZebraCM"
+      }
+    },
+    {
+      "format": "vst3",
+      "name": "Zebralette3",
+      "file": "Zebralette3.vst3",
+      "path": "/home/vensder/.vst3/u-he/Zebralette3.vst3",
+      "source": "home",
+      "reaper": true,
+      "vst_ids": {
+        "1339092996": "Zebralette3"
       }
     }
   ]
