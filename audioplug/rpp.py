@@ -20,7 +20,7 @@ the missing-plugin checks), tracks() the tracks with their FX chains.
 
 import re
 
-from . import carla
+from . import carla, virus
 from .formats import file_key, short_name
 from .reaper import EXTENSION_TOKENS
 
@@ -165,6 +165,15 @@ def carla_inside(node, w):
     return carla.plugins(carla.b64_lines(node.lines()), w["name"])
 
 
+def virus_inside(node, w):
+    """Virus Multi of a Gearmulator OsTIrus / Osirus FX block, or None."""
+    if "irus" not in w["name"].lower():
+        return None
+    st = node.nodes("STATE")  # CLAP keeps its state in a STATE block
+    return virus.multi(carla.b64_lines(st[0].lines() if st
+                                       else node.lines()))
+
+
 def extensions(project):
     """Extensions whose data is in the project, e.g. {'SWS'} for the
     SWSAUTOCOLOR / <S&M_... entries REAPER reports when SWS is missing."""
@@ -220,6 +229,7 @@ def fx_chain(node):
             if not fx:
                 continue
             fx["carla"] = carla_inside(it, fx)
+            fx["virus"] = virus_inside(it, fx)
         else:
             continue
         fx["bypass"], fx["offline"] = bypass, offline

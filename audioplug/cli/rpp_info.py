@@ -38,7 +38,7 @@ import os
 import signal
 import sys
 
-from .. import rpp
+from .. import rpp, virus
 from ..hosts import add_host_args, load_hosts
 from ..projects import find_projects, is_rpp
 
@@ -144,6 +144,46 @@ def send_text(r):
     return ", ".join(parts)
 
 
+def fed_channels(t):
+    """MIDI channels the track's receives deliver (send dest, else the
+    source channel); 'all to original' tells nothing, so it is left out."""
+    out = set()
+    for r in t["receives"]:
+        if r["midi"]:
+            src, dst = r["midi"]
+            if dst or src:
+                out.add(dst or src)
+    return out
+
+
+def virus_parts(t, name, out_sends):
+    """Lines for the Virus Multi parts that get MIDI from the receives:
+    part, channel, patch, output and the track it ends up on."""
+    lines = []
+    fed = fed_channels(t)
+    for fx in t["fx"]:
+        vm = fx.get("virus")
+        if not vm or not fed:
+            continue
+        for p in vm["parts"]:
+            if p["channel"] not in fed:
+                continue
+            ch = virus.output_channels(p["output"])
+            dest = []
+            if ch:
+                for dst, r in out_sends:
+                    a = r["audio"]
+                    if a and a[0] <= ch[0] < a[0] + a[1]:
+                        dest.append(name(dst))
+                if t["main_send"] and ch[0] < 2:
+                    dest.append("parent" if t["parent"] else "master")
+            lines.append('part %d: ch %d "%s", %s -> %s' % (
+                p["part"], p["channel"], p["patch"],
+                virus.output_name(p["output"]),
+                ", ".join(dest) or "nothing (no send of these channels)"))
+    return lines
+
+
 def routing(t, tracks, sends):
     """Lines for -r: mix settings, then receives and sends."""
     def name(n):
@@ -168,7 +208,7 @@ def routing(t, tracks, sends):
         if t["hwout"]:
             head.append("%d hardware out%s" % (
                 len(t["hwout"]), "s" if len(t["hwout"]) > 1 else ""))
-    lines = [", ".join(head)]
+    lines = [", ".join(head)] + virus_parts(t, name, out_sends)
     for r in t["receives"]:
         lines.append("<- %s: %s" % (name(r["src"] + 1), send_text(r)))
     for dst, r in out_sends:

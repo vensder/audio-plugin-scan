@@ -28,6 +28,7 @@ to install.
       lmms.py           .mmp / .mmpz reader: plugins, tracks, mixer
       lmms2rpp.py       LMMS -> .RPP + ReaScript + steps
       multi.py          one multitimbral instance for several MIDI tracks
+      virus.py          Virus Multi parts in an OsTIrus / Osirus state
       projects.py       find and read projects
       links.py          system plugins and their links in ~/.lv2 etc.
       cli/              one module per command in bin/
@@ -280,6 +281,16 @@ several tracks, e.g. after rpp-multi -u:
     4 OsTIrus out 1/2
         0.0 dB, C, -> master
         <- 1 OsTIrus (multi): audio 1/2
+
+For OsTIrus / Osirus (Gearmulator Virus) the parts of the Multi that get
+MIDI from the receives are listed too, read from the plugin state: part,
+MIDI channel, patch name, output set in the synth, and the track that
+output reaches (plugin outputs 1/2, 3/4, 5/6 = Out 1, 2, 3):
+
+    1 OsTIrus (multi): OsTIrus (v)
+        0.0 dB, C, 6 ch, no master send
+        part 1: ch 1 "Noomed2 MS", Out 1 L+R -> 4 OsTIrus out 1/2
+        part 2: ch 2 "Astr@", Out 3 L+R -> 6 OsTIrus out 5/6
 
 A track is "MIDI only" when it has no FX, no master send and no audio
 sends; then its own volume and pan do nothing. The sends are post-fader
