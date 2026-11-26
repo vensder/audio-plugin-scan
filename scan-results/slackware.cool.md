@@ -2,19 +2,22 @@
 
 - OS: Slackware 15.0 x86_64 (post 15.0 -current)
 - User: vensder
-- Scanned: 2026-11-09T13:18:17+13:00
-- Plugin files/entries: 1112 (clap 6, dssi 6, jsfx 489, ladspa 124, lv2 414, vst2 66, vst3 7)
+- Scanned: 2026-11-23T19:46:49+13:00
+- Plugin files/entries: 968 (clap 15, dssi 6, jsfx 490, ladspa 125, lv2 234, vst2 74, vst3 24)
 
-## System plugins (59)
+## System plugins (71)
 
+- ADLplug: lv2
+- ADLplug-Next: lv2
 - amp: ladspa
-- amsynth: lv2, vst2
+- amsynth: lv2
 - amsynth_dssi: dssi
 - balance: lv2
 - calf: lv2 (49 plugins)
 - controlfilter: lv2 (5 plugins)
 - darc: lv2 (2 plugins)
 - delay: ladspa
+- Dexed: lv2
 - dpl: lv2 (2 plugins)
 - eg-amp: lv2
 - eg-fifths: lv2
@@ -26,12 +29,12 @@
 - fat1: lv2 (3 plugins)
 - fil4: lv2 (2 plugins)
 - filter: ladspa
-- helm-synth: lv2, vst2
+- helm: lv2
+- JE8086: lv2
 - karplong: dssi
+- ladspa-rubberband: ladspa
 - less_trivial_synth: dssi
 - libzynaddsubfx_dssi: dssi
-- lsp-plugins: clap, lv2 (198 plugins), vst2, vst3
-- lsp-plugins-ladspa: ladspa
 - matrixmixer: lv2
 - meters: lv2 (36 plugins)
 - mididebug: lv2
@@ -39,40 +42,82 @@
 - midigen: lv2
 - midimap: lv2
 - mixtri: lv2
+- NodalRed2x: lv2
 - nodelay: lv2 (3 plugins)
 - noise: ladspa
 - onsettrigger: lv2 (2 plugins)
+- OPNplug: lv2
+- OPNplug-Next: lv2
+- Osirus: lv2
+- OsTIrus: lv2
 - phaserotate: lv2 (2 plugins)
+- rubberband: lv2 (6 plugins)
 - sine: ladspa
 - sisco: lv2 (4 plugins)
 - spectra: lv2
+- SQ8L: lv2
 - stepseq_s8n8: lv2
 - stereoroute: lv2
-- Surge XT: clap, lv2, vst3
-- Surge XT Effects: clap, lv2, vst3
+- Surge XT: lv2
+- Surge XT Effects: lv2
 - testsignal: lv2
 - trivial_sampler: dssi
 - trivial_synth: dssi
 - tuna: lv2 (2 plugins)
-- VASTvaporizer2: clap, lv2, vst3
+- VASTvaporizer2: lv2
+- Vavra: lv2
+- Xenia: lv2
 - xfade: lv2
 - yoshimi: lv2 (2 plugins)
 - zeroconvo: lv2 (6 plugins)
-- ZynAddSubFX: lv2, vst2
-- ZynAlienWah: lv2, vst2
-- ZynChorus: lv2, vst2
-- ZynDistortion: lv2, vst2
-- ZynDynamicFilter: lv2, vst2
-- ZynEcho: lv2, vst2
-- ZynPhaser: lv2, vst2
-- ZynReverb: lv2, vst2
+- ZynAddSubFX: lv2
+- ZynAlienWah: lv2
+- ZynChorus: lv2
+- ZynDistortion: lv2
+- ZynDynamicFilter: lv2
+- ZynEcho: lv2
+- ZynPhaser: lv2
+- ZynReverb: lv2
 
-## Home plugins in `/home/vensder` (4)
+## Home plugins in `/home/vensder` (37)
 
+- ADLplug: vst2
+- ADLplug-Next: vst3
+- amsynth_vst: vst2
 - avldrums: lv2 (9 plugins)
+- Dexed: clap, vst3
+- helm: vst3
+- JE8086: clap, vst2, vst3
+- js80p: vst3
+- lsp-plugins: clap, vst3
+- lsp-plugins-ladspa: ladspa
+- MT-PowerDrumKit: vst3
+- NodalRed2x: clap, vst2, vst3
+- OPNplug: vst2
+- OPNplug-Next: vst3
+- Osirus: clap, vst2, vst3
+- OsTIrus: clap, vst2, vst3
+- Podolski: vst3
+- SpeedrumLite: vst2, vst3
+- SQ8L: clap, vst2, vst3
+- Surge XT: clap, vst3
+- Surge XT Effects: clap, vst3
 - TAL-NoiseMaker: clap, vst2, vst3
+- TripleCheese: vst3
 - TyrellN6: clap, vst3
+- VASTvaporizer2: clap, vst3
+- Vavra: clap, vst2, vst3
+- Xenia: clap, vst2, vst3
 - ZebraCM: vst3
+- Zebralette3: clap, vst3
+- ZynAddSubFX: vst2
+- ZynAlienWah: vst2
+- ZynChorus: vst2
+- ZynDistortion: vst2
+- ZynDynamicFilter: vst2
+- ZynEcho: vst2
+- ZynPhaser: vst2
+- ZynReverb: vst2
 
 ## Carla (26)
 
@@ -88,10 +133,6 @@
 - clap paths: `/usr/local/lib/clap`; `/usr/lib/clap`; `~/.clap`; `/usr/lib64/clap`
 - lv2 paths: `/usr/lib/lv2`; `/usr/local/lib/lv2`; `~/.lv2`; `/usr/lib64/lv2`
 - vst paths: `~/.vst`; `~/.vst3`; `/usr/lib64/vst`; `/usr/lib64/vst3`
-
-Installed, but outside REAPER's plugin paths (1):
-
-- helm-synth: vst2
 
 ### FX, bundled (23)
 
@@ -138,7 +179,7 @@ Installed, but outside REAPER's plugin paths (1):
 - rubberband: vst2
 - soundtouch: vst2
 
-### JSFX (265)
+### JSFX (266)
 
 - analysis (8): WigMCVUMeter, gain_reduction_scope, gfxanalyzer, gfxscope, gfxspectrograph, loudness_meter, spectropaint, zoomanalyzer
 - chmaha-fx (31): AnalogEQ.jsfx, BitMeter.jsfx, ChronoDupe.jsfx, Compressor.jsfx, De-Esser.jsfx, Delay.jsfx, Dizzy.jsfx, DynamicTilt.jsfx, EQ.jsfx, FinalTouch.jsfx, Gate.jsfx, Inflator.jsfx, IntelligentSpectralCompressor.jsfx, JuKnowChorus.jsfx, K-Meter.jsfx, Limiter.jsfx, LoudnessMeter.jsfx, LuminaChannelStrip.jsfx, Maximizer.jsfx, MultibandCompressor.jsfx, MultibandCorrelationMeter.jsfx, NeedleMeter.jsfx, Phase-FrequencyWheel.jsfx, Reverb.jsfx, Saturation.jsfx, SpectrumAnalyzer.jsfx, Stereo-FrequencyScope.jsfx, StereoPhaseScope.jsfx, TestSignalGenerator.jsfx, TruePeak.jsfx, Tuner.jsfx
@@ -156,6 +197,7 @@ Installed, but outside REAPER's plugin paths (1):
 - misc (5): adpcm_simulator, reverseness, tonifier, tonifier2, video_sample_peeker
 - old_unsupported (1): dither
 - pitch (6): mdct-shift, octavedown, octaveup, pitch2, pitchdown, superpitch
+- ReaTeam JSFX (1): Utility/zenomod_VU Meter (ZenoMOD).jsfx
 - remaincalm_org (4): avocado_glitch, floaty_delay, paranoia_mangler, tonegate
 - Saike Tools (2): Basics/Saike_Pitch_Shift.jsfx, SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx
 - schwa (7): audio_statistics, fft_splitter, gaussian_noise_generator, midi_examine, midi_humanizer, midi_modal_randomness, soft_clipper

@@ -2,10 +2,10 @@
 
 - OS: Fedora Linux 45 (KDE Plasma Desktop Edition)
 - User: vensder
-- Scanned: 2026-11-06T20:36:00+13:00
-- Plugin files/entries: 1284 (clap 6, jsfx 450, ladspa 164, lv2 602, vst2 56, vst3 6)
+- Scanned: 2026-11-26T16:56:46+13:00
+- Plugin files/entries: 1288 (clap 6, jsfx 450, ladspa 164, lv2 606, vst2 56, vst3 6)
 
-## System plugins (236)
+## System plugins (235)
 
 - a_law-swh: lv2
 - abGate: lv2
@@ -95,7 +95,7 @@
 - lowpass_iir-swh: ladspa, lv2
 - lp4pole_1671: ladspa
 - ls_filter-swh: ladspa, lv2
-- lsp-plugins: lv2 (194 plugins)
+- lsp-plugins: lv2 (198 plugins)
 - lsp-plugins-ladspa: ladspa
 - math-constants: lv2 (13 plugins)
 - math-functions: lv2 (38 plugins)
@@ -213,7 +213,6 @@
 - vynil-swh: ladspa, lv2
 - wave_terrain-swh: ladspa, lv2
 - xfade: ladspa, lv2 (3 plugins)
-- yoshimi: lv2 (2 plugins)
 - ZamAutoSat: lv2
 - ZaMaximX2: lv2
 - ZamComp: lv2
@@ -244,12 +243,13 @@
 - ZynPhaser: lv2
 - ZynReverb: lv2
 
-## Home plugins in `/home/vensder` (4)
+## Home plugins in `/home/vensder` (5)
 
 - CA-72: clap, vst3
 - Dexed: clap, vst3
 - TAL-NoiseMaker: clap, vst2, vst3
 - TyrellN6: clap, vst3
+- yoshimi: lv2 (2 plugins)
 
 ## Carla (26)
 
