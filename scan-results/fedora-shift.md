@@ -2,10 +2,10 @@
 
 - OS: Fedora Linux 45 (KDE Plasma Desktop Edition)
 - User: vensder
-- Scanned: 2026-11-26T18:06:48+13:00
-- Plugin files/entries: 1433 (clap 6, dssi 1, jsfx 450, ladspa 181, lv2 733, vst2 56, vst3 6)
+- Scanned: 2026-11-26T19:27:19+13:00
+- Plugin files/entries: 1442 (clap 6, dssi 1, jsfx 450, ladspa 181, lv2 734, vst2 57, vst3 13)
 
-## System plugins (321)
+## System plugins (322)
 
 - a_law-swh: lv2
 - abGate: lv2
@@ -155,6 +155,7 @@
 - gxtuner: lv2
 - hard_limiter-swh: ladspa, lv2
 - harmonic_gen-swh: ladspa, lv2
+- helm-synth: lv2, vst2
 - hermes_filter-swh: ladspa, lv2
 - highpass_iir-swh: ladspa, lv2
 - hilbert-swh: ladspa, lv2
@@ -329,12 +330,19 @@
 - ZynPhaser: lv2
 - ZynReverb: lv2
 
-## Home plugins in `/home/vensder` (5)
+## Home plugins in `/home/vensder` (12)
 
 - CA-72: clap, vst3
 - Dexed: clap, vst3
+- JE8086: vst3
+- NodalRed2x: vst3
+- Osirus: vst3
+- OsTIrus: vst3
+- Podolski: vst3
 - TAL-NoiseMaker: clap, vst2, vst3
 - TyrellN6: clap, vst3
+- Vavra: vst3
+- Xenia: vst3
 - yoshimi: lv2 (2 plugins)
 
 ## Carla (26)
