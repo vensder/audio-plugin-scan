@@ -2,7 +2,7 @@
 
 Usage:
     plugin-summary [SCAN.json ...] [-o DIR | -o -]
-    plugin-summary -c HOST_A HOST_B [-o DIR]
+    plugin-summary -c HOST_A [HOST_B] [-o DIR]
 
 Reads host files written by "plugscan scan" (default: every
 scan-results/*.json in the checkout) and writes one Markdown file per
@@ -23,7 +23,9 @@ and lists, both ways, the plugins one host has and the other lacks: names
 missing completely, names the other host has only in other formats (or,
 for an LV2 bundle, with other plugins inside), and JSFX by folder.
 Plugins are matched like "plugscan compare": file / LV2 URI / JSFX path,
-then name, plus VST ids inside shell libraries.
+then name, plus VST ids inside shell libraries. With only HOST_A, it is
+compared with this machine, scanned now (nothing is written to
+scan-results/).
 """
 
 import argparse
@@ -34,7 +36,7 @@ import sys
 
 from ..common import RESULTS_DIR
 from ..formats import norm_name
-from ..hosts import Host, all_result_files, plugin_key, vst_id_key
+from ..hosts import Host, all_result_files, live_host, plugin_key, vst_id_key
 
 # Longest first, so "reaeq.vst.so" loses ".vst.so", not just ".so".
 _EXTS = (".vst.so", ".vst3", ".clap", ".lv2", ".so")
@@ -290,17 +292,23 @@ def main(argv=None):
     ap.add_argument("-o", "--out", metavar="DIR",
                     help="output dir (default: next to each .json); "
                          "'-' prints to stdout")
-    ap.add_argument("-c", "--compare", nargs=2, metavar="HOST",
+    ap.add_argument("-c", "--compare", nargs="+", metavar="HOST",
                     help="compare two hosts (host file or host name from "
-                         "scan-results/): what each one lacks; prints to "
-                         "stdout, or writes DIR/A-vs-B.md with -o DIR")
+                         "scan-results/; with one host, compare it with "
+                         "this machine, scanned now): what each one lacks; "
+                         "prints to stdout, or writes DIR/A-vs-B.md with "
+                         "-o DIR")
     args = ap.parse_args(argv)
 
     if args.compare:
         if args.files:
-            ap.error("use either SCAN.json files or -c HOST HOST")
+            ap.error("use either SCAN.json files or -c HOST [HOST]")
+        if len(args.compare) > 2:
+            ap.error("-c takes one or two hosts")
         try:
-            a, b = (Host.load(h) for h in args.compare)
+            a = Host.load(args.compare[0])
+            b = (Host.load(args.compare[1]) if len(args.compare) == 2
+                 else live_host())
         except (OSError, ValueError) as e:
             sys.exit(str(e))
         text = compare(a, b)
@@ -308,7 +316,8 @@ def main(argv=None):
             sys.stdout.write(text)
             return
         os.makedirs(args.out, exist_ok=True)
-        dest = os.path.join(args.out, "%s-vs-%s.md" % (a.label, b.label))
+        dest = os.path.join(args.out, "%s-vs-%s.md" % (a.data.get("host", a.label),
+                                                b.data.get("host", b.label)))
         with open(dest, "w", encoding="utf-8") as fh:
             fh.write(text)
         print("wrote %s" % dest)

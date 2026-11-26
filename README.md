@@ -211,6 +211,7 @@ host names from scan-results/), both ways:
 
     bin/plugin-summary -c ubuntu fedora-shift          # print
     bin/plugin-summary -c ubuntu fedora-shift -o .     # write ./ubuntu-vs-fedora-shift.md
+    bin/plugin-summary -c ubuntu                       # ubuntu vs this machine, scanned now
 
 For each direction there are up to three sections:
 

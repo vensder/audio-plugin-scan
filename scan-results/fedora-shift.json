@@ -3,7 +3,7 @@
   "host": "fedora-shift",
   "os": "Fedora Linux 45 (KDE Plasma Desktop Edition)",
   "user": "vensder",
-  "generated": "2026-11-26T16:56:46+13:00",
+  "generated": "2026-11-26T17:36:44+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -3460,6 +3460,13 @@
     },
     {
       "format": "ladspa",
+      "name": "caps",
+      "file": "caps.so",
+      "path": "/usr/lib64/ladspa/caps.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
       "name": "chebstortion_1430",
       "file": "chebstortion_1430.so",
       "path": "/usr/lib64/ladspa/chebstortion_1430.so",
@@ -3806,6 +3813,20 @@
       "name": "karaoke_1409",
       "file": "karaoke_1409.so",
       "path": "/usr/lib64/ladspa/karaoke_1409.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ladspa-rubberband",
+      "file": "ladspa-rubberband.so",
+      "path": "/usr/lib64/ladspa/ladspa-rubberband.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ladspa_dsp",
+      "file": "ladspa_dsp.so",
+      "path": "/usr/lib64/ladspa/ladspa_dsp.so",
       "source": "system"
     },
     {
@@ -4450,6 +4471,104 @@
       "name": "xfade_1915",
       "file": "xfade_1915.so",
       "path": "/usr/lib64/ladspa/xfade_1915.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamAutoSat-ladspa",
+      "file": "ZamAutoSat-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamAutoSat-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZaMaximX2-ladspa",
+      "file": "ZaMaximX2-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZaMaximX2-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamComp-ladspa",
+      "file": "ZamComp-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamComp-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamCompX2-ladspa",
+      "file": "ZamCompX2-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamCompX2-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamDelay-ladspa",
+      "file": "ZamDelay-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamDelay-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamDynamicEQ-ladspa",
+      "file": "ZamDynamicEQ-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamDynamicEQ-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamEQ2-ladspa",
+      "file": "ZamEQ2-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamEQ2-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamGate-ladspa",
+      "file": "ZamGate-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamGate-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamGateX2-ladspa",
+      "file": "ZamGateX2-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamGateX2-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamGEQ31-ladspa",
+      "file": "ZamGEQ31-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamGEQ31-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamGrains-ladspa",
+      "file": "ZamGrains-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamGrains-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamNoise-ladspa",
+      "file": "ZamNoise-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamNoise-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZamTube-ladspa",
+      "file": "ZamTube-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZamTube-ladspa.so",
+      "source": "system"
+    },
+    {
+      "format": "ladspa",
+      "name": "ZaMultiCompX2-ladspa",
+      "file": "ZaMultiCompX2-ladspa.so",
+      "path": "/usr/lib64/ladspa/ZaMultiCompX2-ladspa.so",
       "source": "system"
     },
     {
