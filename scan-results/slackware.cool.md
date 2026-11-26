@@ -79,7 +79,7 @@
 - ZynPhaser: lv2
 - ZynReverb: lv2
 
-## Home plugins in `/home/vensder` (37)
+## Home plugins in `/home/vensder` (36)
 
 - ADLplug: vst2
 - ADLplug-Next: vst3
@@ -89,8 +89,7 @@
 - helm: vst3
 - JE8086: clap, vst2, vst3
 - js80p: vst3
-- lsp-plugins: clap, vst3
-- lsp-plugins-ladspa: ladspa
+- lsp-plugins: clap, ladspa, vst3
 - MT-PowerDrumKit: vst3
 - NodalRed2x: clap, vst2, vst3
 - OPNplug: vst2

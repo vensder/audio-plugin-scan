@@ -2,10 +2,10 @@
 
 - OS: Fedora Linux 45 (KDE Plasma Desktop Edition)
 - User: vensder
-- Scanned: 2026-11-26T16:56:46+13:00
-- Plugin files/entries: 1288 (clap 6, jsfx 450, ladspa 164, lv2 606, vst2 56, vst3 6)
+- Scanned: 2026-11-26T18:06:48+13:00
+- Plugin files/entries: 1433 (clap 6, dssi 1, jsfx 450, ladspa 181, lv2 733, vst2 56, vst3 6)
 
-## System plugins (235)
+## System plugins (321)
 
 - a_law-swh: lv2
 - abGate: lv2
@@ -25,12 +25,14 @@
 - balance: lv2
 - bandpass_a_iir-swh: ladspa, lv2
 - bandpass_iir-swh: ladspa, lv2
+- bankstown: lv2
 - blvco: ladspa
 - bode_shifter-swh: ladspa, lv2
 - bode_shifter_cv-swh: ladspa, lv2
 - branch_1673: ladspa
 - butterworth-swh: ladspa, lv2 (3 plugins)
-- calf: lv2 (52 plugins)
+- calf: dssi, lv2 (52 plugins)
+- caps: ladspa
 - chebstortion-swh: ladspa, lv2
 - cmt: ladspa
 - comb-swh: ladspa, lv2 (3 plugins)
@@ -57,6 +59,11 @@
 - dpl: lv2 (2 plugins)
 - drumkv1: lv2
 - dyson_compress-swh: ladspa, lv2
+- eg-amp: lv2
+- eg-fifths: lv2
+- eg-metro: lv2
+- eg-midigate: lv2
+- eg-params: lv2
 - fabla: lv2
 - fad_delay-swh: ladspa, lv2
 - fast_lookahead_limiter-swh: ladspa, lv2
@@ -77,6 +84,75 @@
 - gong_beater-swh: ladspa, lv2
 - gsm_1215: ladspa
 - gverb-swh: ladspa, lv2
+- gx_aclipper: lv2
+- gx_alembic: lv2
+- gx_amp: lv2
+- gx_amp_stereo: lv2
+- gx_barkgraphiceq: lv2
+- gx_bmp: lv2
+- gx_bossds1: lv2
+- gx_cabinet: lv2
+- gx_chorus: lv2
+- gx_colwah: lv2
+- gx_compressor: lv2
+- gx_cstb: lv2
+- gx_delay: lv2
+- gx_detune: lv2
+- gx_digital_delay: lv2
+- gx_digital_delay_st: lv2
+- gx_duck_delay: lv2
+- gx_duck_delay_st: lv2
+- gx_echo: lv2
+- gx_expander: lv2
+- gx_flanger: lv2
+- gx_fumaster: lv2
+- gx_fuzz: lv2
+- gx_fuzzface: lv2
+- gx_fuzzfacefm: lv2
+- gx_gcb_95: lv2
+- gx_graphiceq: lv2
+- gx_hfb: lv2
+- gx_hogsfoot: lv2
+- gx_hornet: lv2
+- gx_jcm800pre: lv2
+- gx_jcm800pre_st: lv2
+- gx_livelooper: lv2
+- gx_mbcompressor: lv2
+- gx_mbdelay: lv2
+- gx_mbdistortion: lv2
+- gx_mbecho: lv2
+- gx_mbreverb: lv2
+- gx_mole: lv2
+- gx_muff: lv2
+- gx_mxrdist: lv2
+- gx_oc_2: lv2
+- gx_phaser: lv2
+- gx_rangem: lv2
+- gx_redeye: lv2 (3 plugins)
+- gx_reverb: lv2
+- gx_room_simulator: lv2
+- gx_scream: lv2
+- gx_shimmizita: lv2
+- gx_studiopre: lv2
+- gx_studiopre_st: lv2
+- gx_susta: lv2
+- gx_switched_tremolo: lv2
+- gx_tremolo: lv2
+- gx_w20: lv2
+- gx_zita_rev1: lv2
+- gxautowah: lv2 (2 plugins)
+- gxbooster: lv2
+- gxechocat: lv2
+- gxmetal_amp: lv2
+- gxmetal_head: lv2
+- gxtape: lv2
+- gxtape_st: lv2
+- gxtilttone: lv2
+- gxts9: lv2
+- gxtubedelay: lv2
+- gxtubetremelo: lv2
+- gxtubevibrato: lv2
+- gxtuner: lv2
 - hard_limiter-swh: ladspa, lv2
 - harmonic_gen-swh: ladspa, lv2
 - hermes_filter-swh: ladspa, lv2
@@ -86,8 +162,11 @@
 - impulse-swh: ladspa, lv2
 - interpolator_1660: ladspa
 - inv-swh: ladspa, lv2
+- ir: lv2
 - karaoke-swh: ladspa, lv2
 - klaviatur: lv2
+- ladspa-rubberband: ladspa
+- ladspa_dsp: ladspa
 - latency-swh: ladspa, lv2
 - lcr_delay-swh: ladspa, lv2
 - lookahead_limiter-swh: lv2
@@ -95,8 +174,8 @@
 - lowpass_iir-swh: ladspa, lv2
 - lp4pole_1671: ladspa
 - ls_filter-swh: ladspa, lv2
-- lsp-plugins: lv2 (198 plugins)
-- lsp-plugins-ladspa: ladspa
+- lsp-plugins: ladspa, lv2 (198 plugins)
+- lv2-mdaEPiano: lv2
 - math-constants: lv2 (13 plugins)
 - math-functions: lv2 (38 plugins)
 - matrix_ms_st-swh: ladspa, lv2
@@ -104,6 +183,7 @@
 - matrix_st_ms-swh: ladspa, lv2
 - matrixmixer: lv2
 - mbeq-swh: ladspa, lv2
+- mda: lv2 (36 plugins)
 - meters: lv2 (36 plugins)
 - mididebug: lv2
 - midifilter: lv2 (33 plugins)
@@ -120,6 +200,7 @@
 - notch_iir_1894: ladspa
 - offset-swh: lv2
 - onsettrigger: lv2 (2 plugins)
+- padthv1: lv2
 - parabola_1649_data: ladspa
 - peakmeter: lv2 (2 plugins)
 - phaserotate: lv2 (2 plugins)
@@ -129,6 +210,9 @@
 - pointer_cast-swh: ladspa, lv2
 - product_1668: ladspa
 - pulse_1645: ladspa
+- qmidiarp_arp: lv2
+- qmidiarp_lfo: lv2
+- qmidiarp_seq: lv2
 - quantiser100_2029: ladspa
 - quantiser20_2027: ladspa
 - quantiser50_2028: ladspa
@@ -138,6 +222,7 @@
 - retro_flange-swh: ladspa, lv2
 - revdelay-swh: ladspa, lv2
 - ringmod-swh: ladspa, lv2 (2 plugins)
+- rubberband: lv2 (6 plugins)
 - rudolf556: lv2
 - samplv1: lv2
 - sapistaEQv2: lv2 (17 plugins)
@@ -203,6 +288,7 @@
 - tracker_2025: ladspa
 - transient-swh: ladspa, lv2
 - triangle_1649: ladspa
+- triforce: lv2
 - triple_para-swh: ladspa, lv2
 - tuna: lv2 (2 plugins)
 - u_law-swh: lv2
@@ -213,23 +299,23 @@
 - vynil-swh: ladspa, lv2
 - wave_terrain-swh: ladspa, lv2
 - xfade: ladspa, lv2 (3 plugins)
-- ZamAutoSat: lv2
-- ZaMaximX2: lv2
-- ZamComp: lv2
-- ZamCompX2: lv2
-- ZamDelay: lv2
-- ZamDynamicEQ: lv2
-- ZamEQ2: lv2
-- ZamGate: lv2
-- ZamGateX2: lv2
-- ZamGEQ31: lv2
-- ZamGrains: lv2
+- ZamAutoSat: ladspa, lv2
+- ZaMaximX2: ladspa, lv2
+- ZamComp: ladspa, lv2
+- ZamCompX2: ladspa, lv2
+- ZamDelay: ladspa, lv2
+- ZamDynamicEQ: ladspa, lv2
+- ZamEQ2: ladspa, lv2
+- ZamGate: ladspa, lv2
+- ZamGateX2: ladspa, lv2
+- ZamGEQ31: ladspa, lv2
+- ZamGrains: ladspa, lv2
 - ZamHeadX2: lv2
-- ZamNoise: lv2
+- ZamNoise: ladspa, lv2
 - ZamPhono: lv2
-- ZamTube: lv2
+- ZamTube: ladspa, lv2
 - ZaMultiComp: lv2
-- ZaMultiCompX2: lv2
+- ZaMultiCompX2: ladspa, lv2
 - ZamVerb: lv2
 - zeroconvo: lv2 (6 plugins)
 - zm1-swh: ladspa, lv2

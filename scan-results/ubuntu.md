@@ -5,7 +5,7 @@
 - Scanned: 2026-11-06T13:29:46+13:00
 - Plugin files/entries: 1161 (clap 27, dssi 2, jsfx 494, ladspa 252, lv2 281, vst2 75, vst3 30)
 
-## System plugins (188)
+## System plugins (175)
 
 - a-comp: lv2 (2 plugins)
 - a-delay: lv2
@@ -163,35 +163,22 @@
 - wave_terrain_1412: ladspa
 - xfade: ladspa, lv2
 - yoshimi: lv2 (2 plugins)
-- ZamAutoSat: clap, lv2, vst2, vst3
-- ZamAutoSat-ladspa: ladspa
-- ZaMaximX2: clap, lv2, vst2, vst3
-- ZaMaximX2-ladspa: ladspa
-- ZamComp: clap, lv2, vst2, vst3
-- ZamComp-ladspa: ladspa
-- ZamCompX2: clap, lv2, vst2, vst3
-- ZamCompX2-ladspa: ladspa
-- ZamDelay: clap, lv2, vst2, vst3
-- ZamDelay-ladspa: ladspa
-- ZamDynamicEQ: clap, lv2, vst2, vst3
-- ZamDynamicEQ-ladspa: ladspa
-- ZamEQ2: clap, lv2, vst2, vst3
-- ZamEQ2-ladspa: ladspa
-- ZamGate: clap, lv2, vst2, vst3
-- ZamGate-ladspa: ladspa
-- ZamGateX2: clap, lv2, vst2, vst3
-- ZamGateX2-ladspa: ladspa
-- ZamGEQ31: clap, lv2, vst2, vst3
-- ZamGEQ31-ladspa: ladspa
-- ZamGrains: clap, lv2, vst2, vst3
-- ZamGrains-ladspa: ladspa
+- ZamAutoSat: clap, ladspa, lv2, vst2, vst3
+- ZaMaximX2: clap, ladspa, lv2, vst2, vst3
+- ZamComp: clap, ladspa, lv2, vst2, vst3
+- ZamCompX2: clap, ladspa, lv2, vst2, vst3
+- ZamDelay: clap, ladspa, lv2, vst2, vst3
+- ZamDynamicEQ: clap, ladspa, lv2, vst2, vst3
+- ZamEQ2: clap, ladspa, lv2, vst2, vst3
+- ZamGate: clap, ladspa, lv2, vst2, vst3
+- ZamGateX2: clap, ladspa, lv2, vst2, vst3
+- ZamGEQ31: clap, ladspa, lv2, vst2, vst3
+- ZamGrains: clap, ladspa, lv2, vst2, vst3
 - ZamHeadX2: clap, lv2, vst2, vst3
 - ZamPhono: clap, lv2, vst2, vst3
-- ZamTube: clap, lv2, vst2, vst3
-- ZamTube-ladspa: ladspa
+- ZamTube: clap, ladspa, lv2, vst2, vst3
 - ZaMultiComp: clap, lv2, vst2, vst3
-- ZaMultiCompX2: clap, lv2, vst2, vst3
-- ZaMultiCompX2-ladspa: ladspa
+- ZaMultiCompX2: clap, ladspa, lv2, vst2, vst3
 - ZamVerb: clap, lv2, vst2, vst3
 - zeroconvo: lv2 (6 plugins)
 - zm1_1428: ladspa

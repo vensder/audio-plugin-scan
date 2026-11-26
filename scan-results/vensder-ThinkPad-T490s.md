@@ -5,14 +5,12 @@
 - Scanned: 2026-11-09T15:37:20+13:00
 - Plugin files/entries: 2480 (clap 51, dssi 18, jsfx 485, ladspa 358, lv2 957, vst2 527, vst3 84)
 
-## System plugins (633)
+## System plugins (608)
 
-- 3BandEQ: clap, lv2, vst2, vst3
+- 3BandEQ: clap, ladspa, lv2, vst2, vst3
 - 3BandEQ-dssi: dssi
-- 3BandEQ-ladspa: ladspa
-- 3BandSplitter: clap, lv2, vst2, vst3
+- 3BandSplitter: clap, ladspa, lv2, vst2, vst3
 - 3BandSplitter-dssi: dssi
-- 3BandSplitter-ladspa: ladspa
 - a-comp: lv2 (2 plugins)
 - a-delay: lv2
 - a-eq: lv2
@@ -39,9 +37,8 @@
 - ambisonic2: ladspa
 - ambisonic3: ladspa
 - amp: ladspa, lv2
-- AmplitudeImposer: clap, lv2, vst2, vst3
+- AmplitudeImposer: clap, ladspa, lv2, vst2, vst3
 - AmplitudeImposer-dssi: dssi
-- AmplitudeImposer-ladspa: ladspa
 - amsynth_dssi: dssi
 - amsynth_vst: vst2
 - analogue_osc-swh: ladspa, lv2
@@ -100,9 +97,8 @@
 - cs_chorus: ladspa
 - cs_phaser: ladspa
 - csladspa64: ladspa
-- CycleShifter: clap, lv2, vst2, vst3
+- CycleShifter: clap, ladspa, lv2, vst2, vst3
 - CycleShifter-dssi: dssi
-- CycleShifter-ladspa: ladspa
 - dahdsr_2021: ladspa
 - dahdsr_fexp: ladspa
 - dahdsr_hexp: ladspa
@@ -300,16 +296,11 @@
 - lowpass_iir-swh: ladspa, lv2
 - lp4pole_1671: ladspa
 - ls_filter-swh: ladspa, lv2
-- lsp-plugins: clap, lv2 (194 plugins), vst3
-- lsp-plugins-ladspa: ladspa
-- MaBitcrush: clap, lv2, vst2, vst3
-- MaBitcrush-ladspa: ladspa
-- MaFreeverb: clap, lv2, vst2, vst3
-- MaFreeverb-ladspa: ladspa
-- MaGigaverb: clap, lv2, vst2, vst3
-- MaGigaverb-ladspa: ladspa
-- MaPitchshift: clap, lv2, vst2, vst3
-- MaPitchshift-ladspa: ladspa
+- lsp-plugins: clap, ladspa, lv2 (194 plugins), vst3
+- MaBitcrush: clap, ladspa, lv2, vst2, vst3
+- MaFreeverb: clap, ladspa, lv2, vst2, vst3
+- MaGigaverb: clap, ladspa, lv2, vst2, vst3
+- MaPitchshift: clap, ladspa, lv2, vst2, vst3
 - masher_4310: ladspa
 - matcher-mono: vst2
 - matcher-stereo: vst2
@@ -368,9 +359,8 @@
 - multivoice_chorus-swh: ladspa, lv2
 - mvchpf24: ladspa
 - mvclpf24: ladspa
-- MVerb: clap, lv2, vst2, vst3
+- MVerb: clap, ladspa, lv2, vst2, vst3
 - MVerb-dssi: dssi
-- MVerb-ladspa: ladspa
 - Nekobi: clap, lv2, vst2, vst3
 - Nekobi-dssi: dssi
 - nodelay: lv2 (3 plugins)
@@ -408,9 +398,8 @@
 - phaser-stereo: vst2
 - phaserotate: lv2 (2 plugins)
 - phasers-swh: ladspa, lv2 (3 plugins)
-- PingPongPan: clap, lv2, vst2, vst3
+- PingPongPan: clap, ladspa, lv2, vst2, vst3
 - PingPongPan-dssi: dssi
-- PingPongPan-ladspa: ladspa
 - pitch_scale-swh: ladspa, lv2
 - plate-swh: ladspa, lv2
 - pointer_cast-swh: ladspa, lv2
@@ -523,9 +512,8 @@
 - slide_2741: ladspa
 - smooth_decimate-swh: ladspa, lv2
 - so-synth: lv2 (3 plugins)
-- SoulForce: clap, lv2, vst2, vst3
+- SoulForce: clap, ladspa, lv2, vst2, vst3
 - SoulForce-dssi: dssi
-- SoulForce-ladspa: ladspa
 - spectra: lv2
 - spectrum-analyzer-x1: vst2
 - spectrum-analyzer-x12: vst2
@@ -599,35 +587,22 @@
 - xfade: ladspa, lv2 (3 plugins)
 - xsynth-dssi: dssi
 - yoshimi: lv2 (2 plugins)
-- ZamAutoSat: clap, lv2, vst2, vst3
-- ZamAutoSat-ladspa: ladspa
-- ZaMaximX2: clap, lv2, vst2, vst3
-- ZaMaximX2-ladspa: ladspa
-- ZamComp: clap, lv2, vst2, vst3
-- ZamComp-ladspa: ladspa
-- ZamCompX2: clap, lv2, vst2, vst3
-- ZamCompX2-ladspa: ladspa
-- ZamDelay: clap, lv2, vst2, vst3
-- ZamDelay-ladspa: ladspa
-- ZamDynamicEQ: clap, lv2, vst2, vst3
-- ZamDynamicEQ-ladspa: ladspa
-- ZamEQ2: clap, lv2, vst2, vst3
-- ZamEQ2-ladspa: ladspa
-- ZamGate: clap, lv2, vst2, vst3
-- ZamGate-ladspa: ladspa
-- ZamGateX2: clap, lv2, vst2, vst3
-- ZamGateX2-ladspa: ladspa
-- ZamGEQ31: clap, lv2, vst2, vst3
-- ZamGEQ31-ladspa: ladspa
-- ZamGrains: clap, lv2, vst2, vst3
-- ZamGrains-ladspa: ladspa
+- ZamAutoSat: clap, ladspa, lv2, vst2, vst3
+- ZaMaximX2: clap, ladspa, lv2, vst2, vst3
+- ZamComp: clap, ladspa, lv2, vst2, vst3
+- ZamCompX2: clap, ladspa, lv2, vst2, vst3
+- ZamDelay: clap, ladspa, lv2, vst2, vst3
+- ZamDynamicEQ: clap, ladspa, lv2, vst2, vst3
+- ZamEQ2: clap, ladspa, lv2, vst2, vst3
+- ZamGate: clap, ladspa, lv2, vst2, vst3
+- ZamGateX2: clap, ladspa, lv2, vst2, vst3
+- ZamGEQ31: clap, ladspa, lv2, vst2, vst3
+- ZamGrains: clap, ladspa, lv2, vst2, vst3
 - ZamHeadX2: clap, lv2, vst2, vst3
 - ZamPhono: clap, lv2, vst2, vst3
-- ZamTube: clap, lv2, vst2, vst3
-- ZamTube-ladspa: ladspa
+- ZamTube: clap, ladspa, lv2, vst2, vst3
 - ZaMultiComp: clap, lv2, vst2, vst3
-- ZaMultiCompX2: clap, lv2, vst2, vst3
-- ZaMultiCompX2-ladspa: ladspa
+- ZaMultiCompX2: clap, ladspa, lv2, vst2, vst3
 - ZamVerb: clap, lv2, vst2, vst3
 - zeroconvo: lv2 (6 plugins)
 - zita-reverbs: ladspa
@@ -641,7 +616,7 @@
 - ZynPhaser: lv2, vst2
 - ZynReverb: lv2, vst2
 
-## Home plugins in `/home/vensder` (222)
+## Home plugins in `/home/vensder` (221)
 
 - ab-tester-x2-mono: vst2
 - ab-tester-x2-stereo: vst2
@@ -722,8 +697,7 @@
 - limiter-stereo: vst2
 - loud-comp-mono: vst2
 - loud-comp-stereo: vst2
-- lsp-plugins: clap, lv2 (186 plugins), vst3
-- lsp-plugins-ladspa: ladspa
+- lsp-plugins: clap, ladspa, lv2 (186 plugins), vst3
 - mb-clipper-mono: vst2
 - mb-clipper-stereo: vst2
 - mb-compressor-lr: vst2
