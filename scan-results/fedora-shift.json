@@ -3,7 +3,7 @@
   "host": "fedora-shift",
   "os": "Fedora Linux 45 (KDE Plasma Desktop Edition)",
   "user": "vensder",
-  "generated": "2026-11-26T17:36:44+13:00",
+  "generated": "2026-11-26T18:06:48+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -160,6 +160,13 @@
       "path": "/home/vensder/.clap/u-he/TyrellN6.clap",
       "source": "home",
       "reaper": true
+    },
+    {
+      "format": "dssi",
+      "name": "calf",
+      "file": "calf.so",
+      "path": "/usr/lib64/dssi/calf.so",
+      "source": "system"
     },
     {
       "format": "jsfx",
@@ -4748,6 +4755,15 @@
     },
     {
       "format": "lv2",
+      "name": "Bankstown",
+      "id": "https://chadmed.au/bankstown",
+      "file": "bankstown.lv2",
+      "path": "/usr/lib64/lv2/bankstown.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Barry's Satan Maximiser",
       "id": "http://plugin.org.uk/swh-plugins/satanMaximiser",
       "file": "satan_maximiser-swh.lv2",
@@ -5916,6 +5932,42 @@
     },
     {
       "format": "lv2",
+      "name": "Example Fifths",
+      "id": "http://lv2plug.in/plugins/eg-fifths",
+      "file": "eg-fifths.lv2",
+      "path": "/usr/lib64/lv2/eg-fifths.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Example Metronome",
+      "id": "http://lv2plug.in/plugins/eg-metro",
+      "file": "eg-metro.lv2",
+      "path": "/usr/lib64/lv2/eg-metro.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Example MIDI Gate",
+      "id": "http://lv2plug.in/plugins/eg-midigate",
+      "file": "eg-midigate.lv2",
+      "path": "/usr/lib64/lv2/eg-midigate.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Example Parameters",
+      "id": "http://lv2plug.in/plugins/eg-params",
+      "file": "eg-params.lv2",
+      "path": "/usr/lib64/lv2/eg-params.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Exponential signal decay",
       "id": "http://plugin.org.uk/swh-plugins/decay",
       "file": "decay-swh.lv2",
@@ -6465,6 +6517,726 @@
     },
     {
       "format": "lv2",
+      "name": "Gx Alembic",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_alembic#alembic",
+      "file": "gx_alembic.lv2",
+      "path": "/usr/lib64/lv2/gx_alembic.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gx Studio Preamp Mono",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_studiopre#studiopre",
+      "file": "gx_studiopre.lv2",
+      "path": "/usr/lib64/lv2/gx_studiopre.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gx Studio Preamp Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_studiopre_st#studiopre_st",
+      "file": "gx_studiopre_st.lv2",
+      "path": "/usr/lib64/lv2/gx_studiopre_st.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gx Tape Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtape_st#tape",
+      "file": "gxtape_st.lv2",
+      "path": "/usr/lib64/lv2/gxtape_st.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gx w20",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_w20#w20",
+      "file": "gx_w20.lv2",
+      "path": "/usr/lib64/lv2/gx_w20.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxAmplifier-Stereo-X",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_amp_stereo#GUITARIX_ST",
+      "file": "gx_amp_stereo.lv2",
+      "path": "/usr/lib64/lv2/gx_amp_stereo.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxAmplifier-X",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_amp#GUITARIX",
+      "file": "gx_amp.lv2",
+      "path": "/usr/lib64/lv2/gx_amp.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxAutoWah",
+      "id": "http://guitarix.sourceforge.net/plugins/gxautowah#autowah",
+      "file": "gxautowah.lv2",
+      "path": "/usr/lib64/lv2/gxautowah.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxBarkGraphicEQ",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_barkgraphiceq_#_barkgraphiceq_",
+      "file": "gx_barkgraphiceq.lv2",
+      "path": "/usr/lib64/lv2/gx_barkgraphiceq.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxBigMuffPi",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_bmp_#_bmp_",
+      "file": "gx_bmp.lv2",
+      "path": "/usr/lib64/lv2/gx_bmp.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxBooster",
+      "id": "http://guitarix.sourceforge.net/plugins/gxbooster#booster",
+      "file": "gxbooster.lv2",
+      "path": "/usr/lib64/lv2/gxbooster.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxBoss DS1",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_bossds1_#_bossds1_",
+      "file": "gx_bossds1.lv2",
+      "path": "/usr/lib64/lv2/gx_bossds1.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxCabinet",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_cabinet#CABINET",
+      "file": "gx_cabinet.lv2",
+      "path": "/usr/lib64/lv2/gx_cabinet.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxChorus-Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_chorus_stereo#_chorus_stereo",
+      "file": "gx_chorus.lv2",
+      "path": "/usr/lib64/lv2/gx_chorus.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxColorSound Tonebender",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_cstb_#_cstb_",
+      "file": "gx_cstb.lv2",
+      "path": "/usr/lib64/lv2/gx_cstb.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxCompressor",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_compressor#_compressor",
+      "file": "gx_compressor.lv2",
+      "path": "/usr/lib64/lv2/gx_compressor.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxDelay-Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_delay_stereo#_delay_stereo",
+      "file": "gx_delay.lv2",
+      "path": "/usr/lib64/lv2/gx_delay.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxdetune",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_detune_#_detune_",
+      "file": "gx_detune.lv2",
+      "path": "/usr/lib64/lv2/gx_detune.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxdigital_delay",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_digital_delay_#_digital_delay_",
+      "file": "gx_digital_delay.lv2",
+      "path": "/usr/lib64/lv2/gx_digital_delay.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxdigital_delay_st",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_digital_delay_st_#_digital_delay_st_",
+      "file": "gx_digital_delay_st.lv2",
+      "path": "/usr/lib64/lv2/gx_digital_delay_st.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxduck_delay",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_duck_delay_#_duck_delay_",
+      "file": "gx_duck_delay.lv2",
+      "path": "/usr/lib64/lv2/gx_duck_delay.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxduck_delay_st",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_duck_delay_st_#_duck_delay_st_",
+      "file": "gx_duck_delay_st.lv2",
+      "path": "/usr/lib64/lv2/gx_duck_delay_st.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxEcho-Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_echo_stereo#_echo_stereo",
+      "file": "gx_echo.lv2",
+      "path": "/usr/lib64/lv2/gx_echo.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxEchoCat",
+      "id": "http://guitarix.sourceforge.net/plugins/gxechocat#echocat",
+      "file": "gxechocat.lv2",
+      "path": "/usr/lib64/lv2/gxechocat.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxExpander",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_expander#_expander",
+      "file": "gx_expander.lv2",
+      "path": "/usr/lib64/lv2/gx_expander.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxFlanger",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_flanger#_flanger",
+      "file": "gx_flanger.lv2",
+      "path": "/usr/lib64/lv2/gx_flanger.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxFuzz",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_fuzz_#fuzz_",
+      "file": "gx_fuzz.lv2",
+      "path": "/usr/lib64/lv2/gx_fuzz.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxFuzzFaceFuller",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_fuzzfacefm_#_fuzzfacefm_",
+      "file": "gx_fuzzfacefm.lv2",
+      "path": "/usr/lib64/lv2/gx_fuzzfacefm.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxFuzzFaceJH2",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_fuzzface_#_fuzzface_",
+      "file": "gx_fuzzface.lv2",
+      "path": "/usr/lib64/lv2/gx_fuzzface.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxFuzzMaster",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_fumaster_#_fumaster_",
+      "file": "gx_fumaster.lv2",
+      "path": "/usr/lib64/lv2/gx_fumaster.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxgcb_95",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_gcb_95_#_gcb_95_",
+      "file": "gx_gcb_95.lv2",
+      "path": "/usr/lib64/lv2/gx_gcb_95.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxGraphicEQ",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_graphiceq_#_graphiceq_",
+      "file": "gx_graphiceq.lv2",
+      "path": "/usr/lib64/lv2/gx_graphiceq.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxHF_Brightener",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_hfb_#_hfb_",
+      "file": "gx_hfb.lv2",
+      "path": "/usr/lib64/lv2/gx_hfb.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxHogsFoot",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_hogsfoot_#_hogsfoot_",
+      "file": "gx_hogsfoot.lv2",
+      "path": "/usr/lib64/lv2/gx_hogsfoot.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxHornet",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_hornet_#_hornet_",
+      "file": "gx_hornet.lv2",
+      "path": "/usr/lib64/lv2/gx_hornet.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxjcm800pre",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_jcm800pre_#_jcm800pre_",
+      "file": "gx_jcm800pre.lv2",
+      "path": "/usr/lib64/lv2/gx_jcm800pre.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxjcm800preST",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_jcm800pre_st#_jcm800pre_st",
+      "file": "gx_jcm800pre_st.lv2",
+      "path": "/usr/lib64/lv2/gx_jcm800pre_st.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxlivelooper",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_livelooper_#_livelooper_",
+      "file": "gx_livelooper.lv2",
+      "path": "/usr/lib64/lv2/gx_livelooper.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMetalAmp",
+      "id": "http://guitarix.sourceforge.net/plugins/gxmetal_amp#metal_amp",
+      "file": "gxmetal_amp.lv2",
+      "path": "/usr/lib64/lv2/gxmetal_amp.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMetalHead",
+      "id": "http://guitarix.sourceforge.net/plugins/gxmetal_head#metal_head",
+      "file": "gxmetal_head.lv2",
+      "path": "/usr/lib64/lv2/gxmetal_head.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMole",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mole_#_mole_",
+      "file": "gx_mole.lv2",
+      "path": "/usr/lib64/lv2/gx_mole.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMuff",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_muff_#_muff_",
+      "file": "gx_muff.lv2",
+      "path": "/usr/lib64/lv2/gx_muff.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMultiBandCompressor",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mbcompressor_#_mbcompressor_",
+      "file": "gx_mbcompressor.lv2",
+      "path": "/usr/lib64/lv2/gx_mbcompressor.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMultiBandDelay",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mbdelay_#_mbdelay_",
+      "file": "gx_mbdelay.lv2",
+      "path": "/usr/lib64/lv2/gx_mbdelay.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMultiBandDistortion",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mbdistortion_#_mbdistortion_",
+      "file": "gx_mbdistortion.lv2",
+      "path": "/usr/lib64/lv2/gx_mbdistortion.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMultiBandEcho",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mbecho_#_mbecho_",
+      "file": "gx_mbecho.lv2",
+      "path": "/usr/lib64/lv2/gx_mbecho.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMultiBandReverb",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mbreverb_#_mbreverb_",
+      "file": "gx_mbreverb.lv2",
+      "path": "/usr/lib64/lv2/gx_mbreverb.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxMXR Distortion",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_mxrdist_#_mxrdist_",
+      "file": "gx_mxrdist.lv2",
+      "path": "/usr/lib64/lv2/gx_mxrdist.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxoc_2",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_oc_2_#_oc_2_",
+      "file": "gx_oc_2.lv2",
+      "path": "/usr/lib64/lv2/gx_oc_2.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxPhaser",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_phaser#_phaser",
+      "file": "gx_phaser.lv2",
+      "path": "/usr/lib64/lv2/gx_phaser.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxRangeMaster",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_rangem_#_rangem_",
+      "file": "gx_rangem.lv2",
+      "path": "/usr/lib64/lv2/gx_rangem.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxRat",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_aclipper_#_aclipper_",
+      "file": "gx_aclipper.lv2",
+      "path": "/usr/lib64/lv2/gx_aclipper.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxRedeye Big Chump",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_redeye#bigchump",
+      "file": "gx_redeye.lv2",
+      "path": "/usr/lib64/lv2/gx_redeye.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxRedeye Chump",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_redeye#chump",
+      "file": "gx_redeye.lv2",
+      "path": "/usr/lib64/lv2/gx_redeye.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxRedeye Vibro Chump",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_redeye#vibrochump",
+      "file": "gx_redeye.lv2",
+      "path": "/usr/lib64/lv2/gx_redeye.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxReverb-Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_reverb_stereo#_reverb_stereo",
+      "file": "gx_reverb.lv2",
+      "path": "/usr/lib64/lv2/gx_reverb.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxroom_simulator",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_room_simulator_#_room_simulator_",
+      "file": "gx_room_simulator.lv2",
+      "path": "/usr/lib64/lv2/gx_room_simulator.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxScreamingBird",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_scream_#_scream_",
+      "file": "gx_scream.lv2",
+      "path": "/usr/lib64/lv2/gx_scream.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxshimmizita",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_shimmizita_#_shimmizita_",
+      "file": "gx_shimmizita.lv2",
+      "path": "/usr/lib64/lv2/gx_shimmizita.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxSustainer",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_susta_#_susta_",
+      "file": "gx_susta.lv2",
+      "path": "/usr/lib64/lv2/gx_susta.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gxswitched_tremolo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_switched_tremolo_#_switched_tremolo_",
+      "file": "gx_switched_tremolo.lv2",
+      "path": "/usr/lib64/lv2/gx_switched_tremolo.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTape",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtape#tape",
+      "file": "gxtape.lv2",
+      "path": "/usr/lib64/lv2/gxtape.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTiltTone",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtilttone#tilttone",
+      "file": "gxtilttone.lv2",
+      "path": "/usr/lib64/lv2/gxtilttone.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTremolo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_tremolo#_tremolo",
+      "file": "gx_tremolo.lv2",
+      "path": "/usr/lib64/lv2/gx_tremolo.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTubeDelay",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtubedelay#tubedelay",
+      "file": "gxtubedelay.lv2",
+      "path": "/usr/lib64/lv2/gxtubedelay.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTubeScreamer",
+      "id": "http://guitarix.sourceforge.net/plugins/gxts9#ts9sim",
+      "file": "gxts9.lv2",
+      "path": "/usr/lib64/lv2/gxts9.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTubeTremelo",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtubetremelo#tubetremelo",
+      "file": "gxtubetremelo.lv2",
+      "path": "/usr/lib64/lv2/gxtubetremelo.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTubeVibrato",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtubevibrato#tubevibrato",
+      "file": "gxtubevibrato.lv2",
+      "path": "/usr/lib64/lv2/gxtubevibrato.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxTuner",
+      "id": "http://guitarix.sourceforge.net/plugins/gxtuner#tuner",
+      "file": "gxtuner.lv2",
+      "path": "/usr/lib64/lv2/gxtuner.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxWah",
+      "id": "http://guitarix.sourceforge.net/plugins/gxautowah#wah",
+      "file": "gxautowah.lv2",
+      "path": "/usr/lib64/lv2/gxautowah.lv2",
+      "version": "40.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxWahwah",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_colwah_#_colwah_",
+      "file": "gx_colwah.lv2",
+      "path": "/usr/lib64/lv2/gx_colwah.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GxZita_rev1-Stereo",
+      "id": "http://guitarix.sourceforge.net/plugins/gx_zita_rev1_stereo#_zita_rev1_stereo",
+      "file": "gx_zita_rev1.lv2",
+      "path": "/usr/lib64/lv2/gx_zita_rev1.lv2",
+      "version": "43.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Hard Limiter",
       "id": "http://plugin.org.uk/swh-plugins/hardLimiter",
       "file": "hard_limiter-swh.lv2",
@@ -6514,6 +7286,15 @@
       "id": "http://plugin.org.uk/swh-plugins/inv",
       "file": "inv-swh.lv2",
       "path": "/usr/lib64/lv2/inv-swh.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "IR",
+      "id": "http://tomszilagyi.github.io/plugins/lv2/ir",
+      "file": "ir.lv2",
+      "path": "/usr/lib64/lv2/ir.lv2",
       "source": "system",
       "reaper": true
     },
@@ -8678,6 +9459,375 @@
     },
     {
       "format": "lv2",
+      "name": "MDA Ambience",
+      "id": "http://drobilla.net/plugins/mda/Ambience",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Bandisto",
+      "id": "http://drobilla.net/plugins/mda/Bandisto",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA BeatBox",
+      "id": "http://drobilla.net/plugins/mda/BeatBox",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Combo",
+      "id": "http://drobilla.net/plugins/mda/Combo",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA De-ess",
+      "id": "http://drobilla.net/plugins/mda/DeEss",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Degrade",
+      "id": "http://drobilla.net/plugins/mda/Degrade",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Delay",
+      "id": "http://drobilla.net/plugins/mda/Delay",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Detune",
+      "id": "http://drobilla.net/plugins/mda/Detune",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Dither",
+      "id": "http://drobilla.net/plugins/mda/Dither",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA DubDelay",
+      "id": "http://drobilla.net/plugins/mda/DubDelay",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA DX10",
+      "id": "http://drobilla.net/plugins/mda/DX10",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Dynamics",
+      "id": "http://drobilla.net/plugins/mda/Dynamics",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA ePiano",
+      "id": "http://drobilla.net/plugins/mda/EPiano",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Image",
+      "id": "http://drobilla.net/plugins/mda/Image",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA JX10",
+      "id": "http://drobilla.net/plugins/mda/JX10",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Leslie",
+      "id": "http://drobilla.net/plugins/mda/Leslie",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Limiter",
+      "id": "http://drobilla.net/plugins/mda/Limiter",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Loudness",
+      "id": "http://drobilla.net/plugins/mda/Loudness",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA MultiBand",
+      "id": "http://drobilla.net/plugins/mda/MultiBand",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Overdrive",
+      "id": "http://drobilla.net/plugins/mda/Overdrive",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Piano",
+      "id": "http://drobilla.net/plugins/mda/Piano",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA RePsycho!",
+      "id": "http://drobilla.net/plugins/mda/RePsycho",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA RezFilter",
+      "id": "http://drobilla.net/plugins/mda/RezFilter",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA RingMod",
+      "id": "http://drobilla.net/plugins/mda/RingMod",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA RoundPan",
+      "id": "http://drobilla.net/plugins/mda/RoundPan",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Shepard",
+      "id": "http://drobilla.net/plugins/mda/Shepard",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Splitter",
+      "id": "http://drobilla.net/plugins/mda/Splitter",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Stereo",
+      "id": "http://drobilla.net/plugins/mda/Stereo",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA SubSynth",
+      "id": "http://drobilla.net/plugins/mda/SubSynth",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA TalkBox",
+      "id": "http://drobilla.net/plugins/mda/TalkBox",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA TestTone",
+      "id": "http://drobilla.net/plugins/mda/TestTone",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA ThruZero",
+      "id": "http://drobilla.net/plugins/mda/ThruZero",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Tracker",
+      "id": "http://drobilla.net/plugins/mda/Tracker",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Transient",
+      "id": "http://drobilla.net/plugins/mda/Transient",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA VocInput",
+      "id": "http://drobilla.net/plugins/mda/VocInput",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MDA Vocoder",
+      "id": "http://drobilla.net/plugins/mda/Vocoder",
+      "file": "mda.lv2",
+      "path": "/usr/lib64/lv2/mda.lv2",
+      "version": "2.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "mdaEPiano",
+      "id": "http://elephly.net/lv2/mdaEPiano",
+      "file": "lv2-mdaEPiano.lv2",
+      "path": "/usr/lib64/lv2/lv2-mdaEPiano.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Mega Delay Line",
       "id": "http://gareus.org/oss/lv2/nodelay#mega",
       "file": "nodelay.lv2",
@@ -9290,6 +10440,16 @@
     },
     {
       "format": "lv2",
+      "name": "padthv1",
+      "id": "http://padthv1.sourceforge.net/lv2",
+      "file": "padthv1.lv2",
+      "path": "/usr/lib64/lv2/padthv1.lv2",
+      "version": "0.2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Peak meter",
       "id": "http://ll-plugins.nongnu.org/lv2/peakmeter#0",
       "file": "peakmeter.lv2",
@@ -9356,6 +10516,36 @@
     },
     {
       "format": "lv2",
+      "name": "QMidiArp Arp",
+      "id": "https://git.code.sf.net/p/qmidiarp/arp",
+      "file": "qmidiarp_arp.lv2",
+      "path": "/usr/lib64/lv2/qmidiarp_arp.lv2",
+      "version": "0.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "QMidiArp LFO",
+      "id": "https://git.code.sf.net/p/qmidiarp/lfo",
+      "file": "qmidiarp_lfo.lv2",
+      "path": "/usr/lib64/lv2/qmidiarp_lfo.lv2",
+      "version": "0.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "QMidiArp Seq",
+      "id": "https://git.code.sf.net/p/qmidiarp/seq",
+      "file": "qmidiarp_seq.lv2",
+      "path": "/usr/lib64/lv2/qmidiarp_seq.lv2",
+      "version": "0.0",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Rate shifter",
       "id": "http://plugin.org.uk/swh-plugins/rateShifter",
       "file": "rate_shifter-swh.lv2",
@@ -9396,6 +10586,66 @@
       "id": "http://plugin.org.uk/swh-plugins/ringmod_2i1o",
       "file": "ringmod-swh.lv2",
       "path": "/usr/lib64/lv2/ringmod-swh.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Live Mono Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#livemono",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Live Stereo Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#livestereo",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Mono Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#mono",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band R3 Mono Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#r3mono",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band R3 Stereo Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#r3stereo",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rubber Band Stereo Pitch Shifter",
+      "id": "http://breakfastquay.com/rdf/lv2-rubberband#stereo",
+      "file": "rubberband.lv2",
+      "path": "/usr/lib64/lv2/rubberband.lv2",
+      "version": "6.1",
       "source": "system",
       "reaper": true
     },
@@ -9488,6 +10738,15 @@
       "id": "http://plugin.org.uk/swh-plugins/amp",
       "file": "amp-swh.lv2",
       "path": "/usr/lib64/lv2/amp-swh.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Simple Amplifier",
+      "id": "http://lv2plug.in/plugins/eg-amp",
+      "file": "eg-amp.lv2",
+      "path": "/usr/lib64/lv2/eg-amp.lv2",
       "source": "system",
       "reaper": true
     },
@@ -9795,6 +11054,15 @@
       "id": "http://plugin.org.uk/swh-plugins/transient",
       "file": "transient-swh.lv2",
       "path": "/usr/lib64/lv2/transient-swh.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Triforce",
+      "id": "https://chadmed.au/triforce",
+      "file": "triforce.lv2",
+      "path": "/usr/lib64/lv2/triforce.lv2",
       "source": "system",
       "reaper": true
     },
