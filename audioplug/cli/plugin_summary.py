@@ -25,7 +25,8 @@ for an LV2 bundle, with other plugins inside), and JSFX by folder.
 Plugins are matched like "plugscan compare": file / LV2 URI / JSFX path,
 then name, plus VST ids inside shell libraries. With only HOST_A, it is
 compared with this machine, scanned now (nothing is written to
-scan-results/).
+scan-results/). -p NAME (with -c) keeps only plugins whose name contains
+NAME and lists what each host has of them first.
 """
 
 import argparse
@@ -238,13 +239,42 @@ def present(rec, host, shell_names):
                or (fmt, norm_name(w["name"])) in shell_names for w in wants)
 
 
-def compare(a, b):
-    """Markdown: what each of two hosts has that the other one lacks."""
+def name_match(rec, names):
+    """True if a name in names is part of the plugin's name, file name or
+    the name of a plugin inside it (VST shell), case and punctuation
+    ignored: 'dexed' matches Dexed.vst3 and libDexed.so."""
+    cands = [rec["name"], stem(rec)] + list(rec.get("vst_ids", {}).values())
+    return any(norm_name(n) in norm_name(c) for n in names for c in cands)
+
+
+def only(host, names):
+    """host with just the plugins matching names."""
+    data = dict(host.data, plugins=[r for r in host.data["plugins"]
+                                    if name_match(r, names)])
+    return Host(data, host.label)
+
+
+def compare(a, b, names=None):
+    """Markdown: what each of two hosts has that the other one lacks.
+    With names, only plugins whose name contains one of them, plus what
+    each host has of them."""
     out = ["# Audio plugins: %s vs %s" % (a.label, b.label), ""]
     for h in (a, b):
         out.append("- %s: %s, %d plugin files/entries, scanned %s" % (
             h.label, h.data.get("os", "?"), len(h.data["plugins"]),
             h.data.get("generated", "?")))
+    if names:
+        out.append("- Only plugins matching: %s" % ", ".join(names))
+        a, b = only(a, names), only(b, names)
+        for h in (a, b):
+            lines = plugin_lines([r for r in h.data["plugins"]
+                                  if r["format"] != "jsfx"])
+            lines += jsfx_lines([r for r in h.data["plugins"]
+                                 if r["format"] == "jsfx"])[0]
+            section(out, "On %s (%d)" % (h.label, len(lines)),
+                    lines or ["- none"])
+        if not a.data["plugins"] and not b.data["plugins"]:
+            return "\n".join(out) + "\n"
     for x, y in ((a, b), (b, a)):
         shell_names = vst_names(y)
         missing = [r for r in x.data["plugins"]
@@ -298,7 +328,12 @@ def main(argv=None):
                          "this machine, scanned now): what each one lacks; "
                          "prints to stdout, or writes DIR/A-vs-B.md with "
                          "-o DIR")
+    ap.add_argument("-p", "--plugin", action="append", metavar="NAME",
+                    help="with -c: only plugins whose name contains NAME, "
+                         "case and punctuation ignored (can be repeated)")
     args = ap.parse_args(argv)
+    if args.plugin and not args.compare:
+        ap.error("-p works with -c")
 
     if args.compare:
         if args.files:
@@ -311,7 +346,7 @@ def main(argv=None):
                  else live_host())
         except (OSError, ValueError) as e:
             sys.exit(str(e))
-        text = compare(a, b)
+        text = compare(a, b, args.plugin)
         if not args.out or args.out == "-":
             sys.stdout.write(text)
             return

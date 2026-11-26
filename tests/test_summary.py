@@ -47,6 +47,16 @@ class TestCompare(unittest.TestCase):
         self.assertIn("## On b, missing on a (1)\n\n- dexed: lv2\n", text)
         self.assertTrue(text.isascii())
 
+    def test_plugin_filter(self):
+        text = compare(A, B, ["surge"])
+        self.assertIn("## On a (1)\n\n- Surge XT: clap, vst3\n", text)
+        self.assertIn("- Surge XT: clap (b has vst3)", text)
+        self.assertNotIn("Vital", text)
+        # Matched by the name inside b's VST shell library.
+        self.assertIn("## On b (1)\n\n- lsp-plugins: vst2\n",
+                      compare(A, B, ["multi-sampler"]))
+        self.assertIn("## On a (0)", compare(A, B, ["nosuch"]))
+
     def test_same(self):
         self.assertIn("Everything on b is also on b.", compare(B, B))
 
