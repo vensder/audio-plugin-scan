@@ -3,7 +3,7 @@
   "host": "fedora-shift",
   "os": "Fedora Linux 45 (KDE Plasma Desktop Edition)",
   "user": "vensder",
-  "generated": "2026-11-26T18:06:48+13:00",
+  "generated": "2026-11-26T18:58:25+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -7255,6 +7255,15 @@
     },
     {
       "format": "lv2",
+      "name": "Helm",
+      "id": "http://tytel.org/helm",
+      "file": "helm-synth.lv2",
+      "path": "/usr/lib64/lv2/helm-synth.lv2",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Hermes Filter",
       "id": "http://plugin.org.uk/swh-plugins/hermesFilter",
       "file": "hermes_filter-swh.lv2",
@@ -11786,6 +11795,14 @@
     },
     {
       "format": "vst2",
+      "name": "helm-synth",
+      "file": "helm-synth.so",
+      "path": "/usr/lib64/vst/helm-synth.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
       "name": "jsfx",
       "file": "jsfx.so",
       "path": "/opt/REAPER/Plugins/jsfx.so",
@@ -12238,6 +12255,14 @@
       "vst_ids": {
         "475117838": "Dexed"
       }
+    },
+    {
+      "format": "vst3",
+      "name": "Podolski",
+      "file": "Podolski.vst3",
+      "path": "/home/vensder/.vst3/u-he/Podolski.vst3",
+      "source": "home",
+      "reaper": true
     },
     {
       "format": "vst3",
