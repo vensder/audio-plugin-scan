@@ -58,6 +58,9 @@ DEST = {".vst3": "~/.vst3", ".clap": "~/.clap", ".lv2": "~/.lv2",
 # "LSP VST" in "VSTi: Multi-Sampler x12 Stereo (LSP VST)".
 # Methods are tried in order; the first one usable on this system wins.
 # Package names are checked with dnf / apt before anything is installed.
+# A GitHub asset pattern may contain {name} (the plugin name) and {fmt}
+# (VST2 / VST3 / CLAP / LV2, the missing format; VST3 for a bare name)
+# for releases with one file per plugin and format.
 
 CATALOG = [
     {"title": "Surge XT", "match": r"^Surge XT",
@@ -103,6 +106,14 @@ CATALOG = [
      # on old CPUs use the sse2 zip from the release page instead.
      "methods": [{"type": "github", "repo": "attilammagyar/js80p",
                   "archive": r"^js80p-[\d_]+-avx-vst3_bundle\.zip$"}]},
+    {"title": "The Usual Suspects",
+     "match": r"^(Osirus|OsTIrus|Vavra|Xenia|NodalRed2x|JE8086)(FX)?$",
+     "vendor": r"^The Usual Suspects$",
+     # gearmulator: one zip per plugin and format (usr/local/lib/<fmt>/),
+     # copied to the home plugin dirs.
+     "methods": [{"type": "github", "repo": "dsp56300/gearmulator",
+                  "archive": r"^TheUsualSuspects-{name}-{fmt}-[\d.]+"
+                             r"-Linux_x86_64\.zip$"}]},
     {"title": "Geonkick", "match": r"^Geonkick",
      "methods": [{"type": "pkg", "dnf": "geonkick", "apt": "geonkick"}]},
     {"title": "LSP Plugins", "match": r"^LSP ", "vendor": r"^LSP\b",
@@ -313,11 +324,19 @@ def gh_release(repo, refresh=False):
                                    + ".json", refresh))
 
 
-def gh_asset(rel, pattern):
+GH_FMT = {"vst2": "VST2", "vst3": "VST3", "clap": "CLAP", "lv2": "LV2"}
+
+
+def gh_asset(rel, pattern, want=None):
     if not pattern:
         return None
+    flags = 0
+    if want and ("{name}" in pattern or "{fmt}" in pattern):
+        pattern = (pattern.replace("{name}", re.escape(want["name"]))
+                   .replace("{fmt}", GH_FMT.get(want["format"], "VST3")))
+        flags = re.I
     for a in rel.get("assets", []):
-        if re.search(pattern, a["name"]):
+        if re.search(pattern, a["name"], flags):
             return a
     return None
 
@@ -372,9 +391,12 @@ def resolve(want, refresh=False):
                         continue
                     if kind == "deb" and pm != "apt":
                         continue
-                    a = gh_asset(rel, m.get(kind))
+                    a = gh_asset(rel, m.get(kind), want)
                     if a:
-                        return {"title": entry["title"],
+                        title = entry["title"]
+                        if "{name}" in (m.get(kind) or ""):
+                            title = "%s %s" % (title, name)
+                        return {"title": title,
                                 "how": kind if kind != "archive" else "copy",
                                 "version": tag,
                                 "url": a["browser_download_url"]}

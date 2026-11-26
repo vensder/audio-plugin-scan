@@ -161,6 +161,10 @@ Sources, in the order they are tried for a plugin:
   sudo after asking; a .tar/.zip/.deb archive is unpacked and its .vst3,
   .clap, .lv2 and VST2 .so files are copied to ~/.vst3, ~/.clap, ~/.lv2,
   ~/.vst.
+- The Usual Suspects (gearmulator: Osirus, OsTIrus, Vavra, Xenia,
+  NodalRed2x, JE8086 and their FX versions): the zip of the latest GitHub
+  release for the missing plugin and format (a bare name gets VST3),
+  copied to the home plugin dirs like other archives.
 - Distro packages (LSP, x42, Calf, ZynAddSubFX, ...): dnf or apt, with sudo,
   only if the package exists in your repositories, and after asking.
 - Plugins that need a login or a form (Vital, TAL, Speedrum Lite,
