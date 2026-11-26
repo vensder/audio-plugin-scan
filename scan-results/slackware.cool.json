@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-23T19:46:49+13:00",
+  "generated": "2026-11-26T20:08:55+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -4211,8 +4211,11 @@
       "format": "ladspa",
       "name": "lsp-plugins-ladspa",
       "file": "lsp-plugins-ladspa.so",
-      "path": "/home/vensder/.ladspa/lsp-plugins-ladspa.so",
-      "source": "home"
+      "path": "/usr/lib64/ladspa/lsp-plugins-ladspa.so",
+      "source": "env:LADSPA_PATH",
+      "links": [
+        "/home/vensder/.ladspa/lsp-plugins-ladspa.so"
+      ]
     },
     {
       "format": "ladspa",
@@ -5952,6 +5955,2580 @@
       "source": "env:LV2_PATH",
       "links": [
         "/home/vensder/.lv2/carla.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP A/B Tester x2 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/ab_tester_x2_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP A/B Tester x2 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/ab_tester_x2_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP A/B Tester x4 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/ab_tester_x4_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP A/B Tester x4 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/ab_tester_x4_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP A/B Tester x8 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/ab_tester_x8_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP A/B Tester x8 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/ab_tester_x8_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Artistic Delay Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/art_delay_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Artistic Delay Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/art_delay_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Autogain Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/autogain_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.22",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Autogain Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/autogain_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.22",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Beat Breather Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/beat_breather_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Beat Breather Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/beat_breather_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Chorus Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/chorus_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.18",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Chorus Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/chorus_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.18",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Clipper Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/clipper_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.20",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Clipper Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/clipper_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.20",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Compressor LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/compressor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Compressor MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/compressor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Compressor Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/compressor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Compressor Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/compressor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Crossover LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/crossover_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Crossover MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/crossover_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Crossover Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/crossover_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Crossover Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/crossover_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Deesser Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/deesser_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.2",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Deesser Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/deesser_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.2",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Delay Compensator Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/comp_delay_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Delay Compensator Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/comp_delay_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Delay Compensator x2 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/comp_delay_x2_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Dynamics Processor LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/dyna_processor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Dynamics Processor MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/dyna_processor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Dynamics Processor Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/dyna_processor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Dynamics Processor Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/dyna_processor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Expander LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/expander_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Expander MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/expander_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Expander Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/expander_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Expander Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/expander_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Filter Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/filter_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Filter Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/filter_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Flanger Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/flanger_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Flanger Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/flanger_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Gate LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/gate_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Gate MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/gate_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Gate Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/gate_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Gate Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/gate_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP GOTT Compressor LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/gott_compressor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP GOTT Compressor MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/gott_compressor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP GOTT Compressor Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/gott_compressor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP GOTT Compressor Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/gott_compressor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x16 LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x16 MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x16 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x16 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x32 LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x32_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x32 MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x32_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x32 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x32_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Graphic Equalizer x32 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/graph_equalizer_x32_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Impulse Responses Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/impulse_responses_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Impulse Responses Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/impulse_responses_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Impulse Reverb Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/impulse_reverb_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Impulse Reverb Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/impulse_reverb_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Latency Meter",
+      "id": "http://lsp-plug.in/plugins/lv2/latency_meter",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Limiter Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/limiter_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Limiter Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/limiter_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Loudness Compensator Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/loud_comp_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Loudness Compensator Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/loud_comp_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Matcher Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/matcher_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.7",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Matcher Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/matcher_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.7",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Mixer x16 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/mixer_x16_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Mixer x16 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/mixer_x16_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Mixer x4 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/mixer_x4_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Mixer x4 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/mixer_x4_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Mixer x8 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/mixer_x8_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Mixer x8 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/mixer_x8_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.28",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multi-Sampler x12 DirectOut",
+      "id": "http://lsp-plug.in/plugins/lv2/multisampler_x12_do",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multi-Sampler x12 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/multisampler_x12",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multi-Sampler x24 DirectOut",
+      "id": "http://lsp-plug.in/plugins/lv2/multisampler_x24_do",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multi-Sampler x24 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/multisampler_x24",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multi-Sampler x48 DirectOut",
+      "id": "http://lsp-plug.in/plugins/lv2/multisampler_x48_do",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multi-Sampler x48 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/multisampler_x48",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Clipper Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_clipper_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.20",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Clipper Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_clipper_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.20",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Compressor LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_compressor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Compressor MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_compressor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Compressor Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_compressor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Compressor Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_compressor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Dynamics Processor LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_dyna_processor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Dynamics Processor MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_dyna_processor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Dynamics Processor Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_dyna_processor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Dynamics Processor Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_dyna_processor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Expander LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_expander_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Expander MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_expander_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Expander Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_expander_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Expander Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_expander_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Gate LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_gate_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Gate MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_gate_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Gate Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_gate_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Gate Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_gate_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Limiter Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_limiter_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Limiter Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_limiter_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Ring Modulated Sidechain Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_ringmod_sc_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.9",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Multiband Ring Modulated Sidechain Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/mb_ringmod_sc_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.9",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Noise Generator x1",
+      "id": "http://lsp-plug.in/plugins/lv2/noise_generator_x1",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.31",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Noise Generator x2",
+      "id": "http://lsp-plug.in/plugins/lv2/noise_generator_x2",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.31",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Noise Generator x4",
+      "id": "http://lsp-plug.in/plugins/lv2/noise_generator_x4",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.31",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Oscillator Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/oscillator_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Oscilloscope x1",
+      "id": "http://lsp-plug.in/plugins/lv2/oscilloscope_x1",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Oscilloscope x2",
+      "id": "http://lsp-plug.in/plugins/lv2/oscilloscope_x2",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Oscilloscope x4",
+      "id": "http://lsp-plug.in/plugins/lv2/oscilloscope_x4",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x16 LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x16_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x16 MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x16_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x16 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x16_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x16 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x16_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x32 LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x32_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x32 MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x32_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x32 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x32_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x32 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x32_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x8 LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x8_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x8 MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x8_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x8 Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x8_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Parametric Equalizer x8 Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/para_equalizer_x8_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Phase Detector",
+      "id": "http://lsp-plug.in/plugins/lv2/phase_detector",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Phaser Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/phaser_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.11",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Phaser Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/phaser_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.11",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Profiler Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/profiler_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Profiler Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/profiler_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Referencer Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/referencer_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.13",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Referencer Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/referencer_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.13",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Return Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/return_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.15",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Return Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/return_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.15",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Ring Modulated Sidechain Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/ringmod_sc_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.9",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Ring Modulated Sidechain Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/ringmod_sc_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.9",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Room Builder Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/room_builder_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Room Builder Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/room_builder_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sampler Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sampler_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sampler Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sampler_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Send Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/send_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.15",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Send Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/send_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.15",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Autogain Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_autogain_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.22",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Autogain Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_autogain_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.22",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Compressor LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_compressor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Compressor MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_compressor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Compressor Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_compressor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Compressor Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_compressor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.41",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Deesser Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_deesser_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.2",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Deesser Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_deesser_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.2",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Dynamics Processor LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_dyna_processor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Dynamics Processor MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_dyna_processor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Dynamics Processor Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_dyna_processor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Dynamics Processor Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_dyna_processor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Expander LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_expander_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Expander MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_expander_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Expander Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_expander_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Expander Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_expander_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Gate LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gate_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Gate MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gate_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Gate Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gate_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Gate Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gate_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.40",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain GOTT Compressor LeftRight",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gott_compressor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain GOTT Compressor MidSide",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gott_compressor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain GOTT Compressor Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gott_compressor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain GOTT Compressor Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_gott_compressor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Limiter Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_limiter_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Limiter Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_limiter_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Matcher Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_matcher_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.7",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Matcher Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_matcher_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.7",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Compressor LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_compressor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Compressor MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_compressor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Compressor Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_compressor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Compressor Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_compressor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Dynamics Processor LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_dyna_processor_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Dynamics Processor MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_dyna_processor_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Dynamics Processor Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_dyna_processor_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Dynamics Processor Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_dyna_processor_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.33",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Expander LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_expander_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Expander MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_expander_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Expander Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_expander_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Expander Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_expander_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Gate LeftRight x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_gate_lr",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Gate MidSide x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_gate_ms",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Gate Mono x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_gate_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Gate Stereo x8",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_gate_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Limiter Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_limiter_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Sidechain Multiband Limiter Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/sc_mb_limiter_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.25",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Slapback Delay Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/slap_delay_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Slapback Delay Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/slap_delay_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.37",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Spectrum Analyzer x1",
+      "id": "http://lsp-plug.in/plugins/lv2/spectrum_analyzer_x1",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.42",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Spectrum Analyzer x12",
+      "id": "http://lsp-plug.in/plugins/lv2/spectrum_analyzer_x12",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.42",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Spectrum Analyzer x16",
+      "id": "http://lsp-plug.in/plugins/lv2/spectrum_analyzer_x16",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.42",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Spectrum Analyzer x2",
+      "id": "http://lsp-plug.in/plugins/lv2/spectrum_analyzer_x2",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.42",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Spectrum Analyzer x4",
+      "id": "http://lsp-plug.in/plugins/lv2/spectrum_analyzer_x4",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.42",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Spectrum Analyzer x8",
+      "id": "http://lsp-plug.in/plugins/lv2/spectrum_analyzer_x8",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.42",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Surge Filter Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/surge_filter_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Surge Filter Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/surge_filter_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.36",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Trigger MIDI Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/trigger_midi_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Trigger MIDI Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/trigger_midi_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Trigger Mono",
+      "id": "http://lsp-plug.in/plugins/lv2/trigger_mono",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
+      ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LSP Trigger Stereo",
+      "id": "http://lsp-plug.in/plugins/lv2/trigger_stereo",
+      "file": "lsp-plugins.lv2",
+      "path": "/usr/lib64/lv2/lsp-plugins.lv2",
+      "version": "0.38",
+      "source": "env:LV2_PATH",
+      "links": [
+        "/home/vensder/.lv2/lsp-plugins.lv2"
       ],
       "reaper": true
     },
@@ -7881,6 +10458,217 @@
     },
     {
       "format": "vst2",
+      "name": "lsp-plugins",
+      "file": "lsp-plugins.so",
+      "path": "/home/vensder/.vst/lsp-plugins.vst/lsp-plugins.so",
+      "source": "home",
+      "links": [
+        "/usr/lib64/vst/lsp-plugins.vst/lsp-plugins.so"
+      ],
+      "reaper": true,
+      "vst_ids": {
+        "1129066829": "MB Clipper Mono",
+        "1129066835": "MB Clipper Stereo",
+        "1146302829": "SC Desser Mono",
+        "1146302835": "SC Deesser Stereo",
+        "1297166669": "Matcher Mono",
+        "1297166675": "Matcher Stereo",
+        "1297183565": "Sidechain Matcher Mono",
+        "1297183571": "Sidechain Matcher Stereo",
+        "1630889272": "Parametric Equalizer x8 Stereo",
+        "1630889330": "Parametric Equalizer x16 Stereo",
+        "1633776697": "Dynamics Processor Stereo",
+        "1633825389": "A/B Tester x2 Mono",
+        "1633825395": "A/B Tester x2 Stereo",
+        "1633825901": "A/B Tester x4 Mono",
+        "1633825907": "A/B Tester x4 Stereo",
+        "1633826925": "A/B Tester x8 Mono",
+        "1633826931": "A/B Tester x8 Stereo",
+        "1633838437": "Latency Meter",
+        "1634152781": "Sidechain Autogain Mono",
+        "1634152787": "Sidechain Autogain Stereo",
+        "1634152813": "Autogain Mono",
+        "1634152819": "Autogain Stereo",
+        "1634757496": "SC Dynamics Processor Mono",
+        "1634887532": "Graphic Equalizer x16 Stereo",
+        "1635022441": "Oscilloscope x4",
+        "1635070054": "Expander Stereo",
+        "1635202930": "Spectrum Analyzer x2",
+        "1650602349": "Beat Breather Mono",
+        "1650602355": "Beat Breather Stereo",
+        "1650879851": "MB Expander L/R",
+        "1650946937": "Compressor Mono",
+        "1651276137": "Multi-Sampler x48 DirectOut",
+        "1651337320": "MB Gate Mono",
+        "1667314802": "Sampler Mono",
+        "1667772781": "Chorus Mono",
+        "1667772787": "Chorus Stereo",
+        "1668034925": "Clipper Mono",
+        "1668034931": "Clipper Stereo",
+        "1668051571": "Multi-Sampler x12 Stereo",
+        "1668375154": "Room Builder Mono",
+        "1668442726": "Surge Filter Stereo",
+        "1684550456": "Parametric Equalizer x8 Mono",
+        "1684550521": "Parametric Equalizer x16 Mono",
+        "1685270893": "Desser Mono",
+        "1685270899": "Deesser Stereo",
+        "1697998946": "Spectrum Analyzer x8",
+        "1700948075": "Expander M/S",
+        "1701736249": "Loudness Compensator Mono",
+        "1702125930": "MB Gate L/R",
+        "1714450802": "SC MB Expander Stereo",
+        "1717791289": "SC Dynamics Processor M/S",
+        "1717856629": "MB Compressor Mono",
+        "1717922921": "Surge Filter Mono",
+        "1718052721": "Impulse Reverb Mono",
+        "1718117995": "SC MB Gate L/R",
+        "1718383725": "Filter Mono",
+        "1718383731": "Filter Stereo",
+        "1718450287": "SC Gate L/R",
+        "1718580071": "SC Gate Stereo",
+        "1718581095": "SC Compressor L/R",
+        "1718709861": "SC Dynamics Processor Stereo",
+        "1719100467": "Delay Compensator x2 Stereo",
+        "1735029614": "MB Compressor Stereo",
+        "1735667812": "Slapback Delay Mono",
+        "1751802992": "SC MB Compressor M/S",
+        "1751923047": "Dynamics Processor L/R",
+        "1752066612": "Multi-Sampler x48 Stereo",
+        "1752130164": "MB Expander Stereo",
+        "1752523383": "Profiler Stereo",
+        "1752658531": "Profiler Mono",
+        "1764782200": "Parametric Equalizer x32 Mono",
+        "1768123767": "Gate L/R",
+        "1768714602": "Parametric Equalizer x32 L/R",
+        "1768911207": "SC Compressor M/S",
+        "1784772152": "Delay Compensator Mono",
+        "1785095802": "Phase Detector",
+        "1785357670": "Compressor M/S",
+        "1786393978": "Limiter Mono",
+        "1801609842": "Artistic Delay Stereo",
+        "1802139443": "Sampler Stereo",
+        "1802844266": "Graphic Equalizer x32 M/S",
+        "1802926181": "SC MB Compressor L/R",
+        "1803052150": "SC MB Expander L/R",
+        "1803123317": "SC Limiter Mono",
+        "1815506019": "SC Gate M/S",
+        "1818636653": "Flanger Mono",
+        "1818636659": "Flanger Stereo",
+        "1818720825": "Parametric Equalizer x32 M/S",
+        "1819174704": "Noise Generator x1",
+        "1819174705": "Noise Generator x2",
+        "1819174706": "Noise Generator x4",
+        "1819373677": "Dynamics Processor Mono",
+        "1819767158": "SC Expander Stereo",
+        "1819896433": "SC Compressor Mono",
+        "1831875693": "Mixer x4 Mono",
+        "1831875699": "Mixer x4 Stereo",
+        "1831876717": "Mixer x8 Mono",
+        "1831876723": "Mixer x8 Stereo",
+        "1831941741": "Mixer x16 Mono",
+        "1831941747": "Mixer x16 Stereo",
+        "1835160113": "MB Ring Modulated SC Stereo",
+        "1835166797": "SC MB Limiter Mono",
+        "1835166803": "SC MB Limiter Stereo",
+        "1835166829": "MB Limiter Mono",
+        "1835166835": "MB Limiter Stereo",
+        "1835168305": "MB Ring Modulated SC Mono",
+        "1835298864": "MB Dynamics Processor Mono",
+        "1835298865": "MB Dynamics Processor Stereo",
+        "1835298866": "MB Dynamics Processor L/R",
+        "1835298867": "MB Dynamics Processor M/S",
+        "1835298868": "SC MB Dynamics Processor Mono",
+        "1835298869": "SC MB Dynamics Processor Stereo",
+        "1835298870": "SC MB Dynamics Processor L/R",
+        "1835298871": "SC MB Dynamics Processor M/S",
+        "1835563576": "SC MB Gate Mono",
+        "1836085864": "Room Builder Stereo",
+        "1836672879": "MB Expander Mono",
+        "1852269389": "GOTT Compressor M/S",
+        "1852269420": "GOTT Compressor L/R",
+        "1852269421": "GOTT Compressor Mono",
+        "1852269427": "GOTT Compressor Stereo",
+        "1852734002": "SC Gate Mono",
+        "1853192809": "Spectrum Analyzer x16",
+        "1853256548": "Graphic Equalizer x32 Stereo",
+        "1866037866": "Impulse Reverb Stereo",
+        "1869574498": "Crossover Stereo x8",
+        "1869638200": "Parametric Equalizer x8 M/S",
+        "1869638259": "Parametric Equalizer x16 M/S",
+        "1885876589": "Phaser Mono",
+        "1885876595": "Phaser Stereo",
+        "1886287479": "SC Expander L/R",
+        "1902275681": "Oscilloscope x1",
+        "1903196018": "Delay Compensator Stereo",
+        "1903453562": "Spectrum Analyzer x1",
+        "1915761005": "Return Mono",
+        "1915761011": "Return Stereo",
+        "1919299949": "Referencer Mono",
+        "1919299955": "Referencer Stereo",
+        "1919317347": "Limiter Stereo",
+        "1919758701": "Ring Modulated SC Mono",
+        "1919758707": "Ring Modulated SC Stereo",
+        "1919774326": "Crossover Mono x8",
+        "1920363105": "SC MB Gate Stereo",
+        "1920366443": "Graphic Equalizer x16 Mono",
+        "1932538221": "Send Mono",
+        "1932538227": "Send Stereo",
+        "1932684922": "Parametric Equalizer x32 Stereo",
+        "1936155469": "SC GOTT Compressor M/S",
+        "1936155500": "SC GOTT Compressor L/R",
+        "1936155501": "SC GOTT Compressor Mono",
+        "1936155507": "SC GOTT Compressor Stereo",
+        "1936618609": "Oscillator Mono",
+        "1937272169": "SC Dynamics Processor L/R",
+        "1937402726": "SC MB Expander Mono",
+        "1949596026": "Trigger MIDI Mono",
+        "1952736369": "Expander Mono",
+        "1953117036": "Spectrum Analyzer x12",
+        "1969386338": "Oscilloscope x2",
+        "1969977971": "SC MB Gate M/S",
+        "1970041957": "MB Expander M/S",
+        "1970172771": "Compressor Stereo",
+        "1970417765": "Gate Mono",
+        "1970566508": "SC Expander Mono",
+        "1970696807": "Dynamics Processor M/S",
+        "1986552681": "MB Compressor M/S",
+        "1986620778": "Multi-Sampler x24 DirectOut",
+        "1986622316": "Multi-Sampler x24 Stereo",
+        "1986818422": "Crossover MidSide x8",
+        "1986945889": "Graphic Equalizer x32 Mono",
+        "1987457133": "SC MB Compressor Mono",
+        "1987603564": "Artistic Delay Mono",
+        "2003252335": "Gate Stereo",
+        "2003527525": "SC MB Expander M/S",
+        "2003794291": "Graphic Equalizer x16 M/S",
+        "2004246832": "Loudness Compensator Stereo",
+        "2004247154": "Crossover LeftRight x8",
+        "2004252532": "Impulse Responses Mono",
+        "2017029746": "MB Gate M/S",
+        "2021287791": "Spectrum Analyzer x4",
+        "2037609777": "MB Gate Stereo",
+        "2053320804": "SC Expander M/S",
+        "2053335345": "Gate M/S",
+        "2053465705": "Graphic Equalizer x16 L/R",
+        "2053597302": "Trigger Mono",
+        "2053729121": "Trigger Stereo",
+        "2054255214": "SC MB Compressor Stereo",
+        "2054583142": "Expander L/R",
+        "2054645303": "SC Limiter Stereo",
+        "811951974": "MB Compressor L/R",
+        "812148085": "Graphic Equalizer x32 L/R",
+        "813201514": "Slapback Delay Stereo",
+        "829122682": "Impulse Responses Stereo",
+        "862871917": "Compressor L/R",
+        "879453496": "Parametric Equalizer x8 L/R",
+        "879453542": "Parametric Equalizer x16 L/R",
+        "897088105": "SC Compressor Stereo",
+        "930769770": "Multi-Sampler x12 DirectOut",
+        "962818406": "Trigger MIDI Stereo"
+      }
+    },
+    {
+      "format": "vst2",
       "name": "NodalRed2x",
       "file": "NodalRed2x.so",
       "path": "/home/vensder/.vst/NodalRed2x.so",
@@ -8540,7 +11328,11 @@
       "name": "lsp-plugins",
       "file": "lsp-plugins.vst3",
       "path": "/home/vensder/.vst3/lsp-plugins.vst3",
+      "version": "1.2.37",
       "source": "home",
+      "links": [
+        "/usr/lib64/vst3/lsp-plugins.vst3"
+      ],
       "reaper": true,
       "vst_ids": {
         "1001359493": "Sidechain Multiband Limiter Stereo",
