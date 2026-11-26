@@ -10,7 +10,7 @@ to install.
       plugscan          scan / compare / check / links    (section 1-3, 11)
       reapack-helper    missing JSFX via ReaPack          (section 4)
       plugin-helper     missing VST / CLAP / LV2          (section 5)
-      plugin-summary    Markdown summary per host         (section 6)
+      plugin-summary    Markdown summary, compare 2 hosts (section 6)
       reaper-update     update REAPER                     (section 7)
       rpp-info          tracks and FX chains of a project (section 8)
       lmms-info         tracks and effects of an LMMS project (section 9)
@@ -204,7 +204,34 @@ An LV2 bundle is one line, with the number of plugins inside. Names are
 matched ignoring case and punctuation, a "lib" prefix and a "_vst"
 suffix, so libTAL-NoiseMaker.so and TAL-NoiseMaker.vst3 share a line;
 SWH LADSPA files (alias_1407.so) share a line with their LV2 port
-(alias-swh.lv2).
+(alias-swh.lv2), and ZamComp-ladspa.so shares one with ZamComp.
+
+To see what one host has and another lacks, compare two host files (or
+host names from scan-results/), both ways:
+
+    bin/plugin-summary -c ubuntu fedora-shift          # print
+    bin/plugin-summary -c ubuntu fedora-shift -o .     # write ./ubuntu-vs-fedora-shift.md
+
+For each direction there are up to three sections:
+
+    ## On ubuntu, missing on fedora-shift (24)
+    - Vital: clap, vst2, vst3
+
+    ## On ubuntu, other formats or plugins on fedora-shift (18)
+    - ZamComp: clap, ladspa, vst2, vst3 (fedora-shift has lv2)
+    - calf: lv2 (3 plugins) [Calf Fluidsynth, Calf Pitch Tools, Calf Wavetable] (ubuntu has ladspa, lv2)
+
+    ## On ubuntu, missing on fedora-shift: JSFX (44)
+    - Saike Tools (16): Basics/Transience.jsfx, ...
+
+The first section is plugins the other host does not have under any
+format; the second is plugins it has, but not in these formats (or, for
+an LV2 bundle, without the plugins listed in [ ]). Plugins are matched
+the same way as in "plugscan compare" (file, LV2 URI or JSFX path, then
+name), and a plugin also counts as there when it is inside a VST shell
+library on the other host (REAPER's cache at scan time, e.g. LSP's
+single lsp-plugins.vst3). "plugscan compare" gives the same answer as a
+table by format, for any number of hosts.
 
 ## 7. Update REAPER
 
