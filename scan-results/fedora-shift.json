@@ -3,7 +3,7 @@
   "host": "fedora-shift",
   "os": "Fedora Linux 45 (KDE Plasma Desktop Edition)",
   "user": "vensder",
-  "generated": "2026-11-26T19:22:10+13:00",
+  "generated": "2026-11-26T19:25:21+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -12258,6 +12258,33 @@
     },
     {
       "format": "vst3",
+      "name": "JE8086",
+      "file": "JE8086.vst3",
+      "path": "/home/vensder/.vst3/JE8086.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "NodalRed2x",
+      "file": "NodalRed2x.vst3",
+      "path": "/home/vensder/.vst3/NodalRed2x.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "Osirus",
+      "file": "Osirus.vst3",
+      "path": "/home/vensder/.vst3/Osirus.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
       "name": "OsTIrus",
       "file": "OsTIrus.vst3",
       "path": "/home/vensder/.vst3/OsTIrus.vst3",
@@ -12316,6 +12343,24 @@
       "vst_ids": {
         "633732887": "TyrellN6"
       }
+    },
+    {
+      "format": "vst3",
+      "name": "Vavra",
+      "file": "Vavra.vst3",
+      "path": "/home/vensder/.vst3/Vavra.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "Xenia",
+      "file": "Xenia.vst3",
+      "path": "/home/vensder/.vst3/Xenia.vst3",
+      "version": "2.2.27",
+      "source": "home",
+      "reaper": true
     }
   ]
 }
