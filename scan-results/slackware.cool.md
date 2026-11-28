@@ -2,10 +2,10 @@
 
 - OS: Slackware 15.0 x86_64 (post 15.0 -current)
 - User: vensder
-- Scanned: 2026-11-23T19:46:49+13:00
-- Plugin files/entries: 968 (clap 15, dssi 6, jsfx 490, ladspa 125, lv2 234, vst2 74, vst3 24)
+- Scanned: 2026-11-26T20:08:55+13:00
+- Plugin files/entries: 1167 (clap 15, dssi 6, jsfx 490, ladspa 125, lv2 432, vst2 75, vst3 24)
 
-## System plugins (71)
+## System plugins (72)
 
 - ADLplug: lv2
 - ADLplug-Next: lv2
@@ -35,6 +35,7 @@
 - ladspa-rubberband: ladspa
 - less_trivial_synth: dssi
 - libzynaddsubfx_dssi: dssi
+- lsp-plugins: ladspa, lv2 (198 plugins)
 - matrixmixer: lv2
 - meters: lv2 (36 plugins)
 - mididebug: lv2
@@ -89,7 +90,7 @@
 - helm: vst3
 - JE8086: clap, vst2, vst3
 - js80p: vst3
-- lsp-plugins: clap, ladspa, vst3
+- lsp-plugins: clap, vst2, vst3
 - MT-PowerDrumKit: vst3
 - NodalRed2x: clap, vst2, vst3
 - OPNplug: vst2
