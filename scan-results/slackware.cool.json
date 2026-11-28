@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-26T20:08:55+13:00",
+  "generated": "2026-11-28T19:39:46+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -3779,6 +3779,13 @@
       "format": "ladspa",
       "name": "alias_1407",
       "file": "alias_1407.so",
+      "path": "/usr/lib64/ladspa/alias_1407.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "alias_1407",
+      "file": "alias_1407.so",
       "path": "/usr/lib64/lmms/ladspa/alias_1407.so",
       "source": "lmms"
     },
@@ -3786,8 +3793,22 @@
       "format": "ladspa",
       "name": "allpass_1895",
       "file": "allpass_1895.so",
+      "path": "/usr/lib64/ladspa/allpass_1895.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "allpass_1895",
+      "file": "allpass_1895.so",
       "path": "/usr/lib64/lmms/ladspa/allpass_1895.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "am_pitchshift_1433",
+      "file": "am_pitchshift_1433.so",
+      "path": "/usr/lib64/ladspa/am_pitchshift_1433.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3810,8 +3831,22 @@
       "format": "ladspa",
       "name": "amp_1181",
       "file": "amp_1181.so",
+      "path": "/usr/lib64/ladspa/amp_1181.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "amp_1181",
+      "file": "amp_1181.so",
       "path": "/usr/lib64/lmms/ladspa/amp_1181.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "analogue_osc_1416",
+      "file": "analogue_osc_1416.so",
+      "path": "/usr/lib64/ladspa/analogue_osc_1416.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3824,8 +3859,22 @@
       "format": "ladspa",
       "name": "bandpass_a_iir_1893",
       "file": "bandpass_a_iir_1893.so",
+      "path": "/usr/lib64/ladspa/bandpass_a_iir_1893.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "bandpass_a_iir_1893",
+      "file": "bandpass_a_iir_1893.so",
       "path": "/usr/lib64/lmms/ladspa/bandpass_a_iir_1893.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "bandpass_iir_1892",
+      "file": "bandpass_iir_1892.so",
+      "path": "/usr/lib64/ladspa/bandpass_iir_1892.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3838,6 +3887,13 @@
       "format": "ladspa",
       "name": "bode_shifter_1431",
       "file": "bode_shifter_1431.so",
+      "path": "/usr/lib64/ladspa/bode_shifter_1431.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "bode_shifter_1431",
+      "file": "bode_shifter_1431.so",
       "path": "/usr/lib64/lmms/ladspa/bode_shifter_1431.so",
       "source": "lmms"
     },
@@ -3845,8 +3901,22 @@
       "format": "ladspa",
       "name": "bode_shifter_cv_1432",
       "file": "bode_shifter_cv_1432.so",
+      "path": "/usr/lib64/ladspa/bode_shifter_cv_1432.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "bode_shifter_cv_1432",
+      "file": "bode_shifter_cv_1432.so",
       "path": "/usr/lib64/lmms/ladspa/bode_shifter_cv_1432.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "butterworth_1902",
+      "file": "butterworth_1902.so",
+      "path": "/usr/lib64/ladspa/butterworth_1902.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3873,6 +3943,13 @@
       "format": "ladspa",
       "name": "chebstortion_1430",
       "file": "chebstortion_1430.so",
+      "path": "/usr/lib64/ladspa/chebstortion_1430.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "chebstortion_1430",
+      "file": "chebstortion_1430.so",
       "path": "/usr/lib64/lmms/ladspa/chebstortion_1430.so",
       "source": "lmms"
     },
@@ -3887,8 +3964,22 @@
       "format": "ladspa",
       "name": "comb_1190",
       "file": "comb_1190.so",
+      "path": "/usr/lib64/ladspa/comb_1190.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "comb_1190",
+      "file": "comb_1190.so",
       "path": "/usr/lib64/lmms/ladspa/comb_1190.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "comb_1887",
+      "file": "comb_1887.so",
+      "path": "/usr/lib64/ladspa/comb_1887.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3901,8 +3992,22 @@
       "format": "ladspa",
       "name": "comb_splitter_1411",
       "file": "comb_splitter_1411.so",
+      "path": "/usr/lib64/ladspa/comb_splitter_1411.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "comb_splitter_1411",
+      "file": "comb_splitter_1411.so",
       "path": "/usr/lib64/lmms/ladspa/comb_splitter_1411.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "const_1909",
+      "file": "const_1909.so",
+      "path": "/usr/lib64/ladspa/const_1909.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3915,8 +4020,22 @@
       "format": "ladspa",
       "name": "crossover_dist_1404",
       "file": "crossover_dist_1404.so",
+      "path": "/usr/lib64/ladspa/crossover_dist_1404.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "crossover_dist_1404",
+      "file": "crossover_dist_1404.so",
       "path": "/usr/lib64/lmms/ladspa/crossover_dist_1404.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "dc_remove_1207",
+      "file": "dc_remove_1207.so",
+      "path": "/usr/lib64/ladspa/dc_remove_1207.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3929,6 +4048,13 @@
       "format": "ladspa",
       "name": "decay_1886",
       "file": "decay_1886.so",
+      "path": "/usr/lib64/ladspa/decay_1886.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "decay_1886",
+      "file": "decay_1886.so",
       "path": "/usr/lib64/lmms/ladspa/decay_1886.so",
       "source": "lmms"
     },
@@ -3936,8 +4062,22 @@
       "format": "ladspa",
       "name": "decimator_1202",
       "file": "decimator_1202.so",
+      "path": "/usr/lib64/ladspa/decimator_1202.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "decimator_1202",
+      "file": "decimator_1202.so",
       "path": "/usr/lib64/lmms/ladspa/decimator_1202.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "declip_1195",
+      "file": "declip_1195.so",
+      "path": "/usr/lib64/ladspa/declip_1195.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3960,8 +4100,22 @@
       "format": "ladspa",
       "name": "delay_1898",
       "file": "delay_1898.so",
+      "path": "/usr/lib64/ladspa/delay_1898.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "delay_1898",
+      "file": "delay_1898.so",
       "path": "/usr/lib64/lmms/ladspa/delay_1898.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "delayorama_1402",
+      "file": "delayorama_1402.so",
+      "path": "/usr/lib64/ladspa/delayorama_1402.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3974,8 +4128,22 @@
       "format": "ladspa",
       "name": "diode_1185",
       "file": "diode_1185.so",
+      "path": "/usr/lib64/ladspa/diode_1185.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "diode_1185",
+      "file": "diode_1185.so",
       "path": "/usr/lib64/lmms/ladspa/diode_1185.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "divider_1186",
+      "file": "divider_1186.so",
+      "path": "/usr/lib64/ladspa/divider_1186.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -3988,8 +4156,22 @@
       "format": "ladspa",
       "name": "dj_eq_1901",
       "file": "dj_eq_1901.so",
+      "path": "/usr/lib64/ladspa/dj_eq_1901.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "dj_eq_1901",
+      "file": "dj_eq_1901.so",
       "path": "/usr/lib64/lmms/ladspa/dj_eq_1901.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "dj_flanger_1438",
+      "file": "dj_flanger_1438.so",
+      "path": "/usr/lib64/ladspa/dj_flanger_1438.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4002,6 +4184,13 @@
       "format": "ladspa",
       "name": "dyson_compress_1403",
       "file": "dyson_compress_1403.so",
+      "path": "/usr/lib64/ladspa/dyson_compress_1403.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "dyson_compress_1403",
+      "file": "dyson_compress_1403.so",
       "path": "/usr/lib64/lmms/ladspa/dyson_compress_1403.so",
       "source": "lmms"
     },
@@ -4009,8 +4198,22 @@
       "format": "ladspa",
       "name": "fad_delay_1192",
       "file": "fad_delay_1192.so",
+      "path": "/usr/lib64/ladspa/fad_delay_1192.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "fad_delay_1192",
+      "file": "fad_delay_1192.so",
       "path": "/usr/lib64/lmms/ladspa/fad_delay_1192.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "fast_lookahead_limiter_1913",
+      "file": "fast_lookahead_limiter_1913.so",
+      "path": "/usr/lib64/ladspa/fast_lookahead_limiter_1913.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4033,8 +4236,22 @@
       "format": "ladspa",
       "name": "flanger_1191",
       "file": "flanger_1191.so",
+      "path": "/usr/lib64/ladspa/flanger_1191.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "flanger_1191",
+      "file": "flanger_1191.so",
       "path": "/usr/lib64/lmms/ladspa/flanger_1191.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "fm_osc_1415",
+      "file": "fm_osc_1415.so",
+      "path": "/usr/lib64/ladspa/fm_osc_1415.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4047,8 +4264,22 @@
       "format": "ladspa",
       "name": "foldover_1213",
       "file": "foldover_1213.so",
+      "path": "/usr/lib64/ladspa/foldover_1213.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "foldover_1213",
+      "file": "foldover_1213.so",
       "path": "/usr/lib64/lmms/ladspa/foldover_1213.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "foverdrive_1196",
+      "file": "foverdrive_1196.so",
+      "path": "/usr/lib64/ladspa/foverdrive_1196.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4061,8 +4292,22 @@
       "format": "ladspa",
       "name": "freq_tracker_1418",
       "file": "freq_tracker_1418.so",
+      "path": "/usr/lib64/ladspa/freq_tracker_1418.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "freq_tracker_1418",
+      "file": "freq_tracker_1418.so",
       "path": "/usr/lib64/lmms/ladspa/freq_tracker_1418.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "gate_1410",
+      "file": "gate_1410.so",
+      "path": "/usr/lib64/ladspa/gate_1410.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4075,8 +4320,22 @@
       "format": "ladspa",
       "name": "giant_flange_1437",
       "file": "giant_flange_1437.so",
+      "path": "/usr/lib64/ladspa/giant_flange_1437.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "giant_flange_1437",
+      "file": "giant_flange_1437.so",
       "path": "/usr/lib64/lmms/ladspa/giant_flange_1437.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "gong_1424",
+      "file": "gong_1424.so",
+      "path": "/usr/lib64/ladspa/gong_1424.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4089,8 +4348,22 @@
       "format": "ladspa",
       "name": "gong_beater_1439",
       "file": "gong_beater_1439.so",
+      "path": "/usr/lib64/ladspa/gong_beater_1439.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "gong_beater_1439",
+      "file": "gong_beater_1439.so",
       "path": "/usr/lib64/lmms/ladspa/gong_beater_1439.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "gsm_1215",
+      "file": "gsm_1215.so",
+      "path": "/usr/lib64/ladspa/gsm_1215.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4103,8 +4376,22 @@
       "format": "ladspa",
       "name": "gverb_1216",
       "file": "gverb_1216.so",
+      "path": "/usr/lib64/ladspa/gverb_1216.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "gverb_1216",
+      "file": "gverb_1216.so",
       "path": "/usr/lib64/lmms/ladspa/gverb_1216.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "hard_limiter_1413",
+      "file": "hard_limiter_1413.so",
+      "path": "/usr/lib64/ladspa/hard_limiter_1413.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4117,8 +4404,22 @@
       "format": "ladspa",
       "name": "harmonic_gen_1220",
       "file": "harmonic_gen_1220.so",
+      "path": "/usr/lib64/ladspa/harmonic_gen_1220.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "harmonic_gen_1220",
+      "file": "harmonic_gen_1220.so",
       "path": "/usr/lib64/lmms/ladspa/harmonic_gen_1220.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "hermes_filter_1200",
+      "file": "hermes_filter_1200.so",
+      "path": "/usr/lib64/ladspa/hermes_filter_1200.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4131,8 +4432,22 @@
       "format": "ladspa",
       "name": "highpass_iir_1890",
       "file": "highpass_iir_1890.so",
+      "path": "/usr/lib64/ladspa/highpass_iir_1890.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "highpass_iir_1890",
+      "file": "highpass_iir_1890.so",
       "path": "/usr/lib64/lmms/ladspa/highpass_iir_1890.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "hilbert_1440",
+      "file": "hilbert_1440.so",
+      "path": "/usr/lib64/ladspa/hilbert_1440.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4145,8 +4460,22 @@
       "format": "ladspa",
       "name": "imp_1199",
       "file": "imp_1199.so",
+      "path": "/usr/lib64/ladspa/imp_1199.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "imp_1199",
+      "file": "imp_1199.so",
       "path": "/usr/lib64/lmms/ladspa/imp_1199.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "impulse_1885",
+      "file": "impulse_1885.so",
+      "path": "/usr/lib64/ladspa/impulse_1885.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4159,8 +4488,22 @@
       "format": "ladspa",
       "name": "inv_1429",
       "file": "inv_1429.so",
+      "path": "/usr/lib64/ladspa/inv_1429.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "inv_1429",
+      "file": "inv_1429.so",
       "path": "/usr/lib64/lmms/ladspa/inv_1429.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "karaoke_1409",
+      "file": "karaoke_1409.so",
+      "path": "/usr/lib64/ladspa/karaoke_1409.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4183,8 +4526,22 @@
       "format": "ladspa",
       "name": "latency_1914",
       "file": "latency_1914.so",
+      "path": "/usr/lib64/ladspa/latency_1914.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "latency_1914",
+      "file": "latency_1914.so",
       "path": "/usr/lib64/lmms/ladspa/latency_1914.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "lcr_delay_1436",
+      "file": "lcr_delay_1436.so",
+      "path": "/usr/lib64/ladspa/lcr_delay_1436.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4197,8 +4554,22 @@
       "format": "ladspa",
       "name": "lowpass_iir_1891",
       "file": "lowpass_iir_1891.so",
+      "path": "/usr/lib64/ladspa/lowpass_iir_1891.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "lowpass_iir_1891",
+      "file": "lowpass_iir_1891.so",
       "path": "/usr/lib64/lmms/ladspa/lowpass_iir_1891.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "ls_filter_1908",
+      "file": "ls_filter_1908.so",
+      "path": "/usr/lib64/ladspa/ls_filter_1908.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4221,8 +4592,22 @@
       "format": "ladspa",
       "name": "matrix_ms_st_1421",
       "file": "matrix_ms_st_1421.so",
+      "path": "/usr/lib64/ladspa/matrix_ms_st_1421.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "matrix_ms_st_1421",
+      "file": "matrix_ms_st_1421.so",
       "path": "/usr/lib64/lmms/ladspa/matrix_ms_st_1421.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "matrix_spatialiser_1422",
+      "file": "matrix_spatialiser_1422.so",
+      "path": "/usr/lib64/ladspa/matrix_spatialiser_1422.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4235,8 +4620,22 @@
       "format": "ladspa",
       "name": "matrix_st_ms_1420",
       "file": "matrix_st_ms_1420.so",
+      "path": "/usr/lib64/ladspa/matrix_st_ms_1420.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "matrix_st_ms_1420",
+      "file": "matrix_st_ms_1420.so",
       "path": "/usr/lib64/lmms/ladspa/matrix_st_ms_1420.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "mbeq_1197",
+      "file": "mbeq_1197.so",
+      "path": "/usr/lib64/ladspa/mbeq_1197.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4249,8 +4648,22 @@
       "format": "ladspa",
       "name": "mod_delay_1419",
       "file": "mod_delay_1419.so",
+      "path": "/usr/lib64/ladspa/mod_delay_1419.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "mod_delay_1419",
+      "file": "mod_delay_1419.so",
       "path": "/usr/lib64/lmms/ladspa/mod_delay_1419.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "multivoice_chorus_1201",
+      "file": "multivoice_chorus_1201.so",
+      "path": "/usr/lib64/ladspa/multivoice_chorus_1201.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4273,8 +4686,22 @@
       "format": "ladspa",
       "name": "notch_iir_1894",
       "file": "notch_iir_1894.so",
+      "path": "/usr/lib64/ladspa/notch_iir_1894.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "notch_iir_1894",
+      "file": "notch_iir_1894.so",
       "path": "/usr/lib64/lmms/ladspa/notch_iir_1894.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "phasers_1217",
+      "file": "phasers_1217.so",
+      "path": "/usr/lib64/ladspa/phasers_1217.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4287,8 +4714,22 @@
       "format": "ladspa",
       "name": "pitch_scale_1193",
       "file": "pitch_scale_1193.so",
+      "path": "/usr/lib64/ladspa/pitch_scale_1193.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "pitch_scale_1193",
+      "file": "pitch_scale_1193.so",
       "path": "/usr/lib64/lmms/ladspa/pitch_scale_1193.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "pitch_scale_1194",
+      "file": "pitch_scale_1194.so",
+      "path": "/usr/lib64/ladspa/pitch_scale_1194.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4301,8 +4742,22 @@
       "format": "ladspa",
       "name": "plate_1423",
       "file": "plate_1423.so",
+      "path": "/usr/lib64/ladspa/plate_1423.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "plate_1423",
+      "file": "plate_1423.so",
       "path": "/usr/lib64/lmms/ladspa/plate_1423.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "pointer_cast_1910",
+      "file": "pointer_cast_1910.so",
+      "path": "/usr/lib64/ladspa/pointer_cast_1910.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4315,8 +4770,22 @@
       "format": "ladspa",
       "name": "rate_shifter_1417",
       "file": "rate_shifter_1417.so",
+      "path": "/usr/lib64/ladspa/rate_shifter_1417.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "rate_shifter_1417",
+      "file": "rate_shifter_1417.so",
       "path": "/usr/lib64/lmms/ladspa/rate_shifter_1417.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "retro_flange_1208",
+      "file": "retro_flange_1208.so",
+      "path": "/usr/lib64/ladspa/retro_flange_1208.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4329,8 +4798,22 @@
       "format": "ladspa",
       "name": "revdelay_1605",
       "file": "revdelay_1605.so",
+      "path": "/usr/lib64/ladspa/revdelay_1605.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "revdelay_1605",
+      "file": "revdelay_1605.so",
       "path": "/usr/lib64/lmms/ladspa/revdelay_1605.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "ringmod_1188",
+      "file": "ringmod_1188.so",
+      "path": "/usr/lib64/ladspa/ringmod_1188.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4343,8 +4826,22 @@
       "format": "ladspa",
       "name": "satan_maximiser_1408",
       "file": "satan_maximiser_1408.so",
+      "path": "/usr/lib64/ladspa/satan_maximiser_1408.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "satan_maximiser_1408",
+      "file": "satan_maximiser_1408.so",
       "path": "/usr/lib64/lmms/ladspa/satan_maximiser_1408.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "sc1_1425",
+      "file": "sc1_1425.so",
+      "path": "/usr/lib64/ladspa/sc1_1425.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4357,8 +4854,22 @@
       "format": "ladspa",
       "name": "sc2_1426",
       "file": "sc2_1426.so",
+      "path": "/usr/lib64/ladspa/sc2_1426.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "sc2_1426",
+      "file": "sc2_1426.so",
       "path": "/usr/lib64/lmms/ladspa/sc2_1426.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "sc3_1427",
+      "file": "sc3_1427.so",
+      "path": "/usr/lib64/ladspa/sc3_1427.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4371,8 +4882,22 @@
       "format": "ladspa",
       "name": "sc4_1882",
       "file": "sc4_1882.so",
+      "path": "/usr/lib64/ladspa/sc4_1882.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "sc4_1882",
+      "file": "sc4_1882.so",
       "path": "/usr/lib64/lmms/ladspa/sc4_1882.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "sc4m_1916",
+      "file": "sc4m_1916.so",
+      "path": "/usr/lib64/ladspa/sc4m_1916.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4385,8 +4910,22 @@
       "format": "ladspa",
       "name": "se4_1883",
       "file": "se4_1883.so",
+      "path": "/usr/lib64/ladspa/se4_1883.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "se4_1883",
+      "file": "se4_1883.so",
       "path": "/usr/lib64/lmms/ladspa/se4_1883.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "shaper_1187",
+      "file": "shaper_1187.so",
+      "path": "/usr/lib64/ladspa/shaper_1187.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4399,8 +4938,22 @@
       "format": "ladspa",
       "name": "sifter_1210",
       "file": "sifter_1210.so",
+      "path": "/usr/lib64/ladspa/sifter_1210.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "sifter_1210",
+      "file": "sifter_1210.so",
       "path": "/usr/lib64/lmms/ladspa/sifter_1210.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "sin_cos_1881",
+      "file": "sin_cos_1881.so",
+      "path": "/usr/lib64/ladspa/sin_cos_1881.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4423,8 +4976,22 @@
       "format": "ladspa",
       "name": "single_para_1203",
       "file": "single_para_1203.so",
+      "path": "/usr/lib64/ladspa/single_para_1203.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "single_para_1203",
+      "file": "single_para_1203.so",
       "path": "/usr/lib64/lmms/ladspa/single_para_1203.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "sinus_wavewrapper_1198",
+      "file": "sinus_wavewrapper_1198.so",
+      "path": "/usr/lib64/ladspa/sinus_wavewrapper_1198.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4437,8 +5004,22 @@
       "format": "ladspa",
       "name": "smooth_decimate_1414",
       "file": "smooth_decimate_1414.so",
+      "path": "/usr/lib64/ladspa/smooth_decimate_1414.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "smooth_decimate_1414",
+      "file": "smooth_decimate_1414.so",
       "path": "/usr/lib64/lmms/ladspa/smooth_decimate_1414.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "split_1406",
+      "file": "split_1406.so",
+      "path": "/usr/lib64/ladspa/split_1406.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4451,6 +5032,13 @@
       "format": "ladspa",
       "name": "step_muxer_1212",
       "file": "step_muxer_1212.so",
+      "path": "/usr/lib64/ladspa/step_muxer_1212.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "step_muxer_1212",
+      "file": "step_muxer_1212.so",
       "path": "/usr/lib64/lmms/ladspa/step_muxer_1212.so",
       "source": "lmms"
     },
@@ -4458,8 +5046,22 @@
       "format": "ladspa",
       "name": "surround_encoder_1401",
       "file": "surround_encoder_1401.so",
+      "path": "/usr/lib64/ladspa/surround_encoder_1401.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "surround_encoder_1401",
+      "file": "surround_encoder_1401.so",
       "path": "/usr/lib64/lmms/ladspa/surround_encoder_1401.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "svf_1214",
+      "file": "svf_1214.so",
+      "path": "/usr/lib64/ladspa/svf_1214.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4605,8 +5207,22 @@
       "format": "ladspa",
       "name": "tape_delay_1211",
       "file": "tape_delay_1211.so",
+      "path": "/usr/lib64/ladspa/tape_delay_1211.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "tape_delay_1211",
+      "file": "tape_delay_1211.so",
       "path": "/usr/lib64/lmms/ladspa/tape_delay_1211.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "transient_1206",
+      "file": "transient_1206.so",
+      "path": "/usr/lib64/ladspa/transient_1206.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4619,8 +5235,22 @@
       "format": "ladspa",
       "name": "triple_para_1204",
       "file": "triple_para_1204.so",
+      "path": "/usr/lib64/ladspa/triple_para_1204.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "triple_para_1204",
+      "file": "triple_para_1204.so",
       "path": "/usr/lib64/lmms/ladspa/triple_para_1204.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "valve_1209",
+      "file": "valve_1209.so",
+      "path": "/usr/lib64/ladspa/valve_1209.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4633,8 +5263,22 @@
       "format": "ladspa",
       "name": "valve_rect_1405",
       "file": "valve_rect_1405.so",
+      "path": "/usr/lib64/ladspa/valve_rect_1405.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "valve_rect_1405",
+      "file": "valve_rect_1405.so",
       "path": "/usr/lib64/lmms/ladspa/valve_rect_1405.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "vocoder_1337",
+      "file": "vocoder_1337.so",
+      "path": "/usr/lib64/ladspa/vocoder_1337.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4647,8 +5291,22 @@
       "format": "ladspa",
       "name": "vynil_1905",
       "file": "vynil_1905.so",
+      "path": "/usr/lib64/ladspa/vynil_1905.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "vynil_1905",
+      "file": "vynil_1905.so",
       "path": "/usr/lib64/lmms/ladspa/vynil_1905.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "wave_terrain_1412",
+      "file": "wave_terrain_1412.so",
+      "path": "/usr/lib64/ladspa/wave_terrain_1412.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4661,8 +5319,22 @@
       "format": "ladspa",
       "name": "xfade_1915",
       "file": "xfade_1915.so",
+      "path": "/usr/lib64/ladspa/xfade_1915.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "xfade_1915",
+      "file": "xfade_1915.so",
       "path": "/usr/lib64/lmms/ladspa/xfade_1915.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "zm1_1428",
+      "file": "zm1_1428.so",
+      "path": "/usr/lib64/ladspa/zm1_1428.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
