@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-28T19:51:06+13:00",
+  "generated": "2026-11-28T20:47:17+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -131,6 +131,38 @@
   "plugins": [
     {
       "format": "clap",
+      "name": "3BandEQ",
+      "file": "3BandEQ.clap",
+      "path": "/usr/lib64/clap/3BandEQ.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "3BandSplitter",
+      "file": "3BandSplitter.clap",
+      "path": "/usr/lib64/clap/3BandSplitter.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "AmplitudeImposer",
+      "file": "AmplitudeImposer.clap",
+      "path": "/usr/lib64/clap/AmplitudeImposer.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "CycleShifter",
+      "file": "CycleShifter.clap",
+      "path": "/usr/lib64/clap/CycleShifter.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
       "name": "Dexed",
       "file": "Dexed.clap",
       "path": "/home/vensder/.clap/Dexed.clap",
@@ -138,6 +170,14 @@
       "links": [
         "/usr/lib64/clap/Dexed.clap"
       ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "glBars",
+      "file": "glBars.clap",
+      "path": "/usr/lib64/clap/glBars.clap",
+      "source": "system",
       "reaper": true
     },
     {
@@ -153,6 +193,14 @@
     },
     {
       "format": "clap",
+      "name": "Kars",
+      "file": "Kars.clap",
+      "path": "/usr/lib64/clap/Kars.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
       "name": "lsp-plugins",
       "file": "lsp-plugins.clap",
       "path": "/home/vensder/.clap/lsp-plugins.clap",
@@ -160,6 +208,54 @@
       "links": [
         "/usr/lib64/clap/lsp-plugins.clap"
       ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "MaBitcrush",
+      "file": "MaBitcrush.clap",
+      "path": "/usr/lib64/clap/MaBitcrush.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "MaFreeverb",
+      "file": "MaFreeverb.clap",
+      "path": "/usr/lib64/clap/MaFreeverb.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "MaGigaverb",
+      "file": "MaGigaverb.clap",
+      "path": "/usr/lib64/clap/MaGigaverb.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "MaPitchshift",
+      "file": "MaPitchshift.clap",
+      "path": "/usr/lib64/clap/MaPitchshift.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "MVerb",
+      "file": "MVerb.clap",
+      "path": "/usr/lib64/clap/MVerb.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "Nekobi",
+      "file": "Nekobi.clap",
+      "path": "/usr/lib64/clap/Nekobi.clap",
+      "source": "system",
       "reaper": true
     },
     {
@@ -193,6 +289,30 @@
       "links": [
         "/usr/lib64/clap/OsTIrus.clap"
       ],
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "PingPongPan",
+      "file": "PingPongPan.clap",
+      "path": "/usr/lib64/clap/PingPongPan.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "ProM",
+      "file": "ProM.clap",
+      "path": "/usr/lib64/clap/ProM.clap",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "clap",
+      "name": "SoulForce",
+      "file": "SoulForce.clap",
+      "path": "/usr/lib64/clap/SoulForce.clap",
+      "source": "system",
       "reaper": true
     },
     {
@@ -287,6 +407,27 @@
     },
     {
       "format": "dssi",
+      "name": "3BandEQ-dssi",
+      "file": "3BandEQ-dssi.so",
+      "path": "/usr/lib64/dssi/3BandEQ-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
+      "name": "3BandSplitter-dssi",
+      "file": "3BandSplitter-dssi.so",
+      "path": "/usr/lib64/dssi/3BandSplitter-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
+      "name": "AmplitudeImposer-dssi",
+      "file": "AmplitudeImposer-dssi.so",
+      "path": "/usr/lib64/dssi/AmplitudeImposer-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
       "name": "amsynth_dssi",
       "file": "amsynth_dssi.so",
       "path": "/usr/lib64/dssi/amsynth_dssi.so",
@@ -297,6 +438,13 @@
     },
     {
       "format": "dssi",
+      "name": "CycleShifter-dssi",
+      "file": "CycleShifter-dssi.so",
+      "path": "/usr/lib64/dssi/CycleShifter-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
       "name": "karplong",
       "file": "karplong.so",
       "path": "/usr/lib64/dssi/karplong.so",
@@ -304,6 +452,13 @@
       "links": [
         "/home/vensder/.dssi/karplong.so"
       ]
+    },
+    {
+      "format": "dssi",
+      "name": "Kars-dssi",
+      "file": "Kars-dssi.so",
+      "path": "/usr/lib64/dssi/Kars-dssi.so",
+      "source": "env:DSSI_PATH"
     },
     {
       "format": "dssi",
@@ -324,6 +479,34 @@
       "links": [
         "/home/vensder/.dssi/libzynaddsubfx_dssi.so"
       ]
+    },
+    {
+      "format": "dssi",
+      "name": "MVerb-dssi",
+      "file": "MVerb-dssi.so",
+      "path": "/usr/lib64/dssi/MVerb-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
+      "name": "Nekobi-dssi",
+      "file": "Nekobi-dssi.so",
+      "path": "/usr/lib64/dssi/Nekobi-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
+      "name": "PingPongPan-dssi",
+      "file": "PingPongPan-dssi.so",
+      "path": "/usr/lib64/dssi/PingPongPan-dssi.so",
+      "source": "env:DSSI_PATH"
+    },
+    {
+      "format": "dssi",
+      "name": "SoulForce-dssi",
+      "file": "SoulForce-dssi.so",
+      "path": "/usr/lib64/dssi/SoulForce-dssi.so",
+      "source": "env:DSSI_PATH"
     },
     {
       "format": "dssi",
@@ -3777,6 +3960,20 @@
     },
     {
       "format": "ladspa",
+      "name": "3BandEQ-ladspa",
+      "file": "3BandEQ-ladspa.so",
+      "path": "/usr/lib64/ladspa/3BandEQ-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "3BandSplitter-ladspa",
+      "file": "3BandSplitter-ladspa.so",
+      "path": "/usr/lib64/ladspa/3BandSplitter-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
       "name": "alias_1407",
       "file": "alias_1407.so",
       "path": "/usr/lib64/ladspa/alias_1407.so",
@@ -3840,6 +4037,13 @@
       "file": "amp_1181.so",
       "path": "/usr/lib64/lmms/ladspa/amp_1181.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "AmplitudeImposer-ladspa",
+      "file": "AmplitudeImposer-ladspa.so",
+      "path": "/usr/lib64/ladspa/AmplitudeImposer-ladspa.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4029,6 +4233,13 @@
       "file": "crossover_dist_1404.so",
       "path": "/usr/lib64/lmms/ladspa/crossover_dist_1404.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "CycleShifter-ladspa",
+      "file": "CycleShifter-ladspa.so",
+      "path": "/usr/lib64/ladspa/CycleShifter-ladspa.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -4590,6 +4801,34 @@
     },
     {
       "format": "ladspa",
+      "name": "MaBitcrush-ladspa",
+      "file": "MaBitcrush-ladspa.so",
+      "path": "/usr/lib64/ladspa/MaBitcrush-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "MaFreeverb-ladspa",
+      "file": "MaFreeverb-ladspa.so",
+      "path": "/usr/lib64/ladspa/MaFreeverb-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "MaGigaverb-ladspa",
+      "file": "MaGigaverb-ladspa.so",
+      "path": "/usr/lib64/ladspa/MaGigaverb-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
+      "name": "MaPitchshift-ladspa",
+      "file": "MaPitchshift-ladspa.so",
+      "path": "/usr/lib64/ladspa/MaPitchshift-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
       "name": "matrix_ms_st_1421",
       "file": "matrix_ms_st_1421.so",
       "path": "/usr/lib64/ladspa/matrix_ms_st_1421.so",
@@ -4674,6 +4913,13 @@
     },
     {
       "format": "ladspa",
+      "name": "MVerb-ladspa",
+      "file": "MVerb-ladspa.so",
+      "path": "/usr/lib64/ladspa/MVerb-ladspa.so",
+      "source": "env:LADSPA_PATH"
+    },
+    {
+      "format": "ladspa",
       "name": "noise",
       "file": "noise.so",
       "path": "/usr/lib64/ladspa/noise.so",
@@ -4709,6 +4955,13 @@
       "file": "phasers_1217.so",
       "path": "/usr/lib64/lmms/ladspa/phasers_1217.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "PingPongPan-ladspa",
+      "file": "PingPongPan-ladspa.so",
+      "path": "/usr/lib64/ladspa/PingPongPan-ladspa.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -5013,6 +5266,13 @@
       "file": "smooth_decimate_1414.so",
       "path": "/usr/lib64/lmms/ladspa/smooth_decimate_1414.so",
       "source": "lmms"
+    },
+    {
+      "format": "ladspa",
+      "name": "SoulForce-ladspa",
+      "file": "SoulForce-ladspa.so",
+      "path": "/usr/lib64/ladspa/SoulForce-ladspa.so",
+      "source": "env:LADSPA_PATH"
     },
     {
       "format": "ladspa",
@@ -5371,6 +5631,26 @@
     },
     {
       "format": "lv2",
+      "name": "3 Band EQ",
+      "id": "http://distrho.sf.net/plugins/3BandEQ",
+      "file": "3BandEQ.lv2",
+      "path": "/usr/lib64/lv2/3BandEQ.lv2",
+      "version": "2.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "3 Band Splitter",
+      "id": "http://distrho.sf.net/plugins/3BandSplitter",
+      "file": "3BandSplitter.lv2",
+      "path": "/usr/lib64/lv2/3BandSplitter.lv2",
+      "version": "2.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "4 x 4 pole allpass",
       "id": "http://plugin.org.uk/swh-plugins/fourByFourPole",
       "file": "phasers-swh.lv2",
@@ -5454,6 +5734,16 @@
       "id": "http://plugin.org.uk/swh-plugins/amPitchshift",
       "file": "am_pitchshift-swh.lv2",
       "path": "/usr/lib64/lv2/am_pitchshift-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Amplitude Imposer",
+      "id": "http://www.niallmoody.com/ndcplugs/ampimposer.htm",
+      "file": "AmplitudeImposer.lv2",
+      "path": "/usr/lib64/lv2/AmplitudeImposer.lv2",
+      "version": "1.0",
       "source": "env:LV2_PATH",
       "reaper": true
     },
@@ -6543,6 +6833,16 @@
     },
     {
       "format": "lv2",
+      "name": "Cycle Shifter",
+      "id": "http://www.niallmoody.com/ndcplugs/cycleshifter.htm",
+      "file": "CycleShifter.lv2",
+      "path": "/usr/lib64/lv2/CycleShifter.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "DC Offset Remover",
       "id": "http://plugin.org.uk/swh-plugins/dcRemove",
       "file": "dc_remove-swh.lv2",
@@ -6965,6 +7265,16 @@
     },
     {
       "format": "lv2",
+      "name": "glBars",
+      "id": "http://distrho.sf.net/plugins/glBars",
+      "file": "glBars.lv2",
+      "path": "/usr/lib64/lv2/glBars.lv2",
+      "version": "2.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Gong beater",
       "id": "http://plugin.org.uk/swh-plugins/gongBeater",
       "file": "gong_beater-swh.lv2",
@@ -7154,6 +7464,16 @@
       "id": "http://plugin.org.uk/swh-plugins/karaoke",
       "file": "karaoke-swh.lv2",
       "path": "/usr/lib64/lv2/karaoke-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Kars",
+      "id": "http://distrho.sf.net/plugins/Kars",
+      "file": "Kars.lv2",
+      "path": "/usr/lib64/lv2/Kars.lv2",
+      "version": "3.0",
       "source": "env:LV2_PATH",
       "reaper": true
     },
@@ -9791,6 +10111,46 @@
     },
     {
       "format": "lv2",
+      "name": "MaBitcrush",
+      "id": "http://distrho.sf.net/plugins/MaBitcrush",
+      "file": "MaBitcrush.lv2",
+      "path": "/usr/lib64/lv2/MaBitcrush.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MaFreeverb",
+      "id": "http://distrho.sf.net/plugins/MaFreeverb",
+      "file": "MaFreeverb.lv2",
+      "path": "/usr/lib64/lv2/MaFreeverb.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MaGigaverb",
+      "id": "http://distrho.sf.net/plugins/MaGigaverb",
+      "file": "MaGigaverb.lv2",
+      "path": "/usr/lib64/lv2/MaGigaverb.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "MaPitchshift",
+      "id": "http://distrho.sf.net/plugins/MaPitchshift",
+      "file": "MaPitchshift.lv2",
+      "path": "/usr/lib64/lv2/MaPitchshift.lv2",
+      "version": "1.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Matrix Mixer 8x8",
       "id": "http://gareus.org/oss/lv2/matrixmixer#i8o8",
       "file": "matrixmixer.lv2",
@@ -10517,6 +10877,26 @@
     },
     {
       "format": "lv2",
+      "name": "MVerb",
+      "id": "http://distrho.sf.net/plugins/MVerb",
+      "file": "MVerb.lv2",
+      "path": "/usr/lib64/lv2/MVerb.lv2",
+      "version": "2.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Nekobi",
+      "id": "http://distrho.sf.net/plugins/Nekobi",
+      "file": "Nekobi.lv2",
+      "path": "/usr/lib64/lv2/Nekobi.lv2",
+      "version": "3.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "No Delay Line",
       "id": "http://gareus.org/oss/lv2/nodelay",
       "file": "nodelay.lv2",
@@ -10703,6 +11083,16 @@
     },
     {
       "format": "lv2",
+      "name": "Ping Pong Pan",
+      "id": "http://distrho.sf.net/plugins/PingPongPan",
+      "file": "PingPongPan.lv2",
+      "path": "/usr/lib64/lv2/PingPongPan.lv2",
+      "version": "2.0",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Plate reverb",
       "id": "http://plugin.org.uk/swh-plugins/plate",
       "file": "plate-swh.lv2",
@@ -10716,6 +11106,16 @@
       "id": "http://plugin.org.uk/swh-plugins/pointerCastDistortion",
       "file": "pointer_cast-swh.lv2",
       "path": "/usr/lib64/lv2/pointer_cast-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "ProM",
+      "id": "http://distrho.sf.net/plugins/ProM",
+      "file": "ProM.lv2",
+      "path": "/usr/lib64/lv2/ProM.lv2",
+      "version": "2.0",
       "source": "env:LV2_PATH",
       "reaper": true
     },
@@ -11062,6 +11462,16 @@
       "id": "http://plugin.org.uk/swh-plugins/smoothDecimate",
       "file": "smooth_decimate-swh.lv2",
       "path": "/usr/lib64/lv2/smooth_decimate-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Soul Force",
+      "id": "http://www.niallmoody.com/ndcplugs/soulforce.htm",
+      "file": "SoulForce.lv2",
+      "path": "/usr/lib64/lv2/SoulForce.lv2",
+      "version": "1.0",
       "source": "env:LV2_PATH",
       "reaper": true
     },
@@ -11838,6 +12248,22 @@
     },
     {
       "format": "vst2",
+      "name": "3BandEQ-vst",
+      "file": "3BandEQ-vst.so",
+      "path": "/usr/lib64/vst/3BandEQ-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "3BandSplitter-vst",
+      "file": "3BandSplitter-vst.so",
+      "path": "/usr/lib64/vst/3BandSplitter-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
       "name": "ADLplug",
       "file": "ADLplug.so",
       "path": "/home/vensder/.vst/ADLplug.so",
@@ -11849,6 +12275,14 @@
       "vst_ids": {
         "1094995021": "ADLplug"
       }
+    },
+    {
+      "format": "vst2",
+      "name": "AmplitudeImposer-vst",
+      "file": "AmplitudeImposer-vst.so",
+      "path": "/usr/lib64/vst/AmplitudeImposer-vst.so",
+      "source": "system",
+      "reaper": true
     },
     {
       "format": "vst2",
@@ -11986,10 +12420,26 @@
     },
     {
       "format": "vst2",
+      "name": "CycleShifter-vst",
+      "file": "CycleShifter-vst.so",
+      "path": "/usr/lib64/vst/CycleShifter-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
       "name": "elastique3",
       "file": "elastique3.so",
       "path": "/home/vensder/opt/REAPER/Plugins/elastique3.so",
       "source": "reaper",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "glBars-vst",
+      "file": "glBars-vst.so",
+      "path": "/usr/lib64/vst/glBars-vst.so",
+      "source": "system",
       "reaper": true
     },
     {
@@ -12012,6 +12462,14 @@
       "file": "jsfx.so",
       "path": "/home/vensder/opt/REAPER/Plugins/jsfx.so",
       "source": "reaper",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "Kars-vst",
+      "file": "Kars-vst.so",
+      "path": "/usr/lib64/vst/Kars-vst.so",
+      "source": "system",
       "reaper": true
     },
     {
@@ -12304,6 +12762,54 @@
     },
     {
       "format": "vst2",
+      "name": "MaBitcrush-vst",
+      "file": "MaBitcrush-vst.so",
+      "path": "/usr/lib64/vst/MaBitcrush-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "MaFreeverb-vst",
+      "file": "MaFreeverb-vst.so",
+      "path": "/usr/lib64/vst/MaFreeverb-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "MaGigaverb-vst",
+      "file": "MaGigaverb-vst.so",
+      "path": "/usr/lib64/vst/MaGigaverb-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "MaPitchshift-vst",
+      "file": "MaPitchshift-vst.so",
+      "path": "/usr/lib64/vst/MaPitchshift-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "MVerb-vst",
+      "file": "MVerb-vst.so",
+      "path": "/usr/lib64/vst/MVerb-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "Nekobi-vst",
+      "file": "Nekobi-vst.so",
+      "path": "/usr/lib64/vst/Nekobi-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
       "name": "NodalRed2x",
       "file": "NodalRed2x.so",
       "path": "/home/vensder/.vst/NodalRed2x.so",
@@ -12357,6 +12863,22 @@
       "vst_ids": {
         "1416915312": "OsTIrus"
       }
+    },
+    {
+      "format": "vst2",
+      "name": "PingPongPan-vst",
+      "file": "PingPongPan-vst.so",
+      "path": "/usr/lib64/vst/PingPongPan-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
+      "name": "ProM",
+      "file": "ProM.so",
+      "path": "/usr/lib64/vst/ProM.vst/ProM.so",
+      "source": "system",
+      "reaper": true
     },
     {
       "format": "vst2",
@@ -12717,6 +13239,14 @@
     },
     {
       "format": "vst2",
+      "name": "SoulForce-vst",
+      "file": "SoulForce-vst.so",
+      "path": "/usr/lib64/vst/SoulForce-vst.so",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst2",
       "name": "soundtouch",
       "file": "soundtouch.so",
       "path": "/home/vensder/opt/REAPER/Plugins/soundtouch.so",
@@ -12890,6 +13420,22 @@
     },
     {
       "format": "vst3",
+      "name": "3BandEQ",
+      "file": "3BandEQ.vst3",
+      "path": "/usr/lib64/vst3/3BandEQ.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "3BandSplitter",
+      "file": "3BandSplitter.vst3",
+      "path": "/usr/lib64/vst3/3BandSplitter.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
       "name": "ADLplug-Next",
       "file": "ADLplug-Next.vst3",
       "path": "/home/vensder/.vst3/ADLplug-Next.vst3",
@@ -12905,6 +13451,22 @@
     },
     {
       "format": "vst3",
+      "name": "AmplitudeImposer",
+      "file": "AmplitudeImposer.vst3",
+      "path": "/usr/lib64/vst3/AmplitudeImposer.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "CycleShifter",
+      "file": "CycleShifter.vst3",
+      "path": "/usr/lib64/vst3/CycleShifter.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
       "name": "Dexed",
       "file": "Dexed.vst3",
       "path": "/home/vensder/.vst3/Dexed.vst3",
@@ -12917,6 +13479,14 @@
       "vst_ids": {
         "475117838": "Dexed"
       }
+    },
+    {
+      "format": "vst3",
+      "name": "glBars",
+      "file": "glBars.vst3",
+      "path": "/usr/lib64/vst3/glBars.vst3",
+      "source": "system",
+      "reaper": true
     },
     {
       "format": "vst3",
@@ -12957,6 +13527,14 @@
       "vst_ids": {
         "833229669": "JS80P"
       }
+    },
+    {
+      "format": "vst3",
+      "name": "Kars",
+      "file": "Kars.vst3",
+      "path": "/usr/lib64/vst3/Kars.vst3",
+      "source": "system",
+      "reaper": true
     },
     {
       "format": "vst3",
@@ -13172,6 +13750,38 @@
     },
     {
       "format": "vst3",
+      "name": "MaBitcrush",
+      "file": "MaBitcrush.vst3",
+      "path": "/usr/lib64/vst3/MaBitcrush.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "MaFreeverb",
+      "file": "MaFreeverb.vst3",
+      "path": "/usr/lib64/vst3/MaFreeverb.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "MaGigaverb",
+      "file": "MaGigaverb.vst3",
+      "path": "/usr/lib64/vst3/MaGigaverb.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "MaPitchshift",
+      "file": "MaPitchshift.vst3",
+      "path": "/usr/lib64/vst3/MaPitchshift.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
       "name": "MT-PowerDrumKit",
       "file": "MT-PowerDrumKit.vst3",
       "path": "/home/vensder/.vst3/MT-PowerDrumKit.vst3",
@@ -13180,6 +13790,22 @@
       "vst_ids": {
         "672034263": "MT-PowerDrumKit"
       }
+    },
+    {
+      "format": "vst3",
+      "name": "MVerb",
+      "file": "MVerb.vst3",
+      "path": "/usr/lib64/vst3/MVerb.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "Nekobi",
+      "file": "Nekobi.vst3",
+      "path": "/usr/lib64/vst3/Nekobi.vst3",
+      "source": "system",
+      "reaper": true
     },
     {
       "format": "vst3",
@@ -13243,6 +13869,14 @@
     },
     {
       "format": "vst3",
+      "name": "PingPongPan",
+      "file": "PingPongPan.vst3",
+      "path": "/usr/lib64/vst3/PingPongPan.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
       "name": "Podolski",
       "file": "Podolski.vst3",
       "path": "/home/vensder/.vst3/u-he/Podolski.vst3",
@@ -13251,6 +13885,22 @@
       "vst_ids": {
         "1006355412": "Podolski"
       }
+    },
+    {
+      "format": "vst3",
+      "name": "ProM",
+      "file": "ProM.vst3",
+      "path": "/usr/lib64/vst3/ProM.vst3",
+      "source": "system",
+      "reaper": true
+    },
+    {
+      "format": "vst3",
+      "name": "SoulForce",
+      "file": "SoulForce.vst3",
+      "path": "/usr/lib64/vst3/SoulForce.vst3",
+      "source": "system",
+      "reaper": true
     },
     {
       "format": "vst3",
