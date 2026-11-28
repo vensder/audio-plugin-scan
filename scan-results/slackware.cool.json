@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-28T20:47:17+13:00",
+  "generated": "2026-11-28T22:14:13+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -7121,6 +7121,16 @@
     },
     {
       "format": "lv2",
+      "name": "Fabla",
+      "id": "http://www.openavproductions.com/fabla",
+      "file": "fabla.lv2",
+      "path": "/usr/lib64/lv2/fabla.lv2",
+      "version": "3.2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Fast Lookahead limiter",
       "id": "http://plugin.org.uk/swh-plugins/fastLookaheadLimiter",
       "file": "fast_lookahead_limiter-swh.lv2",
@@ -12252,7 +12262,10 @@
       "file": "3BandEQ-vst.so",
       "path": "/usr/lib64/vst/3BandEQ-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1144210769": "3 Band EQ"
+      }
     },
     {
       "format": "vst2",
@@ -12260,7 +12273,10 @@
       "file": "3BandSplitter-vst.so",
       "path": "/usr/lib64/vst/3BandSplitter-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1144210771": "3 Band Splitter"
+      }
     },
     {
       "format": "vst2",
@@ -12282,7 +12298,10 @@
       "file": "AmplitudeImposer-vst.so",
       "path": "/usr/lib64/vst/AmplitudeImposer-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1097681261": "Amplitude Imposer"
+      }
     },
     {
       "format": "vst2",
@@ -12424,7 +12443,10 @@
       "file": "CycleShifter-vst.so",
       "path": "/usr/lib64/vst/CycleShifter-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1129539188": "Cycle Shifter"
+      }
     },
     {
       "format": "vst2",
@@ -12440,7 +12462,10 @@
       "file": "glBars-vst.so",
       "path": "/usr/lib64/vst/glBars-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1147628610": "glBars"
+      }
     },
     {
       "format": "vst2",
@@ -12470,7 +12495,10 @@
       "file": "Kars-vst.so",
       "path": "/usr/lib64/vst/Kars-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1145795187": "Kars"
+      }
     },
     {
       "format": "vst2",
@@ -12766,7 +12794,10 @@
       "file": "MaBitcrush-vst.so",
       "path": "/usr/lib64/vst/MaBitcrush-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1145922147": "MaBitcrush"
+      }
     },
     {
       "format": "vst2",
@@ -12774,7 +12805,10 @@
       "file": "MaFreeverb-vst.so",
       "path": "/usr/lib64/vst/MaFreeverb-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1145923190": "MaFreeverb"
+      }
     },
     {
       "format": "vst2",
@@ -12782,7 +12816,10 @@
       "file": "MaGigaverb-vst.so",
       "path": "/usr/lib64/vst/MaGigaverb-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1145923446": "MaGigaverb"
+      }
     },
     {
       "format": "vst2",
@@ -12790,7 +12827,10 @@
       "file": "MaPitchshift-vst.so",
       "path": "/usr/lib64/vst/MaPitchshift-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1145925747": "MaPitchshift"
+      }
     },
     {
       "format": "vst2",
@@ -12798,7 +12838,10 @@
       "file": "MVerb-vst.so",
       "path": "/usr/lib64/vst/MVerb-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1297511010": "MVerb"
+      }
     },
     {
       "format": "vst2",
@@ -12806,7 +12849,10 @@
       "file": "Nekobi-vst.so",
       "path": "/usr/lib64/vst/Nekobi-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1145988459": "Nekobi"
+      }
     },
     {
       "format": "vst2",
@@ -12870,7 +12916,10 @@
       "file": "PingPongPan-vst.so",
       "path": "/usr/lib64/vst/PingPongPan-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1146114128": "Ping Pong Pan"
+      }
     },
     {
       "format": "vst2",
@@ -12878,7 +12927,10 @@
       "file": "ProM.so",
       "path": "/usr/lib64/vst/ProM.vst/ProM.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1146122829": "ProM"
+      }
     },
     {
       "format": "vst2",
@@ -13243,7 +13295,10 @@
       "file": "SoulForce-vst.so",
       "path": "/usr/lib64/vst/SoulForce-vst.so",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1399604850": "Soul Force"
+      }
     },
     {
       "format": "vst2",
@@ -13424,7 +13479,10 @@
       "file": "3BandEQ.vst3",
       "path": "/usr/lib64/vst3/3BandEQ.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1504372921": "3 Band EQ"
+      }
     },
     {
       "format": "vst3",
@@ -13432,7 +13490,10 @@
       "file": "3BandSplitter.vst3",
       "path": "/usr/lib64/vst3/3BandSplitter.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "2060667191": "3 Band Splitter"
+      }
     },
     {
       "format": "vst3",
@@ -13455,7 +13516,10 @@
       "file": "AmplitudeImposer.vst3",
       "path": "/usr/lib64/vst3/AmplitudeImposer.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "371056912": "Amplitude Imposer"
+      }
     },
     {
       "format": "vst3",
@@ -13463,7 +13527,10 @@
       "file": "CycleShifter.vst3",
       "path": "/usr/lib64/vst3/CycleShifter.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1835691872": "Cycle Shifter"
+      }
     },
     {
       "format": "vst3",
@@ -13486,7 +13553,10 @@
       "file": "glBars.vst3",
       "path": "/usr/lib64/vst3/glBars.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "109478665": "glBars"
+      }
     },
     {
       "format": "vst3",
@@ -13534,7 +13604,10 @@
       "file": "Kars.vst3",
       "path": "/usr/lib64/vst3/Kars.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1761078314": "Kars"
+      }
     },
     {
       "format": "vst3",
@@ -13754,7 +13827,10 @@
       "file": "MaBitcrush.vst3",
       "path": "/usr/lib64/vst3/MaBitcrush.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1485782068": "MaBitcrush"
+      }
     },
     {
       "format": "vst3",
@@ -13762,7 +13838,10 @@
       "file": "MaFreeverb.vst3",
       "path": "/usr/lib64/vst3/MaFreeverb.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1569143657": "MaFreeverb"
+      }
     },
     {
       "format": "vst3",
@@ -13770,7 +13849,10 @@
       "file": "MaGigaverb.vst3",
       "path": "/usr/lib64/vst3/MaGigaverb.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "2059863306": "MaGigaverb"
+      }
     },
     {
       "format": "vst3",
@@ -13778,7 +13860,10 @@
       "file": "MaPitchshift.vst3",
       "path": "/usr/lib64/vst3/MaPitchshift.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1890822198": "MaPitchshift"
+      }
     },
     {
       "format": "vst3",
@@ -13797,7 +13882,10 @@
       "file": "MVerb.vst3",
       "path": "/usr/lib64/vst3/MVerb.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "62957325": "MVerb"
+      }
     },
     {
       "format": "vst3",
@@ -13805,7 +13893,10 @@
       "file": "Nekobi.vst3",
       "path": "/usr/lib64/vst3/Nekobi.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1714860162": "Nekobi"
+      }
     },
     {
       "format": "vst3",
@@ -13873,7 +13964,10 @@
       "file": "PingPongPan.vst3",
       "path": "/usr/lib64/vst3/PingPongPan.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1316126984": "Ping Pong Pan"
+      }
     },
     {
       "format": "vst3",
@@ -13892,7 +13986,10 @@
       "file": "ProM.vst3",
       "path": "/usr/lib64/vst3/ProM.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "605605727": "ProM"
+      }
     },
     {
       "format": "vst3",
@@ -13900,7 +13997,10 @@
       "file": "SoulForce.vst3",
       "path": "/usr/lib64/vst3/SoulForce.vst3",
       "source": "system",
-      "reaper": true
+      "reaper": true,
+      "vst_ids": {
+        "1100536313": "Soul Force"
+      }
     },
     {
       "format": "vst3",
