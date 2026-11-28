@@ -3,7 +3,7 @@
   "host": "slackware.cool",
   "os": "Slackware 15.0 x86_64 (post 15.0 -current)",
   "user": "vensder",
-  "generated": "2026-11-28T19:39:46+13:00",
+  "generated": "2026-11-28T19:51:06+13:00",
   "search_dirs": [
     {
       "format": "vst2",
@@ -5371,6 +5371,24 @@
     },
     {
       "format": "lv2",
+      "name": "4 x 4 pole allpass",
+      "id": "http://plugin.org.uk/swh-plugins/fourByFourPole",
+      "file": "phasers-swh.lv2",
+      "path": "/usr/lib64/lv2/phasers-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "A-Law Compressor",
+      "id": "http://plugin.org.uk/swh-plugins/alaw",
+      "file": "a_law-swh.lv2",
+      "path": "/usr/lib64/lv2/a_law-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "ADLplug",
       "id": "https://github.com/jpcima/ADLplug",
       "file": "ADLplug.lv2",
@@ -5396,6 +5414,51 @@
     },
     {
       "format": "lv2",
+      "name": "Aliasing",
+      "id": "http://plugin.org.uk/swh-plugins/alias",
+      "file": "alias-swh.lv2",
+      "path": "/usr/lib64/lv2/alias-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Allpass delay line, cubic spline interpolation",
+      "id": "http://plugin.org.uk/swh-plugins/allpass_c",
+      "file": "allpass-swh.lv2",
+      "path": "/usr/lib64/lv2/allpass-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Allpass delay line, linear interpolation",
+      "id": "http://plugin.org.uk/swh-plugins/allpass_l",
+      "file": "allpass-swh.lv2",
+      "path": "/usr/lib64/lv2/allpass-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Allpass delay line, noninterpolating",
+      "id": "http://plugin.org.uk/swh-plugins/allpass_n",
+      "file": "allpass-swh.lv2",
+      "path": "/usr/lib64/lv2/allpass-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "AM pitchshifter",
+      "id": "http://plugin.org.uk/swh-plugins/amPitchshift",
+      "file": "am_pitchshift-swh.lv2",
+      "path": "/usr/lib64/lv2/am_pitchshift-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "amsynth",
       "id": "http://code.google.com/p/amsynth/amsynth",
       "file": "amsynth.lv2",
@@ -5405,6 +5468,33 @@
       "links": [
         "/home/vensder/.lv2/amsynth.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Analogue Oscillator",
+      "id": "http://plugin.org.uk/swh-plugins/analogueOsc",
+      "file": "analogue_osc-swh.lv2",
+      "path": "/usr/lib64/lv2/analogue_osc-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Artificial latency",
+      "id": "http://plugin.org.uk/swh-plugins/artificialLatency",
+      "file": "latency-swh.lv2",
+      "path": "/usr/lib64/lv2/latency-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Audio Divider (Suboctave Generator)",
+      "id": "http://plugin.org.uk/swh-plugins/divider",
+      "file": "divider-swh.lv2",
+      "path": "/usr/lib64/lv2/divider-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -5444,6 +5534,24 @@
       "links": [
         "/home/vensder/.lv2/carla.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Auto phaser",
+      "id": "http://plugin.org.uk/swh-plugins/autoPhaser",
+      "file": "phasers-swh.lv2",
+      "path": "/usr/lib64/lv2/phasers-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Barry's Satan Maximiser",
+      "id": "http://plugin.org.uk/swh-plugins/satanMaximiser",
+      "file": "satan_maximiser-swh.lv2",
+      "path": "/usr/lib64/lv2/satan_maximiser-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -5569,6 +5677,24 @@
       "path": "/home/vensder/.lv2/avldrums.lv2",
       "version": "1804.0",
       "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Bode frequency shifter",
+      "id": "http://plugin.org.uk/swh-plugins/bodeShifter",
+      "file": "bode_shifter-swh.lv2",
+      "path": "/usr/lib64/lv2/bode_shifter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Bode frequency shifter (CV)",
+      "id": "http://plugin.org.uk/swh-plugins/bodeShifterCV",
+      "file": "bode_shifter_cv-swh.lv2",
+      "path": "/usr/lib64/lv2/bode_shifter_cv-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -6262,6 +6388,69 @@
     },
     {
       "format": "lv2",
+      "name": "Chebyshev distortion",
+      "id": "http://plugin.org.uk/swh-plugins/chebstortion",
+      "file": "chebstortion-swh.lv2",
+      "path": "/usr/lib64/lv2/chebstortion-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Comb delay line, cubic spline interpolation",
+      "id": "http://plugin.org.uk/swh-plugins/comb_c",
+      "file": "comb-swh.lv2",
+      "path": "/usr/lib64/lv2/comb-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Comb delay line, linear interpolation",
+      "id": "http://plugin.org.uk/swh-plugins/comb_l",
+      "file": "comb-swh.lv2",
+      "path": "/usr/lib64/lv2/comb-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Comb delay line, noninterpolating",
+      "id": "http://plugin.org.uk/swh-plugins/comb_n",
+      "file": "comb-swh.lv2",
+      "path": "/usr/lib64/lv2/comb-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Comb Filter",
+      "id": "http://plugin.org.uk/swh-plugins/comb",
+      "file": "simple_comb-swh.lv2",
+      "path": "/usr/lib64/lv2/simple_comb-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Comb Splitter",
+      "id": "http://plugin.org.uk/swh-plugins/combSplitter",
+      "file": "comb_splitter-swh.lv2",
+      "path": "/usr/lib64/lv2/comb_splitter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Constant Signal Generator",
+      "id": "http://plugin.org.uk/swh-plugins/const",
+      "file": "const-swh.lv2",
+      "path": "/usr/lib64/lv2/const-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Control Invert",
       "id": "http://gareus.org/oss/lv2/controlfilter#invert",
       "file": "controlfilter.lv2",
@@ -6327,6 +6516,69 @@
     },
     {
       "format": "lv2",
+      "name": "Crossfade",
+      "id": "http://plugin.org.uk/swh-plugins/xfade",
+      "file": "xfade-swh.lv2",
+      "path": "/usr/lib64/lv2/xfade-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Crossfade (4 outs)",
+      "id": "http://plugin.org.uk/swh-plugins/xfade4",
+      "file": "xfade-swh.lv2",
+      "path": "/usr/lib64/lv2/xfade-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Crossover distortion",
+      "id": "http://plugin.org.uk/swh-plugins/crossoverDist",
+      "file": "crossover_dist-swh.lv2",
+      "path": "/usr/lib64/lv2/crossover_dist-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "DC Offset Remover",
+      "id": "http://plugin.org.uk/swh-plugins/dcRemove",
+      "file": "dc_remove-swh.lv2",
+      "path": "/usr/lib64/lv2/dc_remove-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Decimator",
+      "id": "http://plugin.org.uk/swh-plugins/decimator",
+      "file": "decimator-swh.lv2",
+      "path": "/usr/lib64/lv2/decimator-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Declipper",
+      "id": "http://plugin.org.uk/swh-plugins/declip",
+      "file": "declip-swh.lv2",
+      "path": "/usr/lib64/lv2/declip-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Delayorama",
+      "id": "http://plugin.org.uk/swh-plugins/delayorama",
+      "file": "delayorama-swh.lv2",
+      "path": "/usr/lib64/lv2/delayorama-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Dexed",
       "id": "https://github.com/asb2m10/dexed",
       "file": "Dexed.lv2",
@@ -6366,6 +6618,42 @@
     },
     {
       "format": "lv2",
+      "name": "Diode Processor",
+      "id": "http://plugin.org.uk/swh-plugins/diode",
+      "file": "diode-swh.lv2",
+      "path": "/usr/lib64/lv2/diode-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "DJ EQ",
+      "id": "http://plugin.org.uk/swh-plugins/dj_eq",
+      "file": "dj_eq-swh.lv2",
+      "path": "/usr/lib64/lv2/dj_eq-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "DJ EQ (mono)",
+      "id": "http://plugin.org.uk/swh-plugins/dj_eq_mono",
+      "file": "dj_eq-swh.lv2",
+      "path": "/usr/lib64/lv2/dj_eq-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "DJ flanger",
+      "id": "http://plugin.org.uk/swh-plugins/djFlanger",
+      "file": "dj_flanger-swh.lv2",
+      "path": "/usr/lib64/lv2/dj_flanger-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "DR-14 - Crest Factor Loudness Range Meter (Mono)",
       "id": "http://gareus.org/oss/lv2/meters#dr14mono",
       "file": "meters.lv2",
@@ -6388,6 +6676,15 @@
       "links": [
         "/home/vensder/.lv2/meters.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Dyson compressor",
+      "id": "http://plugin.org.uk/swh-plugins/dysonCompress",
+      "file": "dyson_compress-swh.lv2",
+      "path": "/usr/lib64/lv2/dyson_compress-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -6515,6 +6812,204 @@
     },
     {
       "format": "lv2",
+      "name": "Exponential signal decay",
+      "id": "http://plugin.org.uk/swh-plugins/decay",
+      "file": "decay-swh.lv2",
+      "path": "/usr/lib64/lv2/decay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Fast Lookahead limiter",
+      "id": "http://plugin.org.uk/swh-plugins/fastLookaheadLimiter",
+      "file": "fast_lookahead_limiter-swh.lv2",
+      "path": "/usr/lib64/lv2/fast_lookahead_limiter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Fast overdrive",
+      "id": "http://plugin.org.uk/swh-plugins/foverdrive",
+      "file": "foverdrive-swh.lv2",
+      "path": "/usr/lib64/lv2/foverdrive-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Flanger",
+      "id": "http://plugin.org.uk/swh-plugins/flanger",
+      "file": "flanger-swh.lv2",
+      "path": "/usr/lib64/lv2/flanger-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "FM Oscillator",
+      "id": "http://plugin.org.uk/swh-plugins/fmOsc",
+      "file": "fm_osc-swh.lv2",
+      "path": "/usr/lib64/lv2/fm_osc-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Foldover distortion",
+      "id": "http://plugin.org.uk/swh-plugins/foldover",
+      "file": "foldover-swh.lv2",
+      "path": "/usr/lib64/lv2/foldover-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Fractionally Addressed Delay Line",
+      "id": "http://plugin.org.uk/swh-plugins/fadDelay",
+      "file": "fad_delay-swh.lv2",
+      "path": "/usr/lib64/lv2/fad_delay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Frequency tracker",
+      "id": "http://plugin.org.uk/swh-plugins/freqTracker",
+      "file": "freq_tracker-swh.lv2",
+      "path": "/usr/lib64/lv2/freq_tracker-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gate",
+      "id": "http://plugin.org.uk/swh-plugins/gate",
+      "file": "gate-swh.lv2",
+      "path": "/usr/lib64/lv2/gate-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Giant flange",
+      "id": "http://plugin.org.uk/swh-plugins/giantFlange",
+      "file": "giant_flange-swh.lv2",
+      "path": "/usr/lib64/lv2/giant_flange-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Glame Bandpass Analog Filter",
+      "id": "http://plugin.org.uk/swh-plugins/bandpass_a_iir",
+      "file": "bandpass_a_iir-swh.lv2",
+      "path": "/usr/lib64/lv2/bandpass_a_iir-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Glame Bandpass Filter",
+      "id": "http://plugin.org.uk/swh-plugins/bandpass_iir",
+      "file": "bandpass_iir-swh.lv2",
+      "path": "/usr/lib64/lv2/bandpass_iir-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GLAME Butterworth Highpass",
+      "id": "http://plugin.org.uk/swh-plugins/butthigh_iir",
+      "file": "butterworth-swh.lv2",
+      "path": "/usr/lib64/lv2/butterworth-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GLAME Butterworth Lowpass",
+      "id": "http://plugin.org.uk/swh-plugins/buttlow_iir",
+      "file": "butterworth-swh.lv2",
+      "path": "/usr/lib64/lv2/butterworth-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Glame Butterworth X-over Filter",
+      "id": "http://plugin.org.uk/swh-plugins/bwxover_iir",
+      "file": "butterworth-swh.lv2",
+      "path": "/usr/lib64/lv2/butterworth-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Glame Highpass Filter",
+      "id": "http://plugin.org.uk/swh-plugins/highpass_iir",
+      "file": "highpass_iir-swh.lv2",
+      "path": "/usr/lib64/lv2/highpass_iir-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Glame Lowpass Filter",
+      "id": "http://plugin.org.uk/swh-plugins/lowpass_iir",
+      "file": "lowpass_iir-swh.lv2",
+      "path": "/usr/lib64/lv2/lowpass_iir-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gong beater",
+      "id": "http://plugin.org.uk/swh-plugins/gongBeater",
+      "file": "gong_beater-swh.lv2",
+      "path": "/usr/lib64/lv2/gong_beater-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Gong model",
+      "id": "http://plugin.org.uk/swh-plugins/gong",
+      "file": "gong-swh.lv2",
+      "path": "/usr/lib64/lv2/gong-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "GVerb",
+      "id": "http://plugin.org.uk/swh-plugins/gverb",
+      "file": "gverb-swh.lv2",
+      "path": "/usr/lib64/lv2/gverb-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Hard Limiter",
+      "id": "http://plugin.org.uk/swh-plugins/hardLimiter",
+      "file": "hard_limiter-swh.lv2",
+      "path": "/usr/lib64/lv2/hard_limiter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Harmonic generator",
+      "id": "http://plugin.org.uk/swh-plugins/harmonicGen",
+      "file": "harmonic_gen-swh.lv2",
+      "path": "/usr/lib64/lv2/harmonic_gen-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "helm",
       "id": "http://tytel.org/helm",
       "file": "helm.lv2",
@@ -6524,6 +7019,42 @@
       "links": [
         "/home/vensder/.lv2/helm.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Hermes Filter",
+      "id": "http://plugin.org.uk/swh-plugins/hermesFilter",
+      "file": "hermes_filter-swh.lv2",
+      "path": "/usr/lib64/lv2/hermes_filter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Higher Quality Pitch Scaler",
+      "id": "http://plugin.org.uk/swh-plugins/pitchScaleHQ",
+      "file": "pitch_scale-swh.lv2",
+      "path": "/usr/lib64/lv2/pitch_scale-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Hilbert transformer",
+      "id": "http://plugin.org.uk/swh-plugins/hilbert",
+      "file": "hilbert-swh.lv2",
+      "path": "/usr/lib64/lv2/hilbert-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Inverter",
+      "id": "http://plugin.org.uk/swh-plugins/inv",
+      "file": "inv-swh.lv2",
+      "path": "/usr/lib64/lv2/inv-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -6619,6 +7150,24 @@
     },
     {
       "format": "lv2",
+      "name": "Karaoke",
+      "id": "http://plugin.org.uk/swh-plugins/karaoke",
+      "file": "karaoke-swh.lv2",
+      "path": "/usr/lib64/lv2/karaoke-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "L/C/R Delay",
+      "id": "http://plugin.org.uk/swh-plugins/lcrDelay",
+      "file": "lcr_delay-swh.lv2",
+      "path": "/usr/lib64/lv2/lcr_delay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "LFO",
       "id": "http://kxstudio.sf.net/carla/plugins/lfo",
       "file": "carla.lv2",
@@ -6628,6 +7177,42 @@
       "links": [
         "/home/vensder/.lv2/carla.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LFO Phaser",
+      "id": "http://plugin.org.uk/swh-plugins/lfoPhaser",
+      "file": "phasers-swh.lv2",
+      "path": "/usr/lib64/lv2/phasers-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Lookahead limiter",
+      "id": "http://plugin.org.uk/swh-plugins/lookaheadLimiter",
+      "file": "lookahead_limiter-swh.lv2",
+      "path": "/usr/lib64/lv2/lookahead_limiter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Lookahead limiter (fixed latency)",
+      "id": "http://plugin.org.uk/swh-plugins/lookaheadLimiterConst",
+      "file": "lookahead_limiter_const-swh.lv2",
+      "path": "/usr/lib64/lv2/lookahead_limiter_const-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "LS Filter",
+      "id": "http://plugin.org.uk/swh-plugins/lsFilter",
+      "file": "ls_filter-swh.lv2",
+      "path": "/usr/lib64/lv2/ls_filter-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -9219,6 +9804,33 @@
     },
     {
       "format": "lv2",
+      "name": "Matrix Spatialiser",
+      "id": "http://plugin.org.uk/swh-plugins/matrixSpatialiser",
+      "file": "matrix_spatialiser-swh.lv2",
+      "path": "/usr/lib64/lv2/matrix_spatialiser-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Matrix: MS to Stereo",
+      "id": "http://plugin.org.uk/swh-plugins/matrixMSSt",
+      "file": "matrix_ms_st-swh.lv2",
+      "path": "/usr/lib64/lv2/matrix_ms_st-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Matrix: Stereo to MS",
+      "id": "http://plugin.org.uk/swh-plugins/matrixStMS",
+      "file": "matrix_st_ms-swh.lv2",
+      "path": "/usr/lib64/lv2/matrix_st_ms-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Mega Delay Line",
       "id": "http://gareus.org/oss/lv2/nodelay#mega",
       "file": "nodelay.lv2",
@@ -9869,6 +10481,42 @@
     },
     {
       "format": "lv2",
+      "name": "Modulatable delay",
+      "id": "http://plugin.org.uk/swh-plugins/modDelay",
+      "file": "mod_delay-swh.lv2",
+      "path": "/usr/lib64/lv2/mod_delay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Mono to Stereo splitter",
+      "id": "http://plugin.org.uk/swh-plugins/split",
+      "file": "split-swh.lv2",
+      "path": "/usr/lib64/lv2/split-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Multiband EQ",
+      "id": "http://plugin.org.uk/swh-plugins/mbeq",
+      "file": "mbeq-swh.lv2",
+      "path": "/usr/lib64/lv2/mbeq-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Multivoice Chorus",
+      "id": "http://plugin.org.uk/swh-plugins/multivoiceChorus",
+      "file": "multivoice_chorus-swh.lv2",
+      "path": "/usr/lib64/lv2/multivoice_chorus-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "No Delay Line",
       "id": "http://gareus.org/oss/lv2/nodelay",
       "file": "nodelay.lv2",
@@ -9895,6 +10543,15 @@
     },
     {
       "format": "lv2",
+      "name": "Non-bandlimited single-sample impulses",
+      "id": "http://plugin.org.uk/swh-plugins/impulse_fc",
+      "file": "impulse-swh.lv2",
+      "path": "/usr/lib64/lv2/impulse-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Nordic Meter (Mono)",
       "id": "http://gareus.org/oss/lv2/meters#NORmono",
       "file": "meters.lv2",
@@ -9917,6 +10574,15 @@
       "links": [
         "/home/vensder/.lv2/meters.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Offset, sample-based",
+      "id": "http://plugin.org.uk/swh-plugins/offset",
+      "file": "offset-swh.lv2",
+      "path": "/usr/lib64/lv2/offset-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -10037,6 +10703,33 @@
     },
     {
       "format": "lv2",
+      "name": "Plate reverb",
+      "id": "http://plugin.org.uk/swh-plugins/plate",
+      "file": "plate-swh.lv2",
+      "path": "/usr/lib64/lv2/plate-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Pointer cast distortion",
+      "id": "http://plugin.org.uk/swh-plugins/pointerCastDistortion",
+      "file": "pointer_cast-swh.lv2",
+      "path": "/usr/lib64/lv2/pointer_cast-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Rate shifter",
+      "id": "http://plugin.org.uk/swh-plugins/rateShifter",
+      "file": "rate_shifter-swh.lv2",
+      "path": "/usr/lib64/lv2/rate_shifter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Red Zeppelin Drumkit",
       "id": "http://gareus.org/oss/lv2/avldrums#RedZeppelin",
       "file": "avldrums.lv2",
@@ -10053,6 +10746,42 @@
       "path": "/home/vensder/.lv2/avldrums.lv2",
       "version": "1804.0",
       "source": "home",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Retro Flanger",
+      "id": "http://plugin.org.uk/swh-plugins/retroFlange",
+      "file": "retro_flange-swh.lv2",
+      "path": "/usr/lib64/lv2/retro_flange-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Reverse Delay (5s max)",
+      "id": "http://plugin.org.uk/swh-plugins/revdelay",
+      "file": "revdelay-swh.lv2",
+      "path": "/usr/lib64/lv2/revdelay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Ringmod with LFO",
+      "id": "http://plugin.org.uk/swh-plugins/ringmod_1i1o1l",
+      "file": "ringmod-swh.lv2",
+      "path": "/usr/lib64/lv2/ringmod-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Ringmod with two inputs",
+      "id": "http://plugin.org.uk/swh-plugins/ringmod_2i1o",
+      "file": "ringmod-swh.lv2",
+      "path": "/usr/lib64/lv2/ringmod-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -10135,6 +10864,51 @@
     },
     {
       "format": "lv2",
+      "name": "SC1",
+      "id": "http://plugin.org.uk/swh-plugins/sc1",
+      "file": "sc1-swh.lv2",
+      "path": "/usr/lib64/lv2/sc1-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "SC2",
+      "id": "http://plugin.org.uk/swh-plugins/sc2",
+      "file": "sc2-swh.lv2",
+      "path": "/usr/lib64/lv2/sc2-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "SC3",
+      "id": "http://plugin.org.uk/swh-plugins/sc3",
+      "file": "sc3-swh.lv2",
+      "path": "/usr/lib64/lv2/sc3-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "SC4",
+      "id": "http://plugin.org.uk/swh-plugins/sc4",
+      "file": "sc4-swh.lv2",
+      "path": "/usr/lib64/lv2/sc4-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "SE4",
+      "id": "http://plugin.org.uk/swh-plugins/se4",
+      "file": "se4-swh.lv2",
+      "path": "/usr/lib64/lv2/se4-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Signal Distribution Histogram",
       "id": "http://gareus.org/oss/lv2/meters#SigDistHist",
       "file": "meters.lv2",
@@ -10148,6 +10922,24 @@
     },
     {
       "format": "lv2",
+      "name": "Signal sifter",
+      "id": "http://plugin.org.uk/swh-plugins/sifter",
+      "file": "sifter-swh.lv2",
+      "path": "/usr/lib64/lv2/sifter-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Simple amplifier",
+      "id": "http://plugin.org.uk/swh-plugins/amp",
+      "file": "amp-swh.lv2",
+      "path": "/usr/lib64/lv2/amp-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Simple Amplifier",
       "id": "http://lv2plug.in/plugins/eg-amp",
       "file": "eg-amp.lv2",
@@ -10156,6 +10948,33 @@
       "links": [
         "/home/vensder/.lv2/eg-amp.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Simple delay line, cubic spline interpolation",
+      "id": "http://plugin.org.uk/swh-plugins/delay_c",
+      "file": "delay-swh.lv2",
+      "path": "/usr/lib64/lv2/delay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Simple delay line, linear interpolation",
+      "id": "http://plugin.org.uk/swh-plugins/delay_l",
+      "file": "delay-swh.lv2",
+      "path": "/usr/lib64/lv2/delay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Simple delay line, noninterpolating",
+      "id": "http://plugin.org.uk/swh-plugins/delay_n",
+      "file": "delay-swh.lv2",
+      "path": "/usr/lib64/lv2/delay-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -10212,6 +11031,42 @@
     },
     {
       "format": "lv2",
+      "name": "Sine + cosine oscillator",
+      "id": "http://plugin.org.uk/swh-plugins/sinCos",
+      "file": "sin_cos-swh.lv2",
+      "path": "/usr/lib64/lv2/sin_cos-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Single band parametric",
+      "id": "http://plugin.org.uk/swh-plugins/singlePara",
+      "file": "single_para-swh.lv2",
+      "path": "/usr/lib64/lv2/single_para-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Sinus wavewrapper",
+      "id": "http://plugin.org.uk/swh-plugins/sinusWavewrapper",
+      "file": "sinus_wavewrapper-swh.lv2",
+      "path": "/usr/lib64/lv2/sinus_wavewrapper-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Smooth Decimator",
+      "id": "http://plugin.org.uk/swh-plugins/smoothDecimate",
+      "file": "smooth_decimate-swh.lv2",
+      "path": "/usr/lib64/lv2/smooth_decimate-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Spectr",
       "id": "http://gareus.org/oss/lv2/spectra#Mono",
       "file": "spectra.lv2",
@@ -10234,6 +11089,15 @@
       "links": [
         "/home/vensder/.lv2/SQ8L.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "State Variable Filter",
+      "id": "http://plugin.org.uk/swh-plugins/svf",
+      "file": "svf-swh.lv2",
+      "path": "/usr/lib64/lv2/svf-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -10394,6 +11258,24 @@
     },
     {
       "format": "lv2",
+      "name": "Surround matrix encoder",
+      "id": "http://plugin.org.uk/swh-plugins/surroundEncoder",
+      "file": "surround_encoder-swh.lv2",
+      "path": "/usr/lib64/lv2/surround_encoder-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Tape Delay Simulation",
+      "id": "http://plugin.org.uk/swh-plugins/tapeDelay",
+      "file": "tape_delay-swh.lv2",
+      "path": "/usr/lib64/lv2/tape_delay-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Test Signal Generator",
       "id": "http://gareus.org/oss/lv2/testsignal",
       "file": "testsignal.lv2",
@@ -10403,6 +11285,24 @@
       "links": [
         "/home/vensder/.lv2/testsignal.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Transient mangler",
+      "id": "http://plugin.org.uk/swh-plugins/transient",
+      "file": "transient-swh.lv2",
+      "path": "/usr/lib64/lv2/transient-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Triple band parametric with shelves",
+      "id": "http://plugin.org.uk/swh-plugins/triplePara",
+      "file": "triple_para-swh.lv2",
+      "path": "/usr/lib64/lv2/triple_para-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -10459,6 +11359,24 @@
     },
     {
       "format": "lv2",
+      "name": "Valve rectifier",
+      "id": "http://plugin.org.uk/swh-plugins/valveRect",
+      "file": "valve_rect-swh.lv2",
+      "path": "/usr/lib64/lv2/valve_rect-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Valve saturation",
+      "id": "http://plugin.org.uk/swh-plugins/valve",
+      "file": "valve-swh.lv2",
+      "path": "/usr/lib64/lv2/valve-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "Vaporizer2",
       "id": "https://www.vast-dynamics.com/plugins/VASTvaporizer2",
       "file": "VASTvaporizer2.lv2",
@@ -10507,6 +11425,33 @@
       "links": [
         "/home/vensder/.lv2/meters.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "VyNil (Vinyl Effect)",
+      "id": "http://plugin.org.uk/swh-plugins/vynil",
+      "file": "vynil-swh.lv2",
+      "path": "/usr/lib64/lv2/vynil-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Wave shaper",
+      "id": "http://plugin.org.uk/swh-plugins/shaper",
+      "file": "shaper-swh.lv2",
+      "path": "/usr/lib64/lv2/shaper-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "Wave Terrain Oscillator",
+      "id": "http://plugin.org.uk/swh-plugins/waveTerrain",
+      "file": "wave_terrain-swh.lv2",
+      "path": "/usr/lib64/lv2/wave_terrain-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
@@ -10771,6 +11716,15 @@
     },
     {
       "format": "lv2",
+      "name": "z-1",
+      "id": "http://plugin.org.uk/swh-plugins/zm1",
+      "file": "zm1-swh.lv2",
+      "path": "/usr/lib64/lv2/zm1-swh.lv2",
+      "source": "env:LV2_PATH",
+      "reaper": true
+    },
+    {
+      "format": "lv2",
       "name": "ZynAddSubFX",
       "id": "http://zynaddsubfx.sourceforge.net",
       "file": "ZynAddSubFX.lv2",
@@ -10871,6 +11825,15 @@
       "links": [
         "/home/vensder/.lv2/ZynReverb.lv2"
       ],
+      "reaper": true
+    },
+    {
+      "format": "lv2",
+      "name": "μ-Law Compressor",
+      "id": "http://plugin.org.uk/swh-plugins/ulaw",
+      "file": "u_law-swh.lv2",
+      "path": "/usr/lib64/lv2/u_law-swh.lv2",
+      "source": "env:LV2_PATH",
       "reaper": true
     },
     {
